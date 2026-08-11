@@ -98,9 +98,9 @@ export default function Footer() {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
+              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
             </nav>
           </div>
 
