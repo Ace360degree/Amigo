@@ -4,11 +4,9 @@ import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
 }
 
-export default function Layout({ children, currentPage, setCurrentPage }: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div className="flex flex-col min-h-screen bg-neutral-50 text-neutral-900 font-sans selection:bg-indigo-500 selection:text-white antialiased relative overflow-x-hidden">
       {/* Premium background mesh gradients */}
@@ -16,7 +14,7 @@ export default function Layout({ children, currentPage, setCurrentPage }: Layout
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none z-0" />
 
       {/* Header Navigation */}
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Header />
 
       {/* Main page content wrapper */}
       <main className="flex-grow z-10 relative">
@@ -24,7 +22,7 @@ export default function Layout({ children, currentPage, setCurrentPage }: Layout
       </main>
 
       {/* Footer Navigation */}
-      <Footer setCurrentPage={setCurrentPage} />
+      <Footer />
     </div>
   );
 }

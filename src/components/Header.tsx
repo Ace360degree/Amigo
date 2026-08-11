@@ -1,18 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import phoneIcon from "../assets/img/phone-icon.png";
 
-interface HeaderProps {
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
-}
-
-export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
+export default function Header() {
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleNavClick = (pageId: string) => {
-    setCurrentPage(pageId);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -55,7 +54,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
           <div className="flex items-center space-x-10 lg:space-x-14">
             {/* Logo */}
             <button
-              onClick={() => handleNavClick("home")}
+              onClick={() => handleNavClick("/")}
               className="flex items-center focus:outline-none"
               aria-label="Amigo Academy Home"
             >
@@ -87,7 +86,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
                       <button
                         key={idx}
                         onClick={() => {
-                          handleNavClick("services");
+                          handleNavClick("/");
                           setIsCoursesDropdownOpen(false);
                         }}
                         className="w-full text-left px-4 py-2 hover:bg-neutral-50 flex flex-col group transition-colors"
@@ -103,8 +102,8 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
               <span className="text-neutral-300 font-normal">|</span>
 
               <button
-                onClick={() => handleNavClick("about")}
-                className={`hover:text-[#e31e24] transition-colors py-2 ${currentPage === "about" ? "text-[#e31e24]" : ""}`}
+                onClick={() => handleNavClick("/placement")}
+                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/placement" ? "text-[#e31e24]" : ""}`}
               >
                 Placements
               </button>
@@ -112,8 +111,8 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
               <span className="text-neutral-300 font-normal">|</span>
 
               <button
-                onClick={() => handleNavClick("services")}
-                className={`hover:text-[#e31e24] transition-colors py-2 ${currentPage === "services" ? "text-[#e31e24]" : ""}`}
+                onClick={() => handleNavClick("/scholarship")}
+                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/scholarship" ? "text-[#e31e24]" : ""}`}
               >
                 Scholarships
               </button>
@@ -121,8 +120,8 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
               <span className="text-neutral-300 font-normal">|</span>
 
               <button
-                onClick={() => handleNavClick("contact")}
-                className={`hover:text-[#e31e24] transition-colors py-2 ${currentPage === "contact" ? "text-[#e31e24]" : ""}`}
+                onClick={() => handleNavClick("/contact")}
+                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/contact" ? "text-[#e31e24]" : ""}`}
               >
                 Branches
               </button>
@@ -142,7 +141,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
 
             {/* CTA Eligibility Button */}
             <button
-              onClick={() => handleNavClick("contact")}
+              onClick={() => handleNavClick("/contact")}
               className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap focus:outline-none"
             >
               Check my Eligibility
@@ -176,7 +175,7 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
               {courses.map((course, idx) => (
                 <button
                   key={idx}
-                  onClick={() => handleNavClick("services")}
+                  onClick={() => handleNavClick("/")}
                   className="w-full text-left py-1.5 text-sm text-neutral-700 hover:text-[#e31e24] block"
                 >
                   • {course.name}
@@ -185,19 +184,19 @@ export default function Header({ currentPage, setCurrentPage }: HeaderProps) {
             </div>
 
             <button
-              onClick={() => handleNavClick("about")}
+              onClick={() => handleNavClick("/placement")}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Placements
             </button>
             <button
-              onClick={() => handleNavClick("services")}
+              onClick={() => handleNavClick("/scholarship")}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Scholarships
             </button>
             <button
-              onClick={() => handleNavClick("contact")}
+              onClick={() => handleNavClick("/contact")}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Branches
