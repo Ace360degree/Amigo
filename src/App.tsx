@@ -11,6 +11,9 @@ import CareerGuides from "./pages/CareerGuides";
 import CabinCrew from "./pages/CabinCrew";
 import AirportGroundStaff from "./pages/AirportGroundStaff";
 import AiDataScience from "./pages/AiDataScience";
+import AndheriBranch from "./pages/AndheriBranch";
+import ThaneBranch from "./pages/ThaneBranch";
+import GhatkoparBranch from "./pages/GhatkoparBranch";
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path="/cabin-crew" element={<CabinCrew />} />
           <Route path="/airport-ground-staff" element={<AirportGroundStaff />} />
           <Route path="/ai-data-science" element={<AiDataScience />} />
+          <Route path="/andheri-branch" element={<AndheriBranch />} />
+          <Route path="/thane-branch" element={<ThaneBranch />} />
+          <Route path="/ghatkopar-branch" element={<GhatkoparBranch />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>
