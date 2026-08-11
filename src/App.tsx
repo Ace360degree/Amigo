@@ -14,6 +14,13 @@ import AiDataScience from "./pages/AiDataScience";
 import AndheriBranch from "./pages/AndheriBranch";
 import ThaneBranch from "./pages/ThaneBranch";
 import GhatkoparBranch from "./pages/GhatkoparBranch";
+import StudentSuccess from "./pages/StudentSuccess";
+import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
+import InnerBlog from "./pages/InnerBlog";
+import TermsConditions from "./pages/TermsConditions";
+import RefundPolicy from "./pages/RefundPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -33,6 +40,13 @@ function App() {
           <Route path="/andheri-branch" element={<AndheriBranch />} />
           <Route path="/thane-branch" element={<ThaneBranch />} />
           <Route path="/ghatkopar-branch" element={<GhatkoparBranch />} />
+          <Route path="/student-success" element={<StudentSuccess />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/innerblog" element={<InnerBlog />} />
+          <Route path="/terms-and-conditions" element={<TermsConditions />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>

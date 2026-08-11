@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Franchise() {
     const navigate = useNavigate();
+    const [openFaq, setOpenFaq] = React.useState<number | null>(1);
 
     const handleCTA = () => {
         navigate("/contact");
@@ -540,7 +541,7 @@ export default function Franchise() {
 
                 </div>
             </section>
-        
+
             {/* Franchise Journey Section */}
             <section className="bg-white py-20 sm:py-24 border-t border-slate-100/80">
                 <div className="max-w-7xl mx-auto px-6">
@@ -637,6 +638,574 @@ export default function Franchise() {
                 </div>
             </section>
 
+            {/* Courses Offered Through Franchise Section */}
+            <section className="py-20 lg:py-28 bg-[#f4f7f9] relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                    {/* Section Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-amber-200 bg-amber-50 text-[10px] sm:text-xs font-bold text-amber-800 uppercase tracking-widest mb-4">
+                            <span>ALL THREE COURSES</span>
+                        </div>
+
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+                            Courses Offered Through Franchise
+                        </h2>
+                        <p className="text-slate-500 font-semibold font-sans text-xs sm:text-[14.5px] max-w-2xl mx-auto leading-relaxed">
+                            Every franchise centre delivers the same three job-focused programs, with our curriculum and placement process.
+                        </p>
+                    </div>
+
+                    {/* Courses Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+                        {/* Course 1 */}
+                        <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(15,42,74,0.08)] transition-all duration-300 flex flex-col h-full">
+                            <div className="flex items-center px-4 py-2 rounded-lg bg-[#fef3c7] text-[10px] font-bold text-[#92400e] uppercase tracking-widest mb-6 w-full border border-amber-200/60 shadow-sm relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
+                                <span className="relative z-10">FRANCHISE PROGRAM</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Air Hostess / Cabin Crew</h3>
+                            <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
+                                In-flight service, safety, grooming and communication training for airline roles.
+                            </p>
+                            <ul className="space-y-3 mb-8 flex-1">
+                                {[
+                                    "Career Opportunities",
+                                    "Industry Training",
+                                    "Placement Support"
+                                ].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+                                            <svg className="w-3 h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <span className="text-[#0f2a4a] text-sm font-semibold">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                                Enquire About Franchise
+                            </button>
+                        </div>
+
+                        {/* Course 2 */}
+                        <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(15,42,74,0.08)] transition-all duration-300 flex flex-col h-full">
+                            <div className="flex items-center px-4 py-2 rounded-lg bg-[#fef3c7] text-[10px] font-bold text-[#92400e] uppercase tracking-widest mb-6 w-full border border-amber-200/60 shadow-sm relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
+                                <span className="relative z-10">FRANCHISE PROGRAM</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Airport Ground Staff</h3>
+                            <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
+                                Check-in, passenger handling and ground operations training for airport jobs.
+                            </p>
+                            <ul className="space-y-3 mb-8 flex-1">
+                                {[
+                                    "Airport Operations",
+                                    "Customer Service",
+                                    "Placement Support"
+                                ].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+                                            <svg className="w-3 h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <span className="text-[#0f2a4a] text-sm font-semibold">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                                Enquire About Franchise
+                            </button>
+                        </div>
+
+                        {/* Course 3 */}
+                        <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100 hover:shadow-[0_20px_50px_rgba(15,42,74,0.08)] transition-all duration-300 flex flex-col h-full">
+                            <div className="flex items-center px-4 py-2 rounded-lg bg-[#fef3c7] text-[10px] font-bold text-[#92400e] uppercase tracking-widest mb-6 w-full border border-amber-200/60 shadow-sm relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
+                                <span className="relative z-10">FRANCHISE PROGRAM</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">AI & Data Science</h3>
+                            <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
+                                Practical AI and analytics training with real projects and interview preparation.
+                            </p>
+                            <ul className="space-y-3 mb-8 flex-1">
+                                {[
+                                    "Artificial Intelligence",
+                                    "Python",
+                                    "Machine Learning",
+                                    "Industry Projects"
+                                ].map((feature, idx) => (
+                                    <li key={idx} className="flex items-center gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-amber-50 border border-amber-100 flex items-center justify-center flex-shrink-0">
+                                            <svg className="w-3 h-3 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                        <span className="text-[#0f2a4a] text-sm font-semibold">{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                                Enquire About Franchise
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* Who Should Apply Section */}
+            <section className="py-20 lg:py-28 bg-white relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Section Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200 bg-[#fef9c3] text-[10px] sm:text-xs font-bold text-[#92400e] uppercase tracking-widest mb-4">
+                            <span>IDEAL PARTNERS</span>
+                        </div>
+
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+                            Who Should Apply?
+                        </h2>
+                        <p className="text-slate-500 font-semibold font-sans text-sm sm:text-[15px] max-w-2xl mx-auto leading-relaxed">
+                            If you want to run a credible, high-demand education business in your city, we would like to talk.
+                        </p>
+                    </div>
+
+                    {/* Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                        {/* Card 1 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316V18" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Education Entrepreneurs</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Founders who want to build a meaningful, high-demand education business.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Card 2 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Business Owners</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Established owners looking to diversify into the education sector.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Card 3 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Training Institutes</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Existing institutes ready to add proven aviation and AI programs.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Card 4 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Career Counsellors</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Counsellors who already guide students and want their own centre.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Card 5 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Investors</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Investors seeking a stable, recurring-revenue education model.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Card 6 */}
+                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Professionals Seeking a Business</h3>
+                                <p className="text-slate-500 text-[13px] leading-relaxed">
+                                    Working professionals ready to run a purpose-driven business.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* Enquire About a Franchise Section */}
+            <section className="py-20 lg:py-28 bg-[#f4f7f9] relative">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Section Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200 bg-[#fef9c3] text-[10px] sm:text-xs font-bold text-[#92400e] uppercase tracking-widest mb-4">
+                            <span>FRANCHISE ENQUIRY</span>
+                        </div>
+
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+                            Enquire About a Franchise
+                        </h2>
+                        <p className="text-slate-500 font-semibold font-sans text-sm sm:text-[15px] max-w-2xl mx-auto leading-relaxed">
+                            Share your details and preferred location. Our franchise team will discuss the opportunity with you directly.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+                        {/* Form Card */}
+                        <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100">
+                            <form className="space-y-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Name */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Name</label>
+                                        <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                    </div>
+                                    {/* Mobile */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Mobile</label>
+                                        <input type="text" placeholder="10-digit mobile number" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                    </div>
+                                    {/* Email */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Email</label>
+                                        <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                    </div>
+                                    {/* City */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">City</label>
+                                        <input type="text" placeholder="e.g. Pune" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                    </div>
+                                    {/* Preferred Location */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Preferred Location</label>
+                                        <input type="text" placeholder="Area or locality for the centre" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                    </div>
+                                    {/* Business Experience */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Business Experience</label>
+                                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
+                                            <option value="">No business experience</option>
+                                            <option value="1-3">1-3 Years</option>
+                                            <option value="3-5">3-5 Years</option>
+                                            <option value="5+">5+ Years</option>
+                                        </select>
+                                    </div>
+                                    {/* Investment Range */}
+                                    <div className="space-y-2">
+                                        <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Investment Range</label>
+                                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
+                                            <option value="">Below ₹10 Lakh</option>
+                                            <option value="10-20">₹10 Lakh - ₹20 Lakh</option>
+                                            <option value="20+">Above ₹20 Lakh</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {/* Message */}
+                                <div className="space-y-2 mt-2">
+                                    <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Message</label>
+                                    <textarea rows={4} placeholder="Tell us about your background and why you want to partner with Amigoz Academy." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white resize-none"></textarea>
+                                </div>
+
+                                {/* Submit Button */}
+                                <div className="pt-4">
+                                    <button type="button" className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[15px] py-4 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2">
+                                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                        </svg>
+                                        Enquire About Franchise
+                                    </button>
+
+                                    <div className="flex items-center justify-center gap-2 mt-4">
+                                        <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        <span className="text-xs font-semibold text-slate-500">
+                                            Our franchise team will contact you within one business day.
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        {/* How to Apply Card */}
+                        <div className="lg:col-span-5 bg-[#183b66] rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
+                            {/* Decorative background circle */}
+                            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+
+                            <h3 className="text-2xl font-bold text-white mb-4 relative z-10">How to apply</h3>
+                            <p className="text-blue-100/80 text-[14px] leading-relaxed mb-8 relative z-10">
+                                Prefer to talk first? Call or WhatsApp +91 99875 88932 and select "Franchise" as your enquiry type.
+                            </p>
+
+                            <ul className="space-y-4 relative z-10">
+                                {[
+                                    "Submit the franchise enquiry form with your details and preferred location",
+                                    "Our franchise team reaches out to discuss the opportunity and answer questions",
+                                    "We share the details and — if it's a fit — the next steps to get started",
+                                    "What information do I need to submit with my franchise enquiry?",
+                                    "Can I apply for a franchise in my preferred location?",
+                                    "How can I contact the Amigo Academy franchise team?",
+                                    "Can I apply for a franchise in my preferred location?",
+                                    "What happens after I submit the franchise enquiry form?",
+                                    "Can I discuss the franchise opportunity before submitting the form?",
+                                    "How do I know if the franchise opportunity is right for me?"
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-3">
+                                        <div className="mt-0.5 flex-shrink-0">
+                                            <svg className="w-[18px] h-[18px] text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </div>
+                                        <span className="text-blue-50/90 text-[13px] leading-snug">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="py-20 lg:py-28 bg-[#f4f7f9] relative">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Section Header */}
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+                            Frequently Asked Questions
+                        </h2>
+                        <p className="text-slate-500 font-medium font-sans text-sm sm:text-[15px] max-w-2xl mx-auto">
+                            Got questions? We've got answers. Find out everything you need to know about our courses.
+                        </p>
+                    </div>
+
+                    {/* Accordion */}
+                    <div className="space-y-4 mb-16">
+                        {[
+                            {
+                                id: 1,
+                                question: "What kind of partner is Amigo Academy looking for?",
+                                answer: "We're looking for committed, growth-oriented partners who share our focus on quality education, student success, and building a trusted local presence."
+                            },
+                            {
+                                id: 2,
+                                question: "What kind of partner is Amigo Academy looking for?",
+                                answer: "We are seeking partners with a strong background in education or business, local market knowledge, and the capability to invest in a premium learning center."
+                            },
+                            {
+                                id: 3,
+                                question: "Which courses can a franchise offer?",
+                                answer: "Our franchises offer three core programs: Air Hostess/Cabin Crew, Airport Ground Staff, and AI & Data Science, all designed with industry-relevant curriculum."
+                            },
+                            {
+                                id: 4,
+                                question: "How do I start a franchise enquiry?",
+                                answer: "Simply fill out the enquiry form above, and our franchise development team will get in touch with you within one business day to discuss the opportunity."
+                            },
+                            {
+                                id: 5,
+                                question: "Is Amigo Academy certified?",
+                                answer: "Yes, our programs and curriculum meet industry standards and we hold relevant accreditations that validate the quality of our training."
+                            }
+                        ].map((faq) => {
+                            const isOpen = openFaq === faq.id;
+
+                            return (
+                                <div
+                                    key={faq.id}
+                                    className={`bg-white border transition-all duration-300 rounded-xl cursor-pointer ${isOpen ? "border-slate-200 shadow-md p-6" : "border-slate-100 shadow-sm hover:shadow-md p-5"
+                                        }`}
+                                    onClick={() => setOpenFaq(isOpen ? null : faq.id)}
+                                >
+                                    <div className="flex items-center justify-between gap-4">
+                                        <div className="flex items-center gap-4">
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-bold transition-colors ${isOpen ? "bg-[#1e40af] text-white" : "bg-[#eff6ff] text-[#1e40af]"
+                                                }`}>
+                                                {faq.id}
+                                            </div>
+                                            <h4 className={`text-[15px] sm:text-base font-bold transition-colors ${isOpen ? "text-[#0f2a4a]" : "text-[#1e293b]"
+                                                }`}>
+                                                {faq.question}
+                                            </h4>
+                                        </div>
+                                        <div className="flex-shrink-0">
+                                            {isOpen ? (
+                                                <svg className="w-5 h-5 text-[#1e40af]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+                                                </svg>
+                                            ) : (
+                                                <svg className="w-5 h-5 text-[#1e40af]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Answer Area */}
+                                    <div
+                                        className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"
+                                            }`}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="bg-[#f8fafc] border-l-4 border-[#1e40af] p-5 rounded-r-lg">
+                                                <p className="text-slate-500 text-[14px] leading-relaxed">
+                                                    {faq.answer}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {/* Bottom Banner */}
+                    <div className="flex justify-center">
+                        <div className="inline-flex items-center gap-2 px-8 py-4 bg-[#fff7ed] border border-orange-200 rounded-full shadow-[0_4px_14px_rgba(251,146,60,0.1)]">
+                            <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                            </svg>
+                            <span className="text-[#0f2a4a] font-bold text-sm tracking-wide">
+                                LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            {/* Final Urgent CTA Section */}
+            <section className="text-white py-20 px-6 relative overflow-hidden z-20 text-center" style={{ background: "linear-gradient(180deg, rgba(28, 57, 142, 0.2) 0%, rgba(28, 57, 142, 0) 100%), #0e264a" }}>
+
+                {/* Subtle background light glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+                <div className="max-w-5xl mx-auto relative z-10">
+
+                    {/* Limited Seats Banner */}
+                    <div className="inline-flex items-center gap-1.5 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase">
+                        <span>⚡</span>
+                        <span>LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT</span>
+                    </div>
+
+                    {/* Heading */}
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
+                        2026 Batches Are Filling Fast — Don't Get Left Behind
+                    </h2>
+
+                    {/* Subtitle */}
+                    <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
+                        Admissions Open — Secure Your Seat Early. One free call is all it takes.
+                    </p>
+
+                    {/* Government Certification Badge */}
+                    <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
+                        <span>🏛️</span>
+                        <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
+                    </div>
+
+                    {/* Buttons Row */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
+                        {/* Check Eligibility Red Button */}
+                        <button
+                            onClick={() => {
+                                const element = document.getElementById("eligibilityForm");
+                                element?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
+                        >
+                            <span>⚡</span> CHECK MY ELIGIBILITY NOW
+                        </button>
+
+                        {/* Start My Career Red Button */}
+                        <button
+                            onClick={() => {
+                                const element = document.getElementById("eligibilityForm");
+                                element?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
+                        >
+                            Start My Career
+                        </button>
+
+                        {/* WhatsApp Green Button */}
+                        <a
+                            href="https://wa.me/919987588932"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />
+                            </svg>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+
+                    {/* Trust Markers */}
+                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-slate-300 text-xs sm:text-sm font-bold font-sans">
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">✓</span>
+                            <span>4.6 Google Rating</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">✓</span>
+                            <span>10,000+ Students</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">✓</span>
+                            <span>Govt Certified</span>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                            <span className="text-emerald-400">✓</span>
+                            <span>200+ Hiring Partners</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
         </div>
     );
 }

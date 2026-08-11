@@ -1724,7 +1724,6 @@ export default function Home({ setCurrentPage }: HomeProps) {
           </div>
 
         </div>
-
       </section>
 
     </div>
