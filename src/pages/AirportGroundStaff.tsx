@@ -461,6 +461,16 @@ export default function AirportGroundStaff() {
                   {category.cards.map((card, cardIdx) => (
                     <div
                       key={cardIdx}
+                      onClick={() => {
+                        if (card.title.includes("Cabin Crew") || card.title.includes("Air Hostess")) {
+                          navigate("/cabin-crew");
+                        } else if (card.title.includes("AI") || card.title.includes("Data Science")) {
+                          navigate("/ai-data-science");
+                        } else {
+                          navigate("/contact");
+                        }
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                       className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer"
                     >
                       <div>

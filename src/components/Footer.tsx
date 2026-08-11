@@ -65,18 +65,17 @@ export default function Footer() {
           {/* Links Col 1: Home */}
           <div className="lg:col-span-2 flex flex-col space-y-4 text-left">
             <h4 className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
-              Home
+              Navigation
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">About us</button>
               <button onClick={() => handleNavClick("/placement")} className="text-left hover:text-white transition-colors w-fit">Placements</button>
               <button onClick={() => handleNavClick("/scholarship")} className="text-left hover:text-white transition-colors w-fit">Scholarships</button>
               <button onClick={() => handleNavClick("/franchise")} className="text-left hover:text-white transition-colors w-fit">Franchise</button>
-              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
-              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
-              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
-              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Login</button>
-              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Signup</button>
+              <button onClick={() => handleNavClick("/blog")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
+              <button onClick={() => handleNavClick("/gallery")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
+              <button onClick={() => handleNavClick("/student-success")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
+              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Contact Us</button>
             </nav>
           </div>
 
@@ -86,9 +85,10 @@ export default function Footer() {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Air Hostess / Cabin Crew</button>
+              <button onClick={() => handleNavClick("/courses/airport-ground-staff-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
             </nav>
           </div>
 
@@ -98,9 +98,10 @@ export default function Footer() {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
+              <button onClick={() => handleNavClick("/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">All Career Guides</button>
             </nav>
           </div>
 
@@ -125,11 +126,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-b border-slate-700/30 text-left text-xs sm:text-sm">
 
           {/* Branch 1 */}
-          <div className="flex items-start space-x-3">
-            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5">📍</span>
+          <button
+            onClick={() => handleNavClick("/ghatkopar-branch")}
+            className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
+          >
+            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider">
-                Mumbai Ghatkopar
+              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                Mumbai Ghatkopar (Head Office)
               </h5>
               <p className="text-slate-400 leading-relaxed font-semibold">
                 AMIGO ACADEMY GHATKOPAR
@@ -140,14 +144,17 @@ export default function Footer() {
                 Ghatkopar East, Mumbai, Maharashtra 400077
               </p>
             </div>
-          </div>
+          </button>
 
           {/* Branch 2 */}
-          <div className="flex items-start space-x-3">
-            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5">📍</span>
+          <button
+            onClick={() => handleNavClick("/andheri-branch")}
+            className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
+          >
+            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider">
-                Mumbai Andheri
+              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                Mumbai Andheri Branch
               </h5>
               <p className="text-slate-400 leading-relaxed">
                 902, 9th Floor, Time Chambers,<br />
@@ -155,14 +162,17 @@ export default function Footer() {
                 Andheri West, Mumbai 400058
               </p>
             </div>
-          </div>
+          </button>
 
           {/* Branch 3 */}
-          <div className="flex items-start space-x-3">
-            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5">📍</span>
+          <button
+            onClick={() => handleNavClick("/thane-branch")}
+            className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
+          >
+            <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider">
-                Thane
+              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                Thane Branch
               </h5>
               <p className="text-slate-400 leading-relaxed">
                 A204, 2nd floor, Thakor Niwas<br />
@@ -171,7 +181,7 @@ export default function Footer() {
                 Thane West, Maharashtra 400601
               </p>
             </div>
-          </div>
+          </button>
 
         </div>
 
@@ -200,9 +210,9 @@ export default function Footer() {
 
           {/* Middle Policy Links */}
           <div className="flex space-x-6 mb-4 md:mb-0 text-slate-400 font-semibold">
-            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Privacy Policy</button>
-            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Terms & Conditions</button>
-            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Sitemap</button>
+            <button onClick={() => handleNavClick("/privacy-policy")} className="hover:text-white transition-colors">Privacy Policy</button>
+            <button onClick={() => handleNavClick("/terms-and-conditions")} className="hover:text-white transition-colors">Terms & Conditions</button>
+            <button onClick={() => handleNavClick("/refund-policy")} className="hover:text-white transition-colors">Refund Policy</button>
           </div>
 
           {/* Copyright text */}

@@ -1,6 +1,8 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Layout from "./components/Layout";
+
+// Static imports for instant page transitions without any loading screen
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -25,9 +27,21 @@ import Courses from "./pages/Courses";
 import AirHostessCabinCrew from "./pages/AirHostessCabinCrew";
 import Branches from "./pages/Branches";
 
+// Helper component to smoothly scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -53,7 +67,7 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/air-hostess-cabin-crew-hospitality-management" element={<AirHostessCabinCrew />} />
           <Route path="/courses/airport-ground-staff-hospitality-management" element={<AirportGroundStaff />} />
-           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
+          <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
           <Route path="/branches" element={<Branches />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />

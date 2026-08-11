@@ -1,4 +1,5 @@
-﻿import React from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "../assets/img/brancheshero1a.png";
 import branchesIllustration from "../assets/img/branches2a.png";
 import branchImage1 from "../assets/img/branchesimg1a.png";
@@ -29,6 +30,7 @@ type BranchCard = {
   address: string[];
   phone: string;
   mapHref: string;
+  link: string;
 };
 
 const stats: Stat[] = [
@@ -50,6 +52,7 @@ const branches: BranchCard[] = [
     ],
     phone: "+91 99875 88932",
     mapHref: "https://maps.google.com/?q=Sai+Infotech+Ghatkopar+East+Mumbai",
+    link: "/ghatkopar-branch"
   },
   {
     name: "Andheri",
@@ -60,6 +63,7 @@ const branches: BranchCard[] = [
     ],
     phone: "+91 99875 88932",
     mapHref: "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai",
+    link: "/andheri-branch"
   },
   {
     name: "Thane",
@@ -71,6 +75,7 @@ const branches: BranchCard[] = [
     ],
     phone: "+91 99875 88932",
     mapHref: "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra",
+    link: "/thane-branch"
   },
 ];
 
@@ -81,6 +86,7 @@ const branchShowcase = [
       "Our Ghatkopar branch serves as the head office of Amigo Academy and has been guiding students towards careers in aviation and technology since 2017.",
     image: branchImage1,
     cta: "Explore Ghatkopar Branch",
+    link: "/ghatkopar-branch"
   },
   {
     title: "Andheri Branch",
@@ -88,6 +94,7 @@ const branchShowcase = [
       "Conveniently located for students in the western suburbs, our Andheri branch offers the same courses, practical training, and placement support that students expect from Amigo Academy.",
     image: branchImage2,
     cta: "Explore Andheri Branch",
+    link: "/andheri-branch"
   },
   {
     title: "Thane Branch",
@@ -95,6 +102,7 @@ const branchShowcase = [
       "Our Thane branch provides students in the central suburbs with easy access to career-focused training, helping aspiring professionals prepare for opportunities in aviation and technology.",
     image: branchImage3,
     cta: "Explore Thane Branch",
+    link: "/thane-branch"
   },
 ];
 
@@ -126,6 +134,13 @@ const experienceCards = [
 ];
 
 export default function Branches() {
+  const navigate = useNavigate();
+
+  const handleBranchClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div className="bg-[#f5f7fb] text-neutral-900">
       <section className="relative overflow-hidden bg-white border-b border-neutral-100">
@@ -344,13 +359,13 @@ export default function Branches() {
                 they begin their journey with us.
               </p>
 
-              <a
-                href="#branch-grid"
-                className="mt-8 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] active:scale-95"
+              <button
+                onClick={() => handleBranchClick("/contact")}
+                className="mt-8 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer focus:outline-none"
               >
                 Find Your Nearest Branch
-                <span className="ml-2">â†’</span>
-              </a>
+                <span className="ml-2">&#10132;</span>
+              </button>
             </div>
 
             <div className="lg:justify-self-end">
@@ -374,11 +389,11 @@ export default function Branches() {
           </div>
 
           <h2 className="mx-auto mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.1] text-white">
-            Start Your Journey from the Branch That&apos;s Closest to You
+            Start Your Journey from the Branch That's Closest to You
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-7 text-[#c6d5ee]">
-            Admissions Open â€” Secure Your Seat Early. One free call is all it takes.
+            Admissions Open &#8212; Secure Your Seat Early. One free call is all it takes.
           </p>
 
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/25 bg-[#123977] px-5 py-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#f5b74a]">
@@ -392,9 +407,9 @@ export default function Branches() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#branch-grid"
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95"
+            <button
+              onClick={() => handleBranchClick("/contact")}
+              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95 cursor-pointer focus:outline-none"
             >
               <img
                 src={branchCtaIcon3}
@@ -403,14 +418,14 @@ export default function Branches() {
                 className="h-4 w-4 object-contain"
               />
               Check My Eligibility Now
-            </a>
+            </button>
 
-            <a
-              href="#branch-grid"
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95"
+            <button
+              onClick={() => handleBranchClick("/contact")}
+              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95 cursor-pointer focus:outline-none"
             >
               Start My Career
-            </a>
+            </button>
 
             <a
               href="#branch-grid"
