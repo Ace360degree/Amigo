@@ -21,6 +21,9 @@ import InnerBlog from "./pages/InnerBlog";
 import TermsConditions from "./pages/TermsConditions";
 import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Courses from "./pages/Courses";
+import AirHostessCabinCrew from "./pages/AirHostessCabinCrew";
+import Branches from "./pages/Branches";
 
 function App() {
   return (
@@ -47,6 +50,11 @@ function App() {
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/air-hostess-cabin-crew-hospitality-management" element={<AirHostessCabinCrew />} />
+          <Route path="/courses/airport-ground-staff-hospitality-management" element={<AirportGroundStaff />} />
+           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
+          <Route path="/branches" element={<Branches />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>

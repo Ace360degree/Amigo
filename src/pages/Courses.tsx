@@ -1,0 +1,989 @@
+import React from "react";
+import coursesHero from "../assets/img/courses1121.png";
+import coursesCard1 from "../assets/img/courses2.png";
+import coursesCard2 from "../assets/img/courses2a.png";
+import coursesCard3 from "../assets/img/courses3a.png";
+import courses444a from "../assets/img/courses444a.png";
+import courses555a from "../assets/img/courses555a.png";
+import courses666a from "../assets/img/courses666a.png";
+import coursesVideo1a from "../assets/img/coursesvideo1a.png";
+import coursesVideo2a from "../assets/img/coursesvideo2a.png";
+import coursesVideo3a from "../assets/img/coursesvideo3a.png";
+import coursesVideo4a from "../assets/img/coursesvideo4a.png";
+import coursesVideo5a from "../assets/img/coursesvideo5a.png";
+import coursesIcon1 from "../assets/img/coursesicon1.png";
+import coursesIcon2 from "../assets/img/coursesicon2.png";
+import coursesIcon3 from "../assets/img/coursesicon3.png";
+import coursesIcon4 from "../assets/img/coursesicon4.png";
+import coursesIcon5 from "../assets/img/coursesicon5.png";
+import coursesIcon6 from "../assets/img/coursesicon6.png";
+
+type Stat = {
+  value: string;
+  label: string;
+};
+
+type CourseCard = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  accent: string;
+  highlights: string[];
+  outcomes: string[];
+  cta: string;
+};
+
+type ComparisonRow = {
+  label: string;
+  cabinCrew: string;
+  groundStaff: string;
+  aiDataScience: string;
+};
+
+type WhyCard = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  bullets: string[];
+  icon: string;
+};
+
+type LearningCard = {
+  title: string;
+  description: string;
+  image: string;
+  cta: string;
+};
+
+type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+type StoryCard = {
+  title: string;
+  role: string;
+  company: string;
+  quote: string;
+  image: string;
+};
+
+const stats: Stat[] = [
+  { value: "10,000+", label: "Students Trained" },
+  { value: "3", label: "Specialized Career Paths" },
+  { value: "12 Months", label: "Programme Duration" },
+  { value: "500+", label: "Successful Placements" },
+];
+
+const comparisonRows: ComparisonRow[] = [
+  {
+    label: "Duration",
+    cabinCrew: "12 Months",
+    groundStaff: "12 Months",
+    aiDataScience: "12 Months",
+  },
+  {
+    label: "Eligibility",
+    cabinCrew: "12th Pass",
+    groundStaff: "12th Pass",
+    aiDataScience: "12th Pass",
+  },
+  {
+    label: "Age",
+    cabinCrew: "Typically 18+",
+    groundStaff: "Typically 18+",
+    aiDataScience: "Typically 18+",
+  },
+  {
+    label: "Certification",
+    cabinCrew: "Maharashtra Govt. Certified",
+    groundStaff: "Maharashtra Govt. Certified",
+    aiDataScience: "Industry-Oriented Professional Training",
+  },
+  {
+    label: "Career Type",
+    cabinCrew: "In-flight service",
+    groundStaff: "Airport operations",
+    aiDataScience: "Technology and analytics",
+  },
+  {
+    label: "Starting Salary",
+    cabinCrew: "Rs25,000-Rs50,000 / month",
+    groundStaff: "Rs20,000-Rs40,000 / month",
+    aiDataScience: "Rs12 LPA (Job and internship)",
+  },
+  {
+    label: "Work Environment",
+    cabinCrew: "Aircraft cabin, travel-heavy",
+    groundStaff: "Airport terminal, shift-based",
+    aiDataScience: "Office / hybrid desk role",
+  },
+  {
+    label: "Best For",
+    cabinCrew: "People-facing, travel lovers",
+    groundStaff: "Operations & coordination",
+    aiDataScience: "Logical problem solvers",
+  },
+  {
+    label: "Growth Path",
+    cabinCrew: "Senior crew > purser > trainer",
+    groundStaff: "Supervisor > duty manager",
+    aiDataScience: "Analyst > data scientist > lead",
+  },
+  {
+    label: "Placement",
+    cabinCrew: "Placement support",
+    groundStaff: "Placement support",
+    aiDataScience: "Placement support",
+  },
+  {
+    label: "Scholarships",
+    cabinCrew: "Up to Rs50,000",
+    groundStaff: "Up to Rs50,000",
+    aiDataScience: "Up to Rs50,000",
+  },
+];
+
+const whyCards: WhyCard[] = [
+  {
+    eyebrow: "Certification",
+    title: "Maharashtra Government Certified",
+    description:
+      "Your training meets industry standards and government-certified learning requirements.",
+    bullets: [
+      "Government-certified programme",
+      "Credible, recognised brand",
+    ],
+    icon: coursesIcon1,
+  },
+  {
+    eyebrow: "Track Record",
+    title: "Established Brand",
+    description:
+      "A trusted academy built and proven in Mumbai since 2017.",
+    bullets: [
+      "Founded in 2017",
+      "10,000+ students trained",
+      "4.6+ rating from reviews",
+    ],
+    icon: coursesIcon2,
+  },
+  {
+    eyebrow: "Programs",
+    title: "High-Demand Courses",
+    description:
+      "Three job-focused courses with real hiring demand in every track.",
+    bullets: [
+      "Air Hostess / Cabin Crew",
+      "Airport Ground Staff",
+      "AI & Data Science",
+    ],
+    icon: coursesIcon3,
+  },
+  {
+    eyebrow: "Support",
+    title: "Complete Business Support",
+    description:
+      "You are never left to figure out operations alone.",
+    bullets: [
+      "Startup guidance",
+      "Cabin crew faculty support",
+      "Placement process",
+      "Marketing assistance",
+    ],
+    icon: coursesIcon4,
+  },
+  {
+    eyebrow: "Opportunity",
+    title: "Growing Industry",
+    description:
+      "Aviation and AI hiring continue to expand across India.",
+    bullets: [
+      "Rising aviation demand",
+      "Rising AI and data science demand",
+      "Long-term opportunity",
+    ],
+    icon: coursesIcon5,
+  },
+  {
+    eyebrow: "Partnership",
+    title: "Honest, Long-Term Partnership",
+    description:
+      "We guide students with a growth roadmap rather than one-time advice.",
+    bullets: [
+      "Transparent process",
+      "Honest guidance",
+      "Shared growth roadmap",
+    ],
+    icon: coursesIcon6,
+  },
+];
+
+const learningCards: LearningCard[] = [
+  {
+    title: "Placement Support",
+    description:
+      "From interviews, application support to employer interviews, our dedicated placement cell helps students prepare, connect and get selected for the right career.",
+    image: courses444a,
+    cta: "Learn About Placements",
+  },
+  {
+    title: "Scholarships & EMI",
+    description:
+      "We offer scholarship support of up to Rs50,000 and flexible EMI options, making your dream career more accessible and affordable.",
+    image: courses555a,
+    cta: "Learn About Scholarships",
+  },
+  {
+    title: "Career Guides",
+    description:
+      "From resume building to interview preparation, our career guidance sessions help students build confidence and understand their next steps.",
+    image: courses666a,
+    cta: "Learn About Career Guides",
+  },
+];
+
+const faqItems: FaqItem[] = [
+  {
+    question: "Which course should I choose after 12th?",
+    answer:
+      "If you want an aviation career, Air Hostess / Cabin Crew is the right fit. If you prefer airport support roles, choose Airport Ground Staff. If you like tech and data, AI & Data Science is ideal. We can help you compare them during counselling.",
+  },
+  {
+    question: "What course does Amigo Academy offer?",
+    answer:
+      "We currently offer three main courses: Air Hostess / Cabin Crew, Airport Ground Staff, and AI & Data Science.",
+  },
+  {
+    question: "Are all courses government certified?",
+    answer:
+      "Yes, the aviation programs are Maharashtra Government Certified and the AI & Data Science track is industry-oriented professional training.",
+  },
+  {
+    question: "How long are the courses?",
+    answer:
+      "Each programme is designed as a 12-month course structure with practical training, classroom learning, and placement support.",
+  },
+  {
+    question: "What is the minimum eligibility?",
+    answer:
+      "The basic eligibility is usually 12th pass. For most aviation tracks, students should typically be 18 years or older.",
+  },
+  {
+    question: "I didn’t meet cabin crew height standards. What are my options?",
+    answer:
+      "You can still explore Airport Ground Staff or AI & Data Science if cabin crew requirements are not the right fit for your profile.",
+  },
+  {
+    question: "Which course has the highest salary?",
+    answer:
+      "Salary depends on role, employer and performance. AI & Data Science can offer the highest growth potential, while aviation roles can also provide strong starting salaries and travel benefits.",
+  },
+  {
+    question: "Do you guarantee a job after the course?",
+    answer:
+      "We provide placement support, interview preparation, and job assistance, but final hiring is always decided by the employer.",
+  },
+  {
+    question: "Can boys apply for cabin crew and ground staff courses?",
+    answer:
+      "Yes, both boys and girls can apply. Cabin crew roles are open to eligible applicants, and ground staff positions are available across many airline and airport teams.",
+  },
+  {
+    question: "Do I need coding experience for AI & Data Science?",
+    answer:
+      "No prior coding experience is required. We start with fundamentals and gradually build up to practical data and AI skills.",
+  },
+];
+
+const storyCards: StoryCard[] = [
+  {
+    title: "Jasmine Soni",
+    role: "Cabin Crew Executive",
+    company: "Air Asia 2025",
+    quote:
+      "\"Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.\"",
+    image: coursesVideo1a,
+  },
+  {
+    title: "Swati Patil",
+    role: "Airport Ground Staff",
+    company: "Vistara 2025",
+    quote:
+      "\"The comprehensive curriculum covered every aspect of the industry. The mock interviews and interview preparation made the whole process feel natural and calm.\"",
+    image: coursesVideo2a,
+  },
+  {
+    title: "Hardik Chari",
+    role: "Guest Service Executive",
+    company: "IndiGo 2025",
+    quote:
+      "\"Guest Service Executive roles can be competitive, but the placement team helped me build confidence and stay focused through each round.\"",
+    image: coursesVideo3a,
+  },
+  {
+    title: "Issac Edward",
+    role: "Passenger Service Executive",
+    company: "Airport 2025",
+    quote:
+      "\"The 12-month course and placement support gave me the right start. The training made me ready for a full-time airport role from day one.\"",
+    image: coursesVideo4a,
+  },
+  {
+    title: "Ashwini Patil",
+    role: "Cabin Crew",
+    company: "Akasa Air 2025",
+    quote:
+      "\"Best in class access to training and support. The interview preparation and mock sessions made all the difference for my selection.\"",
+    image: coursesVideo5a,
+  },
+];
+
+const courses: CourseCard[] = [
+  {
+    id: "air-hostess",
+    title: "Air Hostess / Cabin Crew",
+    description:
+      "If you dream of working with leading domestic or international airlines, this program prepares you with the grooming, communication, confidence, and in-flight knowledge required for airline careers.",
+    image: coursesCard1,
+    accent: "#e31e24",
+    highlights: [
+      "Cabin crew training",
+      "Aviation grooming and etiquette",
+      "Communication and interview prep",
+      "Passenger handling basics",
+    ],
+    outcomes: ["Cabin Crew", "Air Hostess", "Flight Attendant", "Customer Service"],
+    cta: "Explore Air Hostess / Cabin Crew Course",
+  },
+  {
+    id: "ground-staff",
+    title: "Airport Ground Staff",
+    description:
+      "Airports depend on skilled professionals to ensure smooth passenger and aircraft operations. This course builds the service, safety, and coordination skills required for ground support roles.",
+    image: coursesCard2,
+    accent: "#1e417a",
+    highlights: [
+      "Airport operations fundamentals",
+      "Passenger service training",
+      "Security and ramp awareness",
+      "Hospitality and workflow management",
+    ],
+    outcomes: ["Airport Ground Staff", "Passenger Service Executive", "Check-in Executive", "Customer Service"],
+    cta: "Explore Airport Ground Staff Course",
+  },
+  {
+    id: "ai-data-science",
+    title: "AI & Data Science",
+    description:
+      "Technology is shaping the future of every industry. This track helps students learn Python, machine learning, analytics, and practical data skills for modern entry-level tech roles.",
+    image: coursesCard3,
+    accent: "#0b2f61",
+    highlights: [
+      "Core Python and analytics",
+      "Machine learning introduction",
+      "Data handling and visualization",
+      "Project-based practical learning",
+    ],
+    outcomes: ["AI Associate", "Data Analyst", "Junior Data Scientist", "Machine Learning Assistant"],
+    cta: "Explore AI & Data Science Course",
+  },
+];
+
+export default function Courses() {
+  return (
+    <div className="bg-[#f5f7fb] text-neutral-900">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-white border-b border-neutral-100">
+        <div className="absolute inset-0">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%]">
+            <img
+              src={coursesHero}
+              alt="Amigo Academy course guidance session"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-52% to-white/0" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/65 to-transparent lg:hidden" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-14 lg:py-20">
+          <div className="max-w-[560px] space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#f0c36d]/40 bg-[#fff7e7] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#7c5529]">
+              Maharashtra Govt Certified Aviation and AI Programs
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-[#1f3658] leading-[1.08]">
+                Find the Right Course for Your Career Goals
+              </h1>
+              <p className="text-sm sm:text-base leading-7 text-slate-600 max-w-xl">
+                Every successful career begins with the right training. At Amigo Academy, our industry-focused programmes in Aviation, Cabin Crew, Airport Operations, and AI & Data Science equip students with practical skills, confidence, and career-ready expertise.
+              </p>
+            </div>
+
+            <a
+              href="#courses-grid"
+              className="inline-flex items-center justify-center rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] hover:shadow-[0_16px_30px_rgba(227,30,36,0.25)] active:scale-95"
+            >
+              Enroll Now To Avail Scholarship
+              <span className="ml-2">+</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-8 relative z-10 pb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-[22px] border border-neutral-200/70 bg-white px-5 py-6 text-center shadow-[0_10px_30px_rgba(15,42,74,0.04)]"
+            >
+              <div className="text-3xl sm:text-[34px] font-extrabold text-[#1f3658]">
+                {stat.value}
+              </div>
+              <div className="mt-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Career Paths */}
+      <section id="courses-grid" className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 pb-20">
+        <div className="mx-auto max-w-3xl text-center mb-12">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+            Three Career Paths. One Goal. Your Success.
+          </h2>
+          <p className="mt-4 text-sm sm:text-base leading-7 text-slate-500">
+            Every student has unique career goals. Our industry-focused programmes combine practical learning, professional development, and expert guidance to help you achieve them.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {courses.map((course) => (
+            <article
+              key={course.id}
+              id={course.id}
+              className="overflow-hidden rounded-[28px] border border-neutral-200/70 bg-white shadow-[0_16px_40px_rgba(15,42,74,0.07)] transition-transform duration-300 hover:-translate-y-1"
+            >
+              <div className="relative h-52 w-full overflow-hidden">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#081427]/90 to-transparent" />
+                <div
+                  className="absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.2em] text-white shadow-sm"
+                  style={{ backgroundColor: course.accent }}
+                >
+                  Career Track
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-6">
+                <h3 className="text-[18px] sm:text-[20px] font-extrabold text-[#1f3658] leading-snug">
+                  {course.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm leading-6 text-slate-500">
+                  {course.description}
+                </p>
+
+                <div className="mt-5">
+                  <div className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#1f3658]">
+                    Course Highlights
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {course.highlights.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-xs sm:text-sm text-slate-600">
+                        <span
+                          className="mt-1.5 h-2 w-2 shrink-0 rounded-full"
+                          style={{ backgroundColor: course.accent }}
+                        />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-5">
+                  <div className="text-[11px] font-extrabold uppercase tracking-[0.18em] text-[#1f3658]">
+                    Career Opportunities
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {course.outcomes.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-neutral-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold text-slate-600"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <a
+                  href={
+                    course.id === "air-hostess"
+                      ? "/courses/air-hostess-cabin-crew-hospitality-management"
+                      : course.id === "ground-staff"
+                        ? "/courses/airport-ground-staff-hospitality-management"
+                      : course.id === "ai-data-science"
+                        ? "/courses/ai-data-science-with-generative-ai-machine-learning"
+                        : "/contact#enquiry-form"
+                  }
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.15)] transition-all hover:bg-[#c8191f] active:scale-95"
+                >
+                  {course.cta}
+                  <span className="ml-2">+</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* Course Comparison */}
+      <section className="bg-[#f4f6fb] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-6xl text-center">
+          <div className="inline-flex items-center rounded-full border border-[#d9e4f5] bg-white px-4 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#6f7f9b] shadow-sm">
+            Side by Side
+          </div>
+          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+            Course comparison at a glance
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+            The quickest way to see how the three courses actually differ - duration, eligibility, salary, work environment and long-term growth.
+          </p>
+
+          <div className="mt-10 overflow-hidden rounded-[22px] bg-white shadow-[0_16px_40px_rgba(15,42,74,0.08)] border border-neutral-100">
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[900px] border-collapse text-left">
+                <thead>
+                  <tr className="bg-[#234a8a] text-white">
+                    <th className="px-5 py-4 text-[10px] font-bold uppercase tracking-[0.2em]">Compare</th>
+                    <th className="px-5 py-4 text-sm font-bold">Air Hostess / Cabin Crew</th>
+                    <th className="px-5 py-4 text-sm font-bold">Airport Ground Staff</th>
+                    <th className="px-5 py-4 text-sm font-bold">AI & Data Science</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonRows.map((row, index) => (
+                    <tr
+                      key={row.label}
+                      className={index % 2 === 0 ? "bg-[#f7f9fd]" : "bg-white"}
+                    >
+                      <td className="border-t border-slate-100 px-5 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                        {row.label}
+                      </td>
+                      <td className="border-t border-slate-100 px-5 py-4 text-xs font-medium text-slate-600">
+                        {row.cabinCrew}
+                      </td>
+                      <td className="border-t border-slate-100 px-5 py-4 text-xs font-medium text-slate-600">
+                        {row.groundStaff}
+                      </td>
+                      <td className="border-t border-slate-100 px-5 py-4 text-xs font-medium text-slate-600">
+                        {row.aiDataScience}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <p className="px-6 pt-4 text-[10px] leading-5 text-slate-400">
+              Salary ranges are approximate and may vary by employer, city and performance. We will share the latest, verified range during counselling.
+            </p>
+          </div>
+
+          <a
+            href="/contact#enquiry-form"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
+          >
+            Book Free Career Counselling
+            <span className="ml-2">+</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Why Choose Amigo */}
+      <section className="bg-[#eef2f8] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl text-center">
+          <div className="inline-flex items-center rounded-full border border-[#ead9a9] bg-[#fff7e7] px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7c5529]">
+            Why Amigo?
+          </div>
+          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+            Why Choose Amigo Academy
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+            A govt certified brand, proven courses and complete operational support - everything a franchise partner needs to build a credible education business.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 text-left">
+            {whyCards.map((card) => (
+              <article
+                key={card.title}
+                className="rounded-[22px] border border-white bg-white p-6 shadow-[0_10px_28px_rgba(15,42,74,0.06)]"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f7e8bf]">
+                    <img
+                      src={card.icon}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-6 w-6 object-contain"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#e31e24]">
+                      {card.eyebrow}
+                    </div>
+                    <h3 className="mt-1 text-[15px] font-extrabold text-[#1f3658] leading-snug">
+                      {card.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="mt-4 text-xs leading-6 text-slate-500">
+                  {card.description}
+                </p>
+
+                <ul className="mt-4 space-y-2">
+                  {card.bullets.map((bullet) => (
+                    <li key={bullet} className="flex items-start gap-2 text-xs text-slate-600">
+                      <span className="mt-1.5 h-2 w-2 rounded-full bg-[#f0c36d]" />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <a
+            href="/contact#enquiry-form"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
+          >
+            Learn More About Amigo Academy
+            <span className="ml-2">+</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Beyond Classroom Learning */}
+      <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl text-center">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+            Beyond Your Classroom Learning
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+            Your journey with Amigo Academy extends beyond classroom teaching. We provide additional support that helps you feel prepared for every step in your career.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {learningCards.map((card) => (
+              <article
+                key={card.title}
+                className="overflow-hidden rounded-[22px] bg-white border border-neutral-100 shadow-[0_10px_28px_rgba(15,42,74,0.06)]"
+              >
+                <div className="h-48 w-full overflow-hidden">
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="p-5">
+                  <h3 className="text-[18px] font-extrabold text-[#1f3658]">
+                    {card.title}
+                  </h3>
+                  <p className="mt-3 text-xs leading-6 text-slate-500">
+                    {card.description}
+                  </p>
+
+                  <a
+                    href="/contact#enquiry-form"
+                    className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white transition-all hover:bg-[#c8191f] active:scale-95"
+                  >
+                    {card.cta}
+                    <span className="ml-2">+</span>
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-[#eef2f8] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+            Got questions? We&apos;ve got answers. Find out everything you need to know about our courses.
+          </p>
+
+          <div className="mt-10 space-y-3 text-left">
+            {faqItems.map((faq, index) => {
+              const isOpen = index === 0;
+
+              return (
+                <details
+                  key={faq.question}
+                  open={isOpen}
+                  className="group rounded-xl border border-white bg-white shadow-[0_10px_28px_rgba(15,42,74,0.05)] overflow-hidden"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-[#1f3658]">
+                    <span className="flex items-center gap-3">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#234a8a] text-[11px] font-bold text-white">
+                        {index + 1}
+                      </span>
+                      <span>{faq.question}</span>
+                    </span>
+                    <svg
+                      className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="border-t border-slate-100 px-5 py-4 text-xs leading-6 text-slate-500">
+                    {faq.answer}
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+
+          <a
+            href="/contact#enquiry-form"
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
+          >
+            Enroll Now To Avail Scholarship
+            <span className="ml-2">+</span>
+          </a>
+        </div>
+      </section>
+
+      {/* Student Success Stories */}
+      <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-4xl rounded-[22px] bg-[#1f4da3] px-6 sm:px-10 py-10 text-center text-white shadow-[0_18px_40px_rgba(15,42,74,0.16)]">
+            <h2 className="text-2xl sm:text-[30px] font-extrabold leading-tight">
+              Still have questions?
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-6 text-white/80">
+              Our expert counsellors are here to help you make the right career decision.
+              Get personalized guidance in under 60 seconds.
+            </p>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="/contact#enquiry-form"
+                className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs font-bold text-[#1f4da3] shadow-sm transition-all hover:opacity-95 active:scale-95"
+              >
+                Talk to Counselor Now
+                <span className="ml-2">+</span>
+              </a>
+              <a
+                href="/contact#enquiry-form"
+                className="inline-flex items-center justify-center rounded-lg border border-white/50 bg-transparent px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-white/10 active:scale-95"
+              >
+                Download Brochure (PDF)
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+              Student Success Stories
+            </h2>
+            <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+              Hear from our successful graduates who are now thriving in their dream careers.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {storyCards.map((story) => (
+              <article
+                key={story.title}
+                className="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_28px_rgba(15,42,74,0.08)] border border-neutral-100"
+              >
+                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
+                  <img
+                    src={story.image}
+                    alt={story.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/10" />
+                  <button
+                    type="button"
+                    className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#e31e24] shadow-lg transition-transform hover:scale-105 active:scale-95"
+                    aria-label={`Play story for ${story.title}`}
+                  >
+                    <svg className="ml-1 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </button>
+                  <div className="absolute left-0 right-0 bottom-0 bg-white/90 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#1f3658]">
+                    Selected for India
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <div className="flex items-center gap-3">
+                    <div className="h-9 w-9 overflow-hidden rounded-full border border-neutral-200">
+                      <img
+                        src={story.image}
+                        alt={story.title}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-extrabold text-[#1f3658]">
+                        {story.title}
+                      </h3>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#e31e24]">
+                        {story.role}
+                      </p>
+                      <p className="text-[10px] font-semibold text-slate-400">
+                        {story.company}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-[12px] leading-6 text-slate-500 italic">
+                    {story.quote}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d9e4f5] bg-white text-[#1f4da3] shadow-sm"
+              aria-label="Previous story"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] px-5 py-2.5 text-xs font-bold text-white shadow-sm"
+            >
+              Next Story
+              <span className="ml-2">+</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom Banner */}
+      <section className="text-white py-20 px-6 relative overflow-hidden z-20 text-center" style={{ background: "linear-gradient(180deg, rgba(28, 57, 142, 0.2) 0%, rgba(28, 57, 142, 0) 100%), #0e264a" }}>
+
+        {/* Subtle background light glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+
+          {/* Limited Seats Banner */}
+          <div className="inline-flex items-center gap-1.5 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase">
+            <span>⚡</span>
+            <span>LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT</span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
+            2026 Batches Are Filling Fast — Don't Get Left Behind
+          </h2>
+
+          {/* Subtitle */}
+          <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
+            Admissions Open — Secure Your Seat Early. One free call is all it takes.
+          </p>
+
+          {/* Government Certification Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
+            <span>🏛️</span>
+            <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
+          </div>
+
+          {/* Buttons Row */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
+            {/* Check Eligibility Red Button */}
+            <button
+              onClick={() => {
+                const element = document.getElementById("eligibilityForm");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
+            >
+              <span>⚡</span> CHECK MY ELIGIBILITY NOW
+            </button>
+
+            {/* Start My Career Red Button */}
+            <button
+              onClick={() => {
+                const element = document.getElementById("eligibilityForm");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
+            >
+              Start My Career
+            </button>
+
+            {/* WhatsApp Green Button */}
+            <a
+              href="https://wa.me/919987588932"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />
+              </svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+
+          {/* Trust Markers */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-slate-300 text-xs sm:text-sm font-bold font-sans">
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>4.6 Google Rating</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>10,000+ Students</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>Govt Certified</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>200+ Hiring Partners</span>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+  );
+}

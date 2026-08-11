@@ -36,13 +36,7 @@ interface HomeProps {
   setCurrentPage?: (page: string) => void;
 }
 
-export default function Home({ setCurrentPage }: HomeProps) {
-  const navigate = useNavigate();
-
-  const handleNavClick = (path: string) => {
-    navigate(path);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+export default function Home({ setCurrentPage }: HomeProps = {}) {
   // Form states
   const [mobileNumber, setMobileNumber] = useState("");
   const [fullName, setFullName] = useState("");
@@ -439,7 +433,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
 
               {/* Action Link */}
               <button
-                onClick={() => handleNavClick("/contact")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -513,7 +507,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
 
               {/* Action Link */}
               <button
-                onClick={() => handleNavClick("/contact")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -587,7 +581,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
 
               {/* Action Link */}
               <button
-                onClick={() => handleNavClick("/contact")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -871,7 +865,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
           {/* Link */}
           <div className="mt-4">
             <button
-              onClick={() => handleNavClick("/scholarship")}
+              onClick={() => setCurrentPage?.("services")}
               className="text-white hover:text-[#DDAB30] text-xs sm:text-sm font-bold underline transition-colors focus:outline-none"
             >
               View full scholarship details
@@ -1362,7 +1356,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
         {/* Footer Link */}
         <div className="text-center mt-10">
           <button
-            onClick={() => handleNavClick("/about-us")}
+            onClick={() => setCurrentPage?.("services")}
             className="text-[#1E417A] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1.5 mx-auto group transition-colors focus:outline-none"
           >
             Explore All Industry Advice

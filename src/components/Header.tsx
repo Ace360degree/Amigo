@@ -86,7 +86,15 @@ export default function Header() {
                       <button
                         key={idx}
                         onClick={() => {
-                          handleNavClick("/");
+                          handleNavClick(
+                            idx === 0
+                              ? "/courses/air-hostess-cabin-crew-hospitality-management"
+                              : idx === 3
+                                ? "/courses/airport-ground-staff-hospitality-management"
+                              : idx === 2
+                                ? "/courses/ai-data-science-with-generative-ai-machine-learning"
+                                : "/courses"
+                          );
                           setIsCoursesDropdownOpen(false);
                         }}
                         className="w-full text-left px-4 py-2 hover:bg-neutral-50 flex flex-col group transition-colors"
@@ -120,8 +128,8 @@ export default function Header() {
               <span className="text-neutral-300 font-normal">|</span>
 
               <button
-                onClick={() => handleNavClick("/contact")}
-                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/contact" ? "text-[#e31e24]" : ""}`}
+                onClick={() => handleNavClick("/branches")}
+                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/branches" ? "text-[#e31e24]" : ""}`}
               >
                 Branches
               </button>
@@ -174,8 +182,18 @@ export default function Header() {
               <span className="text-neutral-400 text-xs uppercase tracking-wider block mb-2">Our Courses</span>
               {courses.map((course, idx) => (
                 <button
-                  key={idx}
-                  onClick={() => handleNavClick("/")}
+                key={idx}
+                  onClick={() =>
+                    handleNavClick(
+                      idx === 0
+                        ? "/courses/air-hostess-cabin-crew-hospitality-management"
+                        : idx === 3
+                          ? "/courses/airport-ground-staff-hospitality-management"
+                        : idx === 2
+                          ? "/courses/ai-data-science-with-generative-ai-machine-learning"
+                          : "/courses"
+                    )
+                  }
                   className="w-full text-left py-1.5 text-sm text-neutral-700 hover:text-[#e31e24] block"
                 >
                   • {course.name}
@@ -196,7 +214,7 @@ export default function Header() {
               Scholarships
             </button>
             <button
-              onClick={() => handleNavClick("/contact")}
+              onClick={() => handleNavClick("/branches")}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Branches
