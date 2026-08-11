@@ -177,89 +177,77 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         </div>
       </section>
 
-      {/* What Makes Amigoz Academy Different Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      {/* Highlights Stats Section */}
+      <section className="bg-slate-50/30 py-16 border-t border-slate-100/80">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { value: "10,000+", label: "Students trained" },
+              { value: "10+", label: "Years of excellence" },
+              { value: "12 Months", label: "Programme Duration" },
+              { value: "95%", label: "Successful Placements" }
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-[24px] border border-slate-100/80 shadow-[0_8px_30px_rgba(0,0,0,0.015)] p-8 sm:p-10 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.03)] hover:-translate-y-0.5"
+              >
+                <span className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] tracking-tight leading-none mb-3">
+                  {stat.value}
+                </span>
+                <span className="text-slate-500 font-sans font-bold text-xs sm:text-[13px] tracking-wide">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Left Column: Difference Bullet List */}
-          <div className="space-y-8 text-left">
-            <h2 className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] leading-tight">
-              What Makes Amigoz<br />Academy Different
+
+      {/* What Makes Amigo Academy Different Section */}
+      <section className="bg-slate-50/30 py-20 sm:py-24 border-t border-slate-100/80">
+        <div className="max-w-4xl mx-auto px-6">
+
+          {/* Headings */}
+          <div className="flex flex-col items-center text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+              What Makes Amigo Academy Different
             </h2>
-            <ul className="space-y-4 font-sans font-semibold text-neutral-600 text-xs sm:text-[13.5px] leading-relaxed">
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Training That Delivers Real Career Outcomes</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Across every vertical, our approach remains consistent</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Industry-aligned curriculum designed for real-world roles</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Experienced trainers with domain expertise</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Interview preparation and placement support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>Nationally recognized certifications and affiliations</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-[#dfaa29] text-base mt-0.5">✓</span>
-                <span>We don&apos;t believe in one-size-fits-all education — we build professionals who are job-ready from day one.</span>
-              </li>
-            </ul>
+            <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm max-w-2xl leading-relaxed">
+              With operations in Asia, Australia, Europe, Latin America, New Zealand and the United States, we employ more than 10,000 people worldwide
+            </p>
           </div>
 
-          {/* Right Column: Accomplishments Grid */}
-          <div className="space-y-8 text-left flex flex-col justify-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-outfit font-extrabold text-[#0b2f61]">
-                Our Accomplishments
-              </h2>
-              <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                With training operations in Mumbai, our approach remains consistent.
-              </p>
-            </div>
+          {/* List Content */}
+          <div className="max-w-2xl mx-auto mt-10 space-y-5">
+            {[
+              "Training That Delivers Real Career Outcomes",
+              "Across every vertical, our approach remains consistent",
+              "Industry-aligned curriculum designed for real-world roles",
+              "Experienced trainers with domain expertise",
+              "Interview preparation and placement support",
+              "Nationally recognized certifications and affiliations",
+              "We don't believe in one-size-fits-all education — we build professionals who are job-ready from day one."
+            ].map((text, index) => (
+              <div key={index} className="flex items-start space-x-4">
+                {/* Checkmark Badge */}
+                <div className="w-5 h-5 rounded-full bg-[#f6a619] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </div>
 
-            <div className="border-t border-neutral-100 pt-8 grid grid-cols-2 gap-x-8 gap-y-12">
-
-              {/* Stat 1 */}
-              <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61]">10+</p>
-                <p className="text-neutral-400 text-[11px] font-bold uppercase tracking-wider">Years of Excellence</p>
+                {/* Text */}
+                <p className="text-slate-600 font-sans font-semibold text-xs sm:text-sm leading-relaxed pt-0.5">
+                  {text}
+                </p>
               </div>
-
-              {/* Stat 2 */}
-              <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61]">15,000+</p>
-                <p className="text-neutral-400 text-[11px] font-bold uppercase tracking-wider">Successful Graduates</p>
-              </div>
-
-              {/* Stat 3 */}
-              <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61]">95%</p>
-                <p className="text-neutral-400 text-[11px] font-bold uppercase tracking-wider">Placement Support</p>
-              </div>
-
-              {/* Stat 4 */}
-              <div className="space-y-1">
-                <p className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61]">4</p>
-                <p className="text-neutral-400 text-[11px] font-bold uppercase tracking-wider">State-of-the-Art Campuses</p>
-              </div>
-
-            </div>
+            ))}
           </div>
 
         </div>
       </section>
+
       {/* CTA Connect Section */}
       <section
         style={{ backgroundColor: "#2e5185" }}
@@ -660,13 +648,28 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           ))}
 
         </div>
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)]">
-            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Limited Seats — Apply Early To Secure Your Spot
-            </span>
-          </div>
+        <div className="mt-16 flex items-center justify-center gap-4">
+          {/* Previous Story Button */}
+          <button
+            onClick={() => alert("Previous story clicked (Carousel navigation placeholder)")}
+            className="w-12 h-12 rounded-full border border-slate-200 bg-white flex items-center justify-center text-[#0f2a4a] hover:border-slate-300 hover:bg-slate-50 transition-all duration-200 active:scale-95 focus:outline-none shadow-sm cursor-pointer"
+            aria-label="Previous Story"
+          >
+            <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
+          {/* Next Story Button */}
+          <button
+            onClick={() => alert("Next story clicked (Carousel navigation placeholder)")}
+            className="inline-flex items-center gap-2 bg-[#244270] hover:bg-[#1a3052] text-white font-sans font-bold text-sm px-6 py-3.5 rounded-full shadow-[0_4px_12px_rgba(36,66,112,0.15)] active:scale-95 transition-all duration-200 focus:outline-none cursor-pointer"
+          >
+            <span>Next Story</span>
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -755,9 +758,78 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               </svg>
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* Core Team Members Section */}
+      <section className="bg-white py-20 sm:py-24 border-t border-slate-100/80">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+
+          {/* Headings */}
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+              Core Team Members
+            </h2>
+            <p className="text-slate-500 font-semibold font-sans text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+              Guiding Our Company Towards Success
+            </p>
+          </div>
+
+          {/* Members Container */}
+          <div className="flex flex-wrap justify-center gap-12 sm:gap-16 lg:gap-24">
+            {[
+              {
+                name: "Irfaan shaikh",
+                role: "Director",
+                img: new URL("../assets/img/Director1.png", import.meta.url).href,
+                linkedin: "https://www.linkedin.com/in/irfaan-i-shaikh-4ba267164/"
+              },
+              {
+                name: "Niraav joshi",
+                role: "Director",
+                img: new URL("../assets/img/Director2.png", import.meta.url).href,
+                linkedin: "https://linkedin.com"
+              }
+            ].map((member, idx) => (
+              <div key={idx} className="flex flex-col items-center">
+                {/* Circular Avatar */}
+                <div className="w-40 h-40 sm:w-44 sm:h-44 rounded-full overflow-hidden border-[6px] border-white shadow-[0_10px_35px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_45px_rgba(0,0,0,0.08)] hover:scale-[1.02] transition-all duration-300">
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Name */}
+                <h3 className="font-sans font-bold text-[#0f2a4a] text-lg sm:text-xl tracking-wide mt-6 capitalize">
+                  {member.name}
+                </h3>
+
+                {/* Role */}
+                <span className="text-slate-400 font-sans font-semibold text-xs sm:text-[13px] tracking-wide mt-1">
+                  {member.role}
+                </span>
+
+                {/* LinkedIn Link */}
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-8 h-8 rounded bg-[#0077b5] flex items-center justify-center text-white mt-4 shadow-sm hover:bg-[#005582] active:scale-95 transition-all duration-200"
+                  aria-label={`${member.name} LinkedIn Profile`}
+                >
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </a>
+              </div>
+            ))}
+          </div>
 
         </div>
       </section>
+
     </div>
   );
 }

@@ -1,14 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logofooter from "../assets/img/logofooter.png";
 import FooterQR from "../assets/img/FooterQR.png";
 
-interface FooterProps {
-  setCurrentPage: (page: string) => void;
-}
+export default function Footer() {
+  const navigate = useNavigate();
 
-export default function Footer({ setCurrentPage }: FooterProps) {
-  const handleNavClick = (pageId: string) => {
-    setCurrentPage(pageId);
+  const handleNavClick = (path: string) => {
+    navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -23,7 +22,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
           <div className="lg:col-span-4 flex flex-col space-y-5 text-left">
             {/* Logo */}
             <button
-              onClick={() => handleNavClick("home")}
+              onClick={() => handleNavClick("/")}
               className="flex items-center focus:outline-none w-fit"
               aria-label="Amigo Academy Home"
             >
@@ -56,7 +55,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               Founded in 2017, Amigo Academy has been envisaged as an academy steadily committed to delivering holistic training co...
             </p>
             <button
-              onClick={() => handleNavClick("about")}
+              onClick={() => handleNavClick("/about-us")}
               className="text-white hover:text-[#e31e24] font-bold text-xs w-fit text-left focus:outline-none"
             >
               Read More
@@ -69,15 +68,15 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               Home
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("about")} className="text-left hover:text-white transition-colors w-fit">About us</button>
-              <button onClick={() => handleNavClick("about")} className="text-left hover:text-white transition-colors w-fit">Placements</button>
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">Scholarships</button>
-              <button onClick={() => handleNavClick("contact")} className="text-left hover:text-white transition-colors w-fit">Franchise</button>
-              <button onClick={() => handleNavClick("home")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
-              <button onClick={() => handleNavClick("home")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
-              <button onClick={() => handleNavClick("about")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
-              <button onClick={() => handleNavClick("contact")} className="text-left hover:text-white transition-colors w-fit">Login</button>
-              <button onClick={() => handleNavClick("contact")} className="text-left hover:text-white transition-colors w-fit">Signup</button>
+              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">About us</button>
+              <button onClick={() => handleNavClick("/placement")} className="text-left hover:text-white transition-colors w-fit">Placements</button>
+              <button onClick={() => handleNavClick("/scholarship")} className="text-left hover:text-white transition-colors w-fit">Scholarships</button>
+              <button onClick={() => handleNavClick("/franchise")} className="text-left hover:text-white transition-colors w-fit">Franchise</button>
+              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
+              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
+              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
+              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Login</button>
+              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Signup</button>
             </nav>
           </div>
 
@@ -87,9 +86,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
+              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
             </nav>
           </div>
 
@@ -99,9 +98,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("services")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
+              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
             </nav>
           </div>
 
@@ -201,9 +200,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
 
           {/* Middle Policy Links */}
           <div className="flex space-x-6 mb-4 md:mb-0 text-slate-400 font-semibold">
-            <button onClick={() => handleNavClick("about")} className="hover:text-white transition-colors">Privacy Policy</button>
-            <button onClick={() => handleNavClick("about")} className="hover:text-white transition-colors">Terms & Conditions</button>
-            <button onClick={() => handleNavClick("about")} className="hover:text-white transition-colors">Sitemap</button>
+            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Privacy Policy</button>
+            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Terms & Conditions</button>
+            <button onClick={() => handleNavClick("/about-us")} className="hover:text-white transition-colors">Sitemap</button>
           </div>
 
           {/* Copyright text */}
