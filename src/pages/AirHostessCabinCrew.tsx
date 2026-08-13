@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import heroImage from "../assets/img/aircourseh111a.png";
 import courseIcon121 from "../assets/img/courseicon121.png";
 import airhostessIcon2 from "../assets/img/airhostessicon2.png";
@@ -16,6 +16,7 @@ type OverviewItem = {
 type HighlightCard = {
   title: string;
   description: string;
+  iconType?: "badge" | "users" | "grad" | "card";
 };
 
 type LearnCard = {
@@ -53,36 +54,44 @@ const overview: OverviewItem[] = [
 
 const highlights: HighlightCard[] = [
   {
-    title: "Maharashtra Government Certified Program",
-    description: "Your ticket to a globally recognized career in aviation and hospitality.",
+    title: "Maharashtra Government-Certified Program",
+    description: "Govt. Approved Official Certification for Aviation & Hospitality",
+    iconType: "badge",
   },
   {
     title: "Grooming & Personality Development",
-    description: "Professional appearance, communication, confidence, and etiquette training.",
+    description: "Professional Grooming, Communication & Confidence Building",
+    iconType: "badge",
   },
   {
     title: "Dedicated Placement Support",
-    description: "Profile building, job interviews, and support through every hiring stage.",
+    description: "Profile Pushed to Airlines & Aviation Employers",
+    iconType: "badge",
   },
   {
     title: "Real Interview & Grooming Focus",
-    description: "Training sessions aligned to airline requirements and role expectations.",
+    description: "Grooming Sessions + Mock Interviews for Airline Selection",
+    iconType: "badge",
   },
   {
     title: "Interactive Offline Classroom Batches",
-    description: "Learn in person with hands-on mentoring and a structured daily routine.",
+    description: "In-Person Learning at 4 Branches",
+    iconType: "users",
   },
   {
     title: "Domestic & International Career Paths",
-    description: "Open doors to airlines, airports, hospitality, and premium customer service.",
+    description: "Opportunities with IndiGo, Air India, Emirates, Akasa & More",
+    iconType: "badge",
   },
   {
     title: "Scholarship Opportunities",
-    description: "Scholarship support up to Rs50,000 for eligible students.",
+    description: "Scholarships up to ₹50,000 Available",
+    iconType: "grad",
   },
   {
     title: "Zero-Interest EMI Options",
-    description: "Flexible payment plans to make your course more affordable.",
+    description: "Flexible Payment Plans to Make the Course Affordable",
+    iconType: "card",
   },
 ];
 
@@ -270,89 +279,90 @@ const storyCards: StoryCard[] = [
 export default function AirHostessCabinCrew() {
   return (
     <div className="bg-[#f5f7fb] text-neutral-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-white border-b border-neutral-100">
-        <div className="absolute inset-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%]">
-            <img
-              src={heroImage}
-              alt="Air hostess and cabin crew training"
-              className="h-full w-full object-cover object-center"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-48% to-white/0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent lg:hidden" />
+      {/* Hero Section */}
+      <section className="w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
+        {/* Split Background Image on the Right */}
+        <div className="absolute top-0 right-0 h-full w-full lg:w-[42%] z-0">
+          <img
+            src={new URL("../assets/img/aircourseh111a.png", import.meta.url).href}
+            alt="Student Placements Success"
+            className="h-full w-full object-cover object-top lg:object-[35%_top]"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10 lg:block hidden" />
+          <div className="absolute inset-0 bg-[#f1f5f9]/40 z-10 lg:hidden block" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-10 sm:py-14 lg:py-20">
-          <div className="max-w-[540px]">
-            <div className="text-[10px] sm:text-xs font-semibold text-slate-400">
-              Home &nbsp; &gt; &nbsp;
-              <span className="text-[#e31e24]">
-                Air Hostess / Cabin Crew &amp; Hospitality Management
-              </span>
-            </div>
-
-            <h1 className="mt-5 text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-[#18304f] leading-[1.05]">
-              Air Hostess / Cabin Crew &amp; Hospitality Management
+        {/* Content Container */}
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
+          <div className="max-w-[520px] space-y-6 text-left">
+            <h1 className="text-4xl sm:text-[48px] font-outfit font-extrabold text-[#0b2f61] leading-[1.1] tracking-tight">
+              Our Student Placements<br />&amp; Success Stories
             </h1>
-
-            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm font-semibold">
-              <span className="text-[#1f3658]">12 Months</span>
-              <span className="text-[#e31e24]">â€¢</span>
-              <span className="text-[#1f3658]">Certificate Program</span>
-              <span className="text-[#e31e24]">â€¢</span>
-              <span className="text-[#1f3658]">Practical Training</span>
-            </div>
-
-            <div className="mt-7">
-              <h2 className="text-lg sm:text-xl font-extrabold text-[#18304f]">
-                Course Overview
-              </h2>
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
-                {overview.map((item) => (
-                  <div key={item.label} className="flex items-start gap-3 text-sm">
-                    <span className="mt-1.5 h-2.5 w-2.5 rounded-full bg-[#1f4da3]" />
-                    <p className="text-slate-600">
-                      <span className="font-semibold text-[#18304f]">{item.label}:</span>{" "}
-                      {item.value}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
+              Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality * Cruise Line &amp; Hospitality Management * Digital Marketing * Cyber Security * AI &amp; Data Science
+            </p>
+            <div className="pt-2">
+              <a
+                href="#enquiry-form"
+                style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
+                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a]"
+              >
+                Enroll Now To Avail Scholarship &rarr;
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Highlights */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-8 relative z-10 pb-16">
-        <div className="rounded-[22px] bg-white border border-neutral-100 shadow-[0_16px_40px_rgba(15,42,74,0.08)] px-5 sm:px-8 py-7">
-          <h2 className="text-2xl sm:text-[30px] font-extrabold text-[#18304f] text-center">
+      {/* Course Highlights Section */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-10 sm:-mt-14 relative z-10 pb-16">
+        <div className="rounded-[32px] bg-white border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.06)] p-6 sm:p-10 md:p-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#112a46] text-center mb-8 sm:mb-10">
             Course Highlights
           </h2>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {highlights.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-[#f5e7b8] bg-[#fffaf0] px-4 py-4 shadow-[0_6px_18px_rgba(15,42,74,0.04)]"
+                className="rounded-[20px] bg-[#FFF9EA] border border-[#FBECC8]/60 p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md"
               >
-                <div className="flex items-start gap-3">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#1f4da3] border border-[#dce7fb]">
-                    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.25}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#2563eb] shadow-sm">
+                  {item.iconType === "users" ? (
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                     </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-extrabold text-[#18304f]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-[11px] leading-5 text-slate-500">
-                      {item.description}
-                    </p>
-                  </div>
+                  ) : item.iconType === "grad" ? (
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                    </svg>
+                  ) : item.iconType === "card" ? (
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                      <line x1="1" y1="10" x2="23" y2="10" />
+                    </svg>
+                  ) : (
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <circle cx="12" cy="8" r="6" />
+                      <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11" />
+                    </svg>
+                  )}
+                </div>
+
+                <div>
+                  <h3 className="text-sm sm:text-[15px] font-extrabold text-[#112a46] leading-snug mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -587,7 +597,7 @@ export default function AirHostessCabinCrew() {
             ))}
           </div>
         </div>
-      </section> 
+      </section>
 
       <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
