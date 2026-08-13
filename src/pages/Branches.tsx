@@ -142,115 +142,115 @@ export default function Branches() {
   };
 
   return (
-    <div className="bg-[#f5f7fb] text-neutral-900">
-      <section className="relative overflow-hidden bg-white border-b border-neutral-100">
+    <div className="bg-white text-neutral-900">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%]">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
             <img
               src={heroImage}
               alt="Amigo Academy branch"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center lg:object-[left_center]"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-48% to-white/0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-transparent lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-14 lg:py-20">
-          <div className="max-w-[560px] space-y-6">
-            <div className="text-[10px] sm:text-xs font-semibold text-slate-400">
-              Home &nbsp; &gt; &nbsp;
-              <span className="text-[#e31e24]">Branches</span>
-            </div>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 md:px-12 py-6 lg:py-10">
+          <div className="max-w-[540px] space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#112a46] leading-[1.1]">
+              Find an Amigo Academy Branch Near You
+            </h1>
+            <p className="text-sm sm:text-[15px] leading-[1.7] text-slate-500 font-normal">
+              With three branches across Mumbai, Amigo Academy makes quality career-focused
+              education more accessible to students. Whether you choose our Ghatkopar,
+              Andheri, or Thane branch, you&apos;ll receive the same practical training,
+              dedicated placement support, and honest career guidance that have helped over
+              10,000 students begin their careers in aviation and technology.
+            </p>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-[#1f3658] leading-[1.05]">
-                Find an Amigo Academy Branch Near You
-              </h1>
-              <p className="text-sm sm:text-base leading-7 text-slate-600 max-w-xl">
-                With three branches across Mumbai, Amigo Academy makes quality career-focused
-                education more accessible to students. Whether you choose our Ghatkopar,
-                Andheri, or Thane branch, you&apos;ll receive the same practical training,
-                dedicated placement support, and honest career guidance that have helped over
-                10,000 students begin their careers in aviation and technology.
-              </p>
+            <div className="pt-2">
+              <a
+                href="#branch-grid"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
+              >
+                <span>Find Your Nearest Branch</span>
+                <span className="text-sm font-bold">➔</span>
+              </a>
             </div>
-
-            <a
-              href="#branch-grid"
-              className="inline-flex items-center justify-center rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] active:scale-95"
-            >
-              Find Your Nearest Branch
-              <span className="ml-2">â†’</span>
-            </a>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-8 relative z-10 pb-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-[22px] border border-neutral-200/70 bg-white px-5 py-6 text-center shadow-[0_10px_30px_rgba(15,42,74,0.04)]"
-            >
-              <div className="text-3xl sm:text-[34px] font-extrabold text-[#1f3658]">
-                {stat.value}
+      {/* Stats Cards Section */}
+      <section className="bg-white py-12 sm:py-16 px-6 sm:px-8 md:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[24px] border border-slate-100/90 bg-white p-6 sm:p-8 text-center shadow-[0_6px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[160px]"
+              >
+                <div className="text-3xl sm:text-[38px] font-extrabold text-[#112a46] leading-none mb-3">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-[13px] font-bold text-[#112a46]/80 leading-snug">
+                  {stat.label}
+                </div>
               </div>
-              <div className="mt-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="bg-[#f4f7fc] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      {/* Three Convenient Locations Section */}
+      <section className="bg-[#f0f4f9] py-16 sm:py-24 px-4 sm:px-6 md:px-8 border-t border-slate-100/60">
         <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#112a46] leading-tight tracking-tight">
             Three Convenient Locations
-            <br />
+            <br className="hidden sm:block" />
             Across Mumbai
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-sm sm:text-base leading-7 text-slate-500">
+          <p className="mx-auto mt-6 max-w-3xl text-sm sm:text-[15.5px] leading-relaxed text-slate-500 font-medium">
             Choosing the right institute should never depend on how far you have to travel.
             That&apos;s why Amigo Academy has established branches in Ghatkopar, Andheri, and
             Thane, making it easier for students across Mumbai to access professional training
             closer to home.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-base leading-7 text-slate-500">
+          <p className="mx-auto mt-4 max-w-3xl text-sm sm:text-[15.5px] leading-relaxed text-slate-500 font-medium">
             Simply choose the branch that&apos;s most convenient for you and begin your journey
             with confidence.
           </p>
 
-          <div className="mt-10 rounded-[22px] bg-white p-4 sm:p-6 shadow-[0_12px_35px_rgba(15,42,74,0.08)] border border-white/80">
-            <div className="relative overflow-hidden rounded-[18px] bg-white">
-              <div className="absolute left-6 top-5 sm:left-10 sm:top-8 z-10 flex flex-col gap-3 sm:flex-row sm:gap-6 lg:gap-10">
-                {[
-                  { name: "Andheri", link: "/andheri-branch" },
-                  { name: "Ghatkopar", link: "/ghatkopar-branch" },
-                  { name: "Thane", link: "/thane-branch" },
-                ].map((branch) => (
-                  <button
-                    key={branch.name}
-                    onClick={() => handleBranchClick(branch.link)}
-                    className="flex items-start gap-2.5 text-left group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors"
-                  >
-                    <div className="text-[#d61f26] text-2xl leading-none group-hover:scale-110 transition-transform">📍</div>
-                    <div className="pt-0.5">
-                      <div className="text-sm sm:text-base font-extrabold text-[#1f3658] group-hover:text-[#e31e24] transition-colors leading-none">
-                        {branch.name}
-                      </div>
-                      <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Branch →</div>
-                    </div>
-                  </button>
-                ))}
+          <div className="mt-10 sm:mt-12 rounded-[28px] bg-white p-4 sm:p-6 md:p-8 shadow-[0_10px_35px_rgba(15,42,74,0.05)] border border-slate-100/80">
+            <div className="relative w-full overflow-hidden rounded-[20px] bg-white">
+              {/* Responsive Clickable Hotspots for Andheri, Ghatkopar, Thane */}
+              <div className="absolute inset-0 z-10 grid grid-cols-3">
+                <button
+                  onClick={() => handleBranchClick("/andheri-branch")}
+                  className="w-full h-full cursor-pointer focus:outline-none transition-opacity hover:bg-red-500/5"
+                  title="Explore Andheri Branch"
+                  aria-label="Explore Andheri Branch"
+                />
+                <button
+                  onClick={() => handleBranchClick("/ghatkopar-branch")}
+                  className="w-full h-full cursor-pointer focus:outline-none transition-opacity hover:bg-red-500/5"
+                  title="Explore Ghatkopar Branch"
+                  aria-label="Explore Ghatkopar Branch"
+                />
+                <button
+                  onClick={() => handleBranchClick("/thane-branch")}
+                  className="w-full h-full cursor-pointer focus:outline-none transition-opacity hover:bg-red-500/5"
+                  title="Explore Thane Branch"
+                  aria-label="Explore Thane Branch"
+                />
               </div>
 
               <img
                 src={branchesIllustration}
-                alt="Mumbai branch locations illustration"
-                className="mt-16 sm:mt-12 w-full h-auto object-contain"
+                alt="Three Convenient Locations Across Mumbai — Andheri, Ghatkopar, Thane"
+                className="w-full h-auto object-contain block"
               />
             </div>
           </div>
@@ -316,63 +316,10 @@ export default function Branches() {
               </article>
             ))}
           </div>
-
-          {/* Detailed Branch Info Cards Grid */}
-          <div className="mt-16 border-t border-neutral-100 pt-16">
-            <h3 className="text-2xl font-extrabold text-[#1f3658] text-center mb-10">
-              Branch Addresses & Directions
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {branches.map((b) => (
-                <div
-                  key={b.name}
-                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between shadow-sm hover:border-red-200 transition-colors"
-                >
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <h4 className="text-xl font-bold text-[#1f3658]">{b.name} Branch</h4>
-                      {b.tag && (
-                        <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-[#e31e24]">
-                          {b.tag}
-                        </span>
-                      )}
-                    </div>
-                    <div className="space-y-1 text-sm text-slate-600">
-                      {b.address.map((line, idx) => (
-                        <p key={idx} className={idx === 0 ? "font-bold text-[#1f3658]" : ""}>{line}</p>
-                      ))}
-                    </div>
-                    <div className="pt-2 text-sm">
-                      <span className="font-semibold text-slate-700">Phone: </span>
-                      <a href={`tel:${b.phone}`} className="text-[#e31e24] font-medium hover:underline">
-                        {b.phone}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-slate-200/80 flex flex-col gap-2.5">
-                    <button
-                      onClick={() => handleBranchClick(b.link)}
-                      className="w-full text-center rounded-xl bg-[#1f3658] py-2.5 text-xs font-bold text-white hover:bg-[#162740] transition-colors"
-                    >
-                      View {b.name} Branch Page →
-                    </button>
-                    <a
-                      href={b.mapHref}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-full text-center rounded-xl border border-slate-300 bg-white py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors flex items-center justify-center gap-1.5"
-                    >
-                      <span>📍</span> Get Directions on Map
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
+      {/* The Same Amigo Experience Section */}
       <section className="bg-[#eef3fa] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-5xl text-center">
           <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
@@ -415,6 +362,7 @@ export default function Branches() {
         </div>
       </section>
 
+      {/* Visit a Branch Section */}
       <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
           <h2 className="text-center text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
@@ -456,80 +404,76 @@ export default function Branches() {
         </div>
       </section>
 
-      <section className="bg-[#082a63] px-4 sm:px-6 md:px-8 py-16 sm:py-20 border-t border-[#0f356f]">
-        <div className="mx-auto max-w-6xl text-center text-white">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#f1b739]/30 bg-[#123977] px-4 py-1.5 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#f5c24a]">
-            <img src={branchCtaIcon1} alt="" aria-hidden="true" className="h-3.5 w-3.5 object-contain" />
-            Limited Seats Per Batch - Apply Early to Secure Your Spot
+      {/* CTA Section */}
+      <section className="bg-[#031d44] px-4 sm:px-6 md:px-8 py-20 sm:py-24 border-t border-[#09295c] relative overflow-hidden">
+        <div className="mx-auto max-w-5xl text-center text-white relative z-10">
+          
+          {/* Top Pill Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/30 bg-[#0a2c63]/80 px-5 py-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-wide text-[#f5b74a] shadow-sm mb-8">
+            <span className="text-sm">⚡</span>
+            LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT
           </div>
 
-          <h2 className="mx-auto mt-6 max-w-4xl text-3xl sm:text-4xl lg:text-[44px] font-extrabold leading-[1.1] text-white">
+          {/* Main Title */}
+          <h2 className="mx-auto max-w-4xl text-3xl sm:text-4xl lg:text-[50px] font-extrabold leading-[1.15] text-white tracking-tight mb-5">
             Start Your Journey from the Branch That's Closest to You
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm sm:text-base leading-7 text-[#c6d5ee]">
-            Admissions Open &#8212; Secure Your Seat Early. One free call is all it takes.
+          {/* Subtitle */}
+          <p className="mx-auto max-w-2xl text-sm sm:text-base leading-relaxed text-[#a3b8db] font-medium mb-8">
+            Admissions Open — Secure Your Seat Early. One free call is all it takes.
           </p>
 
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/25 bg-[#123977] px-5 py-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-[0.14em] text-[#f5b74a]">
-            <img
-              src={branchCtaIcon2}
-              alt=""
-              aria-hidden="true"
-              className="h-3.5 w-3.5 object-contain"
-            />
-            Maharashtra Govt Certified - Only aviation institute in Maharashtra
+          {/* Middle Pill Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/30 bg-[#0a2c63]/80 px-5 py-2 text-xs sm:text-[13px] font-extrabold text-[#f5b74a] shadow-sm mb-10">
+            <span className="text-sm">🏛️</span>
+            Maharashtra Govt Certified — Only aviation institute in Maharashtra
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Action Buttons Row */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mb-10">
             <button
               onClick={() => handleBranchClick("/contact")}
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95 cursor-pointer focus:outline-none"
+              className="inline-flex min-w-[230px] items-center justify-center gap-2.5 rounded-2xl bg-[#E02424] hover:bg-[#c81c1c] px-7 py-4 text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider shadow-[0_8px_25px_rgba(224,36,36,0.45)] transition-all hover:shadow-[0_12px_30px_rgba(224,36,36,0.55)] active:scale-95 cursor-pointer focus:outline-none"
             >
-              <img
-                src={branchCtaIcon3}
-                alt=""
-                aria-hidden="true"
-                className="h-4 w-4 object-contain"
-              />
-              Check My Eligibility Now
+              <span className="text-base">✈️</span>
+              CHECK MY ELIGIBILITY NOW
             </button>
 
             <button
               onClick={() => handleBranchClick("/contact")}
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#ef2a22] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(239,42,34,0.22)] transition-all hover:bg-[#d9221c] active:scale-95 cursor-pointer focus:outline-none"
+              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-2xl bg-[#E02424] hover:bg-[#c81c1c] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-[0_8px_25px_rgba(224,36,36,0.45)] transition-all hover:shadow-[0_12px_30px_rgba(224,36,36,0.55)] active:scale-95 cursor-pointer focus:outline-none"
             >
               Start My Career
             </button>
 
             <a
-              href="#branch-grid"
-              className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-full bg-[#25d366] px-6 py-3.5 text-sm font-extrabold text-white shadow-[0_12px_25px_rgba(37,211,102,0.22)] transition-all hover:bg-[#1fb85b] active:scale-95"
+              href="https://wa.me/919987588932"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-w-[190px] items-center justify-center gap-2.5 rounded-2xl bg-[#22c55e] hover:bg-[#16a34a] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-[0_8px_25px_rgba(34,197,94,0.4)] transition-all hover:shadow-[0_12px_30px_rgba(34,197,94,0.5)] active:scale-95 cursor-pointer"
             >
-              <img
-                src={branchCtaIcon4}
-                alt=""
-                aria-hidden="true"
-                className="h-4 w-4 object-contain"
-              />
+              <span className="text-base">💬</span>
               Chat on WhatsApp
             </a>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] sm:text-xs text-[#c6d5ee]">
+          {/* Bottom Highlights */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs sm:text-[13px] text-[#a3b8db] font-semibold">
             <div className="flex items-center gap-2">
-              <span className="text-[#26d07c]">âœ“</span> 4.6 Google Rating
+              <span className="text-[#22c55e] font-extrabold">✓</span> 4.6 Google Rating
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#26d07c]">âœ“</span> 10,000+ Students
+              <span className="text-[#22c55e] font-extrabold">✓</span> 10,000+ Students
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#26d07c]">âœ“</span> Govt Certified
+              <span className="text-[#22c55e] font-extrabold">✓</span> Govt Certified
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#26d07c]">âœ“</span> 200+ Hiring Partners
+              <span className="text-[#22c55e] font-extrabold">✓</span> 200+ Hiring Partners
             </div>
           </div>
+
         </div>
       </section>
     </div>

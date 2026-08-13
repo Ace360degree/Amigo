@@ -303,8 +303,8 @@ export default function CareerGuides() {
             ))}
           </div>
 
-          {/* Bottom Left Button */}
-          <div className="flex justify-start pt-4">
+          {/* Centered Button */}
+          <div className="flex justify-center pt-4">
             <button
               onClick={handleCTA}
               className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.15)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
@@ -455,8 +455,8 @@ export default function CareerGuides() {
               </div>
             </div>
 
-            {/* Left-aligned Button relative to the parent text width */}
-            <div className="w-full flex justify-start pt-2">
+            {/* Centered Button */}
+            <div className="w-full flex justify-center pt-2">
               <button
                 onClick={handleCTA}
                 className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.15)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"

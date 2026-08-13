@@ -118,7 +118,7 @@ const categories = [
       {
         image: cc3,
         title: "A Day in the Life of Cabin Crew",
-        meta: "May 15, 2026 • 6 min read"
+        meta: "May 16, 2026 • 5 min read"
       }
     ]
   },
@@ -133,12 +133,7 @@ const categories = [
       {
         image: cc5,
         title: "Air Hostess Height Requirements",
-        meta: "Aug 1, 2026 • 8 min read"
-      },
-      {
-        image: cc6,
-        title: "Air Hostess Height Requirements",
-        meta: "Aug 1, 2026 • 18 min read"
+        meta: "Aug 1, 2026 • 15 min read"
       }
     ]
   },
@@ -146,12 +141,12 @@ const categories = [
     title: "Salary & Career Growth",
     cards: [
       {
-        image: cc7,
+        image: cc6,
         title: "Air Hostess Salary in India",
         meta: "Aug 10, 2026 • 8 min read"
       },
       {
-        image: cc8,
+        image: cc7,
         title: "Domestic vs International Cabin Crew Salary",
         meta: "Aug 5, 2026 • 12 min read"
       }
@@ -161,12 +156,12 @@ const categories = [
     title: "Skills & Interview Preparation",
     cards: [
       {
-        image: cc9,
+        image: cc8,
         title: "Cabin Crew Skills Required",
         meta: "July 10, 2026 • 6 min read"
       },
       {
-        image: cc10,
+        image: cc9,
         title: "Cabin Crew Interview Tips & Common Mistakes",
         meta: "Aug 5, 2026 • 7 min read"
       }
@@ -176,7 +171,7 @@ const categories = [
     title: "Training",
     cards: [
       {
-        image: cc9,
+        image: cc10,
         title: "Air Hostess Course Duration & Batch Timings",
         meta: "July 10, 2026 • 6 min read"
       }
@@ -186,8 +181,13 @@ const categories = [
     title: "Related Careers",
     cards: [
       {
-        image: cc9,
+        image: cc2,
         title: "Airport Ground Staff Career",
+        meta: "July 10, 2026 • 6 min read"
+      },
+      {
+        image: cc3,
+        title: "AI & Data Science Career Guide",
         meta: "July 10, 2026 • 6 min read"
       }
     ]
@@ -280,8 +280,8 @@ export default function CabinCrew() {
               </div>
             </div>
 
-            {/* Left-aligned Button */}
-            <div className="w-full flex justify-start pt-2">
+            {/* Centered Button */}
+            <div className="w-full flex justify-center pt-2">
               <button
                 onClick={handleCTA}
                 className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.15)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
@@ -483,14 +483,14 @@ export default function CabinCrew() {
           {/* Category Blocks */}
           <div className="space-y-16">
             {categories.map((category, catIdx) => (
-              <div key={catIdx} className="text-left">
+              <div key={catIdx} className="text-center">
                 {/* Category Title */}
-                <h3 className="text-2xl sm:text-[28px] font-extrabold text-[#1C3E8A] font-outfit mb-8 tracking-tight">
+                <h3 className="text-2xl sm:text-[28px] font-extrabold text-[#1C3E8A] font-outfit mb-8 tracking-tight text-center">
                   {category.title}
                 </h3>
 
-                {/* Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {/* Cards Container - Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
                   {category.cards.map((card, cardIdx) => (
                     <div
                       key={cardIdx}
