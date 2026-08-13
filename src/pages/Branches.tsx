@@ -225,63 +225,84 @@ export default function Branches() {
 
           <div className="mt-10 rounded-[22px] bg-white p-4 sm:p-6 shadow-[0_12px_35px_rgba(15,42,74,0.08)] border border-white/80">
             <div className="relative overflow-hidden rounded-[18px] bg-white">
-              <div className="absolute left-6 top-5 sm:left-10 sm:top-8 z-10 flex flex-col gap-5 sm:flex-row sm:gap-16 lg:gap-24">
-                {["Andheri", "Ghatkopar", "Thane"].map((branch) => (
-                  <div key={branch} className="flex items-start gap-2.5 text-left">
-                    <div className="text-[#d61f26] text-2xl leading-none">ðŸ“</div>
+              <div className="absolute left-6 top-5 sm:left-10 sm:top-8 z-10 flex flex-col gap-3 sm:flex-row sm:gap-6 lg:gap-10">
+                {[
+                  { name: "Andheri", link: "/andheri-branch" },
+                  { name: "Ghatkopar", link: "/ghatkopar-branch" },
+                  { name: "Thane", link: "/thane-branch" },
+                ].map((branch) => (
+                  <button
+                    key={branch.name}
+                    onClick={() => handleBranchClick(branch.link)}
+                    className="flex items-start gap-2.5 text-left group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-colors"
+                  >
+                    <div className="text-[#d61f26] text-2xl leading-none group-hover:scale-110 transition-transform">📍</div>
                     <div className="pt-0.5">
-                      <div className="text-sm sm:text-base font-extrabold text-[#1f3658] leading-none">
-                        {branch}
+                      <div className="text-sm sm:text-base font-extrabold text-[#1f3658] group-hover:text-[#e31e24] transition-colors leading-none">
+                        {branch.name}
                       </div>
-                      <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Branch</div>
+                      <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Branch →</div>
                     </div>
-                  </div>
+                  </button>
                 ))}
               </div>
 
               <img
                 src={branchesIllustration}
                 alt="Mumbai branch locations illustration"
-                className="mt-12 w-full h-auto object-contain"
+                className="mt-16 sm:mt-12 w-full h-auto object-contain"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      <section id="branch-grid" className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
             <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
               Our Branches
             </h2>
+            <p className="mt-4 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
+              Explore individual branch pages for detailed course offerings, campus facilities, contact information, and location maps.
+            </p>
           </div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
             {branchShowcase.map((branch) => (
               <article
                 key={branch.title}
-                className="overflow-hidden rounded-[22px] border border-[#d9e1ee] bg-white shadow-[0_10px_30px_rgba(15,42,74,0.05)]"
+                className="group overflow-hidden rounded-[22px] border border-[#d9e1ee] bg-white shadow-[0_10px_30px_rgba(15,42,74,0.05)] transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
               >
-                <div className="h-52 sm:h-56 overflow-hidden">
-                  <img
-                    src={branch.image}
-                    alt={branch.title}
-                    className="h-full w-full object-cover object-center"
-                  />
+                <div>
+                  <div
+                    onClick={() => handleBranchClick(branch.link)}
+                    className="h-52 sm:h-56 overflow-hidden cursor-pointer"
+                  >
+                    <img
+                      src={branch.image}
+                      alt={branch.title}
+                      className="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <div className="p-6 sm:p-7">
+                    <h3
+                      onClick={() => handleBranchClick(branch.link)}
+                      className="text-[17px] sm:text-lg font-extrabold text-[#1f3658] group-hover:text-[#e31e24] transition-colors leading-snug cursor-pointer"
+                    >
+                      {branch.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-6 text-slate-500">
+                      {branch.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-6 sm:p-7">
-                  <h3 className="text-[17px] sm:text-lg font-extrabold text-[#1f3658] leading-snug">
-                    {branch.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-6 text-slate-500">
-                    {branch.description}
-                  </p>
-
-                  <a
-                    href="#branch-grid"
-                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] active:scale-95"
+                <div className="p-6 sm:p-7 pt-0">
+                  <button
+                    onClick={() => handleBranchClick(branch.link)}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
                   >
                     {branch.cta}
                     <img
@@ -290,10 +311,64 @@ export default function Branches() {
                       aria-hidden="true"
                       className="h-4 w-4 object-contain"
                     />
-                  </a>
+                  </button>
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Detailed Branch Info Cards Grid */}
+          <div className="mt-16 border-t border-neutral-100 pt-16">
+            <h3 className="text-2xl font-extrabold text-[#1f3658] text-center mb-10">
+              Branch Addresses & Directions
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {branches.map((b) => (
+                <div
+                  key={b.name}
+                  className="rounded-2xl border border-slate-200 bg-slate-50 p-6 flex flex-col justify-between shadow-sm hover:border-red-200 transition-colors"
+                >
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-xl font-bold text-[#1f3658]">{b.name} Branch</h4>
+                      {b.tag && (
+                        <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-[#e31e24]">
+                          {b.tag}
+                        </span>
+                      )}
+                    </div>
+                    <div className="space-y-1 text-sm text-slate-600">
+                      {b.address.map((line, idx) => (
+                        <p key={idx} className={idx === 0 ? "font-bold text-[#1f3658]" : ""}>{line}</p>
+                      ))}
+                    </div>
+                    <div className="pt-2 text-sm">
+                      <span className="font-semibold text-slate-700">Phone: </span>
+                      <a href={`tel:${b.phone}`} className="text-[#e31e24] font-medium hover:underline">
+                        {b.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-200/80 flex flex-col gap-2.5">
+                    <button
+                      onClick={() => handleBranchClick(b.link)}
+                      className="w-full text-center rounded-xl bg-[#1f3658] py-2.5 text-xs font-bold text-white hover:bg-[#162740] transition-colors"
+                    >
+                      View {b.name} Branch Page →
+                    </button>
+                    <a
+                      href={b.mapHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-full text-center rounded-xl border border-slate-300 bg-white py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-colors flex items-center justify-center gap-1.5"
+                    >
+                      <span>📍</span> Get Directions on Map
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
