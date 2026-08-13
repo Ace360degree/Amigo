@@ -71,9 +71,9 @@ type StoryCard = {
 
 const stats: Stat[] = [
   { value: "10,000+", label: "Students Trained" },
-  { value: "3", label: "Specialized Career Paths" },
+  { value: "3", label: "Specialised Career Paths" },
   { value: "12 Months", label: "Programme Duration" },
-  { value: "500+", label: "Successful Placements" },
+  { value: "10+", label: "Years of Excellence" },
 ];
 
 const comparisonRows: ComparisonRow[] = [
@@ -393,63 +393,65 @@ const courses: CourseCard[] = [
 
 export default function Courses() {
   return (
-    <div className="bg-[#f5f7fb] text-neutral-900">
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-white border-b border-neutral-100">
+    <div className="bg-white text-neutral-900">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[60%]">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[44%]">
             <img
               src={coursesHero}
               alt="Amigo Academy course guidance session"
-              className="h-full w-full object-cover object-center"
+              className="h-full w-full object-cover object-center lg:object-[left_center]"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-52% to-white/0" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/65 to-transparent lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-14 lg:py-20">
-          <div className="max-w-[560px] space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#f0c36d]/40 bg-[#fff7e7] px-4 py-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#7c5529]">
-              Maharashtra Govt Certified Aviation and AI Programs
-            </div>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 md:px-12 py-6 lg:py-10">
+          <div className="max-w-[600px] space-y-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#112a46] leading-[1.1]">
+              Find the Right Course for{" "}
+              <span className="text-[#E6A020] block">Your Career Goals</span>
+            </h1>
+            <p className="max-w-[400px] text-sm sm:text-[15px] leading-[1.7] text-slate-600 font-normal">
+              Every successful career begins with the right training. At
+              Amigo Academy, our industry-focused programmes in Cabin Crew,
+              Airport Operations, and AI &amp; Data Science equip students with
+              practical skills, confidence, and career-ready expertise.
+            </p>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-[#1f3658] leading-[1.08]">
-                Find the Right Course for Your Career Goals
-              </h1>
-              <p className="text-sm sm:text-base leading-7 text-slate-600 max-w-xl">
-                Every successful career begins with the right training. At Amigo Academy, our industry-focused programmes in Aviation, Cabin Crew, Airport Operations, and AI & Data Science equip students with practical skills, confidence, and career-ready expertise.
-              </p>
+            <div className="pt-2">
+              <a
+                href="/contact#enquiry-form"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
+              >
+                <span>Enroll Now To Avail Scholarship</span>
+                <span className="text-sm font-bold">➔</span>
+              </a>
             </div>
-
-            <a
-              href="#courses-grid"
-              className="inline-flex items-center justify-center rounded-full bg-[#e31e24] px-6 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.18)] transition-all hover:bg-[#c8191f] hover:shadow-[0_16px_30px_rgba(227,30,36,0.25)] active:scale-95"
-            >
-              Enroll Now To Avail Scholarship
-              <span className="ml-2">+</span>
-            </a>
           </div>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-8 relative z-10 pb-14">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-[22px] border border-neutral-200/70 bg-white px-5 py-6 text-center shadow-[0_10px_30px_rgba(15,42,74,0.04)]"
-            >
-              <div className="text-3xl sm:text-[34px] font-extrabold text-[#1f3658]">
-                {stat.value}
+      {/* Stats Cards Section */}
+      <section className="bg-white py-12 sm:py-16 px-6 sm:px-8 md:px-12">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[24px] border border-slate-100/90 bg-white p-6 sm:p-8 text-center shadow-[0_6px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_35px_rgba(0,0,0,0.06)] transition-all duration-300 flex flex-col items-center justify-center min-h-[140px] sm:min-h-[160px]"
+              >
+                <div className="text-3xl sm:text-[38px] font-extrabold text-[#112a46] leading-none mb-3">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-[13px] font-bold text-[#112a46]/80 leading-snug">
+                  {stat.label}
+                </div>
               </div>
-              <div className="mt-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-                {stat.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -533,9 +535,9 @@ export default function Courses() {
                       ? "/courses/air-hostess-cabin-crew-hospitality-management"
                       : course.id === "ground-staff"
                         ? "/courses/airport-ground-staff-hospitality-management"
-                      : course.id === "ai-data-science"
-                        ? "/courses/ai-data-science-with-generative-ai-machine-learning"
-                        : "/contact#enquiry-form"
+                        : course.id === "ai-data-science"
+                          ? "/courses/ai-data-science-with-generative-ai-machine-learning"
+                          : "/contact#enquiry-form"
                   }
                   className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.15)] transition-all hover:bg-[#c8191f] active:scale-95"
                 >
@@ -779,11 +781,11 @@ export default function Courses() {
       {/* Student Success Stories */}
       <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl rounded-[22px] bg-[#1f4da3] px-6 sm:px-10 py-10 text-center text-white shadow-[0_18px_40px_rgba(15,42,74,0.16)]">
-            <h2 className="text-2xl sm:text-[30px] font-extrabold leading-tight">
+          <div className="mx-auto max-w-4xl rounded-[22px] bg-[#103482] px-6 sm:px-10 py-10 text-center text-white shadow-[0_18px_40px_rgba(15,42,74,0.16)]">
+            <h2 className="text-2xl sm:text-[30px] font-extrabold leading-tight text-white">
               Still have questions?
             </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-6 text-white/80">
+            <p className="mx-auto max-w-[500px] mt-3 text-xs sm:text-sm leading-6 text-white/80">
               Our expert counsellors are here to help you make the right career decision.
               Get personalized guidance in under 60 seconds.
             </p>
@@ -794,7 +796,7 @@ export default function Courses() {
                 className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs font-bold text-[#1f4da3] shadow-sm transition-all hover:opacity-95 active:scale-95"
               >
                 Talk to Counselor Now
-                <span className="ml-2">+</span>
+                <span className="ml-2">➔</span>
               </a>
               <a
                 href="/contact#enquiry-form"
@@ -886,7 +888,7 @@ export default function Courses() {
               className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] px-5 py-2.5 text-xs font-bold text-white shadow-sm"
             >
               Next Story
-              <span className="ml-2">+</span>
+              <span className="ml-2">➔</span>
             </button>
           </div>
         </div>

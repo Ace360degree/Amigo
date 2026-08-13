@@ -407,7 +407,7 @@ export default function Branches() {
       {/* CTA Section */}
       <section className="bg-[#031d44] px-4 sm:px-6 md:px-8 py-20 sm:py-24 border-t border-[#09295c] relative overflow-hidden">
         <div className="mx-auto max-w-5xl text-center text-white relative z-10">
-          
+
           {/* Top Pill Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/30 bg-[#0a2c63]/80 px-5 py-2 text-xs sm:text-[13px] font-extrabold uppercase tracking-wide text-[#f5b74a] shadow-sm mb-8">
             <span className="text-sm">⚡</span>
