@@ -763,6 +763,77 @@ export default function AirHostessCabinCrew() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Pill Badge */}
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#eff6ff] px-4 py-1.5 text-xs font-semibold text-[#2563eb] border border-[#dbeafe]">
+            <svg className="w-4 h-4 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
+            </svg>
+            <span>Common Questions Answered</span>
+          </div>
+
+          <h2 className="mt-4 text-2xl sm:text-[34px] font-extrabold text-[#11223f] leading-tight max-w-3xl mx-auto">
+            Frequently Asked Questions – Aviation, Hospitality &amp; Travel Management Training
+          </h2>
+          <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500">
+            Got questions? We have answers. Still confused? Speak to our counselor in 60 seconds.
+          </p>
+
+          <div className="mt-10 space-y-3.5 text-left">
+            {faqItems.map((faq, index) => (
+              <details
+                key={faq.question}
+                open={index === 0}
+                className="group rounded-[18px] border border-slate-100/90 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-200"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 sm:p-5 text-sm font-extrabold text-[#11223f] select-none">
+                  <span className="flex items-center gap-3.5">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f0f4fd] text-xs font-bold text-[#2563eb] group-open:bg-[#183a7d] group-open:text-white transition-colors">
+                      {index + 1}
+                    </span>
+                    <span className="group-open:text-[#183a7d] transition-colors">{faq.question}</span>
+                  </span>
+                  <svg
+                    className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </summary>
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+                  <div className="rounded-xl border-l-4 border-[#183a7d] bg-[#f8fafc] p-4 text-xs sm:text-sm leading-relaxed text-slate-600">
+                    {faq.answer}
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="mt-16 pt-12 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {[
+              { value: "1,200+", label: "Students Enrolled" },
+              { value: "200+", label: "Hiring Partners" },
+              { value: "90 Days", label: "Avg. Placement Time" },
+            ].map((stat) => (
+              <div key={stat.label}>
+                <div className="text-3xl sm:text-4xl font-extrabold text-[#11223f]">
+                  {stat.value}
+                </div>
+                <div className="mt-1.5 text-xs font-medium text-slate-500">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Still Have Questions Banner */}
       <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8">
         <div className="mx-auto max-w-7xl">
@@ -782,7 +853,7 @@ export default function AirHostessCabinCrew() {
                 className="rounded-full bg-white hover:bg-slate-50 text-[#183a7d] font-bold px-7 py-3 text-sm shadow-md transition-all inline-flex items-center gap-2"
               >
                 <span>Talk to Counselor Now</span>
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
@@ -790,7 +861,7 @@ export default function AirHostessCabinCrew() {
                 href="/contact#enquiry-form"
                 className="rounded-full border border-white/60 hover:bg-white/10 text-white font-bold px-7 py-3 text-sm transition-all inline-flex items-center gap-2"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                 </svg>
                 <span>Download Brochure (PDF)</span>
@@ -875,7 +946,7 @@ export default function AirHostessCabinCrew() {
               className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 shadow-sm transition-all"
               aria-label="Previous story"
             >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
               </svg>
             </button>
@@ -884,81 +955,10 @@ export default function AirHostessCabinCrew() {
               className="rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all"
             >
               <span>Next Story</span>
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </button>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-4xl text-center">
-          {/* Pill Badge */}
-          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#eff6ff] px-4 py-1.5 text-xs font-semibold text-[#2563eb] border border-[#dbeafe]">
-            <svg className="w-4 h-4 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
-            </svg>
-            <span>Common Questions Answered</span>
-          </div>
-
-          <h2 className="mt-4 text-2xl sm:text-[34px] font-extrabold text-[#11223f] leading-tight max-w-3xl mx-auto">
-            Frequently Asked Questions – Aviation, Hospitality &amp; Travel Management Training
-          </h2>
-          <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500">
-            Got questions? We have answers. Still confused? Speak to our counselor in 60 seconds.
-          </p>
-
-          <div className="mt-10 space-y-3.5 text-left">
-            {faqItems.map((faq, index) => (
-              <details
-                key={faq.question}
-                open={index === 0}
-                className="group rounded-[18px] border border-slate-100/90 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-200"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 sm:p-5 text-sm font-extrabold text-[#11223f] select-none">
-                  <span className="flex items-center gap-3.5">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f0f4fd] text-xs font-bold text-[#2563eb] group-open:bg-[#183a7d] group-open:text-white transition-colors">
-                      {index + 1}
-                    </span>
-                    <span className="group-open:text-[#183a7d] transition-colors">{faq.question}</span>
-                  </span>
-                  <svg
-                    className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                  </svg>
-                </summary>
-                <div className="px-4 pb-4 sm:px-5 sm:pb-5">
-                  <div className="rounded-xl border-l-4 border-[#183a7d] bg-[#f8fafc] p-4 text-xs sm:text-sm leading-relaxed text-slate-600">
-                    {faq.answer}
-                  </div>
-                </div>
-              </details>
-            ))}
-          </div>
-
-          {/* Bottom Stats */}
-          <div className="mt-16 pt-12 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-            {[
-              { value: "1,200+", label: "Students Enrolled" },
-              { value: "200+", label: "Hiring Partners" },
-              { value: "90 Days", label: "Avg. Placement Time" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#11223f]">
-                  {stat.value}
-                </div>
-                <div className="mt-1.5 text-xs font-medium text-slate-500">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
