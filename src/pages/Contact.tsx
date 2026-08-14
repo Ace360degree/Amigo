@@ -311,10 +311,10 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               Interactive Map
             </span>
             <h2 className="text-3xl font-outfit font-extrabold text-[#0b2f61]">
-              Find Us On Google Maps
+              Directions To Every Branch
             </h2>
             <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed">
-              Toggle the tabs below to view the interactive map location and get directions for each of our Mumbai campuses.
+              All three branches are a short walk from a railway station. Pick a branch to load its location.
             </p>
           </div>
 
@@ -382,7 +382,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
       </section>
 
       {/* Why Contact Amigo Section */}
-      <section className="w-full bg-[#5c6b7d] py-16 px-4 sm:px-6 md:px-8 border-t border-slate-500/10">
+      <section className="w-full bg-[#f4f7fa] py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="max-w-7xl mx-auto space-y-12 text-center">
 
           {/* Header Layout */}
@@ -393,16 +393,13 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             <h2 className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61] drop-shadow-sm">
               Why Contact Amigo?
             </h2>
-            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
-              Every enquiry is handled by a real counsellor who knows the courses, the branches and the hiring market.
-            </p>
           </div>
 
           {/* 3x2 Grid Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
 
             {/* Card 1: Free Career Guidance */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🧭
@@ -415,7 +412,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 2: Expert Admission Counselling */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🎓
@@ -428,7 +425,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 3: Placement Assistance */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   💼
@@ -441,7 +438,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 4: Scholarship Information */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🏅
@@ -454,7 +451,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 5: Franchise Support */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🏢
@@ -467,7 +464,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 6: Quick Response */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   ⏱️

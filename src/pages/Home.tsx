@@ -41,6 +41,13 @@ import newsImage3 from "../assets/img/newsImage3.png";
 import newsImage4 from "../assets/img/newsImage4.png";
 import newsFeatured from "../assets/img/newsFeatured.png";
 
+// Instagram Follow images
+import homecourseFollow1 from "../assets/img/homecourseFollow1.png";
+import homecourseFollow2 from "../assets/img/homecourseFollow2.png";
+import homecourseFollow3 from "../assets/img/homecourseFollow3.png";
+import homecourseFollow4 from "../assets/img/homecourseFollow4.png";
+import homecourseFollow5 from "../assets/img/homecourseFollow5.png";
+
 interface HomeProps {
   setCurrentPage?: (page: string) => void;
 }
@@ -1522,17 +1529,11 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           })}
         </div>
 
-        {/* Limited Seats Banner */}
-        <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-12">
-          <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-          </svg>
-          <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
-        </div>
+        {/* Limited Seats Banner (Moved to Latest News & Updates) */}
       </section>
 
       {/* Latest News & Updates Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
+      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20 flex flex-col items-center">
 
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1544,84 +1545,47 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           </p>
         </div>
 
-        {/* Content Layout: 2 Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
-
-          {/* Left Column: 4 Small Posts Grid (8 columns span on large screens) */}
-          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                img: newsImage1,
-                title: "Cabin Crew Job Opportunities and...",
-                desc: "Explore current airline hiring trends, career paths, and how...",
-                meta: "08 MINUTES — PLACEMENT CELL"
-              },
-              {
-                img: newsImage2,
-                title: "Inside Our Training Campus: A Day in...",
-                desc: "A look into our modern classrooms, practical sessions,...",
-                meta: "06 MINUTES — CAMPUS LIFE"
-              },
-              {
-                img: newsImage3,
-                title: "Placement Day Highlights: Landing Your",
-                desc: "See how students attend interviews and secure jobs with...",
-                meta: "05 MINUTES — HR TEAM"
-              },
-              {
-                img: newsImage4,
-                title: "Life After Training: Alumni Success Stories",
-                desc: "A glimpse into the professional lives of Amigo graduates working",
-                meta: "10 MINUTES — ALUMNI NETWORK"
-              }
-            ].map((post, idx) => (
-              <div key={idx} className="flex gap-4 items-center bg-white p-4 rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] hover:shadow-md transition-all duration-300">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0">
-                  <img
-                    src={post.img}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex flex-col text-left space-y-1">
-                  <h3 className="text-sm sm:text-base font-extrabold text-[#0f2a4a] leading-snug font-sans line-clamp-1">
-                    {post.title}
-                  </h3>
-                  <p className="text-slate-400 text-xs leading-normal font-sans line-clamp-2">
-                    {post.desc}
-                  </p>
-                  <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 tracking-wider uppercase pt-1">
-                    {post.meta}
-                  </span>
-                </div>
+        {/* 3-Card Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto items-stretch mb-12">
+          {[
+            {
+              img: newsImage1,
+              title: "Amigo Academy Hosts Aviation Career Workshop",
+              meta: "July 10, 2026 · 6 min read"
+            },
+            {
+              img: newsImage2,
+              title: "Highlights from Amigo Academy Annual Seminar 2026",
+              meta: "Aug 5, 2026 · 7 min read"
+            },
+            {
+              img: newsImage3,
+              title: "Life at Amigo Academy: Inside The Classroom",
+              meta: "Aug 12, 2026 · 8 min read"
+            }
+          ].map((post, idx) => (
+            <div key={idx} className="bg-white border border-neutral-200/60 rounded-[28px] p-5 flex flex-col space-y-4 shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-300 text-left">
+              <div className="w-full aspect-video rounded-2xl overflow-hidden bg-neutral-50">
+                <img src={post.img} alt={post.title} className="w-full h-full object-cover" />
               </div>
-            ))}
-          </div>
-
-          {/* Right Column: Featured Post Card (4 columns span on large screens) */}
-          <div className="lg:col-span-4 flex">
-            <div className="relative w-full rounded-2xl overflow-hidden flex flex-col justify-end p-6 sm:p-8 min-h-[350px] lg:min-h-none bg-slate-900 group shadow-md hover:shadow-xl transition-all duration-300">
-              {/* Background Image */}
-              <img
-                src={newsFeatured}
-                alt="Featured Post"
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              {/* Overlay Mask */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
-
-              {/* Content Overlay */}
-              <div className="relative z-10 text-left space-y-3">
-                <h3 className="text-lg sm:text-xl font-extrabold text-white leading-snug font-sans">
-                  Why 2026 Is The Best Time To Start Your Aviation Career
+              <div className="space-y-2 px-1">
+                <h3 className="font-outfit font-extrabold text-[#0f2a4a] text-[16px] sm:text-lg leading-snug">
+                  {post.title}
                 </h3>
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
-                  05 April 2026
-                </span>
+                <p className="text-slate-400 font-sans font-semibold text-xs sm:text-[13px]">
+                  {post.meta}
+                </p>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
 
+        {/* Limited Seats Banner */}
+        <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-4 max-w-fit">
+          <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+          <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
         </div>
 
       </section>
@@ -1639,10 +1603,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Instagram Grid of 5 Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto items-stretch mb-16">
           {[
-            { img: newsFeatured, type: "img" },
-            { img: newsImage1, type: "img" },
-            { img: newsImage2, type: "img" },
-            { img: newsImage3, type: "img" },
+            { img: homecourseFollow1, type: "img" },
+            { img: homecourseFollow2, type: "img" },
+            { img: homecourseFollow3, type: "img" },
+            { img: homecourseFollow4, type: "img" },
             { type: "cta" }
           ].map((item, idx) => {
             if (item.type === "img") {
@@ -1659,7 +1623,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               return (
                 <a
                   key={idx}
-                  href="instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg=="
+                  href="https://instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg=="
                   target="_blank"
                   rel="noreferrer"
                   className="aspect-square rounded-2xl bg-[#1E417A] hover:bg-[#12284C] text-white flex flex-col items-center justify-center p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer"
@@ -1705,7 +1669,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           style={{ color: "#ffffff" }}
           className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
         >
-          2026 batches are filling fast — don&rsquo;t get left behind
+          Start Your Journey from the Branch That&rsquo;s Closest to You
         </h1>
 
         {/* Subheading */}
@@ -1726,7 +1690,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 1L2 5v2h16V5l-8-4zM4 9v7H2v2h16v-2h-2V9h-2v7h-2V9h-2v7H8V9H6v7H4V9H4z" />
             </svg>
-            Maharashtra govt certified — only aviation institute in Maharashtra
+            Maharashtra Govt certified — only aviation institute in Maharashtra
           </span>
         </div>
 

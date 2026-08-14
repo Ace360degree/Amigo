@@ -61,6 +61,8 @@ export default function Scholarship() {
 
         {/* Desktop Background Image: right-0, w-[50%], hidden on mobile */}
         <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%] h-full z-0">
+          {/* Gradient overlay to blend image seamlessly into the white background on the left */}
+          <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white to-transparent z-10" />
           <img
             src={heroScholarship}
             alt="Amigo Academy Scholarship counseling session with students"
@@ -1063,6 +1065,17 @@ export default function Scholarship() {
               answer="Yes, Amigo Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane."
             />
           </div>
+
+          {/* Limited Seats Banner */}
+          <div className="flex justify-center mt-12 w-full">
+            <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 max-w-fit">
+              <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+              <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -1092,7 +1105,7 @@ export default function Scholarship() {
           style={{ color: "#ffffff" }}
           className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
         >
-          2026 batches are filling fast — don&rsquo;t get left behind
+          2026 Batches Are Filling Fast — Don&rsquo;t Get Left Behind
         </h1>
 
         {/* Subheading */}
