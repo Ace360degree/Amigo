@@ -59,9 +59,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
         <div className="flex items-center space-x-4">
           {/* Index Circle Indicator */}
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${
-              isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
-            }`}
+            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
+              }`}
           >
             {index}
           </div>
@@ -70,9 +69,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
           </span>
         </div>
         <svg
-          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -82,9 +80,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
         </svg>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-6 pb-6 pt-2">
           <div className="border-l-2 border-[#0b2f61] pl-4 py-1">
@@ -428,7 +425,7 @@ export default function Placement() {
               Where Our Students Are Working Today
             </h2>
             <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] max-w-xl mx-auto leading-relaxed">
-              Each placement below is a named Amigoz Academy student, shared with their consent — with branch, employer, role and year.
+              Each placement below is a named Amigo Academy student, shared with their consent — with branch, employer, role and year.
             </p>
           </div>
 
@@ -531,7 +528,7 @@ export default function Placement() {
         </div>
 
         <p className="text-[10px] sm:text-xs text-neutral-400 font-medium max-w-2xl text-center leading-relaxed mt-4">
-          Company names are listed as employers where Amigoz Academy students have been placed or where hiring drives are conducted. All trademarks belong to their respective owners.
+          Company names are listed as employers where Amigo Academy students have been placed or where hiring drives are conducted. All trademarks belong to their respective owners.
         </p>
       </section>
 
@@ -540,7 +537,7 @@ export default function Placement() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col items-center space-y-12">
           <div className="text-center space-y-4">
             <span className="inline-block bg-amber-50 text-amber-800 text-[10px] font-extrabold uppercase px-4 py-1.5 rounded-full tracking-wider border border-amber-200/40">
-              The Amigoz Path
+              The Amigo Path
             </span>
             <h2 className="text-3xl sm:text-[38px] font-outfit font-black text-[#0b2f61] leading-tight">
               Your Placement Journey, Step By Step

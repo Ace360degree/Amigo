@@ -304,7 +304,7 @@ const storyCards: StoryCard[] = [
     role: "Cabin Crew Executive",
     company: "Air Asia 2025",
     quote:
-      "\"Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.\"",
+      "\"Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.\"",
     image: coursesVideo1a,
   },
   {

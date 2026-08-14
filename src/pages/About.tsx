@@ -366,7 +366,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                   }
                 }
               `}</style>
-              
+
               <div className="marquee-container-mobile">
                 {/* First Set of Logos */}
                 <div className="flex items-center justify-between gap-8 md:gap-0 w-full shrink-0">
@@ -401,7 +401,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
-                
+
                 {/* Duplicate Set of Logos for Mobile Marquee Loop */}
                 <div className="flex md:hidden items-center gap-10 shrink-0">
                   <img
@@ -470,7 +470,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             <h3 className="text-3xl text-white font-outfit font-extrabold tracking-tight">Mission</h3>
             <div className="space-y-4 font-sans text-xs sm:text-[13px] leading-relaxed text-neutral-300 font-semibold">
               <p>
-                At Amigoz Academy, our mission is to empower students with the skills, confidence, and professionalism required to succeed in competitive industries — nationally and globally.
+                At Amigo Academy, our mission is to empower students with the skills, confidence, and professionalism required to succeed in competitive industries — nationally and globally.
               </p>
               <p>
                 Through continuous innovation, expert mentorship, and outcome-driven training, we aim to create a workforce that is skilled, confident, and future-ready.
@@ -486,7 +486,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                 As industries evolve, so do career aspirations.
               </li>
               <li>
-                Recognizing this shift, Amigoz Academy has strategically expanded into high-growth career verticals, while maintaining a unified training philosophy and brand identity.
+                Recognizing this shift, Amigo Academy has strategically expanded into high-growth career verticals, while maintaining a unified training philosophy and brand identity.
               </li>
             </ul>
           </div>
@@ -603,7 +603,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               name: "Jasmine Soni",
               role: "Cabin Crew Emirates",
               batch: "Aviation Batch 2023",
-              quote: "Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
+              quote: "Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
               videoImg: Student1,
               avatarImg: Studentpf1,
               badge: "SELECTED FOR INDIGO",

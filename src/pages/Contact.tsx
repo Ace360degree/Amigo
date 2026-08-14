@@ -118,10 +118,10 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               </div>
               <div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Email</h4>
-                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">admissions@amigozacademy.com</p>
+                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">info@amigoacademy.in</p>
               </div>
             </div>
-            <a href="mailto:admissions@amigozacademy.com" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
+            <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
               Send Email
             </a>
           </div>
@@ -422,7 +422,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Expert Admission Counselling</h4>
                 <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Get clear answers on eligibility, batch dates, fees and documents for every Amigoz program.
+                  Get clear answers on eligibility, batch dates, fees and documents for every Amigo program.
                 </p>
               </div>
             </div>

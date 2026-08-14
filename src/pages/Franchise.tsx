@@ -959,7 +959,7 @@ export default function Franchise() {
                                 {/* Message */}
                                 <div className="space-y-2 mt-2">
                                     <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Message</label>
-                                    <textarea rows={4} placeholder="Tell us about your background and why you want to partner with Amigoz Academy." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white resize-none"></textarea>
+                                    <textarea rows={4} placeholder="Tell us about your background and why you want to partner with Amigo Academy." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white resize-none"></textarea>
                                 </div>
 
                                 {/* Submit Button */}

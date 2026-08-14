@@ -17,9 +17,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
         <div className="flex items-center space-x-4">
           {/* Index Circle Indicator */}
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${
-              isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
-            }`}
+            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
+              }`}
           >
             {index}
           </div>
@@ -28,9 +27,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
           </span>
         </div>
         <svg
-          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -40,9 +38,8 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
         </svg>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-6 pb-6 pt-2">
           <div className="border-l-2 border-[#0b2f61] pl-4 py-1">
@@ -817,7 +814,7 @@ export default function Scholarship() {
               Students Who Studied With Scholarship Support
             </h2>
             <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed max-w-xl font-semibold">
-              Real Amigoz Academy students who used scholarships and zero-interest EMI to start their careers.
+              Real Amigo Academy students who used scholarships and zero-interest EMI to start their careers.
             </p>
           </div>
 
@@ -1062,8 +1059,8 @@ export default function Scholarship() {
             />
             <FAQItem
               index={5}
-              question="Is Amigoz Academy certified?"
-              answer="Yes, Amigoz Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane."
+              question="Is Amigo Academy certified?"
+              answer="Yes, Amigo Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane."
             />
           </div>
         </div>

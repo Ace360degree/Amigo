@@ -925,7 +925,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             Trusted by 820+ Students on Google
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
-            Real reviews from trainees who built their careers with Amigoz Academy
+            Real reviews from trainees who built their careers with Amigo Academy
           </p>
         </div>
 
@@ -951,7 +951,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <span className="text-[#0f2a4a] text-xs font-bold font-sans">
-                  Amigoz Academy Courses
+                  Amigo Academy Courses
                 </span>
               </div>
 
@@ -975,7 +975,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             </div>
 
             <button
-              onClick={() => window.open("https://www.google.com/search?q=Amigoz+Academy", "_blank")}
+              onClick={() => window.open("https://www.google.com/search?q=Amigo+Academy", "_blank")}
               className="w-full bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm py-3.5 rounded-full mt-8 flex items-center justify-center gap-2 group transition-all shadow-sm hover:shadow active:scale-95"
             >
               View all reviews on Google
@@ -1050,7 +1050,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             {
               name: "Swati Patil",
               stars: 5,
-              text: "I am really thankful to Amigoz Academy for reshaping my career. Their communication classes really boosted my confidence.",
+              text: "I am really thankful to Amigo Academy for reshaping my career. Their communication classes really boosted my confidence.",
               role: "Ground Staff",
               airline: "Akasa Air",
               batch: "Batch 2024",
@@ -1169,7 +1169,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               name: "Jasmine Soni",
               role: "Cabin Crew Emirates",
               batch: "Aviation Batch 2023",
-              quote: "Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
+              quote: "Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
               videoImg: Student1,
               avatarImg: Studentpf1,
               badge: "SELECTED FOR INDIGO",
@@ -1420,7 +1420,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             Our Students Work With
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
-            Elite global brands that trust Amigoz graduates for their workforce needs.
+            Elite global brands that trust Amigo graduates for their workforce needs.
           </p>
         </div>
 
@@ -1471,7 +1471,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             },
             {
               q: "Which is the best air hostess course in Mumbai with placement support.",
-              a: "Amigoz Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
+              a: "Amigo Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
             },
             {
               q: "Best AI and Data Science course in Mumbai after 12th.",
@@ -1571,7 +1571,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {
                 img: newsImage4,
                 title: "Life After Training: Alumni Success Stories",
-                desc: "A glimpse into the professional lives of Amigoz graduates working",
+                desc: "A glimpse into the professional lives of Amigo graduates working",
                 meta: "10 MINUTES — ALUMNI NETWORK"
               }
             ].map((post, idx) => (
@@ -1659,7 +1659,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               return (
                 <a
                   key={idx}
-                  href="https://instagram.com/amigozacademy"
+                  href="instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg=="
                   target="_blank"
                   rel="noreferrer"
                   className="aspect-square rounded-2xl bg-[#1E417A] hover:bg-[#12284C] text-white flex flex-col items-center justify-center p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer"
@@ -1668,7 +1668,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499c.15-.427.76-.427.91 0l1.838 5.234 5.589.444c.456.036.638.6.291.902l-4.223 3.666 1.34 5.378c.11.442-.38.8-.755.536l-4.877-3.487-4.878 3.487c-.374.264-.866-.094-.755-.536l1.34-5.378-4.223-3.666c-.347-.302-.165-.866.291-.902l5.589-.444 1.838-5.234z" />
                   </svg>
                   <span className="text-[10px] sm:text-xs font-sans font-extrabold tracking-wide uppercase">
-                    @amigozacademy
+                    @amigoacademy
                   </span>
                 </a>
               );

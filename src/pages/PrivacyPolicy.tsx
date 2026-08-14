@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
         <div className="flex flex-col bg-white">
             <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
+
                     {/* Header */}
                     <div className="mb-12 lg:mb-16">
                         <div className="flex items-center text-sm font-bold text-slate-400 mb-6 font-sans">
@@ -25,14 +25,14 @@ export default function PrivacyPolicy() {
 
                     {/* Content Body */}
                     <div className="font-sans text-slate-600 text-[15px] sm:text-base leading-[1.8] space-y-12 lg:space-y-16">
-                        
+
                         {/* Section 1 */}
                         <div>
                             <h2 className="text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight">
                                 1. Introduction
                             </h2>
                             <p className="mb-4">
-                                Amigoz Academy ("we", "us", "our" or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+                                Amigo Academy ("we", "us", "our" or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
                             </p>
                             <p>
                                 Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our Services.
@@ -145,7 +145,7 @@ export default function PrivacyPolicy() {
                                 <li>Request information about data we hold about you</li>
                             </ul>
                             <p>
-                                To exercise these rights, please contact us at <a href="mailto:privacy@amigozacademy.com" className="text-[#e31e24] hover:underline">privacy@amigozacademy.com</a>.
+                                To exercise these rights, please contact us at <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:underline">info@amigoacademy.in</a>.
                             </p>
                         </div>
 
@@ -188,7 +188,7 @@ export default function PrivacyPolicy() {
                                 If you have questions about this Privacy Policy or our privacy practices, please contact us:
                             </p>
                             <div className="space-y-3 font-medium text-slate-700">
-                                <p className="font-bold text-[#1c355e]">Amigoz Academy</p>
+                                <p className="font-bold text-[#1c355e]">Amigo Academy</p>
                                 <p>Email: <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:underline font-normal">info@amigoacademy.in</a></p>
                                 <p>Phone: <span className="text-[#e31e24] font-normal">+919987588932</span></p>
                             </div>
