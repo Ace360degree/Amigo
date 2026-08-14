@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import heroImage from "../assets/img/brancheshero1a.png";
+import branchesMobileHero from "../assets/img/branches/branches-main-mobile.png";
 import branchesIllustration from "../assets/img/branches2a.png";
 import branchImage1 from "../assets/img/branchesimg1a.png";
 import branchImage2 from "../assets/img/branchesimg2a.png";
@@ -144,7 +145,8 @@ export default function Branches() {
   return (
     <div className="bg-white text-neutral-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
+      {/* Desktop Hero View */}
+      <section className="hidden sm:flex relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
         <div className="absolute inset-0">
           <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
             <img
@@ -154,7 +156,6 @@ export default function Branches() {
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 sm:px-8 md:px-12 py-6 lg:py-10">
@@ -177,6 +178,41 @@ export default function Branches() {
               >
                 <span>Find Your Nearest Branch</span>
                 <span className="text-sm font-bold">➔</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile Hero View matching screenshot */}
+      <section className="sm:hidden relative w-full bg-white overflow-hidden border-b border-neutral-100">
+        <div className="relative w-full h-[520px] overflow-hidden">
+          {/* Background Image without gradient overlay */}
+          <img
+            src={branchesMobileHero}
+            alt="Find an Amigo Academy Branch Near You"
+            className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+          />
+
+          {/* Text Content overlay matching screenshot */}
+          <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+              Find an Amigo<br />
+              Academy Branch<br />
+              Near You
+            </h1>
+
+            <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
+              With three branches across Mumbai— Ghatkopar, Andheri, and Thane— Amigo Academy makes career-focused education more accessible, with the same practical training, placement support, and career guidance at every location.
+            </p>
+
+            <div>
+              <a
+                href="#branch-grid"
+                className="inline-flex items-center justify-between gap-3 bg-[#e02607] hover:bg-[#c81e04] text-white font-bold text-[13.5px] px-5 py-3 rounded-full shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                <span>Find Your Nearest Branch</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-white text-xs font-extrabold">➔</span>
               </a>
             </div>
           </div>

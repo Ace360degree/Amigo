@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import thaneHero from "../assets/img/branches/Thane-hero.png";
+import thaneHeroMobile from "../assets/img/branches/Thane-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
 import course2 from "../assets/img/branches/2.png";
 import course3 from "../assets/img/branches/3.png";
@@ -93,7 +94,8 @@ export default function ThaneBranch() {
     <div className="flex flex-col bg-white">
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[620px] lg:h-[660px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
+      {/* Desktop Hero View */}
+      <section className="hidden sm:flex relative w-full min-h-[620px] lg:h-[660px] bg-white items-center overflow-hidden border-b border-neutral-100">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-y-0 right-0 w-full lg:w-[56%] h-full">
             <img
@@ -105,7 +107,6 @@ export default function ThaneBranch() {
             <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-45% md:via-48% lg:via-46% to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden z-10 pointer-events-none" />
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
@@ -123,6 +124,40 @@ export default function ThaneBranch() {
               >
                 Visit the Thane Branch
                 <span className="font-bold">&nbsp;&#10132;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile Hero View matching screenshot */}
+      <section className="sm:hidden relative w-full bg-white overflow-hidden border-b border-neutral-100">
+        <div className="relative w-full h-[530px] overflow-hidden">
+          {/* Background Image without gradient overlay */}
+          <img
+            src={thaneHeroMobile}
+            alt="Amigo Academy Thane Branch"
+            className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+          />
+
+          {/* Text Content overlay matching screenshot */}
+          <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+              Amigo Academy<br />
+              Thane Branch
+            </h1>
+
+            <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
+              Located in the heart of Thane, the Amigo Academy Thane Branch gives students convenient access to career-focused training in aviation and technology. With practical learning, dedicated placement support, and honest career guidance, we help students take confident steps towards successful careers.
+            </p>
+
+            <div>
+              <button
+                onClick={handleCTA}
+                className="inline-flex items-center justify-between gap-3 bg-[#e02607] hover:bg-[#c81e04] text-white font-bold text-[13.5px] px-5 py-3 rounded-full shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                <span>Visit the Thane Branch</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-white text-xs font-extrabold">➔</span>
               </button>
             </div>
           </div>
