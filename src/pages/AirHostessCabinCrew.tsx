@@ -387,19 +387,18 @@ export default function AirHostessCabinCrew() {
       {/* Mobile Hero View matching screenshot */}
       <section className="sm:hidden w-full bg-[#f8fafc] border-b border-neutral-200/50">
         {/* Top Hero Banner */}
-        <div className="relative w-full h-[440px] overflow-hidden">
+        <div className="relative w-full h-[420px] overflow-hidden bg-[#f1f5f9]">
           <img
             src={airHostessMobileHero}
             alt="Air Hostess / Cabin Crew & Hospitality Management"
             className="h-full w-full object-cover object-[right_top]"
           />
-          {/* Top Left Gradient for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 via-50% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/10" />
+          {/* Crisp Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-55% to-transparent z-0" />
 
           {/* Hero Content Overlay */}
-          <div className="relative z-10 px-5 pt-8 pb-6 flex flex-col justify-center h-full max-w-[280px]">
-            <h1 className="text-[26px] font-extrabold text-[#17365d] leading-[1.18] tracking-tight">
+          <div className="relative z-10 px-5 pt-6 pb-6 flex flex-col justify-center h-full max-w-[280px]">
+            <h1 className="text-[26px] font-extrabold text-[#112a46] leading-[1.18] tracking-tight">
               Air Hostess /<br />
               Cabin Crew &amp;<br />
               Hospitality<br />
@@ -407,11 +406,11 @@ export default function AirHostessCabinCrew() {
             </h1>
 
             <ul className="mt-5 space-y-2 text-[13px] font-bold">
-              <li className="flex items-center gap-2 text-[#17365d]">
-                <span className="text-slate-400 font-bold">•</span> 12 Months
+              <li className="flex items-center gap-2 text-[#112a46]">
+                <span className="text-[#112a46] font-bold">•</span> 12 Months
               </li>
-              <li className="flex items-center gap-2 text-[#17365d]">
-                <span className="text-slate-400 font-bold">•</span> Certificate Program
+              <li className="flex items-center gap-2 text-[#112a46]">
+                <span className="text-[#112a46] font-bold">•</span> Certificate Program
               </li>
               <li className="flex items-center gap-2 text-[#e31e24]">
                 <span className="text-[#e31e24] font-bold">•</span> Practical Training
@@ -421,72 +420,84 @@ export default function AirHostessCabinCrew() {
         </div>
 
         {/* Course Overview below Hero Banner on Mobile */}
-        <div className="bg-white px-5 py-7">
+        <div className="bg-white px-5 py-7 border-b border-slate-100">
           <h2 className="text-[19px] font-extrabold text-[#17365d] mb-5">
             Course Overview
           </h2>
 
           <div className="space-y-4 text-xs">
             {/* Batch */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
-              </svg>
-              <span className="font-semibold text-slate-700">Next Batch Starting:</span>
-              <span className="text-[#17365d] font-medium ml-auto">July 2026</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+                </svg>
+                <span className="font-semibold text-slate-700">Next Batch Starting:</span>
+              </div>
+              <span className="text-[#17365d] font-medium">July 2026</span>
             </div>
 
             {/* Timing */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="font-semibold text-slate-700">Timing:</span>
-              <span className="text-[#17365d] font-bold ml-auto">Morning / Afternoon / Evening</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Timing:</span>
+              </div>
+              <span className="text-[#17365d] font-bold">Morning / Afternoon / Evening</span>
             </div>
 
             {/* Our Branches */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-              <span className="font-semibold text-slate-700">Our Branches:</span>
-              <span className="text-[#17365d] font-medium ml-auto">Ghatkopar, Andheri &amp; Thane</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Our Branches:</span>
+              </div>
+              <span className="text-[#17365d] font-medium text-right">Ghatkopar, Andheri &amp; Thane</span>
             </div>
 
             {/* Age */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-              </svg>
-              <span className="font-semibold text-slate-700">Age:</span>
-              <span className="text-[#17365d] font-medium ml-auto">17 to 24 Years</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Age:</span>
+              </div>
+              <span className="text-[#17365d] font-medium">17 to 24 Years</span>
             </div>
 
             {/* Duration */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-              </svg>
-              <span className="font-semibold text-slate-700">Duration:</span>
-              <span className="text-[#17365d] font-medium ml-auto">12 Months (5 Days/Week, 2 Hours/Day)</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Duration:</span>
+              </div>
+              <span className="text-[#17365d] font-medium text-right">12 Months (5 Days/Week, 2 Hours/Day)</span>
             </div>
 
             {/* Eligibility */}
-            <div className="flex items-center gap-3 text-[#42526a]">
-              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span className="font-semibold text-slate-700">Eligibility:</span>
-              <span className="text-[#17365d] font-medium ml-auto">12th Pass</span>
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Eligibility:</span>
+              </div>
+              <span className="text-[#17365d] font-medium">12th Pass</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Course Highlights Section */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 -mt-10 sm:-mt-14 relative z-10 pb-16">
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mt-8 sm:-mt-14 relative z-10 pb-16">
         <div className="rounded-[32px] bg-white border border-slate-100 shadow-[0_15px_45px_rgba(0,0,0,0.06)] p-6 sm:p-10 md:p-12">
           <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#112a46] text-center mb-8 sm:mb-10">
             Course Highlights
