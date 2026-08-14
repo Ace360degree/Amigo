@@ -8,64 +8,48 @@ interface ContactProps {
 export default function Contact({ setCurrentPage }: ContactProps = {}) {
   return (
     <div className="flex flex-col">
-      {/* Hero Section styled to match the visual image (Full width with fade transition) */}
-      <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:h-[520px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
+      <section className="overflow-hidden bg-white border-b border-neutral-100">
+        <div className="grid w-full lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="order-2 lg:order-1 px-4 sm:px-6 md:px-8 lg:pl-[180px] xl:pl-[340px] lg:pr-8 py-4 sm:py-8 lg:py-14 flex items-center">
+              <div className="max-w-none sm:max-w-[540px] lg:max-w-[640px]">
+                <div className="mb-4 text-[10px] sm:text-xs font-semibold text-[#8c8c8c]">
+                  Home &nbsp; &gt; &nbsp;
+                  <span className="text-[#e31e24]">Contact</span>
+                </div>
 
-        {/* Desktop Background Image on the right with white fade to the left */}
-        <div className="hidden lg:block absolute inset-0 z-0">
-          <div className="absolute inset-y-0 right-0 w-[50%] h-full z-0">
-            <img
-              src={heroContact}
-              alt="Contact Amigo Academy Office counseling"
-              className="w-full h-full object-cover object-center lg:object-left-top"
-            />
-            {/* Soft subtle lighting overlay on top of image */}
-            <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
-          </div>
+                <h1 className="text-[1.65rem] sm:text-5xl lg:text-[58px] font-extrabold tracking-tight text-[#18304f] leading-[1.04] sm:leading-[1.05] max-w-[13ch] sm:max-w-none">
+                  Contact <span className="text-[#f6a619]">Amigo Academy</span>
+                </h1>
 
-          {/* Fading White Mask layer overlaying from Left to Right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-40% md:via-45% lg:via-35% to-white/0 z-10" />
-        </div>
+                <p className="mt-2 sm:mt-4 max-w-[430px] text-[11px] sm:text-sm font-medium leading-[1.7] text-slate-700">
+                  Have a question about courses, admissions, placements, or a
+                  franchise? Reach us directly by phone, WhatsApp, enquiry
+                  form, or visit any of our three Mumbai branches. We believe
+                  in honest guidance, without any pressure.
+                </p>
 
-        {/* Mobile Background Image Container */}
-        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
-          <img
-            src={new URL("../assets/img/mobileherocontant.png", import.meta.url).href}
-            alt="Contact Amigo Academy Mobile"
-            className="w-full h-full object-cover object-[right_center]"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        </div>
-
-        {/* Content Container aligned exactly over the fade mask */}
-        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 z-25 py-12 lg:py-0">
-          <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl md:max-w-2xl text-left flex flex-col space-y-4 md:space-y-7">
-
-            {/* Main Headline */}
-            <h1 className="text-xl sm:text-3xl lg:text-[52px] font-outfit font-extrabold tracking-tight text-[#11243e] leading-[1.2] lg:leading-[1.12] drop-shadow-sm">
-              Contact <span className="text-[#f6a619]"><br />Amigo Academy</span>
-            </h1>
-
-            {/* Description Text */}
-            <p className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-medium max-w-md md:max-w-lg">
-              Have a question about courses, admissions, placements, or a franchise? Reach us directly by phone, WhatsApp, enquiry form, or visit any of our three Mumbai branches. We believe in honest guidance, without any pressure.
-            </p>
-
-            {/* Red Button with Shadow and Arrow Icon */}
-            <div className="pt-1">
-              <a
-                href="#enquiry-form"
-                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group focus:outline-none whitespace-nowrap"
-              >
-                Contact Now
-                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
-              </a>
+                <div className="mt-4 sm:mt-7">
+                  <a
+                    href="#enquiry-form"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#e31e24] px-6 sm:px-8 py-3 text-[11px] sm:text-sm font-bold text-white shadow-[0_10px_22px_rgba(227,30,36,0.22)] transition-all duration-300 hover:bg-[#c2141a] active:scale-95"
+                  >
+                    Contact Now
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
             </div>
 
+            <div className="relative order-1 lg:order-2 min-h-[240px] sm:min-h-[340px] lg:min-h-[520px] overflow-hidden bg-white w-full">
+              <img
+                src={heroContact}
+                alt="Contact Amigo Academy Office counseling"
+                className="absolute inset-0 h-full w-full object-cover object-[center_35%]"
+              />
+              <div className="absolute inset-y-0 left-0 w-[42%] bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.95)_22%,rgba(255,255,255,0.72)_46%,rgba(255,255,255,0.18)_78%,rgba(255,255,255,0)_100%)] pointer-events-none" />
+              <div className="absolute inset-x-0 bottom-0 h-20 sm:h-28 bg-gradient-to-b from-transparent via-white/10 to-white pointer-events-none" />
+            </div>
           </div>
-        </div>
       </section>
 
       {/* Quick Contact Cards Section matching the screenshot */}
@@ -118,10 +102,10 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               </div>
               <div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Email</h4>
-                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">info@amigoacademy.in</p>
+                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">admissions@amigozacademy.com</p>
               </div>
             </div>
-            <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
+            <a href="mailto:admissions@amigozacademy.com" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
               Send Email
             </a>
           </div>
@@ -311,10 +295,10 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               Interactive Map
             </span>
             <h2 className="text-3xl font-outfit font-extrabold text-[#0b2f61]">
-              Directions To Every Branch
+              Find Us On Google Maps
             </h2>
             <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed">
-              All three branches are a short walk from a railway station. Pick a branch to load its location.
+              Toggle the tabs below to view the interactive map location and get directions for each of our Mumbai campuses.
             </p>
           </div>
 
@@ -382,7 +366,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
       </section>
 
       {/* Why Contact Amigo Section */}
-      <section className="w-full bg-[#f4f7fa] py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      <section className="w-full bg-[#5c6b7d] py-16 px-4 sm:px-6 md:px-8 border-t border-slate-500/10">
         <div className="max-w-7xl mx-auto space-y-12 text-center">
 
           {/* Header Layout */}
@@ -393,13 +377,16 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             <h2 className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61] drop-shadow-sm">
               Why Contact Amigo?
             </h2>
+            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
+              Every enquiry is handled by a real counsellor who knows the courses, the branches and the hiring market.
+            </p>
           </div>
 
           {/* 3x2 Grid Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
 
             {/* Card 1: Free Career Guidance */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🧭
@@ -412,20 +399,20 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 2: Expert Admission Counselling */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🎓
                 </div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Expert Admission Counselling</h4>
                 <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Get clear answers on eligibility, batch dates, fees and documents for every Amigo program.
+                  Get clear answers on eligibility, batch dates, fees and documents for every Amigoz program.
                 </p>
               </div>
             </div>
 
             {/* Card 3: Placement Assistance */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   💼
@@ -438,7 +425,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 4: Scholarship Information */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🏅
@@ -451,7 +438,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 5: Franchise Support */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   🏢
@@ -464,7 +451,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             </div>
 
             {/* Card 6: Quick Response */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100/60 min-h-[180px]">
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start shadow-sm border border-neutral-100 min-h-[180px]">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-full bg-[#fdf3e7] flex items-center justify-center text-[#7c5529] text-xs">
                   ⏱️
@@ -830,8 +817,9 @@ function FaqAccordion() {
         return (
           <div
             key={index}
-            className={`bg-white shadow-[0_2px_10px_rgba(11,47,97,0.03)] border border-[#e2e8f0]/85 transition-all duration-300 ${isOpen ? "rounded-[22px]" : "rounded-full"
-              }`}
+            className={`bg-white shadow-[0_2px_10px_rgba(11,47,97,0.03)] border border-[#e2e8f0]/85 transition-all duration-300 ${
+              isOpen ? "rounded-[22px]" : "rounded-full"
+            }`}
           >
             {/* Accordion header button */}
             <button
@@ -842,8 +830,9 @@ function FaqAccordion() {
                 {faq.question}
               </span>
               <span
-                className={`text-neutral-400 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-                  }`}
+                className={`text-neutral-400 transition-transform duration-300 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
               >
                 <svg
                   className="w-4 h-4 text-neutral-400 group-hover:text-[#0b2f61] transition-colors"
@@ -859,8 +848,9 @@ function FaqAccordion() {
 
             {/* Accordion content body */}
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[280px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
-                }`}
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                isOpen ? "max-h-[280px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
+              }`}
             >
               <div className="px-7 py-4 text-[12.5px] text-neutral-500 font-semibold leading-relaxed text-left">
                 {faq.answer}

@@ -116,7 +116,7 @@ export default function Gallery() {
             </section>
 
             {/* Glimpse Section */}
-            <section className="py-20 lg:py-28 bg-[#fafafa]">
+            <section className="py-16 sm:py-20 lg:py-28 bg-[#fafafa]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Header */}
@@ -189,35 +189,35 @@ export default function Gallery() {
                     </div>
 
                     {/* Photo Grid - 4 column grid with variable spans */}
-                    <div className="grid grid-cols-4 gap-3 md:gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
 
                         {/* Row 1: wide | narrow | narrow */}
-                        <div className="col-span-2 overflow-hidden rounded-xl">
+                        <div className="sm:col-span-2 overflow-hidden rounded-xl">
                             <img src={group1} alt="Gallery 1" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group2} alt="Gallery 2" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group3} alt="Gallery 3" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
 
                         {/* Row 2: narrow | wide | narrow */}
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group4} alt="Gallery 4" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
-                        <div className="col-span-2 overflow-hidden rounded-xl">
+                        <div className="sm:col-span-2 overflow-hidden rounded-xl">
                             <img src={group5} alt="Gallery 5" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group6} alt="Gallery 6" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
 
                         {/* Row 3: equal single columns */}
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group7} alt="Gallery 7" className="w-full h-52 md:h-64 object-cover hover:scale-105 transition-transform duration-500" />
                         </div>
-                        <div className="col-span-1 overflow-hidden rounded-xl">
+                        <div className="overflow-hidden rounded-xl">
                             <img src={group8} alt="Gallery 8" className="w-full h-52 md:h-64 object-cover object-center hover:scale-105 transition-transform duration-500" />
                         </div>
 
@@ -227,7 +227,7 @@ export default function Gallery() {
             </section>
 
             {/* Banner Section */}
-            <section className="py-16 lg:py-24 bg-white">
+            <section className="py-14 sm:py-16 lg:py-24 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-[#fdf8f0] rounded-3xl overflow-hidden flex flex-col lg:flex-row items-stretch shadow-sm border border-amber-100">
 
@@ -236,12 +236,12 @@ export default function Gallery() {
                             <img
                                 src={bannerImg}
                                 alt="Amigo Academy Branch"
-                                className="w-full h-64 lg:h-full object-cover"
+                                className="w-full h-56 sm:h-64 lg:h-full object-cover"
                             />
                         </div>
 
                         {/* Right: Content */}
-                        <div className="flex-1 flex flex-col justify-center px-8 py-12 lg:px-12 lg:py-14">
+                        <div className="flex-1 flex flex-col justify-center px-5 sm:px-8 py-10 sm:py-12 lg:px-12 lg:py-14">
                             <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#0f2a4a] leading-tight mb-5 font-sans">
                                 Experience Amigo Academy<br className="hidden lg:block" /> Before You Visit
                             </h2>

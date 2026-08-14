@@ -13,6 +13,7 @@ import CareerGuides from "./pages/CareerGuides";
 import CabinCrew from "./pages/CabinCrew";
 import AirportGroundStaff from "./pages/AirportGroundStaff";
 import AiDataScience from "./pages/AiDataScience";
+import AiDataScienceGenerative from "./pages/AiDataScienceGenerative";
 import AndheriBranch from "./pages/AndheriBranch";
 import ThaneBranch from "./pages/ThaneBranch";
 import GhatkoparBranch from "./pages/GhatkoparBranch";
@@ -67,9 +68,8 @@ function App() {
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/air-hostess-cabin-crew-hospitality-management" element={<AirHostessCabinCrew />} />
           <Route path="/courses/airport-ground-staff-hospitality-management" element={<AirportGroundStaff />} />
-          <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
+          <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScienceGenerative />} />
           <Route path="/branches" element={<Branches />} />
-          {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>

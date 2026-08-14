@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heroCrew from "../assets/img/hero-crew.png";
-import mobileHeroMain from "../assets/img/mobileheromain.png";
-import courseCabin from "../assets/img/course-cabiny1.png";
-import courseGround from "../assets/img/course-groundy1.png";
-import courseAi from "../assets/img/course-aiy1.png";
+import courseCabin from "../assets/img/course-cabin.png";
+import courseGround from "../assets/img/course-ground.png";
+import courseAi from "../assets/img/course-ai.png";
 import differentClassroom from "../assets/img/different-classroom.png";
 
 // Student Success Stories images
@@ -18,14 +17,6 @@ import Student4 from "../assets/img/Student4.png";
 import Studentpf4 from "../assets/img/Studentpf4.png";
 import Student5 from "../assets/img/Student5.png";
 import Studentpf5 from "../assets/img/Studentpf5.png";
-
-// Main Page profile images
-import profileimgmainy1 from "../assets/img/profileimgmainy1.png";
-import profileimgmainy2 from "../assets/img/profileimgmainy2.png";
-import profileimgmainy3 from "../assets/img/profileimgmainy3.png";
-import profileimgmainy4 from "../assets/img/profileimgmainy4.png";
-import profileimgmainy5 from "../assets/img/profileimgmainy5.png";
-import profileimgmainy6 from "../assets/img/profileimgmainy6.png";
 
 // Airline brand logo images
 import brandAirIndia from "../assets/img/brandAirIndia.png";
@@ -41,19 +32,11 @@ import newsImage3 from "../assets/img/newsImage3.png";
 import newsImage4 from "../assets/img/newsImage4.png";
 import newsFeatured from "../assets/img/newsFeatured.png";
 
-// Instagram Follow images
-import homecourseFollow1 from "../assets/img/homecourseFollow1.png";
-import homecourseFollow2 from "../assets/img/homecourseFollow2.png";
-import homecourseFollow3 from "../assets/img/homecourseFollow3.png";
-import homecourseFollow4 from "../assets/img/homecourseFollow4.png";
-import homecourseFollow5 from "../assets/img/homecourseFollow5.png";
-
 interface HomeProps {
   setCurrentPage?: (page: string) => void;
 }
 
 export default function Home({ setCurrentPage }: HomeProps = {}) {
-  const navigate = useNavigate();
   // Form states
   const [mobileNumber, setMobileNumber] = useState("");
   const [fullName, setFullName] = useState("");
@@ -94,10 +77,11 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
     <div className="relative bg-neutral-50">
 
       {/* Hero Section Container */}
-      <section className="relative w-full min-h-[380px] sm:min-h-[450px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
+      <section className="relative w-full min-h-[440px] sm:min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
 
-        {/* Desktop Background: right-0, w-3/5, object-center */}
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
+        {/* Right Background Image Container (Visible on large screens, faded behind overlay) */}
+        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 h-full z-0">
+          {/* Faded background image */}
           <img
             src={heroCrew}
             alt="Amigo Academy Aviation Classroom"
@@ -105,55 +89,39 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           />
         </div>
 
-        {/* Mobile Background: w-full, height is 100%, with linear gradient overlay */}
-        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
-          <img
-            src={mobileHeroMain}
-            alt="Amigo Academy Aviation Classroom Mobile"
-            className="w-full h-full object-cover object-right"
-          />
-          {/* Gradient overlay to fade left side into white */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-35% to-transparent z-10" />
-        </div>
-
         {/* Content Area */}
-        <div className="max-w-7xl mx-auto w-full px-6 pt-8 pb-20 sm:pb-28 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-10 sm:pt-12 pb-20 sm:pb-28 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
 
           {/* Left Column: Heading and Text */}
-          <div className="lg:col-span-6 flex flex-col space-y-4 sm:space-y-6 text-left items-start justify-center">
+          <div className="lg:col-span-6 flex flex-col space-y-4 sm:space-y-6 text-left items-start justify-center max-w-xl">
 
-            <h1 className="text-[22px] sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
-              Your Aviation Dream
-              <br />
-              <span className="block mt-2 lg:mt-3 text-[#e9ad36]">Starts Here</span>
+            <h1 className="text-[2rem] leading-[1.05] sm:text-5xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] sm:leading-[1.12] max-w-[12ch] sm:max-w-none">
+              Your Aviation Dream Starts Here
             </h1>
 
-            {/* Desktop list of courses */}
-            <p className="hidden lg:block text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
-              Air Hostess & Cabin Crew <span className="text-slate-400 font-bold mx-2">*</span>
-              Airport Ground Staff & Hospitality <span className="text-slate-400 font-bold mx-2">*</span>
-              Cruise Line & Hospitality Management <span className="text-slate-400 font-bold mx-2">*</span>
-              Digital Marketing <span className="text-slate-400 font-bold mx-2">*</span>
-              Cyber Security <span className="text-slate-400 font-bold mx-2">*</span>
-              AI & Data Science
+            <p className="text-slate-600 text-xs sm:text-sm sm:text-base leading-relaxed font-sans max-w-md sm:max-w-xl">
+              <span className="block sm:inline">Air Hostess & Cabin Crew</span>
+              <span className="hidden sm:inline text-slate-400 font-bold mx-2">*</span>
+              <span className="block sm:inline">Airport Ground Staff & Hospitality</span>
+              <span className="hidden sm:inline text-slate-400 font-bold mx-2">*</span>
+              <span className="block sm:inline">Cruise Line & Hospitality Management</span>
+              <span className="hidden sm:inline text-slate-400 font-bold mx-2">*</span>
+              <span className="block sm:inline">Digital Marketing</span>
+              <span className="hidden sm:inline text-slate-400 font-bold mx-2">*</span>
+              <span className="block sm:inline">Cyber Security</span>
+              <span className="hidden sm:inline text-slate-400 font-bold mx-2">*</span>
+              <span className="block sm:inline">AI & Data Science</span>
             </p>
-
-            {/* Mobile list of courses stacked vertically */}
-            <div className="block lg:hidden text-slate-600 text-[9px] sm:text-xs font-bold leading-relaxed font-sans max-w-[200px] sm:max-w-xs space-y-0.5">
-              <p>Air Hostess & Cabin Crew*</p>
-              <p>Airport Ground Staff & Hospitality*</p>
-              <p>AI & Data Science</p>
-            </div>
 
             <button
               onClick={() => {
                 const element = document.getElementById("eligibilityForm");
                 element?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-xs lg:text-sm px-5 py-3 lg:px-6 lg:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
+              className="w-full sm:w-auto justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-5 sm:px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
             >
               Enroll Now To Avail Scholarship
-              <svg className="w-3.5 h-3.5 lg:w-4 lg:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </button>
@@ -164,12 +132,12 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Floating Eligibility Form Card Section */}
-      <section id="eligibilityForm" className="max-w-7xl mx-auto w-full px-6 -mt-20 lg:-mt-28 relative z-30">
-        <div className="bg-white rounded-3xl border border-neutral-100 shadow-xl p-6 sm:p-8 max-w-5xl mx-auto">
+      <section id="eligibilityForm" className="max-w-7xl mx-auto w-full px-4 sm:px-6 -mt-14 sm:-mt-20 lg:-mt-28 relative z-30">
+        <div className="bg-white rounded-3xl border border-neutral-100 shadow-xl p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto">
           <form onSubmit={handleApply} className="flex flex-col space-y-4">
 
             {/* Form Fields Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
 
               {/* Mobile Number */}
               <div className="relative flex items-center">
@@ -184,7 +152,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   placeholder="Mobile Number"
                   value={mobileNumber}
                   onChange={(e) => setMobileNumber(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-neutral-800 text-sm pl-11 pr-6 py-3.5 rounded-xl focus:outline-none transition-all placeholder-slate-400 font-semibold"
+                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-neutral-800 text-sm pl-11 pr-6 py-3 rounded-xl focus:outline-none transition-all placeholder-slate-400 font-semibold"
                 />
                 <span className="absolute right-3.5 top-3.5 text-red-500 font-bold">*</span>
               </div>
@@ -219,7 +187,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   required
                   value={selectedCourse}
                   onChange={(e) => setSelectedCourse(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
+                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Course</option>
                   {coursesList.map((c, i) => (
@@ -237,7 +205,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             </div>
 
             {/* Row 2 Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-center">
 
               {/* Branch select */}
               <div className="relative flex items-center">
@@ -251,7 +219,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   required
                   value={selectedBranch}
                   onChange={(e) => setSelectedBranch(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
+                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Branch</option>
                   {branchesList.map((b, i) => (
@@ -277,7 +245,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   required
                   value={selectedAge}
                   onChange={(e) => setSelectedAge(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
+                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Age</option>
                   <option value="17">17 Years</option>
@@ -310,7 +278,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   required
                   value={selectedGender}
                   onChange={(e) => setSelectedGender(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
+                  className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Gender</option>
                   <option value="Male">Male</option>
@@ -328,7 +296,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Apply Button */}
               <button
                 type="submit"
-                className="w-full bg-red-600 hover:bg-red-700 text-white font-sans font-bold text-sm py-3.5 px-6 rounded-xl transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2 focus:outline-none cursor-pointer whitespace-nowrap"
+                className="w-full bg-[#f28580] hover:bg-[#e06c67] text-white font-sans font-bold text-sm py-3 px-6 rounded-xl transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2 focus:outline-none cursor-pointer whitespace-nowrap"
               >
                 APPLY NOW
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -343,8 +311,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Stats Counter Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-10 pb-16 relative z-20">
-        <div className="bg-[#1E417A] rounded-[2rem] shadow-[0_15px_30px_rgba(30,65,122,0.18)] py-8 px-6 max-w-5xl mx-auto text-white">
+      <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-10 pb-16 relative z-20">
+        <div className="bg-[#1E417A] rounded-[2rem] shadow-[0_15px_30px_rgba(30,65,122,0.18)] py-6 sm:py-8 px-4 sm:px-6 max-w-5xl mx-auto text-white">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 items-center justify-center text-center">
 
             {/* Stat 1: Google Rating */}
@@ -392,7 +360,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Popular Courses Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-8 pb-16 relative z-20">
+      <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-8 pb-16 relative z-20">
 
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12">
@@ -405,7 +373,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         </div>
 
         {/* Courses Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
 
           {/* Card 1: Cabin Crew */}
           <div className="bg-white rounded-[2rem] border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] overflow-hidden flex flex-col justify-between group hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] transition-all duration-300">
@@ -470,7 +438,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/air-hostess-cabin-crew-hospitality-management")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -544,7 +512,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/airport-ground-staff-hospitality-management")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -618,7 +586,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/ai-data-science-with-generative-ai-machine-learning")}
+                onClick={() => setCurrentPage?.("contact")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -814,7 +782,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         <div className="bg-[#1E417A] rounded-[2rem] shadow-[0_20px_50px_rgba(30,65,122,0.22)] py-12 px-6 sm:px-10 md:px-12 max-w-5xl mx-auto text-white text-center">
 
           {/* Header */}
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-wider font-sans uppercase text-white">
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-wider font-sans uppercase">
             SCHOLARSHIP
           </h2>
           <p className="text-slate-100 text-sm sm:text-lg mt-3 font-semibold font-sans tracking-wide">
@@ -902,7 +870,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Link */}
           <div className="mt-4">
             <button
-              onClick={() => navigate("/courses")}
+              onClick={() => setCurrentPage?.("services")}
               className="text-white hover:text-[#DDAB30] text-xs sm:text-sm font-bold underline transition-colors focus:outline-none"
             >
               View full scholarship details
@@ -932,7 +900,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             Trusted by 820+ Students on Google
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
-            Real reviews from trainees who built their careers with Amigo Academy
+            Real reviews from trainees who built their careers with Amigoz Academy
           </p>
         </div>
 
@@ -958,7 +926,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
                 <span className="text-[#0f2a4a] text-xs font-bold font-sans">
-                  Amigo Academy Courses
+                  Amigoz Academy Courses
                 </span>
               </div>
 
@@ -982,7 +950,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             </div>
 
             <button
-              onClick={() => window.open("https://www.google.com/search?q=Amigo+Academy", "_blank")}
+              onClick={() => window.open("https://www.google.com/search?q=Amigoz+Academy", "_blank")}
               className="w-full bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm py-3.5 rounded-full mt-8 flex items-center justify-center gap-2 group transition-all shadow-sm hover:shadow active:scale-95"
             >
               View all reviews on Google
@@ -1003,8 +971,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "12 Jan 2026",
               initials: "SP",
-              gradient: "from-[#1E417A] to-[#12284C]",
-              img: profileimgmainy1
+              gradient: "from-[#1E417A] to-[#12284C]"
             },
             {
               name: "Sohail Shaikh",
@@ -1015,8 +982,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2025",
               date: "8 Jan 2026",
               initials: "SS",
-              gradient: "from-[#e31e24] to-[#c2141a]",
-              img: profileimgmainy2
+              gradient: "from-[#e31e24] to-[#c2141a]"
             },
             {
               name: "Aasif Bate",
@@ -1027,8 +993,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "5 Jan 2026",
               initials: "AB",
-              gradient: "from-[#DDAB30] to-[#b3861b]",
-              img: profileimgmainy3
+              gradient: "from-[#DDAB30] to-[#b3861b]"
             },
             {
               name: "Sahil Ghag",
@@ -1039,8 +1004,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2025",
               date: "15 Jan 2026",
               initials: "SG",
-              gradient: "from-teal-600 to-teal-800",
-              img: profileimgmainy4
+              gradient: "from-teal-600 to-teal-800"
             },
             {
               name: "Kiran Tripathi",
@@ -1051,20 +1015,18 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "20 Jan 2026",
               initials: "KT",
-              gradient: "from-purple-600 to-purple-800",
-              img: profileimgmainy5
+              gradient: "from-purple-600 to-purple-800"
             },
             {
               name: "Swati Patil",
               stars: 5,
-              text: "I am really thankful to Amigo Academy for reshaping my career. Their communication classes really boosted my confidence.",
+              text: "I am really thankful to Amigoz Academy for reshaping my career. Their communication classes really boosted my confidence.",
               role: "Ground Staff",
               airline: "Akasa Air",
               batch: "Batch 2024",
               date: "25 Jan 2026",
               initials: "SP",
-              gradient: "from-[#1e417a] to-[#DDAB30]",
-              img: profileimgmainy6
+              gradient: "from-[#1e417a] to-[#DDAB30]"
             }
           ].map((rev, idx) => (
             <div key={idx} className="bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between items-start space-y-6">
@@ -1088,12 +1050,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Reviewer Details Row */}
               <div className="w-full flex flex-col space-y-2 border-t border-slate-50 pt-4">
                 <div className="flex items-center gap-3">
-                  {/* Profile Image Avatar */}
-                  <img
-                    src={rev.img}
-                    alt={rev.name}
-                    className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
-                  />
+                  {/* Colored Gradient Avatar with Initials */}
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-tr ${rev.gradient} text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-sm`}>
+                    {rev.initials}
+                  </div>
                   <div className="flex flex-col text-left">
                     <h4 className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight">
                       {rev.name}
@@ -1117,17 +1077,19 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
       </section>
       <section className="w-full pb-16 relative z-20">
-        <div className="mt-20 max-w-4xl mx-auto flex flex-col items-center justify-center gap-6 text-center px-6">
-          <p className="text-[#556987] text-sm sm:text-base md:text-lg font-bold font-sans leading-normal max-w-3xl">
-            Choosing the right academy can decide your entire career. Join thousands who trusted Amigo and got placed.
-          </p>
-          {/* Pills Container */}
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {["Verified Google Reviews", "Placement Support", "Govt Recognised", "10,000+ Students Trained"].map((pill, idx) => (
-              <span key={idx} className="bg-[#f0f4fa]/40 border border-[#d3e4f6] text-[#1e3e66] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm transition-all hover:bg-slate-50">
-                {pill}
-              </span>
-            ))}
+        <div className="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-left">
+          <div className="flex flex-col space-y-4 max-w-3xl">
+            <p className="text-[#0f2a4a]/90 text-sm sm:text-base md:text-lg font-extrabold font-sans leading-normal">
+              Choosing the right academy can decide your entire career. Join thousands who trusted Amigoz and got placed.
+            </p>
+            {/* Pills Container */}
+            <div className="flex flex-wrap gap-2.5">
+              {["Verified Google Reviews", "Placement Support", "Govt Recognised", "6,000+ Students Trained"].map((pill, idx) => (
+                <span key={idx} className="bg-white border border-[#dbeafe] text-[#0f2a4a] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm transition-all hover:bg-slate-50">
+                  {pill}
+                </span>
+              ))}
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -1136,21 +1098,13 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               const element = document.getElementById("eligibilityForm");
               element?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 group mt-2 shrink-0"
+            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 group shrink-0"
           >
             Check My Batch & Placement Options
             <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </button>
-
-          {/* Limited Seats Banner */}
-          <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-4">
-            <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-            </svg>
-            <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
-          </div>
         </div>
       </section>
 
@@ -1176,7 +1130,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               name: "Jasmine Soni",
               role: "Cabin Crew Emirates",
               batch: "Aviation Batch 2023",
-              quote: "Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
+              quote: "Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
               videoImg: Student1,
               avatarImg: Studentpf1,
               badge: "SELECTED FOR INDIGO",
@@ -1407,7 +1361,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Footer Link */}
         <div className="text-center mt-10">
           <button
-            onClick={() => navigate("/career-guides")}
+            onClick={() => setCurrentPage?.("services")}
             className="text-[#1E417A] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1.5 mx-auto group transition-colors focus:outline-none"
           >
             Explore All Industry Advice
@@ -1427,7 +1381,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             Our Students Work With
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
-            Elite global brands that trust Amigo graduates for their workforce needs.
+            Elite global brands that trust Amigoz graduates for their workforce needs.
           </p>
         </div>
 
@@ -1453,7 +1407,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Frequently Asked Questions Section */}
-      <section className="max-w-4xl mx-auto w-full px-6 pt-16 pb-20 relative z-20 flex flex-col items-center">
+      <section className="max-w-4xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
 
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1466,11 +1420,11 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="space-y-4 max-w-3xl w-full mx-auto">
+        <div className="space-y-4 max-w-3xl mx-auto">
           {[
             {
-              q: "What salary can I expect after air hostess training?",
-              a: "After Air Hostess training, freshers can typically expect around ₹25,000–₹40,000 per month, depending on the airline, role, and location. With experience, earnings can increase significantly."
+              q: "What salary can I expect after air hostess training.",
+              a: "Graduates from our air hostess training program typically secure starting salaries between ₹4.5 Lakhs to ₹9 Lakhs per annum. International airlines offer even higher packages, and salary scales increase rapidly with experience and cabin rank."
             },
             {
               q: "What is the eligibility for air hostess course after 12th.",
@@ -1478,7 +1432,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             },
             {
               q: "Which is the best air hostess course in Mumbai with placement support.",
-              a: "Amigo Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
+              a: "Amigoz Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
             },
             {
               q: "Best AI and Data Science course in Mumbai after 12th.",
@@ -1491,49 +1445,50 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             {
               q: "Are your courses government recognised with EMI options.",
               a: "Yes, our aviation and hospitality programs are Maharashtra Government certified. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
+            },
+            {
+              q: "Best digital marketing or cyber security course in Mumbai.",
+              a: "Our specialized academy programs in Digital Marketing and Cyber Security are designed by industry professionals. They combine core theoretical frameworks with real-world lab exercises, capstone projects, and resume-building support."
+            },
+            {
+              q: "Do you have branches in Ghatkopar, Andheri, Thane and Pune.",
+              a: "Yes, Amigoz Academy operates modern, fully-equipped training centers across Ghatkopar, Andheri, Thane, and Pune. All branches feature top-tier facilities, mock aircraft cabins, and experienced faculty."
+            },
+            {
+              q: "How can I get free career counseling or scholarship information.",
+              a: "To obtain free guidance or check your scholarship eligibility, simply fill out the registration form at the top of this page. One of our academy advisors will reach out to you to guide you step-by-step."
             }
           ].map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
-              <div key={idx} className="bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] overflow-hidden p-2 transition-all duration-300">
+              <div key={idx} className="bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] overflow-hidden transition-all duration-300">
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50/50 transition-colors focus:outline-none gap-4"
+                  className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors focus:outline-none"
                 >
-                  <div className="flex items-center gap-4">
-                    {/* Circle Number */}
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 transition-colors ${isOpen ? "bg-[#0f2a4a] text-white" : "bg-[#f0f4fa] text-[#0f2a4a]"
-                      }`}>
-                      {idx + 1}
-                    </div>
-                    <span className="text-[#0f2a4a] text-sm sm:text-base font-extrabold font-sans">
-                      {faq.q}
-                    </span>
-                  </div>
+                  <span className="text-[#0f2a4a] text-sm sm:text-base font-extrabold font-sans pr-4">
+                    {faq.q}
+                  </span>
                   <svg className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
                 {isOpen && (
-                  <div className="p-4 pt-0">
-                    <div className="bg-[#f8fafc] border-l-4 border-[#0f2a4a] rounded-r-xl p-4">
-                      <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm leading-relaxed">
-                        {faq.a}
-                      </p>
-                    </div>
+                  <div className="border-t border-slate-50 bg-slate-50/20 p-5">
+                    <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm leading-relaxed">
+                      {faq.a}
+                    </p>
                   </div>
                 )}
               </div>
             );
           })}
         </div>
-
-        {/* Limited Seats Banner (Moved to Latest News & Updates) */}
       </section>
 
       {/* Latest News & Updates Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20 flex flex-col items-center">
+      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
 
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1545,47 +1500,84 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           </p>
         </div>
 
-        {/* 3-Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto items-stretch mb-12">
-          {[
-            {
-              img: newsImage1,
-              title: "Amigo Academy Hosts Aviation Career Workshop",
-              meta: "July 10, 2026 · 6 min read"
-            },
-            {
-              img: newsImage2,
-              title: "Highlights from Amigo Academy Annual Seminar 2026",
-              meta: "Aug 5, 2026 · 7 min read"
-            },
-            {
-              img: newsImage3,
-              title: "Life at Amigo Academy: Inside The Classroom",
-              meta: "Aug 12, 2026 · 8 min read"
-            }
-          ].map((post, idx) => (
-            <div key={idx} className="bg-white border border-neutral-200/60 rounded-[28px] p-5 flex flex-col space-y-4 shadow-sm hover:shadow hover:-translate-y-0.5 transition-all duration-300 text-left">
-              <div className="w-full aspect-video rounded-2xl overflow-hidden bg-neutral-50">
-                <img src={post.img} alt={post.title} className="w-full h-full object-cover" />
+        {/* Content Layout: 2 Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
+
+          {/* Left Column: 4 Small Posts Grid (8 columns span on large screens) */}
+          <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                img: newsImage1,
+                title: "Cabin Crew Job Opportunities and...",
+                desc: "Explore current airline hiring trends, career paths, and how...",
+                meta: "08 MINUTES — PLACEMENT CELL"
+              },
+              {
+                img: newsImage2,
+                title: "Inside Our Training Campus: A Day in...",
+                desc: "A look into our modern classrooms, practical sessions,...",
+                meta: "06 MINUTES — CAMPUS LIFE"
+              },
+              {
+                img: newsImage3,
+                title: "Placement Day Highlights: Landing Your",
+                desc: "See how students attend interviews and secure jobs with...",
+                meta: "05 MINUTES — HR TEAM"
+              },
+              {
+                img: newsImage4,
+                title: "Life After Training: Alumni Success Stories",
+                desc: "A glimpse into the professional lives of Amigoz graduates working",
+                meta: "10 MINUTES — ALUMNI NETWORK"
+              }
+            ].map((post, idx) => (
+              <div key={idx} className="flex gap-4 items-center bg-white p-4 rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] hover:shadow-md transition-all duration-300">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden shrink-0">
+                  <img
+                    src={post.img}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col text-left space-y-1">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#0f2a4a] leading-snug font-sans line-clamp-1">
+                    {post.title}
+                  </h3>
+                  <p className="text-slate-400 text-xs leading-normal font-sans line-clamp-2">
+                    {post.desc}
+                  </p>
+                  <span className="text-[9px] sm:text-[10px] font-bold text-slate-400 tracking-wider uppercase pt-1">
+                    {post.meta}
+                  </span>
+                </div>
               </div>
-              <div className="space-y-2 px-1">
-                <h3 className="font-outfit font-extrabold text-[#0f2a4a] text-[16px] sm:text-lg leading-snug">
-                  {post.title}
+            ))}
+          </div>
+
+          {/* Right Column: Featured Post Card (4 columns span on large screens) */}
+          <div className="lg:col-span-4 flex">
+            <div className="relative w-full rounded-2xl overflow-hidden flex flex-col justify-end p-6 sm:p-8 min-h-[350px] lg:min-h-none bg-slate-900 group shadow-md hover:shadow-xl transition-all duration-300">
+              {/* Background Image */}
+              <img
+                src={newsFeatured}
+                alt="Featured Post"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              {/* Overlay Mask */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+
+              {/* Content Overlay */}
+              <div className="relative z-10 text-left space-y-3">
+                <h3 className="text-lg sm:text-xl font-extrabold text-white leading-snug font-sans">
+                  Why 2026 Is The Best Time To Start Your Aviation Career
                 </h3>
-                <p className="text-slate-400 font-sans font-semibold text-xs sm:text-[13px]">
-                  {post.meta}
-                </p>
+                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
+                  05 April 2026
+                </span>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* Limited Seats Banner */}
-        <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-4 max-w-fit">
-          <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-          </svg>
-          <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
         </div>
 
       </section>
@@ -1603,10 +1595,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Instagram Grid of 5 Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto items-stretch mb-16">
           {[
-            { img: homecourseFollow1, type: "img" },
-            { img: homecourseFollow2, type: "img" },
-            { img: homecourseFollow3, type: "img" },
-            { img: homecourseFollow4, type: "img" },
+            { img: newsFeatured, type: "img" },
+            { img: newsImage1, type: "img" },
+            { img: newsImage2, type: "img" },
+            { img: newsImage3, type: "img" },
             { type: "cta" }
           ].map((item, idx) => {
             if (item.type === "img") {
@@ -1623,7 +1615,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               return (
                 <a
                   key={idx}
-                  href="https://instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg=="
+                  href="https://instagram.com/amigozacademy"
                   target="_blank"
                   rel="noreferrer"
                   className="aspect-square rounded-2xl bg-[#1E417A] hover:bg-[#12284C] text-white flex flex-col items-center justify-center p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer"
@@ -1632,7 +1624,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499c.15-.427.76-.427.91 0l1.838 5.234 5.589.444c.456.036.638.6.291.902l-4.223 3.666 1.34 5.378c.11.442-.38.8-.755.536l-4.877-3.487-4.878 3.487c-.374.264-.866-.094-.755-.536l1.34-5.378-4.223-3.666c-.347-.302-.165-.866.291-.902l5.589-.444 1.838-5.234z" />
                   </svg>
                   <span className="text-[10px] sm:text-xs font-sans font-extrabold tracking-wide uppercase">
-                    @amigoacademy
+                    @amigozacademy
                   </span>
                 </a>
               );
@@ -1643,107 +1635,93 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Final Urgent CTA Section */}
-      <section
-        style={{ backgroundColor: "#0d1b3d" }}
-        className="py-16 px-6 text-center text-white relative overflow-hidden"
-      >
-        {/* Top badge */}
-        <div className="flex justify-center mb-7">
-          <span
-            style={{
-              border: "1px solid rgba(240,161,58,0.4)",
-              color: "#f0a13a",
-              backgroundColor: "rgba(240,161,58,0.05)",
-            }}
-            className="inline-flex items-center gap-2 text-xs font-bold tracking-wide px-4 py-2 rounded-full"
-          >
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M11.3 1.046a1 1 0 01.7 1.169L10.98 8h4.02a1 1 0 01.76 1.65l-8 9.5a1 1 0 01-1.752-.815L6.02 12H2a1 1 0 01-.76-1.65l8-9.5a1 1 0 011.06-.304z" />
-            </svg>
-            Limited seats per batch — apply early to secure your spot
-          </span>
-        </div>
+      <section className="text-white py-20 px-6 relative overflow-hidden z-20 text-center" style={{ background: "linear-gradient(180deg, rgba(28, 57, 142, 0.2) 0%, rgba(28, 57, 142, 0) 100%), #0e264a" }}>
 
-        {/* Headline */}
-        <h1
-          style={{ color: "#ffffff" }}
-          className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
-        >
-          Start Your Journey from the Branch That&rsquo;s Closest to You
-        </h1>
+        {/* Subtle background light glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        {/* Subheading */}
-        <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
-          Admissions open — secure your seat early. One free call is all it takes.
-        </p>
+        <div className="max-w-5xl mx-auto relative z-10">
 
-        {/* Certification badge */}
-        <div className="flex justify-center mb-8">
-          <span
-            style={{
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#f0a13a",
-              backgroundColor: "rgba(255,255,255,0.05)",
-            }}
-            className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 1L2 5v2h16V5l-8-4zM4 9v7H2v2h16v-2h-2V9h-2v7h-2V9h-2v7H8V9H6v7H4V9H4z" />
-            </svg>
-            Maharashtra Govt certified — only aviation institute in Maharashtra
-          </span>
-        </div>
+          {/* Limited Seats Banner */}
+          <div className="inline-flex items-center gap-1.5 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase">
+            <span>⚡</span>
+            <span>LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT</span>
+          </div>
 
-        {/* Action buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#enquiry-form"
-            style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Check my eligibility now
-          </a>
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
+            2026 Batches Are Filling Fast — Don't Get Left Behind
+          </h2>
 
-          <a
-            href="#enquiry-form"
-            style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors"
-          >
-            Start my career
-          </a>
+          {/* Subtitle */}
+          <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
+            Admissions Open — Secure Your Seat Early. One free call is all it takes.
+          </p>
 
-          <a
-            href="https://wa.me/919987588932"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ backgroundColor: "#25d366", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
-          >
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.005c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.15.46.13.63-.08.18-.2.75-.87.95-1.17.2-.29.4-.24.66-.15.27.1 1.7.8 1.99.94.29.15.48.22.55.34.07.13.07.72-.17 1.4z" />
-            </svg>
-            Chat on WhatsApp
-          </a>
-        </div>
+          {/* Government Certification Badge */}
+          <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
+            <span>🏛️</span>
+            <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
+          </div>
 
-        {/* Trust indicators */}
-        <div
-          style={{ color: "#ffffff" }}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
-        >
-          {["4.6 Google rating", "10,000+ students", "Govt certified", "200+ hiring partners"].map(
-            (item, i) => (
-              <span key={i} className="inline-flex items-center gap-1.5 font-bold">
-                <svg className="w-3.5 h-3.5 text-[#25d366]" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                {item}
-              </span>
-            )
-          )}
+          {/* Buttons Row */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
+            {/* Check Eligibility Red Button */}
+            <button
+              onClick={() => {
+                const element = document.getElementById("eligibilityForm");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
+            >
+              <span>⚡</span> CHECK MY ELIGIBILITY NOW
+            </button>
+
+            {/* Start My Career Red Button */}
+            <button
+              onClick={() => {
+                const element = document.getElementById("eligibilityForm");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
+            >
+              Start My Career
+            </button>
+
+            {/* WhatsApp Green Button */}
+            <a
+              href="https://wa.me/919987588932"
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />
+              </svg>
+              Chat on WhatsApp
+            </a>
+          </div>
+
+          {/* Trust Markers */}
+          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-slate-300 text-xs sm:text-sm font-bold font-sans">
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>4.6 Google Rating</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>10,000+ Students</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>Govt Certified</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-emerald-400">✓</span>
+              <span>200+ Hiring Partners</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
