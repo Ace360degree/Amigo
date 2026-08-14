@@ -9,12 +9,11 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
   return (
     <div className="flex flex-col">
       {/* Hero Section styled to match the visual image (Full width with fade transition) */}
-      <section className="relative w-full min-h-[460px] lg:h-[520px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
+      <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:h-[520px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
 
-        {/* Full Height Background Image on the right with white fade to the left */}
-        <div className="absolute inset-0 z-0">
-          {/* Background Image Container */}
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[65%] h-full">
+        {/* Desktop Background Image on the right with white fade to the left */}
+        <div className="hidden lg:block absolute inset-0 z-0">
+          <div className="absolute inset-y-0 right-0 w-[50%] h-full z-0">
             <img
               src={heroContact}
               alt="Contact Amigo Academy Office counseling"
@@ -26,33 +25,42 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
           {/* Fading White Mask layer overlaying from Left to Right */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-40% md:via-45% lg:via-35% to-white/0 z-10" />
+        </div>
 
-          {/* Vertical fading mask for smaller viewports */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden z-10" />
+        {/* Mobile Background Image Container */}
+        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+          <img
+            src={new URL("../assets/img/mobileherocontant.png", import.meta.url).href}
+            alt="Contact Amigo Academy Mobile"
+            className="w-full h-full object-cover object-[right_center]"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
         </div>
 
         {/* Content Container aligned exactly over the fade mask */}
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 z-25 py-12 lg:py-0">
-          <div className="max-w-xl md:max-w-2xl text-left flex flex-col space-y-6 md:space-y-7">
+          <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl md:max-w-2xl text-left flex flex-col space-y-4 md:space-y-7">
 
             {/* Main Headline */}
-            <h1 className="text-[34px] sm:text-[44px] lg:text-[52px] font-outfit font-extrabold tracking-tight text-[#11243e] leading-[1.12] drop-shadow-sm">
-              Contact <span className="text-[#f6a619]">Amigo Academy</span>
+            <h1 className="text-xl sm:text-3xl lg:text-[52px] font-outfit font-extrabold tracking-tight text-[#11243e] leading-[1.2] lg:leading-[1.12] drop-shadow-sm">
+              Contact <span className="text-[#f6a619]"><br />Amigo Academy</span>
             </h1>
 
             {/* Description Text */}
-            <p className="text-neutral-700 text-xs sm:text-[14px] leading-[1.65] font-medium max-w-md md:max-w-lg">
+            <p className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-medium max-w-md md:max-w-lg">
               Have a question about courses, admissions, placements, or a franchise? Reach us directly by phone, WhatsApp, enquiry form, or visit any of our three Mumbai branches. We believe in honest guidance, without any pressure.
             </p>
 
             {/* Red Button with Shadow and Arrow Icon */}
-            <div className="pt-3">
+            <div className="pt-1">
               <a
                 href="#enquiry-form"
-                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] px-8 py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group focus:outline-none"
+                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group focus:outline-none whitespace-nowrap"
               >
                 Contact Now
-                <span className="ml-2.5 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
+                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
               </a>
             </div>
 
@@ -825,9 +833,8 @@ function FaqAccordion() {
         return (
           <div
             key={index}
-            className={`bg-white shadow-[0_2px_10px_rgba(11,47,97,0.03)] border border-[#e2e8f0]/85 transition-all duration-300 ${
-              isOpen ? "rounded-[22px]" : "rounded-full"
-            }`}
+            className={`bg-white shadow-[0_2px_10px_rgba(11,47,97,0.03)] border border-[#e2e8f0]/85 transition-all duration-300 ${isOpen ? "rounded-[22px]" : "rounded-full"
+              }`}
           >
             {/* Accordion header button */}
             <button
@@ -838,9 +845,8 @@ function FaqAccordion() {
                 {faq.question}
               </span>
               <span
-                className={`text-neutral-400 transition-transform duration-300 ${
-                  isOpen ? "rotate-180" : ""
-                }`}
+                className={`text-neutral-400 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                  }`}
               >
                 <svg
                   className="w-4 h-4 text-neutral-400 group-hover:text-[#0b2f61] transition-colors"
@@ -856,9 +862,8 @@ function FaqAccordion() {
 
             {/* Accordion content body */}
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                isOpen ? "max-h-[280px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
-              }`}
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[280px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
+                }`}
             >
               <div className="px-7 py-4 text-[12.5px] text-neutral-500 font-semibold leading-relaxed text-left">
                 {faq.answer}
