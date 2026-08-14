@@ -518,9 +518,9 @@ export default function CabinCrew() {
                       key={cardIdx}
                       onClick={() => {
                         if (card.title.includes("Ground Staff")) {
-                          navigate("/airport-ground-staff");
+                          navigate("/career-guide/airport-ground-staff");
                         } else if (card.title.includes("AI") || card.title.includes("Data Science")) {
-                          navigate("/ai-data-science");
+                          navigate("/career-guide/ai-data-science");
                         } else {
                           navigate("/contact");
                         }

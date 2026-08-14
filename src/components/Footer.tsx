@@ -26,7 +26,7 @@ export default function Footer() {
               className="flex items-center focus:outline-none w-fit"
               aria-label="Amigo Academy Home"
             >
-              <img src={logofooter} alt="Amigo Academy Logo" className="h-9 sm:h-12 w-auto object-contain" />
+              <img src={logofooter} alt="Amigo Academy Logo" className="h-16 sm:h-20 w-auto object-contain" />
             </button>
 
             {/* Contacts */}
@@ -86,7 +86,6 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Air Hostess / Cabin Crew</button>
-              <button onClick={() => handleNavClick("/courses/airport-ground-staff-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
               <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
               <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
             </nav>
@@ -98,9 +97,9 @@ export default function Footer() {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/career-guide/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
+              <button onClick={() => handleNavClick("/career-guide/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
+              <button onClick={() => handleNavClick("/career-guide/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
               <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">All Career Guides</button>
             </nav>
           </div>
@@ -188,22 +187,34 @@ export default function Footer() {
         {/* Bottom copyright & Socials */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
           {/* Social Links */}
-          <div className="flex items-center space-x-4 mb-4 md:mb-0">
-            <span className="text-slate-400 font-sans font-bold uppercase tracking-wider mr-2">Get Social</span>
-
+          <div className="flex items-center space-x-6 mb-4 md:mb-0">
             {/* Facebook */}
-            <a href="https://www.facebook.com/share/1dUEaqYi4g/" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors" aria-label="Facebook">
-              <svg className="w-3.5 h-3.5 fill-currentColor" viewBox="0 0 24 24">
+            <a href="https://www.facebook.com/share/1dUEaqYi4g/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Facebook">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                 <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
               </svg>
             </a>
 
             {/* Instagram */}
-            <a href="https://www.instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg==" target="_blank" rel="noreferrer" className="w-7 h-7 rounded-full border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-white transition-colors" aria-label="Instagram">
-              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <a href="https://www.instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg==" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
+              <svg className="w-5 h-5 fill-none stroke-current" strokeWidth={2} viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+
+            {/* X (formerly Twitter) */}
+            <a href="https://x.com/amigo_academy" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="X (Twitter)">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+
+            {/* LinkedIn */}
+            <a href="https://www.linkedin.com/company/amigo-academy" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
+              <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
               </svg>
             </a>
           </div>
