@@ -5,53 +5,57 @@ export default function Scholarship() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative w-full h-[580px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
+      <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:h-[580px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
 
-        {/* Background Image Container */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[50%] h-full">
-            <img
-              src={heroScholarship}
-              alt="Amigo Academy Scholarship counseling session with students"
-              className="w-full h-full object-cover object-left"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-            />
-            {/* Subtle overlay tint */}
-            <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
-          </div>
+        {/* Desktop Background Image: right-0, w-[50%], hidden on mobile */}
+        <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%] h-full z-0">
+          <img
+            src={heroScholarship}
+            alt="Amigo Academy Scholarship counseling session with students"
+            className="w-full h-full object-cover object-left"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+          {/* Subtle overlay tint */}
+          <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
+        </div>
 
-          {/* Fade mask from left to right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-50% md:via-55% lg:via-50% to-white/0 z-10" />
-
-          {/* Vertical mask for small screens */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden z-10" />
+        {/* Mobile Background Image: w-full, height is 100% */}
+        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+          <img
+            src={new URL("../assets/img/mobileheroScholarship.png", import.meta.url).href}
+            alt="Amigo Academy Scholarship counseling Mobile"
+            className="w-full h-full object-cover object-[right_center]"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
         </div>
 
         {/* Content Box */}
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 z-20 py-12 lg:py-0">
-          <div className="max-w-xl md:max-w-2xl text-left flex flex-col space-y-6 md:space-y-7 pl-1 md:pl-2">
+          <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl md:max-w-2xl text-left flex flex-col space-y-4 md:space-y-7 pl-1 md:pl-2">
 
             {/* Header Text matching the mockup colors and style */}
-            <h1 className="text-[34px] sm:text-[44px] lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1a2d42] leading-[1.12]">
+            <h1 className="text-xl sm:text-3xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1a2d42] leading-[1.2] lg:leading-[1.12]">
               Amigo Academy <br />
               Scholarship – <span className="text-[#dfaa29]">Up to <br />₹50,000 Off</span>
             </h1>
 
             {/* Paragraph Text */}
-            <p className="text-neutral-700 text-xs sm:text-[14px] leading-[1.65] font-semibold max-w-md md:max-w-[480px]">
+            <p className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-semibold max-w-md md:max-w-[480px]">
               We believe money should never stop a student from building a successful career. Amigo Academy offers scholarships of up to ₹50,000 along with Zero-Interest EMI across all three courses. Our counsellors help every student understand the financial support they are eligible for through a free eligibility assessment.
             </p>
 
             {/* Check Eligibility Button */}
-            <div className="pt-3">
+            <div className="pt-1">
               <a
                 href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] px-8 py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group"
+                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group whitespace-nowrap"
               >
                 Check My Eligibility
-                <span className="ml-2.5 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
+                <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
               </a>
             </div>
 

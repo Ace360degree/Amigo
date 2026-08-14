@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Student Success Stories images
 import Student1 from "../assets/img/Student1.png";
@@ -27,6 +28,7 @@ interface AboutProps {
 }
 
 export default function About({ setCurrentPage }: AboutProps = {}) {
+  const navigate = useNavigate();
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
 
   const accordionData = [
@@ -184,8 +186,8 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             {[
               { value: "10,000+", label: "Students trained" },
               { value: "10+", label: "Years of excellence" },
-              { value: "12 Months", label: "Programme Duration" },
-              { value: "95%", label: "Successful Placements" }
+              { value: "3", label: "Specialised Career Paths" },
+              { value: "12 Months", label: "Programme Duration" }
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -213,9 +215,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
               What Makes Amigo Academy Different
             </h2>
-            <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm max-w-2xl leading-relaxed">
-              With operations in Asia, Australia, Europe, Latin America, New Zealand and the United States, we employ more than 10,000 people worldwide
-            </p>
+
           </div>
 
           {/* List Content */}
@@ -224,7 +224,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               "Training That Delivers Real Career Outcomes",
               "Across every vertical, our approach remains consistent",
               "Industry-aligned curriculum designed for real-world roles",
-              "Experienced trainers with domain expertise",
+              "Experienced trainers with domain expertise Experienced trainers with domain expertise",
               "Interview preparation and placement support",
               "Nationally recognized certifications and affiliations",
               "We don't believe in one-size-fits-all education — we build professionals who are job-ready from day one."
@@ -258,49 +258,54 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           {/* Header */}
           <div className="space-y-3">
             <h2 className="text-2xl sm:text-3xl font-outfit font-extrabold text-white">
-              Ready to Kickstart Your Career with Amigoz Academy?
+              Ready to Kickstart Your Career with Amigo Academy?
             </h2>
             <p className="text-neutral-200/90 text-xs sm:text-sm font-semibold">
-              Connect with Amigoz Academy Today!
+              Connect with Amigo Academy Today!
             </p>
           </div>
 
           {/* Info Banner Container */}
           <div className="bg-[#244270]/90 rounded-3xl p-6 sm:p-8 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-6 text-left shadow-[0_15px_35px_rgba(11,47,97,0.15)]">
 
-            {/* Call Info */}
-            <div className="flex items-center gap-3 w-full lg:w-auto pb-4 lg:pb-0 border-b lg:border-b-0 lg:border-r border-white/10 pr-0 lg:pr-8">
-              <span className="text-[#dfaa29] text-xl">📞</span>
-              <div className="space-y-0.5">
-                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Call Us</span>
-                <a href="tel:+919987588932" className="text-white font-extrabold text-sm sm:text-base hover:underline">+91 9987588932</a>
-              </div>
-            </div>
-
             {/* Address Info */}
-            <div className="flex items-start gap-3 w-full lg:w-auto pb-4 lg:pb-0 border-b lg:border-b-0 lg:border-r border-white/10 pr-0 lg:pr-8">
+            <div className="flex items-start gap-3 w-full lg:w-auto pb-4 lg:pb-0">
               <span className="text-[#dfaa29] text-xl mt-1">📍</span>
-              <div className="space-y-1 max-w-[280px]">
-                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Amigoz Academy</span>
+              <div className="space-y-1 max-w-[320px]">
+                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Amigo Academy</span>
                 <p className="text-neutral-200 text-xs leading-relaxed font-semibold">
                   107 & 108, Sai Infotech, Patel Chowk, opp Railway Station, Pant Nagar - Ghatkopar East, Mumbai - MH 400077
                 </p>
               </div>
             </div>
 
-            {/* Email Info */}
-            <div className="flex items-center gap-3 w-full lg:w-auto pb-4 lg:pb-0 lg:pr-8">
-              <span className="text-[#dfaa29] text-xl">✉️</span>
-              <div className="space-y-0.5">
-                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Email</span>
-                <a href="mailto:info@amigoacademy.in" className="text-white font-extrabold text-xs sm:text-sm hover:underline">info@amigoacademy.in</a>
+            {/* Divider */}
+            <div className="hidden lg:block h-12 w-[1px] bg-white/10"></div>
+
+            {/* Contact Stack */}
+            <div className="flex flex-col gap-3 w-full lg:w-auto pb-4 lg:pb-0">
+              {/* Call Info */}
+              <div className="flex items-center gap-3">
+                <span className="text-[#dfaa29] text-lg">📞</span>
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-200">
+                  <span className="text-neutral-300">Call Us:</span>
+                  <a href="tel:+919987588932" className="hover:underline font-bold text-white">+919987588932</a>
+                </div>
+              </div>
+              {/* Email Info */}
+              <div className="flex items-center gap-3">
+                <span className="text-[#dfaa29] text-lg">✉️</span>
+                <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-200">
+                  <span className="text-neutral-300">Email:</span>
+                  <a href="mailto:info@amigoacademy.in" className="hover:underline font-bold text-white">info@amigoacademy.in</a>
+                </div>
               </div>
             </div>
 
             {/* Button */}
             <div className="w-full lg:w-auto pt-2 lg:pt-0">
               <button
-                onClick={() => setCurrentPage?.("contact")}
+                onClick={() => navigate("/contact")}
                 className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-[#0b2f61] font-sans font-bold text-[13px] px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(255,255,255,0.05)] transition-all duration-300 active:scale-95 whitespace-nowrap"
               >
                 Get Free Counselling &rarr;
@@ -321,48 +326,109 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           </h2>
 
           {/* Logos Row Carousel */}
-          <div className="flex items-center justify-center gap-6 sm:gap-10 py-6 max-w-5xl mx-auto">
+          <div className="flex items-center justify-center gap-6 sm:gap-10 py-6 max-w-5xl mx-auto overflow-hidden">
             {/* Left navigation arrow */}
-            <button className="w-10 h-10 rounded-full bg-[#e31e24] text-white flex items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
+            <button className="hidden md:flex w-10 h-10 rounded-full bg-[#e31e24] text-white items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
               <span className="text-sm font-bold">&larr;</span>
             </button>
 
             {/* Logos Grid */}
-            <div className="flex items-center justify-between gap-8 sm:gap-12 overflow-hidden w-full px-2">
-              <img
-                src={new URL("../assets/img/brand1.png", import.meta.url).href}
-                alt="Air India"
-                className="h-14 sm:h-16 md:h-20 object-contain scale-110"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
-              <img
-                src={new URL("../assets/img/brand2.png", import.meta.url).href}
-                alt="SpiceJet"
-                className="h-10 sm:h-12 object-contain"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
-              <img
-                src={new URL("../assets/img/brand3.png", import.meta.url).href}
-                alt="AirAsia"
-                className="h-14 sm:h-16 md:h-20 object-contain scale-110"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
-              <img
-                src={new URL("../assets/img/brand4.png", import.meta.url).href}
-                alt="Lufthansa"
-                className="h-10 sm:h-12 object-contain"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
-              <img
-                src={new URL("../assets/img/brand5.png", import.meta.url).href}
-                alt="Etihad Airways"
-                className="h-10 sm:h-12 object-contain"
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
+            <div className="w-full overflow-hidden px-2 relative">
+              <style>{`
+                @keyframes marqueeMobile {
+                  0% { transform: translateX(0%); }
+                  100% { transform: translateX(-50%); }
+                }
+                .marquee-container-mobile {
+                  display: flex;
+                  gap: 2.5rem;
+                  width: max-content;
+                  animation: marqueeMobile 8s linear infinite;
+                }
+                @media (min-width: 768px) {
+                  .marquee-container-mobile {
+                    animation: none;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 0;
+                  }
+                }
+              `}</style>
+              
+              <div className="marquee-container-mobile">
+                {/* First Set of Logos */}
+                <div className="flex items-center justify-between gap-8 md:gap-0 w-full shrink-0">
+                  <img
+                    src={new URL("../assets/img/brand1.png", import.meta.url).href}
+                    alt="Air India"
+                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand2.png", import.meta.url).href}
+                    alt="SpiceJet"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand3.png", import.meta.url).href}
+                    alt="AirAsia"
+                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand4.png", import.meta.url).href}
+                    alt="Lufthansa"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand5.png", import.meta.url).href}
+                    alt="Etihad Airways"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                </div>
+                
+                {/* Duplicate Set of Logos for Mobile Marquee Loop */}
+                <div className="flex md:hidden items-center gap-10 shrink-0">
+                  <img
+                    src={new URL("../assets/img/brand1.png", import.meta.url).href}
+                    alt="Air India"
+                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand2.png", import.meta.url).href}
+                    alt="SpiceJet"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand3.png", import.meta.url).href}
+                    alt="AirAsia"
+                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand4.png", import.meta.url).href}
+                    alt="Lufthansa"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <img
+                    src={new URL("../assets/img/brand5.png", import.meta.url).href}
+                    alt="Etihad Airways"
+                    className="h-10 sm:h-12 object-contain shrink-0"
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Right navigation arrow */}
-            <button className="w-10 h-10 rounded-full bg-[#e31e24] text-white flex items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
+            <button className="hidden md:flex w-10 h-10 rounded-full bg-[#e31e24] text-white items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
               <span className="text-sm font-bold">&rarr;</span>
             </button>
           </div>
@@ -673,93 +739,6 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         </div>
       </section>
 
-      {/* Career Guides & Advice Section */}
-      <section className="bg-slate-50/50 py-20 sm:py-24 border-t border-slate-100/80">
-        <div className="max-w-4xl mx-auto px-6">
-
-          {/* Badge & Headings */}
-          <div className="flex flex-col items-center text-center mb-12">
-            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-blue-200 bg-blue-50/60 text-[10px] sm:text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
-              <svg className="w-3.5 h-3.5 text-blue-500 fill-none stroke-current" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499c.195-.39.69-.39.886 0l1.983 3.966a.5.5 0 00.377.274l4.382.637c.433.063.606.596.293.902l-3.17 3.09a.5.5 0 00-.144.444l.75 4.364c.074.43-.377.758-.763.555l-3.921-2.06a.5.5 0 00-.464 0l-3.921 2.06c-.386.203-.837-.125-.763-.555l.75-4.364a.5.5 0 00-.144-.444l-3.17-3.09c-.313-.306-.14-.839.293-.902l4.382-.637a.5.5 0 00.377-.274l1.983-3.966z" />
-              </svg>
-              <span>Industry Insights</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-3">
-              Career Guides & Advice
-            </h2>
-            <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm max-w-xl leading-relaxed">
-              Expert tips and professional resources grouped by category to help you excel.
-            </p>
-          </div>
-
-          {/* Accordion Stack */}
-          <div className="space-y-4">
-            {accordionData.map((item, index) => {
-              const isOpen = activeAccordion === index;
-              return (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl border border-slate-100 shadow-[0_4px_12px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-300 hover:shadow-[0_8px_24px_rgba(0,0,0,0.04)]"
-                >
-                  <button
-                    onClick={() => toggleAccordion(index)}
-                    className="w-full flex items-center justify-between p-5 sm:p-6 text-left cursor-pointer focus:outline-none"
-                  >
-                    <div className="flex items-center">
-                      {/* Book Icon */}
-                      <div className="w-10 h-10 rounded-xl bg-blue-50/70 flex items-center justify-center text-blue-600 mr-4 flex-shrink-0">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                        </svg>
-                      </div>
-
-                      {/* Text */}
-                      <span className="font-sans font-bold text-slate-800 text-xs sm:text-[13px] tracking-wide flex items-center gap-2 uppercase">
-                        <span>{item.emoji}</span>
-                        <span>{item.title}</span>
-                      </span>
-                    </div>
-
-                    {/* Chevron Icon */}
-                    <svg
-                      className={`w-4 h-4 sm:w-5 h-5 text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-blue-600' : ''}`}
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>
-                  </button>
-
-                  {/* Expanded Content Panel */}
-                  <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-[500px] border-t border-slate-100 bg-[#f8fafc]/50 p-6' : 'max-h-0'
-                      }`}
-                  >
-                    {item.content}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Bottom Explore Link */}
-          <div className="mt-10 text-center">
-            <a
-              href="#explore"
-              className="inline-flex items-center gap-1 text-slate-500 hover:text-slate-800 font-sans font-bold text-xs sm:text-sm tracking-wide transition-colors duration-200"
-            >
-              <span>Explore All Industry Advice</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* Core Team Members Section */}
       <section className="bg-white py-20 sm:py-24 border-t border-slate-100/80">

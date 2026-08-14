@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heroCrew from "../assets/img/hero-crew.png";
-import courseCabin from "../assets/img/course-cabin.png";
-import courseGround from "../assets/img/course-ground.png";
-import courseAi from "../assets/img/course-ai.png";
+import mobileHeroMain from "../assets/img/mobileheromain.png";
+import courseCabin from "../assets/img/course-cabiny1.png";
+import courseGround from "../assets/img/course-groundy1.png";
+import courseAi from "../assets/img/course-aiy1.png";
 import differentClassroom from "../assets/img/different-classroom.png";
 
 // Student Success Stories images
@@ -17,6 +18,14 @@ import Student4 from "../assets/img/Student4.png";
 import Studentpf4 from "../assets/img/Studentpf4.png";
 import Student5 from "../assets/img/Student5.png";
 import Studentpf5 from "../assets/img/Studentpf5.png";
+
+// Main Page profile images
+import profileimgmainy1 from "../assets/img/profileimgmainy1.png";
+import profileimgmainy2 from "../assets/img/profileimgmainy2.png";
+import profileimgmainy3 from "../assets/img/profileimgmainy3.png";
+import profileimgmainy4 from "../assets/img/profileimgmainy4.png";
+import profileimgmainy5 from "../assets/img/profileimgmainy5.png";
+import profileimgmainy6 from "../assets/img/profileimgmainy6.png";
 
 // Airline brand logo images
 import brandAirIndia from "../assets/img/brandAirIndia.png";
@@ -37,6 +46,7 @@ interface HomeProps {
 }
 
 export default function Home({ setCurrentPage }: HomeProps = {}) {
+  const navigate = useNavigate();
   // Form states
   const [mobileNumber, setMobileNumber] = useState("");
   const [fullName, setFullName] = useState("");
@@ -77,11 +87,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
     <div className="relative bg-neutral-50">
 
       {/* Hero Section Container */}
-      <section className="relative w-full min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
+      <section className="relative w-full min-h-[380px] sm:min-h-[450px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
 
-        {/* Right Background Image Container (Visible on large screens, faded behind overlay) */}
-        <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 h-full z-0">
-          {/* Faded background image */}
+        {/* Desktop Background: right-0, w-3/5, object-center */}
+        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
           <img
             src={heroCrew}
             alt="Amigo Academy Aviation Classroom"
@@ -89,17 +98,31 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           />
         </div>
 
+        {/* Mobile Background: w-full, height is 100%, with linear gradient overlay */}
+        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+          <img
+            src={mobileHeroMain}
+            alt="Amigo Academy Aviation Classroom Mobile"
+            className="w-full h-full object-cover object-right"
+          />
+          {/* Gradient overlay to fade left side into white */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-35% to-transparent z-10" />
+        </div>
+
         {/* Content Area */}
-        <div className="max-w-7xl mx-auto w-full px-6 pt-12 pb-32 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="max-w-7xl mx-auto w-full px-6 pt-8 pb-20 sm:pb-28 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* Left Column: Heading and Text */}
-          <div className="lg:col-span-6 flex flex-col space-y-6 text-left items-start justify-center">
+          <div className="lg:col-span-6 flex flex-col space-y-4 sm:space-y-6 text-left items-start justify-center">
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
-              Your Aviation Dream Starts Here
+            <h1 className="text-[22px] sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
+              Your Aviation Dream
+              <br />
+              <span className="block mt-2 lg:mt-3 text-[#e9ad36]">Starts Here</span>
             </h1>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
+            {/* Desktop list of courses */}
+            <p className="hidden lg:block text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
               Air Hostess & Cabin Crew <span className="text-slate-400 font-bold mx-2">*</span>
               Airport Ground Staff & Hospitality <span className="text-slate-400 font-bold mx-2">*</span>
               Cruise Line & Hospitality Management <span className="text-slate-400 font-bold mx-2">*</span>
@@ -108,15 +131,22 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               AI & Data Science
             </p>
 
+            {/* Mobile list of courses stacked vertically */}
+            <div className="block lg:hidden text-slate-600 text-[9px] sm:text-xs font-bold leading-relaxed font-sans max-w-[200px] sm:max-w-xs space-y-0.5">
+              <p>Air Hostess & Cabin Crew*</p>
+              <p>Airport Ground Staff & Hospitality*</p>
+              <p>AI & Data Science</p>
+            </div>
+
             <button
               onClick={() => {
                 const element = document.getElementById("eligibilityForm");
                 element?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
+              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-xs lg:text-sm px-5 py-3 lg:px-6 lg:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
             >
               Enroll Now To Avail Scholarship
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <svg className="w-3.5 h-3.5 lg:w-4 lg:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </button>
@@ -291,7 +321,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Apply Button */}
               <button
                 type="submit"
-                className="w-full bg-[#f28580] hover:bg-[#e06c67] text-white font-sans font-bold text-sm py-3.5 px-6 rounded-xl transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2 focus:outline-none cursor-pointer whitespace-nowrap"
+                className="w-full bg-red-600 hover:bg-red-700 text-white font-sans font-bold text-sm py-3.5 px-6 rounded-xl transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md flex items-center justify-center gap-2 focus:outline-none cursor-pointer whitespace-nowrap"
               >
                 APPLY NOW
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -433,7 +463,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => setCurrentPage?.("contact")}
+                onClick={() => navigate("/courses/air-hostess-cabin-crew-hospitality-management")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -507,7 +537,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => setCurrentPage?.("contact")}
+                onClick={() => navigate("/courses/airport-ground-staff-hospitality-management")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -581,7 +611,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => setCurrentPage?.("contact")}
+                onClick={() => navigate("/courses/ai-data-science-with-generative-ai-machine-learning")}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -777,7 +807,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         <div className="bg-[#1E417A] rounded-[2rem] shadow-[0_20px_50px_rgba(30,65,122,0.22)] py-12 px-6 sm:px-10 md:px-12 max-w-5xl mx-auto text-white text-center">
 
           {/* Header */}
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-wider font-sans uppercase">
+          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-wider font-sans uppercase text-white">
             SCHOLARSHIP
           </h2>
           <p className="text-slate-100 text-sm sm:text-lg mt-3 font-semibold font-sans tracking-wide">
@@ -865,7 +895,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Link */}
           <div className="mt-4">
             <button
-              onClick={() => setCurrentPage?.("services")}
+              onClick={() => navigate("/courses")}
               className="text-white hover:text-[#DDAB30] text-xs sm:text-sm font-bold underline transition-colors focus:outline-none"
             >
               View full scholarship details
@@ -966,7 +996,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "12 Jan 2026",
               initials: "SP",
-              gradient: "from-[#1E417A] to-[#12284C]"
+              gradient: "from-[#1E417A] to-[#12284C]",
+              img: profileimgmainy1
             },
             {
               name: "Sohail Shaikh",
@@ -977,7 +1008,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2025",
               date: "8 Jan 2026",
               initials: "SS",
-              gradient: "from-[#e31e24] to-[#c2141a]"
+              gradient: "from-[#e31e24] to-[#c2141a]",
+              img: profileimgmainy2
             },
             {
               name: "Aasif Bate",
@@ -988,7 +1020,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "5 Jan 2026",
               initials: "AB",
-              gradient: "from-[#DDAB30] to-[#b3861b]"
+              gradient: "from-[#DDAB30] to-[#b3861b]",
+              img: profileimgmainy3
             },
             {
               name: "Sahil Ghag",
@@ -999,7 +1032,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2025",
               date: "15 Jan 2026",
               initials: "SG",
-              gradient: "from-teal-600 to-teal-800"
+              gradient: "from-teal-600 to-teal-800",
+              img: profileimgmainy4
             },
             {
               name: "Kiran Tripathi",
@@ -1010,7 +1044,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "20 Jan 2026",
               initials: "KT",
-              gradient: "from-purple-600 to-purple-800"
+              gradient: "from-purple-600 to-purple-800",
+              img: profileimgmainy5
             },
             {
               name: "Swati Patil",
@@ -1021,7 +1056,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               batch: "Batch 2024",
               date: "25 Jan 2026",
               initials: "SP",
-              gradient: "from-[#1e417a] to-[#DDAB30]"
+              gradient: "from-[#1e417a] to-[#DDAB30]",
+              img: profileimgmainy6
             }
           ].map((rev, idx) => (
             <div key={idx} className="bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between items-start space-y-6">
@@ -1045,10 +1081,12 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Reviewer Details Row */}
               <div className="w-full flex flex-col space-y-2 border-t border-slate-50 pt-4">
                 <div className="flex items-center gap-3">
-                  {/* Colored Gradient Avatar with Initials */}
-                  <div className={`w-10 h-10 rounded-full bg-gradient-to-tr ${rev.gradient} text-white flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 shadow-sm`}>
-                    {rev.initials}
-                  </div>
+                  {/* Profile Image Avatar */}
+                  <img
+                    src={rev.img}
+                    alt={rev.name}
+                    className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
+                  />
                   <div className="flex flex-col text-left">
                     <h4 className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight">
                       {rev.name}
@@ -1072,19 +1110,17 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
       </section>
       <section className="w-full pb-16 relative z-20">
-        <div className="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-left">
-          <div className="flex flex-col space-y-4 max-w-3xl">
-            <p className="text-[#0f2a4a]/90 text-sm sm:text-base md:text-lg font-extrabold font-sans leading-normal">
-              Choosing the right academy can decide your entire career. Join thousands who trusted Amigoz and got placed.
-            </p>
-            {/* Pills Container */}
-            <div className="flex flex-wrap gap-2.5">
-              {["Verified Google Reviews", "Placement Support", "Govt Recognised", "6,000+ Students Trained"].map((pill, idx) => (
-                <span key={idx} className="bg-white border border-[#dbeafe] text-[#0f2a4a] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm transition-all hover:bg-slate-50">
-                  {pill}
-                </span>
-              ))}
-            </div>
+        <div className="mt-20 max-w-4xl mx-auto flex flex-col items-center justify-center gap-6 text-center px-6">
+          <p className="text-[#556987] text-sm sm:text-base md:text-lg font-bold font-sans leading-normal max-w-3xl">
+            Choosing the right academy can decide your entire career. Join thousands who trusted Amigo and got placed.
+          </p>
+          {/* Pills Container */}
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {["Verified Google Reviews", "Placement Support", "Govt Recognised", "10,000+ Students Trained"].map((pill, idx) => (
+              <span key={idx} className="bg-[#f0f4fa]/40 border border-[#d3e4f6] text-[#1e3e66] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm transition-all hover:bg-slate-50">
+                {pill}
+              </span>
+            ))}
           </div>
 
           {/* CTA Button */}
@@ -1093,13 +1129,21 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               const element = document.getElementById("eligibilityForm");
               element?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 group shrink-0"
+            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 group mt-2 shrink-0"
           >
             Check My Batch & Placement Options
             <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </button>
+
+          {/* Limited Seats Banner */}
+          <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-4">
+            <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+            <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
+          </div>
         </div>
       </section>
 
@@ -1356,7 +1400,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Footer Link */}
         <div className="text-center mt-10">
           <button
-            onClick={() => setCurrentPage?.("services")}
+            onClick={() => navigate("/career-guides")}
             className="text-[#1E417A] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1.5 mx-auto group transition-colors focus:outline-none"
           >
             Explore All Industry Advice
@@ -1402,7 +1446,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Frequently Asked Questions Section */}
-      <section className="max-w-4xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
+      <section className="max-w-4xl mx-auto w-full px-6 pt-16 pb-20 relative z-20 flex flex-col items-center">
 
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1415,11 +1459,11 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="space-y-4 max-w-3xl w-full mx-auto">
           {[
             {
-              q: "What salary can I expect after air hostess training.",
-              a: "Graduates from our air hostess training program typically secure starting salaries between ₹4.5 Lakhs to ₹9 Lakhs per annum. International airlines offer even higher packages, and salary scales increase rapidly with experience and cabin rank."
+              q: "What salary can I expect after air hostess training?",
+              a: "After Air Hostess training, freshers can typically expect around ₹25,000–₹40,000 per month, depending on the airline, role, and location. With experience, earnings can increase significantly."
             },
             {
               q: "What is the eligibility for air hostess course after 12th.",
@@ -1440,45 +1484,50 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             {
               q: "Are your courses government recognised with EMI options.",
               a: "Yes, our aviation and hospitality programs are Maharashtra Government certified. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
-            },
-            {
-              q: "Best digital marketing or cyber security course in Mumbai.",
-              a: "Our specialized academy programs in Digital Marketing and Cyber Security are designed by industry professionals. They combine core theoretical frameworks with real-world lab exercises, capstone projects, and resume-building support."
-            },
-            {
-              q: "Do you have branches in Ghatkopar, Andheri, Thane and Pune.",
-              a: "Yes, Amigoz Academy operates modern, fully-equipped training centers across Ghatkopar, Andheri, Thane, and Pune. All branches feature top-tier facilities, mock aircraft cabins, and experienced faculty."
-            },
-            {
-              q: "How can I get free career counseling or scholarship information.",
-              a: "To obtain free guidance or check your scholarship eligibility, simply fill out the registration form at the top of this page. One of our academy advisors will reach out to you to guide you step-by-step."
             }
           ].map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
-              <div key={idx} className="bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] overflow-hidden transition-all duration-300">
+              <div key={idx} className="bg-white rounded-2xl border border-neutral-100 shadow-[0_4px_20px_rgba(0,0,0,0.015)] overflow-hidden p-2 transition-all duration-300">
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-5 text-left hover:bg-slate-50/50 transition-colors focus:outline-none"
+                  className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50/50 transition-colors focus:outline-none gap-4"
                 >
-                  <span className="text-[#0f2a4a] text-sm sm:text-base font-extrabold font-sans pr-4">
-                    {faq.q}
-                  </span>
+                  <div className="flex items-center gap-4">
+                    {/* Circle Number */}
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm shrink-0 transition-colors ${isOpen ? "bg-[#0f2a4a] text-white" : "bg-[#f0f4fa] text-[#0f2a4a]"
+                      }`}>
+                      {idx + 1}
+                    </div>
+                    <span className="text-[#0f2a4a] text-sm sm:text-base font-extrabold font-sans">
+                      {faq.q}
+                    </span>
+                  </div>
                   <svg className={`w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-slate-50 bg-slate-50/20 p-5">
-                    <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm leading-relaxed">
-                      {faq.a}
-                    </p>
+                  <div className="p-4 pt-0">
+                    <div className="bg-[#f8fafc] border-l-4 border-[#0f2a4a] rounded-r-xl p-4">
+                      <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm leading-relaxed">
+                        {faq.a}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
             );
           })}
+        </div>
+
+        {/* Limited Seats Banner */}
+        <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-12">
+          <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+          <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
         </div>
       </section>
 
@@ -1630,93 +1679,107 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Final Urgent CTA Section */}
-      <section className="text-white py-20 px-6 relative overflow-hidden z-20 text-center" style={{ background: "linear-gradient(180deg, rgba(28, 57, 142, 0.2) 0%, rgba(28, 57, 142, 0) 100%), #0e264a" }}>
+      <section
+        style={{ backgroundColor: "#0d1b3d" }}
+        className="py-16 px-6 text-center text-white relative overflow-hidden"
+      >
+        {/* Top badge */}
+        <div className="flex justify-center mb-7">
+          <span
+            style={{
+              border: "1px solid rgba(240,161,58,0.4)",
+              color: "#f0a13a",
+              backgroundColor: "rgba(240,161,58,0.05)",
+            }}
+            className="inline-flex items-center gap-2 text-xs font-bold tracking-wide px-4 py-2 rounded-full"
+          >
+            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M11.3 1.046a1 1 0 01.7 1.169L10.98 8h4.02a1 1 0 01.76 1.65l-8 9.5a1 1 0 01-1.752-.815L6.02 12H2a1 1 0 01-.76-1.65l8-9.5a1 1 0 011.06-.304z" />
+            </svg>
+            Limited seats per batch — apply early to secure your spot
+          </span>
+        </div>
 
-        {/* Subtle background light glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+        {/* Headline */}
+        <h1
+          style={{ color: "#ffffff" }}
+          className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
+        >
+          2026 batches are filling fast — don&rsquo;t get left behind
+        </h1>
 
-        <div className="max-w-5xl mx-auto relative z-10">
+        {/* Subheading */}
+        <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
+          Admissions open — secure your seat early. One free call is all it takes.
+        </p>
 
-          {/* Limited Seats Banner */}
-          <div className="inline-flex items-center gap-1.5 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase">
-            <span>⚡</span>
-            <span>LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT</span>
-          </div>
+        {/* Certification badge */}
+        <div className="flex justify-center mb-8">
+          <span
+            style={{
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#f0a13a",
+              backgroundColor: "rgba(255,255,255,0.05)",
+            }}
+            className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 1L2 5v2h16V5l-8-4zM4 9v7H2v2h16v-2h-2V9h-2v7h-2V9h-2v7H8V9H6v7H4V9H4z" />
+            </svg>
+            Maharashtra govt certified — only aviation institute in Maharashtra
+          </span>
+        </div>
 
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
-            2026 Batches Are Filling Fast — Don't Get Left Behind
-          </h2>
+        {/* Action buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+          <a
+            href="#enquiry-form"
+            style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Check my eligibility now
+          </a>
 
-          {/* Subtitle */}
-          <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
-            Admissions Open — Secure Your Seat Early. One free call is all it takes.
-          </p>
+          <a
+            href="#enquiry-form"
+            style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors"
+          >
+            Start my career
+          </a>
 
-          {/* Government Certification Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
-            <span>🏛️</span>
-            <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
-          </div>
+          <a
+            href="https://wa.me/919987588932"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ backgroundColor: "#25d366", color: "#ffffff" }}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 004.74 1.21h.005c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0012.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.8-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.15.12.32.02.52-.1.2-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.15.46.13.63-.08.18-.2.75-.87.95-1.17.2-.29.4-.24.66-.15.27.1 1.7.8 1.99.94.29.15.48.22.55.34.07.13.07.72-.17 1.4z" />
+            </svg>
+            Chat on WhatsApp
+          </a>
+        </div>
 
-          {/* Buttons Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
-            {/* Check Eligibility Red Button */}
-            <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
-            >
-              <span>⚡</span> CHECK MY ELIGIBILITY NOW
-            </button>
-
-            {/* Start My Career Red Button */}
-            <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
-            >
-              Start My Career
-            </button>
-
-            {/* WhatsApp Green Button */}
-            <a
-              href="https://wa.me/919987588932"
-              target="_blank"
-              rel="noreferrer"
-              className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />
-              </svg>
-              Chat on WhatsApp
-            </a>
-          </div>
-
-          {/* Trust Markers */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-slate-300 text-xs sm:text-sm font-bold font-sans">
-            <div className="flex items-center gap-1.5">
-              <span className="text-emerald-400">✓</span>
-              <span>4.6 Google Rating</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-emerald-400">✓</span>
-              <span>10,000+ Students</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-emerald-400">✓</span>
-              <span>Govt Certified</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-emerald-400">✓</span>
-              <span>200+ Hiring Partners</span>
-            </div>
-          </div>
-
+        {/* Trust indicators */}
+        <div
+          style={{ color: "#ffffff" }}
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
+        >
+          {["4.6 Google rating", "10,000+ students", "Govt certified", "200+ hiring partners"].map(
+            (item, i) => (
+              <span key={i} className="inline-flex items-center gap-1.5 font-bold">
+                <svg className="w-3.5 h-3.5 text-[#25d366]" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                {item}
+              </span>
+            )
+          )}
         </div>
       </section>
 

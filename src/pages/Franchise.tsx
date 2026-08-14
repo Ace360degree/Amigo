@@ -14,33 +14,47 @@ export default function Franchise() {
         <div className="flex flex-col bg-white">
 
             {/* Franchise Hero Section */}
-            <section className="w-full bg-white min-h-[520px] lg:h-[550px] relative overflow-hidden flex items-center border-b border-neutral-100">
+            <section className="w-full bg-white min-h-[600px] lg:h-[650px] relative overflow-hidden flex items-center border-b border-neutral-100">
 
-                {/* Split Background Image on the Right */}
-                <div className="absolute top-0 right-0 h-full w-full lg:w-[50%] z-0">
+                {/* Desktop Background Image: right-0, w-[50%], object-center */}
+                <div className="hidden lg:block absolute top-0 right-0 h-full w-[50%] z-0">
                     <img
                         src={new URL("../assets/img/Franchisehero.png", import.meta.url).href}
                         alt="Partner With Amigo Academy - Franchise Opportunity"
-                        className="h-full w-full object-cover lg:object-left"
+                        className="h-full w-full object-cover object-center"
                         onError={(e) => {
                             // Fallback mockup image
                             e.currentTarget.src = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800";
                         }}
                     />
+                </div>
 
+                {/* Mobile Background Image: w-full, height is 100%, with linear gradient overlay */}
+                <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+                    <img
+                        src={new URL("../assets/img/mobilefranchise.png", import.meta.url).href}
+                        alt="Partner With Amigo Academy - Franchise Opportunity Mobile"
+                        className="w-full h-full object-cover object-right"
+                        onError={(e) => {
+                            e.currentTarget.src = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800";
+                        }}
+                    />
+                    {/* Gradient overlay to fade left side into white */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-40% to-transparent z-10" />
                 </div>
 
                 {/* Content Container */}
-                <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 relative z-20 flex items-center h-full py-12 lg:py-0">
-                    <div className="max-w-[540px] space-y-6 text-left">
+                <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 relative z-20 flex items-center h-full py-16 lg:py-0">
+                    <div className="w-[60%] sm:w-[55%] lg:w-full max-w-[540px] space-y-4 sm:space-y-6 text-left">
 
                         {/* Title */}
-                        <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-outfit font-extrabold text-[#0b2f61] leading-[1.15] tracking-tight">
-                            Partner With Amigo Academy – <span className="text-[#dfaa29]">Franchise Opportunity</span>
+                        <h1 className="text-xl sm:text-3xl lg:text-[44px] font-outfit font-extrabold text-[#0b2f61] leading-[1.25] tracking-tight">
+                            Partner With Amigo Academy – <br />
+                            <span className="text-[#dfaa29]">Franchise Opportunity</span>
                         </h1>
 
                         {/* Paragraphs */}
-                        <div className="space-y-4 font-sans font-semibold text-slate-600 text-xs sm:text-[13.5px] leading-relaxed">
+                        <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-slate-600 text-[10px] sm:text-[13.5px] leading-relaxed">
                             <p>
                                 Aviation and technology education is one of India's fastest-growing industries. Amigo Academy offers entrepreneurs the opportunity to build a successful education business using a trusted, Maharashtra Government Certified brand.
                             </p>
@@ -50,10 +64,10 @@ export default function Franchise() {
                         </div>
 
                         {/* CTA Button */}
-                        <div className="pt-2">
+                        <div className="pt-1">
                             <button
                                 onClick={handleCTA}
-                                className="inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
+                                className="inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-sm px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
                             >
                                 Enroll Now To Avail Scholarship &rarr;
                             </button>

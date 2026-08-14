@@ -14,9 +14,9 @@ import placementIcon3 from "../assets/img/placementicon3.png";
 import placementIcon4 from "../assets/img/placementicon4.png";
 import placementIcon5 from "../assets/img/placementicon5.png";
 import placementIcon6 from "../assets/img/placementicon6.png";
-import Studentimg1 from "../assets/img/Studentimg1.png";
-import Studentimg2 from "../assets/img/Studentimg2.png";
-import Studentimg3 from "../assets/img/Studentimg3.png";
+import Studentimg1 from "../assets/img/Student1.png";
+import Studentimg2 from "../assets/img/Student3.png";
+import Studentimg3 from "../assets/img/Student2.png";
 import placementIcons1 from "../assets/img/placementicons1.png";
 import placementIcons2 from "../assets/img/placementicons2.png";
 import placementIcons3 from "../assets/img/placementicons3.png";
@@ -24,25 +24,55 @@ import placementIcons4 from "../assets/img/placementicons4.png";
 import placementIcons5 from "../assets/img/placementicons5.png";
 import placementIcons6 from "../assets/img/placementicons6.png";
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+// Student profile image imports for video stories
+import Studentpf1 from "../assets/img/Studentpf1.png";
+import Studentpf2 from "../assets/img/Studentpf3.png";
+import Studentpf3 from "../assets/img/Studentpf2.png";
+
+// Brand Logo Imports
+import placementbrandy1 from "../assets/img/placementbrandy1.png";
+import placementbrandy2 from "../assets/img/placementbrandy2.png";
+import placementbrandy3 from "../assets/img/placementbrandy3.png";
+import placementbrandy4 from "../assets/img/placementbrandy4.png";
+import placementbrandy5 from "../assets/img/placementbrandy5.png";
+import placementbrandy6 from "../assets/img/placementbrandy6.png";
+import placementbrandy7 from "../assets/img/placementbrandy7.png";
+import placementbrandy8 from "../assets/img/placementbrandy8.png";
+import placementbrandy9 from "../assets/img/placementbrandy9.png";
+import placementbrandy10 from "../assets/img/placementbrandy10.png";
+import placementbrandy11 from "../assets/img/placementbrandy11.png";
+import placementbrandy12 from "../assets/img/placementbrandy12.png";
+
+function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
-      className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen
-        ? "border-[#0b2f61]/20 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
-        : "border-neutral-200/60 shadow-sm"
+      className={`bg-white border rounded-3xl overflow-hidden transition-all duration-300 ${isOpen
+        ? "border-neutral-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+        : "border-neutral-200/80 shadow-sm"
         }`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer group"
       >
-        <span className="text-sm sm:text-[15px] font-outfit font-bold text-[#0b2f61] pr-4">
-          {question}
-        </span>
-        <svg
-          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+        <div className="flex items-center space-x-4">
+          {/* Index Circle Indicator */}
+          <div
+            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${
+              isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
             }`}
+          >
+            {index}
+          </div>
+          <span className="text-sm sm:text-[15px] font-sans font-bold text-[#0b2f61] pr-4">
+            {question}
+          </span>
+        </div>
+        <svg
+          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -52,13 +82,16 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
         </svg>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-          }`}
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        }`}
       >
-        <div className="px-6 pb-5 border-t border-neutral-100">
-          <p className="text-neutral-500 font-sans text-xs sm:text-[13px] leading-relaxed pt-4">
-            {answer}
-          </p>
+        <div className="px-6 pb-6 pt-2">
+          <div className="border-l-2 border-[#0b2f61] pl-4 py-1">
+            <p className="text-neutral-500 font-sans text-xs sm:text-[13px] leading-relaxed">
+              {answer}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -158,18 +191,18 @@ export default function Placement() {
   ];
 
   const hiringPartners = [
-    "IndiGo",
-    "Air India",
-    "Akasa Air",
-    "Emirates",
-    "SpiceJet",
-    "Mumbai Airport",
-    "AirAsia",
-    "Vistara",
-    "AISATS",
-    "Quantiphi",
-    "TCS",
-    "Infosys",
+    placementbrandy1,
+    placementbrandy2,
+    placementbrandy3,
+    placementbrandy4,
+    placementbrandy5,
+    placementbrandy6,
+    placementbrandy7,
+    placementbrandy8,
+    placementbrandy9,
+    placementbrandy10,
+    placementbrandy11,
+    placementbrandy12,
   ];
   const journeySteps = [
     {
@@ -244,25 +277,28 @@ export default function Placement() {
 
   const videoStories = [
     {
-      name: "Sneha Kulkarni",
-      role: "Cabin Crew · 2025",
-      company: "IndiGo",
-      description: "From a Borivali classroom to her first flight — Sneha talks about the grooming and interview rounds that got her selected.",
+      name: "Jasmine Soni",
+      role: "Cabin Crew Emirates · Aviation Batch 2023",
+      company: "Emirates",
+      description: "Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
       image: Studentimg1,
+      profile: Studentpf1,
     },
     {
-      name: "Rohit Sawant",
-      role: "Ground Staff · 2025",
-      company: "Mumbai Airport",
-      description: "Rohit explains how practical airport training and mock rounds helped him clear a ground-handling interview.",
+      name: "Hardik Chari",
+      role: "Guest Service Exclusive · Batch 2024",
+      company: "Akasa Air",
+      description: "Guest Service Exclusive Course Mumbai — zero to high-paying job. Placement team is exceptional.",
       image: Studentimg2,
+      profile: Studentpf2,
     },
     {
-      name: "Sanjana Rao",
-      role: "AI Support Engineer · 2025",
-      company: "TCS",
-      description: "Sanjana shares how the AI & Data Science track and placement support led to her first tech role.",
+      name: "Swati Patil",
+      role: "Airport Ground Staff · Travel & Tourism 2022",
+      company: "Mumbai Airport",
+      description: "The comprehensive curriculum covers every aspect of the industry. The instructors are real professionals who know what airlines are looking for. I am now happily working at International Airport.",
       image: Studentimg3,
+      profile: Studentpf3,
     },
   ];
 
@@ -303,9 +339,9 @@ export default function Placement() {
     <div className="flex flex-col">
 
       {/* Placements Hero Section */}
-      <section className="w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
-        {/* Split Background Image on the Right */}
-        <div className="absolute top-0 right-0 h-full w-full lg:w-[42%] z-0">
+      <section className="w-full bg-[#f1f5f9] min-h-[450px] sm:min-h-[500px] lg:h-[650px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
+        {/* Desktop Background Image: right-0, lg:w-[42%], hidden on mobile */}
+        <div className="hidden lg:block absolute top-0 right-0 h-full w-[42%] z-0">
           <img
             src={new URL("../assets/img/placementhero.png", import.meta.url).href}
             alt="Student Placements Success"
@@ -314,24 +350,44 @@ export default function Placement() {
               e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10 lg:block hidden" />
-          <div className="absolute inset-0 bg-[#f1f5f9]/40 z-10 lg:hidden block" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10" />
+        </div>
+
+        {/* Mobile Background Image: w-full, height is 100% */}
+        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+          <img
+            src={new URL("../assets/img/mobileheroplacement.png", import.meta.url).href}
+            alt="Student Placements Success Mobile"
+            className="w-full h-full object-cover object-[right_center]"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
+            }}
+          />
         </div>
 
         {/* Content Container */}
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
-          <div className="max-w-[520px] space-y-6 text-left">
-            <h1 className="text-4xl sm:text-[48px] font-outfit font-extrabold text-[#0b2f61] leading-[1.1] tracking-tight">
-              Our Student Placements<br />&amp; Success Stories
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center min-h-[450px] sm:min-h-[500px] lg:h-[650px] py-12 lg:py-0">
+          <div className="w-[48%] sm:w-[50%] lg:w-full max-w-[520px] space-y-4 sm:space-y-6 text-left">
+            <h1 className="text-xl sm:text-3xl lg:text-[48px] font-outfit font-extrabold text-[#0b2f61] tracking-tight">
+              <span className="block leading-[1.2]">Our Student Placements</span>
+              <span className="block mt-2 leading-[1.2]">&amp; Success Stories</span>
             </h1>
-            <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
-              Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality * Cruise Line &amp; Hospitality Management * Digital Marketing * Cyber Security * AI &amp; Data Science
+            {/* Desktop list of courses */}
+            <p className="hidden lg:block text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
+              Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality *<br />
+              Ai &amp; Data Science
             </p>
-            <div className="pt-2">
+            {/* Mobile list of courses stacked vertically */}
+            <div className="block lg:hidden text-neutral-500 font-sans font-semibold text-[10px] leading-relaxed space-y-0.5">
+              <p>Air Hostess &amp; Cabin Crew *</p>
+              <p>Airport Ground Staff &amp; Hospitality *</p>
+              <p>Ai &amp; Data Science</p>
+            </div>
+            <div className="pt-1">
               <a
                 href="#enquiry-form"
                 style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
-                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a]"
+                className="inline-flex items-center justify-center gap-2 text-[9px] sm:text-sm font-bold px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95 whitespace-nowrap"
               >
                 Enroll Now To Avail Scholarship &rarr;
               </a>
@@ -436,9 +492,10 @@ export default function Placement() {
           <div className="pt-6">
             <a
               href="#enquiry-form"
-              className="inline-flex items-center justify-center border border-amber-500/30 bg-[#fffbeb] hover:bg-[#fef3c7] text-amber-900 font-sans font-bold text-xs sm:text-[13px] px-8 py-3.5 rounded-full transition-all shadow-sm hover:shadow active:scale-95"
+              style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95"
             >
-              I Want To Be On This Page
+              Enroll Now &rarr;
             </a>
           </div>
         </div>
@@ -459,12 +516,16 @@ export default function Placement() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
-          {hiringPartners.map((partner, idx) => (
+          {hiringPartners.map((logo, idx) => (
             <div
               key={idx}
-              className="bg-white border border-neutral-200/60 rounded-2xl py-7 px-4 text-center font-sans font-extrabold text-[#4b5563] text-sm sm:text-base tracking-wide shadow-sm hover:shadow hover:border-neutral-300 hover:-translate-y-0.5 transition-all duration-300"
+              className="bg-white border border-neutral-200/60 rounded-3xl py-6 px-8 flex items-center justify-center shadow-sm hover:shadow hover:border-neutral-300 hover:-translate-y-0.5 transition-all duration-300 min-h-[90px]"
             >
-              {partner}
+              <img
+                src={logo}
+                alt={`Hiring Partner Logo ${idx + 1}`}
+                className="max-h-10 max-w-full object-contain"
+              />
             </div>
           ))}
         </div>
@@ -604,6 +665,17 @@ export default function Placement() {
                   <div className="bg-white/95 backdrop-blur-sm text-[10px] font-bold text-neutral-800 px-3 py-1 rounded-full absolute bottom-3.5 left-3.5 shadow-sm border border-neutral-100/50 z-10">
                     {story.company}
                   </div>
+
+                  {/* Circular Profile Image Inset */}
+                  {story.profile && (
+                    <div className="absolute bottom-2.5 right-2.5 w-11 h-11 rounded-full border-2 border-white overflow-hidden shadow-md z-20 bg-white">
+                      <img
+                        src={story.profile}
+                        alt={`${story.name} Profile`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
                 </div>
 
                 {/* Info & Description */}
@@ -620,20 +692,7 @@ export default function Placement() {
                     </p>
                   </div>
 
-                  {/* Watch Story Button */}
-                  <div className="pt-2">
-                    <button className="w-full py-2.5 border border-[#0b2f61]/25 hover:border-[#0b2f61] text-[#0b2f61] font-sans font-bold text-xs sm:text-[13px] rounded-full flex items-center justify-center gap-2 hover:bg-[#0b2f61]/5 transition-all">
-                      {/* Play outline icon */}
-                      <svg
-                        className="w-4 h-4 fill-none stroke-current stroke-2"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                      Watch Story
-                    </button>
-                  </div>
+
                 </div>
               </div>
             ))}
@@ -690,41 +749,39 @@ export default function Placement() {
       <section className="w-full bg-[#f8fafc] py-20 border-t border-neutral-200/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col items-center space-y-12">
           <div className="text-center space-y-4">
-            <span className="inline-block bg-amber-50 text-amber-800 text-[10px] font-extrabold uppercase px-4 py-1.5 rounded-full tracking-wider border border-amber-200/40">
-              Questions By Students & Parents
-            </span>
             <h2 className="text-3xl sm:text-[38px] font-outfit font-black text-[#0b2f61] leading-tight">
               Frequently Asked Questions
             </h2>
             <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] max-w-xl mx-auto leading-relaxed">
-              Honest answers about how placements at Amigoz Academy actually work.
+              Got questions? We've got answers. Find out everything you need to know about our courses.
             </p>
           </div>
 
           <div className="w-full space-y-4">
             <FAQItem
-              question="Are these real Amigoz Academy placements?"
-              answer="Yes, every placement shown on this page is verified. Our placed students work at real airlines and companies, and we can connect you with alumni who are happy to share their experience."
+              index={1}
+              question="Are these real Amigo Academy placements?"
+              answer="Yes, these are real Amigo Academy placements?"
             />
             <FAQItem
-              question="Which companies hire Amigoz students?"
+              index={2}
+              question="Which companies hire Amigo students?"
               answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
             />
             <FAQItem
-              question="Does Amigoz guarantee placement?"
+              index={3}
+              question="Which companies hire Amigo students?"
+              answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
+            />
+            <FAQItem
+              index={4}
+              question="Does Amigo guarantee placement?"
               answer="We provide 100% placement assistance — that means dedicated mock interviews, resume building, grooming sessions, and direct introductions to hiring partners. While no institute can legally guarantee a job, our track record of 10,000+ placements speaks for itself."
             />
             <FAQItem
-              question="What is the average salary after placement?"
-              answer="Starting salaries typically range from ₹4.5 Lakhs to ₹9.2 Lakhs per annum depending on the role, airline, and location. Cabin crew and ground staff at international airlines tend to be on the higher end."
-            />
-            <FAQItem
-              question="How soon after course completion do students get placed?"
-              answer="Most students receive their first interview call within 2–4 weeks of completing the course. Many get placed even before the course ends, during our exclusive placement drives."
-            />
-            <FAQItem
-              question="Do you help with interview preparation?"
-              answer="Absolutely. We conduct regular mock interviews, group discussions, personality development sessions, and one-on-one mentorship to make sure you walk into every interview with confidence."
+              index={5}
+              question="Is Amigo Academy certified?"
+              answer="Yes, Amigo Academy is Maharashtra Government Certified, offering recognised training qualifications trusted by major employers."
             />
           </div>
         </div>
