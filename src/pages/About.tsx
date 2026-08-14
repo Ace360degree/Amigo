@@ -134,7 +134,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
       {/* About Us Hero Section */}
       <section className="w-full bg-[#f1f5f9] min-h-[420px] sm:min-h-[500px] lg:h-[520px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
         {/* Desktop Background Image: right-0, w-[50%], hidden on mobile */}
-        <div className="hidden lg:block absolute top-0 right-0 h-full w-[50%] z-0">
+        <div className="hidden lg:block absolute top-0 right-0 h-full w-[42%] z-0">
           <img
             src={new URL("../assets/img/aboutushero.png", import.meta.url).href}
             alt="Cabin Crew Cabin Flight"
@@ -237,7 +237,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               "Industry-aligned curriculum designed for real-world roles",
               "Experienced trainers with domain expertise Experienced trainers with domain expertise",
               "Interview preparation and placement support",
-              "Nationally recognized certifications and affiliations",
+              "Maharashtra Government Certified",
               "We don't believe in one-size-fits-all education — we build professionals who are job-ready from day one."
             ].map((text, index) => (
               <div key={index} className="flex items-start space-x-4">

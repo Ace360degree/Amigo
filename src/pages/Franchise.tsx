@@ -84,7 +84,7 @@ export default function Franchise() {
                     {/* Badge & Headings */}
                     <div className="flex flex-col items-center text-center mb-16">
                         <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-amber-200 bg-amber-50/60 text-[10px] sm:text-xs font-bold text-amber-700 uppercase tracking-widest mb-4">
-                            <span>Why Amigo</span>
+                            <span>Partnership that grows</span>
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-3">

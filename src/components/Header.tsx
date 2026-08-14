@@ -13,6 +13,7 @@ export default function Header() {
   const handleNavClick = (path: string) => {
     navigate(path);
     setIsMobileMenuOpen(false);
+    setIsCoursesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -26,35 +27,31 @@ export default function Header() {
     <header className="w-full sticky md:static top-0 z-50 bg-white max-md:shadow-sm">
       {/* Top Bar 1: Certification Notice */}
       <div className="w-full bg-[#f6a619] py-2 px-4 text-center border-b border-amber-600/10">
-        <p className="text-neutral-900 font-sans font-bold text-[11px] sm:text-xs md:text-sm flex items-center justify-center gap-1.5 leading-none">
-          <span>🏛️</span> Maharashtra Govt Certified Aviation & AI & Data Science Institute
+        <p className="text-neutral-900 font-sans font-bold text-[11px] sm:text-xs md:text-sm flex flex-wrap items-center justify-center gap-1.5 leading-tight">
+          <span>🏛️</span>
+          Maharashtra Govt Certified Aviation & AI & Data Science Institute
         </p>
       </div>
 
-      {/* Top Bar 2: Scrolling Ticker Marquee */}
       <div className="w-full bg-[#0b2f61] text-[#ffd300] py-2 px-4 overflow-hidden relative border-b border-blue-950/20">
         <div className="relative w-full flex items-center">
-          <div className="animate-marquee whitespace-nowrap flex items-center text-xs sm:text-sm font-bold tracking-wide gap-8">
+          <div className="animate-marquee whitespace-nowrap flex items-center text-[10px] sm:text-sm font-bold tracking-wide gap-8">
             <span>
-              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats - apply now to secure your spot! &nbsp;&nbsp;|
             </span>
             <span>
-              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats - apply now to secure your spot! &nbsp;&nbsp;|
             </span>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
       <div className="w-full border-b border-neutral-100 shadow-sm py-3 px-4 sm:px-6 md:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-
-          {/* Left Group: Logo and Nav Links */}
-          <div className="flex items-center space-x-10 lg:space-x-14">
-            {/* Logo */}
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3 lg:gap-6">
+          <div className="flex items-center gap-3 sm:gap-4 lg:gap-10 min-w-0">
             <button
               onClick={() => handleNavClick("/")}
-              className="flex items-center focus:outline-none"
+              className="flex items-center focus:outline-none shrink-0"
               aria-label="Amigo Academy Home"
             >
               <img src={logo} alt="Amigo Academy Logo" className="h-16 sm:h-16 lg:h-[72px] w-auto object-contain py-1" />
@@ -78,14 +75,13 @@ export default function Header() {
                   </svg>
                 </button>
 
-                {/* Dropdown Box */}
                 {isCoursesDropdownOpen && (
                   <div
                     className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-neutral-100 py-3 z-50 animate-fadeIn"
                   >
                     {courses.map((course, idx) => (
                       <button
-                        key={idx}
+                        key={course.name}
                         onClick={() => {
                           handleNavClick(
                             idx === 0
@@ -96,7 +92,6 @@ export default function Header() {
                                   ? "/courses/ai-data-science-with-generative-ai-machine-learning"
                                   : "/courses"
                           );
-                          setIsCoursesDropdownOpen(false);
                         }}
                         className="w-full text-left px-4 py-2 hover:bg-neutral-50 flex flex-col group transition-colors"
                       >
@@ -137,29 +132,25 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Right Side Buttons */}
-          <div className="flex items-center space-x-3.5">
-            {/* Phone Button */}
+          <div className="flex items-center gap-2 sm:gap-3.5 shrink-0">
             <a
               href="tel:+919876543210"
               className="hover:scale-105 transition-all focus:outline-none"
               aria-label="Call Amigo Academy"
             >
-              <img src={phoneIcon} alt="Call Icon" className="w-9 h-9 sm:w-11 sm:h-11 object-contain" />
+              <img src={phoneIcon} alt="Call Icon" className="w-7 h-7 sm:w-10 sm:h-10 object-contain" />
             </a>
 
-            {/* CTA Eligibility Button */}
             <button
               onClick={() => handleNavClick("/contact")}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap focus:outline-none"
+              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-sm px-3 sm:px-5 py-2 sm:py-3 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap focus:outline-none"
             >
               Check my Eligibility
             </button>
 
-            {/* Mobile Hamburger toggle */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-1 text-neutral-600 hover:text-neutral-900 focus:outline-none"
+              onClick={() => setIsMobileMenuOpen((open) => !open)}
+              className="lg:hidden p-1 text-neutral-600 hover:text-neutral-900 focus:outline-none"
               aria-label="Toggle Menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -171,14 +162,12 @@ export default function Header() {
               </svg>
             </button>
           </div>
-
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden w-full border-b border-neutral-100 bg-white animate-slideDown">
-          <nav className="flex flex-col px-6 py-4 space-y-4 font-sans font-bold text-[#1e293b] text-base">
+        <div className="lg:hidden w-full border-b border-neutral-100 bg-white animate-slideDown">
+          <nav className="flex flex-col px-4 sm:px-6 py-4 space-y-4 font-sans font-bold text-[#1e293b] text-base">
             <div className="border-b border-neutral-100 pb-2">
               <span className="text-neutral-400 text-xs uppercase tracking-wider block mb-2">Our Courses</span>
               {courses.map((course, idx) => (
