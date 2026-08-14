@@ -75,7 +75,7 @@ export default function CareerGuides() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[310px]">
-            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+            <h1 className="text-[32px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
               Career Guides<br />
               to Help You<br />
               Make the<br />
@@ -83,7 +83,7 @@ export default function CareerGuides() {
               Choice
             </h1>
 
-            <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
+            <p className="text-[#475569] text-[13px] leading-relaxed mb-6 font-medium max-w-[200px]">
               Every successful career begins with the right training. At Amigo Academy, our industry-focused programmes in Cabin Crew, Airport Operations, and AI &amp; Data Science equip students with practical skills, confidence, and career-ready expertise.
             </p>
 
