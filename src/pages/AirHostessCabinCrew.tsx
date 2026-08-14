@@ -384,36 +384,36 @@ export default function AirHostessCabinCrew() {
         </div>
       </section>
 
-      {/* Mobile Hero View matching screenshot */}
+      {/* Mobile Hero View matching SS 2 */}
       <section className="sm:hidden w-full bg-[#f8fafc] border-b border-neutral-200/50">
         {/* Top Hero Banner */}
-        <div className="relative w-full h-[420px] overflow-hidden bg-[#f1f5f9]">
+        <div className="relative w-full h-[430px] overflow-hidden bg-[#f1f5f9]">
           <img
             src={airHostessMobileHero}
             alt="Air Hostess / Cabin Crew & Hospitality Management"
-            className="h-full w-full object-cover object-[right_top]"
+            className="absolute inset-0 h-full w-full object-cover object-[right_top]"
           />
-          {/* Crisp Gradient Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-55% to-transparent z-0" />
+          {/* Left White Gradient Overlay matching SS 2 */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-52% to-transparent z-0" />
 
-          {/* Hero Content Overlay */}
-          <div className="relative z-10 px-5 pt-6 pb-6 flex flex-col justify-center h-full max-w-[280px]">
-            <h1 className="text-[26px] font-extrabold text-[#112a46] leading-[1.18] tracking-tight">
+          {/* Text Overlay Pinned to Left */}
+          <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[275px]">
+            <h1 className="text-[26px] font-extrabold text-[#17365d] leading-[1.16] tracking-tight">
               Air Hostess /<br />
               Cabin Crew &amp;<br />
               Hospitality<br />
               Management
             </h1>
 
-            <ul className="mt-5 space-y-2 text-[13px] font-bold">
-              <li className="flex items-center gap-2 text-[#112a46]">
-                <span className="text-[#112a46] font-bold">•</span> 12 Months
+            <ul className="mt-5 space-y-2.5 text-[13px] font-bold">
+              <li className="flex items-center gap-2 text-[#17365d]">
+                <span className="text-[#17365d] font-extrabold">•</span> 12 Months
               </li>
-              <li className="flex items-center gap-2 text-[#112a46]">
-                <span className="text-[#112a46] font-bold">•</span> Certificate Program
+              <li className="flex items-center gap-2 text-[#17365d]">
+                <span className="text-[#17365d] font-extrabold">•</span> Certificate Program
               </li>
               <li className="flex items-center gap-2 text-[#e31e24]">
-                <span className="text-[#e31e24] font-bold">•</span> Practical Training
+                <span className="text-[#e31e24] font-extrabold">•</span> Practical Training
               </li>
             </ul>
           </div>
