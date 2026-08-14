@@ -501,226 +501,460 @@ export default function AirHostessCabinCrew() {
       </section>
 
       {/* Enquiry Form */}
-      <section className="bg-[#f4f6fb] py-6 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      <section className="bg-[#f4f6fb] py-10 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[22px] bg-[#244c9d] px-5 sm:px-8 py-8 sm:py-10 shadow-[0_16px_40px_rgba(15,42,74,0.12)] text-white">
-            <div className="max-w-2xl">
-              <h2 className="text-2xl sm:text-[32px] font-extrabold leading-tight">
-                Kickstart Your Career In 6 Months
+          <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-12 shadow-[0_20px_50px_rgba(24,58,125,0.18)] text-white">
+            <div>
+              <h2 className="text-2xl sm:text-[34px] font-extrabold leading-tight tracking-tight text-white">
+                Kickstart Your Career In 12 Months
               </h2>
-              <p className="mt-2 text-[11px] sm:text-xs text-white/75">
-                Get batch timings and seat availability.
+              <p className="mt-2 text-xs sm:text-sm text-slate-200/90 font-normal">
+                Get Batch timings and Seat availability
               </p>
             </div>
 
-            <form className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-              {[
-                "Mobile Number",
-                "Full Name",
-                "Age",
-                "Qualification",
-                "Preferred Branch",
-                "Gender",
-              ].map((placeholder) => (
+            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => e.preventDefault()}>
+              {/* Field 1: Mobile Number */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <svg className="w-4 h-4 text-slate-400 ml-1 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
                 <input
-                  key={placeholder}
-                  type="text"
-                  placeholder={placeholder}
-                  className="h-11 rounded-full bg-white px-4 text-sm text-slate-700 placeholder:text-slate-400 outline-none border border-transparent focus:border-[#d8e2f7]"
+                  type="tel"
+                  placeholder="Mobile Number"
+                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
                 />
-              ))}
+                <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
+              </div>
 
-              <div className="sm:col-span-2 xl:col-span-1 flex items-center gap-3">
-                <button
-                  type="submit"
-                  className="w-full h-11 rounded-full bg-[#f15d6a] text-white font-bold text-sm shadow-sm transition-all hover:bg-[#e24d5c] active:scale-95"
-                >
-                  Enroll Now
-                </button>
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#6b78a7] text-white">
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              {/* Field 2: Full Name */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <svg className="w-4 h-4 text-slate-400 ml-1 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
+                />
+                <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
+              </div>
+
+              {/* Field 3: Age */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                  <option value="" disabled selected hidden>Age</option>
+                  <option value="17">17 Years</option>
+                  <option value="18">18 Years</option>
+                  <option value="19">19 Years</option>
+                  <option value="20">20 Years</option>
+                  <option value="21">21 Years</option>
+                  <option value="22">22 Years</option>
+                  <option value="23">23 Years</option>
+                  <option value="24">24 Years</option>
+                </select>
+                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
+                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                   </svg>
+                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
+                </div>
+              </div>
+
+              {/* Field 4: Qualification */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                  <option value="" disabled selected hidden>Qualification</option>
+                  <option value="12th">12th Pass</option>
+                  <option value="undergraduate">Undergraduate</option>
+                  <option value="graduate">Graduate</option>
+                </select>
+                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
+                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
+                </div>
+              </div>
+
+              {/* Field 5: Preferred Branch */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                  <option value="" disabled selected hidden>Preferred Branch</option>
+                  <option value="ghatkopar">Ghatkopar</option>
+                  <option value="andheri">Andheri</option>
+                  <option value="thane">Thane</option>
+                </select>
+                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
+                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
+                </div>
+              </div>
+
+              {/* Field 6: Gender */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                  <option value="" disabled selected hidden>Gender</option>
+                  <option value="female">Female</option>
+                  <option value="male">Male</option>
+                  <option value="other">Other</option>
+                </select>
+                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
+                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
                 </div>
               </div>
             </form>
+
+            <div className="mt-7 flex justify-end">
+              <button
+                type="submit"
+                className="rounded-full bg-[#8ba2cf] hover:bg-[#7e97c7] text-[#142954] font-bold text-sm sm:text-base pl-7 pr-1.5 py-1.5 inline-flex items-center gap-5 shadow-md transition-all active:scale-98"
+              >
+                <span>Enroll Now</span>
+                <div className="w-9 h-9 rounded-full bg-[#8c1c34] flex items-center justify-center text-white shrink-0 shadow-inner">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* What Will You Learn */}
-      <section className="bg-[#f4f6fb] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-[1320px] text-center">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#2a2a2a] leading-tight">
+      <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1a1a1a] text-center mb-12 sm:mb-14">
             What Will You Learn?
           </h2>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {learnCards.map((item) => (
               <div
                 key={item.title}
-                className="min-h-[130px] rounded-[16px] border border-[#eef1f7] bg-white px-5 py-5 shadow-[0_8px_22px_rgba(15,42,74,0.04)]"
+                className="bg-white rounded-[22px] border border-slate-100/90 shadow-[0_6px_24px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between relative group hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 min-h-[150px]"
               >
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="max-w-[88%] text-[15px] font-extrabold text-[#1f2e4d] leading-6">
+                  <h3 className="text-base sm:text-[17px] font-bold text-[#1e293b] leading-snug pr-4">
                     {item.title}
                   </h3>
-                  <span className="mt-0.5 text-[#ff2f2f] text-xl leading-none">&rsaquo;</span>
+                  <svg className="w-4 h-4 text-[#e31e24] shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
                 </div>
-                <button
-                  type="button"
-                  className="mt-7 text-sm font-bold text-[#ff2f2f]"
-                >
-                  View Details
-                </button>
+                <div className="mt-6">
+                  <span className="text-[#e31e24] font-bold text-sm cursor-pointer hover:underline">
+                    View Details
+                  </span>
+                </div>
               </div>
             ))}
           </div>
 
-          <button
-            type="button"
-            className="mt-10 inline-flex items-center justify-center text-sm font-bold text-[#ff2f2f]"
-          >
-            Show More
-            <span className="ml-2">&rarr;</span>
-          </button>
+          <div className="mt-12 flex justify-center">
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 text-[#e31e24] font-bold text-sm sm:text-base hover:underline cursor-pointer"
+            >
+              <span>Show More</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Eligibility Criteria */}
-      <section className="bg-white py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-7xl text-center">
-          <div className="inline-flex items-center rounded-full bg-[#eef7ff] px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#2a67b1] border border-[#d9e7fb]">
-            Quick Eligibility Check
+      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl">
+          {/* Pill Badge */}
+          <div className="flex justify-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#e6f7f0] px-4 py-1.5 text-xs font-semibold text-[#0d9488] border border-[#ccf0e1]">
+              <svg className="w-4 h-4 text-[#0d9488]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Quick Eligibility Check</span>
+            </div>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#18304f] leading-tight">
+
+          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#11223f] text-center leading-tight">
             Do You Meet the Eligibility Criteria?
           </h2>
-          <p className="mx-auto mt-3 max-w-3xl text-xs sm:text-sm leading-7 text-slate-500">
-            Check if you qualify for our 6-month Aviation, Hospitality & Travel Management program.
-            Most students who meet these simple criteria get placed within 90 days.
+          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-500 text-center">
+            Check if you qualify for our 12-month Air Hostess / Cabin Crew &amp; Hospitality Management program.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 text-left">
-            {criteriaCards.map((item) => (
-              <div
-                key={item.title}
-                className="min-h-[230px] rounded-[18px] border border-[#eef1f7] bg-white p-6 shadow-[0_10px_28px_rgba(15,42,74,0.05)] flex flex-col"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f3f6fd] border border-[#e5ecfb] overflow-hidden">
-                      <img src={courseIcon121} alt="" className="h-5 w-5 object-contain" />
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            {criteriaCards.map((item) => {
+              const isRed = item.tag === "Required";
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-[22px] border border-slate-100/90 bg-white p-6 sm:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Header line: icon left, badge right */}
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="w-10 h-10 rounded-full bg-[#f0f4fd] flex items-center justify-center text-[#2563eb]">
+                        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg>
+                      </div>
+                      <span
+                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                          isRed
+                            ? "bg-[#fff1f2] text-[#f43f5e] border-[#fecdd3]"
+                            : "bg-[#fff7ed] text-[#ea580c] border-[#ffedd5]"
+                        }`}
+                      >
+                        {item.tag}
+                      </span>
                     </div>
-                    <div className="pt-0.5">
-                      <h3 className="text-[18px] font-extrabold text-[#1e2a44] leading-6">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-[13px] font-medium text-[#334155] leading-6">
-                        {item.details}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="shrink-0 rounded-full border border-[#ffb0b0] bg-[#fff5f5] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#f44336]">
-                    {item.tag}
-                  </div>
-                </div>
 
-                <div className="mt-auto border-t border-[#f3f5fb] pt-4">
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center">
-                      <img src={airhostessIcon2} alt="" className="h-5 w-5 object-contain" />
-                    </div>
-                    <p className="text-[12px] leading-6 text-slate-500">
+                    <h3 className="text-base sm:text-[17px] font-bold text-[#11223f]">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1.5 text-xs sm:text-sm font-medium text-slate-600">
+                      {item.details}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-start gap-2.5">
+                    <svg className="w-4 h-4 text-[#10b981] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-xs text-slate-500 leading-relaxed">
                       {item.note}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <div className="mt-6 rounded-[18px] border border-[#eef1f7] bg-[#fbfcfe] px-5 py-5 shadow-[0_10px_28px_rgba(15,42,74,0.04)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 text-left">
+          {/* Bottom Card inside Eligibility section */}
+          <div className="mt-8 rounded-[22px] border border-slate-100/90 bg-white p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
             <div>
-              <h3 className="text-base sm:text-lg font-extrabold text-[#18304f]">
+              <h3 className="text-lg sm:text-xl font-bold text-[#11223f]">
                 Not Sure If You Qualify?
               </h3>
               <p className="mt-1 text-xs sm:text-sm text-slate-500">
-                Don't worry! Our counsellors will evaluate your profile and suggest the best career path and options for you.
+                Don't worry! Our counselors will evaluate your profile and suggest the best career path in aviation for you.
               </p>
             </div>
             <a
               href="/contact#enquiry-form"
-              className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] px-6 py-3 text-xs sm:text-sm font-bold text-white shadow-sm transition-all hover:bg-[#183e82] active:scale-95"
+              className="shrink-0 rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-7 py-3 text-sm font-bold shadow-md transition-all inline-flex items-center gap-2"
             >
-              Check My Eligibility
-              <span className="ml-2">+</span>
+              <span>Check My Eligibility</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-flex items-center rounded-full bg-[#eef7ff] px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#2a67b1] border border-[#d9e7fb]">
-            Common Questions Answered
+      {/* Still Have Questions Banner */}
+      <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-14 text-center text-white shadow-[0_20px_50px_rgba(24,58,125,0.18)]">
+            <h2 className="text-2xl sm:text-[34px] font-extrabold text-white leading-tight">
+              Still have questions?
+            </h2>
+            <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm leading-relaxed text-slate-200/90 font-normal">
+              Our expert counselors are here to help you make the right career decision.
+              <br className="hidden sm:block" />
+              Get personalized guidance in under 60 seconds.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="/contact#enquiry-form"
+                className="rounded-full bg-white hover:bg-slate-50 text-[#183a7d] font-bold px-7 py-3 text-sm shadow-md transition-all inline-flex items-center gap-2"
+              >
+                <span>Talk to Counselor Now</span>
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <a
+                href="/contact#enquiry-form"
+                className="rounded-full border border-white/60 hover:bg-white/10 text-white font-bold px-7 py-3 text-sm transition-all inline-flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                </svg>
+                <span>Download Brochure (PDF)</span>
+              </a>
+            </div>
           </div>
-          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#18304f] leading-tight">
-            Frequently Asked Questions - Aviation,<br className="hidden sm:block" />
-            Hospitality &amp; Travel Management Training
+        </div>
+      </section>
+
+      {/* Student Success Stories */}
+      <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-7xl text-center">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#11223f] leading-tight">
+            Student Success Stories
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
-            Got questions? We have answers. Still confused? Speak to our counsellor in 60 seconds.
+          <p className="mx-auto mt-2 max-w-2xl text-xs sm:text-sm text-slate-500">
+            Hear from our successful graduates who are now thriving in their dream careers.
           </p>
 
-          <div className="mt-10 space-y-3 text-left">
-            {faqItems.map((faq, index) => {
-              const isOpen = index === 0;
-              return (
-                <details
-                  key={faq.question}
-                  open={isOpen}
-                  className="group rounded-xl border border-[#e8eef8] bg-white shadow-[0_10px_28px_rgba(15,42,74,0.05)] overflow-hidden"
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-4 text-sm font-semibold text-[#1e2a44]">
-                    <span className="flex items-center gap-3">
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#2a67b1] text-[10px] font-bold text-white">
-                        {index + 1}
-                      </span>
-                      <span>{faq.question}</span>
-                    </span>
-                    <svg
-                      className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2.25}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            {storyCards.map((story) => (
+              <article
+                key={story.title}
+                className="overflow-hidden rounded-[22px] bg-white border border-slate-100/90 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between"
+              >
+                <div>
+                  {/* Thumbnail */}
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                    <img
+                      src={story.image}
+                      alt={story.title}
+                      className="h-full w-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/15" />
+                    <button
+                      type="button"
+                      className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#e31e24] shadow-lg transition-transform hover:scale-105"
+                      aria-label={`Play story for ${story.title}`}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="border-t border-[#edf1f7] px-4 py-4">
-                    <div className="rounded-lg border-l-4 border-[#2a67b1] bg-[#f8fbff] px-4 py-4 text-xs sm:text-sm leading-6 text-slate-500">
-                      {faq.answer}
+                      <svg className="ml-0.5 h-5 w-5 fill-current" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </button>
+                    <div className="absolute left-3 bottom-3 bg-black/80 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-white">
+                      SELECTED FOR INDIGO
                     </div>
                   </div>
-                </details>
-              );
-            })}
+
+                  {/* Body */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={story.image}
+                        alt={story.title}
+                        className="h-10 w-10 rounded-full border border-slate-200 object-cover shrink-0"
+                      />
+                      <div>
+                        <h3 className="text-sm font-extrabold text-[#11223f]">
+                          {story.title}
+                        </h3>
+                        <p className="text-[11px] font-medium text-slate-500">
+                          {story.role}
+                        </p>
+                        <p className="text-[10px] text-slate-400">
+                          {story.company}
+                        </p>
+                      </div>
+                    </div>
+
+                    <p className="mt-4 text-xs text-slate-600 leading-relaxed italic">
+                      {story.quote}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="mt-12 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              className="w-10 h-10 rounded-full border border-slate-200 bg-white flex items-center justify-center text-slate-600 hover:bg-slate-50 shadow-sm transition-all"
+              aria-label="Previous story"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button
+              type="button"
+              className="rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all"
+            >
+              <span>Next Story</span>
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-4xl text-center">
+          {/* Pill Badge */}
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-[#eff6ff] px-4 py-1.5 text-xs font-semibold text-[#2563eb] border border-[#dbeafe]">
+            <svg className="w-4 h-4 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
+            </svg>
+            <span>Common Questions Answered</span>
+          </div>
+
+          <h2 className="mt-4 text-2xl sm:text-[34px] font-extrabold text-[#11223f] leading-tight max-w-3xl mx-auto">
+            Frequently Asked Questions – Aviation, Hospitality &amp; Travel Management Training
+          </h2>
+          <p className="mx-auto mt-2 max-w-xl text-xs sm:text-sm text-slate-500">
+            Got questions? We have answers. Still confused? Speak to our counselor in 60 seconds.
+          </p>
+
+          <div className="mt-10 space-y-3.5 text-left">
+            {faqItems.map((faq, index) => (
+              <details
+                key={faq.question}
+                open={index === 0}
+                className="group rounded-[18px] border border-slate-100/90 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.02)] overflow-hidden transition-all duration-200"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-4 sm:p-5 text-sm font-extrabold text-[#11223f] select-none">
+                  <span className="flex items-center gap-3.5">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f0f4fd] text-xs font-bold text-[#2563eb] group-open:bg-[#183a7d] group-open:text-white transition-colors">
+                      {index + 1}
+                    </span>
+                    <span className="group-open:text-[#183a7d] transition-colors">{faq.question}</span>
+                  </span>
+                  <svg
+                    className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </summary>
+                <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+                  <div className="rounded-xl border-l-4 border-[#183a7d] bg-[#f8fafc] p-4 text-xs sm:text-sm leading-relaxed text-slate-600">
+                    {faq.answer}
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          {/* Bottom Stats */}
+          <div className="mt-16 pt-12 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             {[
               { value: "1,200+", label: "Students Enrolled" },
               { value: "200+", label: "Hiring Partners" },
               { value: "90 Days", label: "Avg. Placement Time" },
             ].map((stat) => (
               <div key={stat.label}>
-                <div className="text-3xl sm:text-4xl font-extrabold text-[#1e2a44]">
+                <div className="text-3xl sm:text-4xl font-extrabold text-[#11223f]">
                   {stat.value}
                 </div>
-                <div className="mt-2 text-[11px] sm:text-xs font-medium text-slate-500">
+                <div className="mt-1.5 text-xs font-medium text-slate-500">
                   {stat.label}
                 </div>
               </div>
@@ -728,122 +962,6 @@ export default function AirHostessCabinCrew() {
           </div>
         </div>
       </section>
-
-      <section className="bg-white py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-4xl rounded-[22px] bg-[#1f4da3] px-6 sm:px-10 py-10 text-center text-white shadow-[0_18px_40px_rgba(15,42,74,0.16)]">
-            <h2 className="text-2xl sm:text-[30px]  text-white font-extrabold leading-tight">
-              Still have questions?
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-6 text-white/80">
-              Our expert counsellors are here to help you make the right career decision.
-              Get personalized guidance in under 60 seconds.
-            </p>
-
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs font-bold text-[#1f4da3] shadow-sm transition-all hover:opacity-95 active:scale-95"
-              >
-                Talk to Counselor Now
-                <span className="ml-2">+</span>
-              </a>
-              <a
-                href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center rounded-lg border border-white/50 bg-transparent px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-white/10 active:scale-95"
-              >
-                Download Brochure (PDF)
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-16 text-center">
-            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
-              Student Success Stories
-            </h2>
-            <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
-              Hear from our successful graduates who are now thriving in their dream careers.
-            </p>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {storyCards.map((story) => (
-              <article
-                key={story.title}
-                className="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_28px_rgba(15,42,74,0.08)] border border-neutral-100"
-              >
-                <div className="relative h-60 w-full overflow-hidden bg-slate-100">
-                  <img
-                    src={story.image}
-                    alt={story.title}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/10" />
-                  <button
-                    type="button"
-                    className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#e31e24] shadow-lg transition-transform hover:scale-105 active:scale-95"
-                    aria-label={`Play story for ${story.title}`}
-                  >
-                    <svg className="ml-1 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </button>
-                  <div className="absolute left-0 right-0 bottom-0 bg-white/90 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#1f3658]">
-                    Selected for India
-                  </div>
-                </div>
-
-                <div className="p-5">
-                  <div className="flex items-center gap-3">
-                    <div className="h-9 w-9 overflow-hidden rounded-full border border-neutral-200">
-                      <img
-                        src={story.image}
-                        alt={story.title}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-extrabold text-[#1f3658]">
-                        {story.title}
-                      </h3>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#e31e24]">
-                        {story.role}
-                      </p>
-                      <p className="text-[10px] font-semibold text-slate-400">
-                        {story.company}
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className="mt-4 text-[12px] leading-6 text-slate-500 italic">
-                    {story.quote}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-10 flex items-center justify-center gap-3">
-            <button
-              type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#d9e4f5] bg-white text-[#1f4da3] shadow-sm"
-              aria-label="Previous story"
-            >
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] px-5 py-2.5 text-xs font-bold text-white shadow-sm"
-            >
-              Next Story
-              <span className="ml-2">+</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
