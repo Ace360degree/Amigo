@@ -88,6 +88,7 @@ const faqs = [
 ];
 
 import cabinHero from "../assets/img/career guides/cabincrew-hero.png";
+import cabinHeroMobile from "../assets/img/career guides/cabincrewhero-mobile.png";
 import cabinCrew1 from "../assets/img/career guides/cabincrew1.png";
 import cc1 from "../assets/img/career guides/cc1.png";
 import cc2 from "../assets/img/career guides/cc2.png";
@@ -205,11 +206,9 @@ export default function CabinCrew() {
   return (
     <div className="flex flex-col bg-white">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[580px] lg:h-[620px] bg-white flex items-center overflow-hidden border-b border-neutral-100">
-
-        {/* Background Image Container */}
+      {/* Desktop Hero View */}
+      <section className="hidden sm:flex relative w-full min-h-[580px] lg:h-[620px] bg-white items-center overflow-hidden border-b border-neutral-100">
         <div className="absolute inset-0 z-0">
-          {/* On lg screens, the image is positioned on the right and takes 52% width */}
           <div className="absolute inset-y-0 right-0 w-full lg:w-[52%] h-full">
             <img
               src={cabinHero}
@@ -219,32 +218,22 @@ export default function CabinCrew() {
                 e.currentTarget.style.display = "none";
               }}
             />
-            {/* Subtle overlay tint */}
             <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
           </div>
 
-          {/* Fade mask from left to right - creating a smooth blend from pure white on the left to transparent on the right */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-48% md:via-52% lg:via-48% to-transparent z-10 pointer-events-none" />
-
-          {/* Vertical mask for small screens (mobile/tablet) to fade to white at the bottom so text is readable */}
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden z-10 pointer-events-none" />
         </div>
 
-        {/* Content Box */}
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-xl lg:max-w-[680px] text-left flex flex-col space-y-6">
-
-            {/* Heading */}
             <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.15]">
               Cabin Crew Career Guide
             </h1>
 
-            {/* Paragraph Description */}
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[18px] leading-relaxed max-w-lg sm:max-w-xl">
               Explore everything you need to know about a Cabin Crew career, including roles, eligibility, salary, career growth, required skills, and detailed career guides from Amigo Academy.
             </p>
 
-            {/* CTA Button */}
             <div className="pt-2">
               <button
                 onClick={handleCTA}
@@ -254,7 +243,40 @@ export default function CabinCrew() {
                 <span className="font-bold">&nbsp;➔</span>
               </button>
             </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Mobile Hero View matching screenshot */}
+      <section className="sm:hidden relative w-full bg-white overflow-hidden border-b border-neutral-100">
+        <div className="relative w-full h-[510px] overflow-hidden">
+          {/* Background Image without gradient overlay */}
+          <img
+            src={cabinHeroMobile}
+            alt="Cabin Crew Career Guide"
+            className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+          />
+
+          {/* Text Content overlay matching screenshot */}
+          <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+              Cabin Crew<br />
+              Career Guide
+            </h1>
+
+            <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
+              Explore everything you need to know about a Cabin Crew career, including roles, eligibility, salary, career growth, required skills, and detailed career guides from Amigo Academy.
+            </p>
+
+            <div>
+              <button
+                onClick={handleCTA}
+                className="inline-flex items-center justify-between gap-3 bg-[#e02607] hover:bg-[#c81e04] text-white font-bold text-[13.5px] px-5 py-3 rounded-full shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
+              >
+                <span>Talk to a Career Counsellor</span>
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 text-white text-xs font-extrabold">➔</span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
