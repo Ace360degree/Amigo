@@ -419,10 +419,6 @@ export default function Courses() {
           {/* Desktop Gradient Overlays */}
           <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
           <div className="hidden sm:block lg:hidden absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
-
-          {/* Mobile Gradient Overlay matching screenshot */}
-          <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-white via-white/90 via-48% to-transparent" />
-          <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40" />
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-4 sm:py-6 lg:py-10 w-full">
