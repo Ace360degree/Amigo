@@ -1,5 +1,6 @@
 import React from "react";
 import coursesHero from "../assets/img/courses1121.png";
+import coursesMobileHero from "../assets/img/coursesmain-mobile.png";
 import coursesCard1 from "../assets/img/courses2.png";
 import coursesCard2 from "../assets/img/courses2a.png";
 import coursesCard3 from "../assets/img/courses3a.png";
@@ -395,39 +396,71 @@ export default function Courses() {
   return (
     <div className="bg-white text-neutral-900">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
+      <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-10 sm:py-12 lg:py-20 min-h-[500px] sm:min-h-[auto] flex items-center">
         <div className="absolute inset-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[44%]">
+          {/* Desktop Image */}
+          <div className="hidden sm:block absolute inset-y-0 right-0 w-full lg:w-[44%]">
             <img
               src={coursesHero}
               alt="Amigo Academy course guidance session"
               className="h-full w-full object-cover object-center lg:object-[left_center]"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent lg:hidden" />
+
+          {/* Mobile Image */}
+          <div className="sm:hidden absolute inset-0 w-full h-full">
+            <img
+              src={coursesMobileHero}
+              alt="Find the Right Course for Your Career Goals"
+              className="h-full w-full object-cover object-[right_center]"
+            />
+          </div>
+
+          {/* Desktop Gradient Overlays */}
+          <div className="hidden sm:block absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
+          <div className="hidden sm:block lg:hidden absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+
+          {/* Mobile Gradient Overlay matching screenshot */}
+          <div className="sm:hidden absolute inset-0 bg-gradient-to-r from-white via-white/90 via-48% to-transparent" />
+          <div className="sm:hidden absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/40" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 md:px-12 py-6 lg:py-10">
-          <div className="max-w-[600px] space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#112a46] leading-[1.1]">
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-4 sm:py-6 lg:py-10 w-full">
+          <div className="max-w-[600px] space-y-4 sm:space-y-6">
+            {/* Heading for Mobile */}
+            <h1 className="sm:hidden text-[32px] font-extrabold tracking-tight text-[#112a46] leading-[1.12]">
+              Find the Right<br />
+              Course for<br />
+              <span className="text-[#F5A623]">
+                Your Career<br />
+                Goals
+              </span>
+            </h1>
+
+            {/* Heading for Desktop */}
+            <h1 className="hidden sm:block text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#112a46] leading-[1.1]">
               Find the Right Course for{" "}
               <span className="text-[#E6A020] block">Your Career Goals</span>
             </h1>
-            <p className="max-w-[400px] text-sm sm:text-[15px] leading-[1.7] text-slate-600 font-normal">
+
+            {/* Description Paragraph */}
+            <p className="max-w-[270px] sm:max-w-[400px] text-xs sm:text-[15px] leading-[1.65] sm:leading-[1.7] text-slate-600 font-normal">
               Every successful career begins with the right training. At
               Amigo Academy, our industry-focused programmes in Cabin Crew,
               Airport Operations, and AI &amp; Data Science equip students with
               practical skills, confidence, and career-ready expertise.
             </p>
 
-            <div className="pt-2">
+            {/* CTA Button */}
+            <div className="pt-2 sm:pt-2">
               <a
                 href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
               >
-                <span>Enroll Now To Avail Scholarship</span>
-                <span className="text-sm font-bold">➔</span>
+                <span>Enrol Now To Avail Scholarship</span>
+                <svg className="w-4 h-4 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
               </a>
             </div>
           </div>
