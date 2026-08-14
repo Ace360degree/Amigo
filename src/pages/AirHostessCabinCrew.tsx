@@ -281,38 +281,168 @@ export default function AirHostessCabinCrew() {
     <div className="bg-[#f5f7fb] text-neutral-900">
       {/* Hero Section */}
       <section className="w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
-        {/* Split Background Image on the Right */}
+        {/* KEEP ORIGINAL IMAGE STRUCTURE */}
         <div className="absolute top-0 right-0 h-full w-full lg:w-[42%] z-0">
           <img
             src={new URL("../assets/img/aircourseh111a.png", import.meta.url).href}
-            alt="Student Placements Success"
+            alt="Air Hostess and Cabin Crew Training"
             className="h-full w-full object-cover object-top lg:object-[35%_top]"
             onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
+              e.currentTarget.src =
+                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
             }}
           />
+
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10 lg:block hidden" />
+
           <div className="absolute inset-0 bg-[#f1f5f9]/40 z-10 lg:hidden block" />
         </div>
 
-        {/* Content Container */}
+        {/* CONTENT ONLY CHANGED */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
-          <div className="max-w-[520px] space-y-6 text-left">
-            <h1 className="text-4xl sm:text-[48px] font-outfit font-extrabold text-[#0b2f61] leading-[1.1] tracking-tight">
-              Our Student Placements<br />&amp; Success Stories
-            </h1>
-            <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
-              Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality * Cruise Line &amp; Hospitality Management * Digital Marketing * Cyber Security * AI &amp; Data Science
-            </p>
-            <div className="pt-2">
-              <a
-                href="#enquiry-form"
-                style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
-                className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a]"
-              >
-                Enroll Now To Avail Scholarship &rarr;
-              </a>
+          <div className="max-w-[650px] text-left">
+
+            {/* Breadcrumb */}
+            <div className="flex items-center flex-wrap gap-2 text-[11px] mb-7">
+              <span className="text-[#53657d]">Home</span>
+
+              <span className="text-[#9ca3af]">›</span>
+
+              <span className="text-[#e31e24] font-semibold">
+                Air Hostess / Cabin Crew &amp; Hospitality Management
+              </span>
             </div>
+
+            {/* Heading */}
+            <h1 className="text-[40px] sm:text-[42px] lg:text-[45px] font-outfit font-extrabold text-[#17365d] leading-[1.08] tracking-tight">
+              Air Hostess / Cabin Crew &amp;
+              <br />
+              Hospitality Management
+            </h1>
+
+            {/* Course Meta */}
+            <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] sm:text-[16px] font-semibold">
+              <span className="text-[#17365d]">
+                12 Months
+              </span>
+
+              <span className="text-[#6b7280]">-</span>
+
+              <span className="text-[#17365d]">
+                Certificate Program
+              </span>
+
+              <span className="text-[#6b7280]">-</span>
+
+              <span className="text-[#e31e24]">
+                Practical Training
+              </span>
+            </div>
+
+            {/* Course Overview */}
+            <div className="mt-8">
+              <h2 className="text-[20px] font-bold text-[#17365d] mb-5">
+                Course Overview
+              </h2>
+
+              <div className="space-y-3 text-[16px] sm:text-[16px] text-[#42526a]">
+
+                {/* Batch */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">▣</span>
+
+                  <p>
+                    <span className="font-semibold">
+                      Next Batch Starting:
+                    </span>
+
+                    <span className="ml-3">
+                      July 2026
+                    </span>
+                  </p>
+                </div>
+
+                {/* Timing */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">◷</span>
+
+                  <p>
+                    <span className="font-semibold">
+                      Timing:
+                    </span>
+
+                    <span className="ml-3 font-bold text-[#17365d]">
+                      Morning / Afternoon / Evening
+                    </span>
+                  </p>
+                </div>
+
+                {/* Branch + Age */}
+                <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
+
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#17365d]">⌖</span>
+
+                    <p>
+                      <span className="font-semibold">
+                        Our Branches:
+                      </span>
+
+                      <span className="ml-2">
+                        Ghatkopar, Andheri &amp; Thane
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="text-[#17365d]">♙</span>
+
+                    <p>
+                      <span className="font-semibold">
+                        Age:
+                      </span>
+
+                      <span className="ml-2">
+                        17 to 24 Years
+                      </span>
+                    </p>
+                  </div>
+
+                </div>
+
+                {/* Duration */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">▤</span>
+
+                  <p>
+                    <span className="font-semibold">
+                      Duration:
+                    </span>
+
+                    <span className="ml-3">
+                      12 Months (5 Days/Week, 2 Hours/Day)
+                    </span>
+                  </p>
+                </div>
+
+                {/* Eligibility */}
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">▧</span>
+
+                  <p>
+                    <span className="font-semibold">
+                      Eligibility:
+                    </span>
+
+                    <span className="ml-3">
+                      12th Pass
+                    </span>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
