@@ -486,9 +486,9 @@ export default function AirportGroundStaff() {
                       key={cardIdx}
                       onClick={() => {
                         if (card.title.includes("Cabin Crew") || card.title.includes("Air Hostess")) {
-                          navigate("/cabin-crew");
+                          navigate("/career-guide/cabin-crew");
                         } else if (card.title.includes("AI") || card.title.includes("Data Science")) {
-                          navigate("/ai-data-science");
+                          navigate("/career-guide/ai-data-science");
                         } else {
                           navigate("/contact");
                         }

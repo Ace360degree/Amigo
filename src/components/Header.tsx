@@ -20,12 +20,12 @@ export default function Header() {
   const courses = [
     { name: "Aviation & Hospitality Management", desc: "12-month professional diploma" },
     { name: "Air Hostess Training", desc: "Cabin crew training & placement" },
-    { name: "AI & Data Science Certified", desc: "State certified analytics course" },
-    // { name: "Global Airport Operations", desc: "Ground staff & security management" },
+    { name: "AI & Data Science Certified", desc: "State certified analytics course" }
   ];
 
   return (
-    <header className="w-full z-50 bg-white">
+    <header className="w-full sticky md:static top-0 z-50 bg-white max-md:shadow-sm">
+      {/* Top Bar 1: Certification Notice */}
       <div className="w-full bg-[#f6a619] py-2 px-4 text-center border-b border-amber-600/10">
         <p className="text-neutral-900 font-sans font-bold text-[11px] sm:text-xs md:text-sm flex flex-wrap items-center justify-center gap-1.5 leading-tight">
           <span>🏛️</span>
@@ -54,18 +54,19 @@ export default function Header() {
               className="flex items-center focus:outline-none shrink-0"
               aria-label="Amigo Academy Home"
             >
-              <img
-                src={logo}
-                alt="Amigo Academy Logo"
-                className="h-10 sm:h-14 lg:h-[72px] w-auto object-contain py-1"
-              />
+              <img src={logo} alt="Amigo Academy Logo" className="h-16 sm:h-16 lg:h-[72px] w-auto object-contain py-1" />
             </button>
 
-            <nav className="hidden lg:flex items-center space-x-5 text-[#1e293b] font-sans font-semibold text-sm">
-              <div className="relative">
+            {/* Desktop Links */}
+            <nav className="hidden md:flex items-center space-x-5 text-[#1e293b] font-sans font-semibold text-sm">
+              {/* Courses Dropdown Link */}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsCoursesDropdownOpen(true)}
+                onMouseLeave={() => setIsCoursesDropdownOpen(false)}
+              >
                 <button
-                  onMouseEnter={() => setIsCoursesDropdownOpen(true)}
-                  onClick={() => setIsCoursesDropdownOpen((open) => !open)}
+                  onClick={() => setIsCoursesDropdownOpen(!isCoursesDropdownOpen)}
                   className="flex items-center gap-1 hover:text-[#e31e24] transition-colors py-2 focus:outline-none"
                 >
                   Courses
@@ -76,7 +77,6 @@ export default function Header() {
 
                 {isCoursesDropdownOpen && (
                   <div
-                    onMouseLeave={() => setIsCoursesDropdownOpen(false)}
                     className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-neutral-100 py-3 z-50 animate-fadeIn"
                   >
                     {courses.map((course, idx) => (
@@ -85,12 +85,12 @@ export default function Header() {
                         onClick={() => {
                           handleNavClick(
                             idx === 0
-                              ? "/courses/air-hostess-cabin-crew-hospitality-management"
-                              : idx === 3
-                                ? "/courses/airport-ground-staff-hospitality-management"
+                              ? "/courses"
+                              : idx === 1
+                                ? "/courses/air-hostess-cabin-crew-hospitality-management"
                                 : idx === 2
                                   ? "/courses/ai-data-science-with-generative-ai-machine-learning"
-                                  : "/courses",
+                                  : "/courses"
                           );
                         }}
                         className="w-full text-left px-4 py-2 hover:bg-neutral-50 flex flex-col group transition-colors"
@@ -172,16 +172,16 @@ export default function Header() {
               <span className="text-neutral-400 text-xs uppercase tracking-wider block mb-2">Our Courses</span>
               {courses.map((course, idx) => (
                 <button
-                  key={course.name}
+                  key={idx}
                   onClick={() =>
                     handleNavClick(
                       idx === 0
-                        ? "/courses/air-hostess-cabin-crew-hospitality-management"
-                        : idx === 3
-                          ? "/courses/airport-ground-staff-hospitality-management"
+                        ? "/courses"
+                        : idx === 1
+                          ? "/courses/air-hostess-cabin-crew-hospitality-management"
                           : idx === 2
                             ? "/courses/ai-data-science-with-generative-ai-machine-learning"
-                            : "/courses",
+                            : "/courses"
                     )
                   }
                   className="w-full text-left py-1.5 text-sm text-neutral-700 hover:text-[#e31e24] block"

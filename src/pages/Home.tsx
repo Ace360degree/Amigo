@@ -637,7 +637,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  <span>🎓</span> Maharashtra Govt Certified
+                  Maharashtra Govt Certified
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
                   Maharashtra Govt-certified — a recognized qualification trusted by employers across India.
@@ -656,7 +656,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  <span>💼</span> Strong Placement Support
+                  Strong Placement Support
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
                   Active hiring connections across aviation and tech — including IndiGo, Air India, Emirates, Mumbai Airport and IT & AI companies. We push your profile until selected.
@@ -674,7 +674,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  <span>💳</span> Easy EMI Options
+                  Easy EMI Options
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
                   Scholarship up to ₹50,000 plus flexible zero-interest EMI on all courses. Quality education without financial pressure.
@@ -691,7 +691,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  <span>🤝</span> Lifetime Career Support
+                  Lifetime Career Support
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
                   Support doesn't stop at graduation. Ongoing career counselling and job connections at every stage.
@@ -708,7 +708,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  <span>💬</span> Free Career Counselling
+                  Free Career Counselling
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
                   Talk to an academy mentor today for free guidance on the right course and career path.
