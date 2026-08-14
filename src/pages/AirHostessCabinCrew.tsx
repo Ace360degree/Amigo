@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "../assets/img/aircourseh111a.png";
+import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
 import courseIcon121 from "../assets/img/courseicon121.png";
 import airhostessIcon2 from "../assets/img/airhostessicon2.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
@@ -280,8 +281,8 @@ export default function AirHostessCabinCrew() {
   return (
     <div className="bg-[#f5f7fb] text-neutral-900">
       {/* Hero Section */}
-      <section className="w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
-        {/* KEEP ORIGINAL IMAGE STRUCTURE */}
+      {/* Desktop Hero View */}
+      <section className="hidden sm:flex w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden items-center border-b border-neutral-200/50">
         <div className="absolute top-0 right-0 h-full w-full lg:w-[42%] z-0">
           <img
             src={new URL("../assets/img/aircourseh111a.png", import.meta.url).href}
@@ -292,157 +293,194 @@ export default function AirHostessCabinCrew() {
                 "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
             }}
           />
-
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10 lg:block hidden" />
-
           <div className="absolute inset-0 bg-[#f1f5f9]/40 z-10 lg:hidden block" />
         </div>
 
-        {/* CONTENT ONLY CHANGED */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
           <div className="max-w-[650px] text-left">
-
-            {/* Breadcrumb */}
             <div className="flex items-center flex-wrap gap-2 text-[11px] mb-7">
               <span className="text-[#53657d]">Home</span>
-
               <span className="text-[#9ca3af]">›</span>
-
               <span className="text-[#e31e24] font-semibold">
                 Air Hostess / Cabin Crew &amp; Hospitality Management
               </span>
             </div>
 
-            {/* Heading */}
             <h1 className="text-[40px] sm:text-[42px] lg:text-[45px] font-outfit font-extrabold text-[#17365d] leading-[1.08] tracking-tight">
               Air Hostess / Cabin Crew &amp;
               <br />
               Hospitality Management
             </h1>
 
-            {/* Course Meta */}
-            <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] sm:text-[16px] font-semibold">
-              <span className="text-[#17365d]">
-                12 Months
-              </span>
-
+            <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] font-semibold">
+              <span className="text-[#17365d]">12 Months</span>
               <span className="text-[#6b7280]">-</span>
-
-              <span className="text-[#17365d]">
-                Certificate Program
-              </span>
-
+              <span className="text-[#17365d]">Certificate Program</span>
               <span className="text-[#6b7280]">-</span>
-
-              <span className="text-[#e31e24]">
-                Practical Training
-              </span>
+              <span className="text-[#e31e24]">Practical Training</span>
             </div>
 
-            {/* Course Overview */}
             <div className="mt-8">
               <h2 className="text-[20px] font-bold text-[#17365d] mb-5">
                 Course Overview
               </h2>
 
-              <div className="space-y-3 text-[16px] sm:text-[16px] text-[#42526a]">
-
-                {/* Batch */}
+              <div className="space-y-3 text-[16px] text-[#42526a]">
                 <div className="flex items-center gap-3">
                   <span className="text-[#17365d]">▣</span>
-
                   <p>
-                    <span className="font-semibold">
-                      Next Batch Starting:
-                    </span>
-
-                    <span className="ml-3">
-                      July 2026
-                    </span>
+                    <span className="font-semibold">Next Batch Starting:</span>
+                    <span className="ml-3">July 2026</span>
                   </p>
                 </div>
 
-                {/* Timing */}
                 <div className="flex items-center gap-3">
                   <span className="text-[#17365d]">◷</span>
-
                   <p>
-                    <span className="font-semibold">
-                      Timing:
-                    </span>
-
+                    <span className="font-semibold">Timing:</span>
                     <span className="ml-3 font-bold text-[#17365d]">
                       Morning / Afternoon / Evening
                     </span>
                   </p>
                 </div>
 
-                {/* Branch + Age */}
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-
                   <div className="flex items-center gap-3">
                     <span className="text-[#17365d]">⌖</span>
-
                     <p>
-                      <span className="font-semibold">
-                        Our Branches:
-                      </span>
-
-                      <span className="ml-2">
-                        Ghatkopar, Andheri &amp; Thane
-                      </span>
+                      <span className="font-semibold">Our Branches:</span>
+                      <span className="ml-2">Ghatkopar, Andheri &amp; Thane</span>
                     </p>
                   </div>
 
                   <div className="flex items-center gap-2">
                     <span className="text-[#17365d]">♙</span>
-
                     <p>
-                      <span className="font-semibold">
-                        Age:
-                      </span>
-
-                      <span className="ml-2">
-                        17 to 24 Years
-                      </span>
+                      <span className="font-semibold">Age:</span>
+                      <span className="ml-2">17 to 24 Years</span>
                     </p>
                   </div>
-
                 </div>
 
-                {/* Duration */}
                 <div className="flex items-center gap-3">
                   <span className="text-[#17365d]">▤</span>
-
                   <p>
-                    <span className="font-semibold">
-                      Duration:
-                    </span>
-
-                    <span className="ml-3">
-                      12 Months (5 Days/Week, 2 Hours/Day)
-                    </span>
+                    <span className="font-semibold">Duration:</span>
+                    <span className="ml-3">12 Months (5 Days/Week, 2 Hours/Day)</span>
                   </p>
                 </div>
 
-                {/* Eligibility */}
                 <div className="flex items-center gap-3">
                   <span className="text-[#17365d]">▧</span>
-
                   <p>
-                    <span className="font-semibold">
-                      Eligibility:
-                    </span>
-
-                    <span className="ml-3">
-                      12th Pass
-                    </span>
+                    <span className="font-semibold">Eligibility:</span>
+                    <span className="ml-3">12th Pass</span>
                   </p>
                 </div>
-
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
+      {/* Mobile Hero View matching screenshot */}
+      <section className="sm:hidden w-full bg-[#f8fafc] border-b border-neutral-200/50">
+        {/* Top Hero Banner */}
+        <div className="relative w-full h-[440px] overflow-hidden">
+          <img
+            src={airHostessMobileHero}
+            alt="Air Hostess / Cabin Crew & Hospitality Management"
+            className="h-full w-full object-cover object-[right_top]"
+          />
+          {/* Top Left Gradient for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 via-50% to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-black/10" />
+
+          {/* Hero Content Overlay */}
+          <div className="relative z-10 px-5 pt-8 pb-6 flex flex-col justify-center h-full max-w-[280px]">
+            <h1 className="text-[26px] font-extrabold text-[#17365d] leading-[1.18] tracking-tight">
+              Air Hostess /<br />
+              Cabin Crew &amp;<br />
+              Hospitality<br />
+              Management
+            </h1>
+
+            <ul className="mt-5 space-y-2 text-[13px] font-bold">
+              <li className="flex items-center gap-2 text-[#17365d]">
+                <span className="text-slate-400 font-bold">•</span> 12 Months
+              </li>
+              <li className="flex items-center gap-2 text-[#17365d]">
+                <span className="text-slate-400 font-bold">•</span> Certificate Program
+              </li>
+              <li className="flex items-center gap-2 text-[#e31e24]">
+                <span className="text-[#e31e24] font-bold">•</span> Practical Training
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Course Overview below Hero Banner on Mobile */}
+        <div className="bg-white px-5 py-7">
+          <h2 className="text-[19px] font-extrabold text-[#17365d] mb-5">
+            Course Overview
+          </h2>
+
+          <div className="space-y-4 text-xs">
+            {/* Batch */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
+              </svg>
+              <span className="font-semibold text-slate-700">Next Batch Starting:</span>
+              <span className="text-[#17365d] font-medium ml-auto">July 2026</span>
+            </div>
+
+            {/* Timing */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="font-semibold text-slate-700">Timing:</span>
+              <span className="text-[#17365d] font-bold ml-auto">Morning / Afternoon / Evening</span>
+            </div>
+
+            {/* Our Branches */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              <span className="font-semibold text-slate-700">Our Branches:</span>
+              <span className="text-[#17365d] font-medium ml-auto">Ghatkopar, Andheri &amp; Thane</span>
+            </div>
+
+            {/* Age */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              </svg>
+              <span className="font-semibold text-slate-700">Age:</span>
+              <span className="text-[#17365d] font-medium ml-auto">17 to 24 Years</span>
+            </div>
+
+            {/* Duration */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+              </svg>
+              <span className="font-semibold text-slate-700">Duration:</span>
+              <span className="text-[#17365d] font-medium ml-auto">12 Months (5 Days/Week, 2 Hours/Day)</span>
+            </div>
+
+            {/* Eligibility */}
+            <div className="flex items-center gap-3 text-[#42526a]">
+              <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span className="font-semibold text-slate-700">Eligibility:</span>
+              <span className="text-[#17365d] font-medium ml-auto">12th Pass</span>
+            </div>
           </div>
         </div>
       </section>
