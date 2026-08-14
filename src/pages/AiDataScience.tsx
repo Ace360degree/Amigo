@@ -399,9 +399,9 @@ export default function AiDataScience() {
                       key={cardIdx}
                       onClick={() => {
                         if (card.title.includes("Cabin Crew")) {
-                          navigate("/cabin-crew");
+                          navigate("/career-guide/cabin-crew");
                         } else if (card.title.includes("Ground Staff")) {
-                          navigate("/airport-ground-staff");
+                          navigate("/career-guide/airport-ground-staff");
                         } else {
                           navigate("/contact");
                         }

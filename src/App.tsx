@@ -51,9 +51,9 @@ function App() {
           <Route path="/placement" element={<Placement />} />
           <Route path="/franchise" element={<Franchise />} />
           <Route path="/career-guides" element={<CareerGuides />} />
-          <Route path="/cabin-crew" element={<CabinCrew />} />
-          <Route path="/airport-ground-staff" element={<AirportGroundStaff />} />
-          <Route path="/ai-data-science" element={<AiDataScience />} />
+          <Route path="/career-guide/cabin-crew" element={<CabinCrew />} />
+          <Route path="/career-guide/airport-ground-staff" element={<AirportGroundStaff />} />
+          <Route path="/career-guide/ai-data-science" element={<AiDataScience />} />
           <Route path="/andheri-branch" element={<AndheriBranch />} />
           <Route path="/thane-branch" element={<ThaneBranch />} />
           <Route path="/ghatkopar-branch" element={<GhatkoparBranch />} />

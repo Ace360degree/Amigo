@@ -21,21 +21,21 @@ export default function AndheriBranch() {
       title: "Air Hostess / Cabin Crew",
       desc: "Prepare for a professional career with domestic and international airlines through practical training, personality development, and interview preparation.",
       btn: "Explore Air Hostess / Cabin Crew Course",
-      link: "/cabin-crew"
+      link: "/career-guide/cabin-crew"
     },
     {
       image: course2,
       title: "Airport Ground Staff",
       desc: "Build the knowledge and practical skills required for customer service and operational roles within airports and the aviation industry.",
       btn: "Explore Airport Ground Staff Course",
-      link: "/airport-ground-staff"
+      link: "/career-guide/airport-ground-staff"
     },
     {
       image: course3,
       title: "AI & Data Science",
       desc: "Develop future-ready technical skills through industry-oriented learning, practical projects, and career-focused training in Artificial Intelligence and Data Science.",
       btn: "Explore AI & Data Science Course",
-      link: "/ai-data-science"
+      link: "/career-guide/ai-data-science"
     }
   ];
 
