@@ -3,7 +3,7 @@ import React from "react";
 export default function RefundPolicy() {
     return (
         <div className="flex flex-col bg-white">
-            <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white">
+            <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white lazy-section-visible">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Header */}
@@ -158,7 +158,7 @@ export default function RefundPolicy() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-16 lg:py-24 bg-slate-50">
+            <section className="py-16 lg:py-24 bg-slate-50 lazy-section-visible">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c355e] mb-6 font-sans tracking-tight">
                         Need Help Before You Enrol?
@@ -175,7 +175,7 @@ export default function RefundPolicy() {
                 </div>
             </section>
             {/* Final Note Section */}
-            <section className="py-8 bg-white border-t border-slate-200">
+            <section className="py-8 bg-white border-t border-slate-200 lazy-section-visible">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-slate-500 text-[14px] sm:text-[15px]">
                         <p className="mb-4">

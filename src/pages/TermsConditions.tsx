@@ -3,7 +3,7 @@ import React from "react";
 export default function TermsConditions() {
     return (
         <div className="flex flex-col bg-white">
-            <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white">
+            <section className="pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white lazy-section-visible">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Header */}
