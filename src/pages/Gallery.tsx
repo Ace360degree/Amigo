@@ -1,5 +1,5 @@
 import React from "react";
-import heroImg from "../assets/img/Galleryheroimg.png";
+import heroImg from "../assets/img/Galleryheroimg1.png";
 import cardImg1 from "../assets/img/Galleryclassroomy1.png";
 import cardImg2 from "../assets/img/Galleryclassroomy2.png";
 import cardImg3 from "../assets/img/Galleryclassroomy3.png";
@@ -72,11 +72,10 @@ const galleryCards = [
 export default function Gallery() {
     return (
         <div className="flex flex-col bg-white">
-            <section className="relative w-full min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
+            <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
 
-                {/* Right Background Image Container (Visible on large screens, faded behind overlay) */}
-                <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 h-full z-0">
-                    {/* Faded background image */}
+                {/* Desktop Background Image Container (Visible on large screens, faded behind overlay) */}
+                <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
                     <img
                         src={heroImg}
                         alt="Amigo Academy Aviation Classroom"
@@ -84,20 +83,31 @@ export default function Gallery() {
                     />
                 </div>
 
+                {/* Mobile Background Image Container */}
+                <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+                    <img
+                        src={new URL("../assets/img/mobileheroGallery.png", import.meta.url).href}
+                        alt="Amigo Academy Aviation Classroom Mobile"
+                        className="w-full h-full object-cover object-[right_center]"
+                        onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                        }}
+                    />
+                </div>
+
                 {/* Content Area */}
-                <div className="max-w-7xl mx-auto w-full px-6 pt-12 pb-32 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="max-w-7xl mx-auto w-full px-6 pt-6 pb-20 sm:pt-12 sm:pb-32 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
                     {/* Left Column: Heading and Text */}
-                    <div className="lg:col-span-6 flex flex-col space-y-6 text-left items-start justify-center">
+                    <div className="w-[50%] sm:w-[50%] lg:w-full lg:col-span-6 flex flex-col space-y-3 sm:space-y-6 text-left items-start justify-center">
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
+                        <h1 className="text-xl sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.2] lg:leading-[1.12]">
                             Gallery
-                        </h1>
+                        </h1><br />
 
-                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
+                        <p className="text-slate-600 text-[10px] sm:text-base leading-relaxed font-sans max-w-xl">
                             Explore moments from life at Amigo Academy through our gallery. From classroom training and workshops to student activities, placements, and academy events, see how our students learn, grow, and prepare for successful careers in aviation and technology.
                         </p>
-
 
                     </div>
 

@@ -44,14 +44,12 @@ const students = [
 export default function StudentSuccess() {
     return (
         <div className="flex flex-col bg-white">
-            <section className="w-full bg-white min-h-[500px] lg:min-h-[600px] relative flex items-center overflow-hidden">
+            <section className="w-full bg-white min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] relative flex items-center overflow-hidden">
                 
-                {/* Background Image Container */}
-                <div className="absolute top-0 right-0 h-full w-full lg:w-[65%] z-0">
+                {/* Desktop Background Image Container */}
+                <div className="hidden lg:block absolute top-0 right-0 h-full w-[65%] z-0">
                     {/* Gradient overlay to blend image seamlessly into the white background on the left */}
                     <div className="absolute top-0 left-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
-                    {/* Gradient overlay for mobile readability */}
-                    <div className="absolute inset-0 bg-white/80 lg:hidden z-10"></div>
                     
                     <img 
                         src={heroImg} 
@@ -60,18 +58,30 @@ export default function StudentSuccess() {
                     />
                 </div>
 
+                {/* Mobile Background Image Container */}
+                <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+                    <img 
+                        src={new URL("../assets/img/mobileherostudentsuccess.png", import.meta.url).href} 
+                        alt="Student Success Stories Mobile" 
+                        className="w-full h-full object-cover object-[right_center]"
+                        onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                        }}
+                    />
+                </div>
+ 
                 <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-20">
-                    <div className="max-w-xl lg:max-w-lg xl:max-w-xl py-20 lg:py-24">
-                        <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.15] tracking-tight mb-6 font-sans">
+                    <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
+                        <h1 className="text-xl sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-4 lg:mb-6 font-sans">
                             Student Success Stories
                         </h1>
-                        <p className="text-slate-600 text-[15px] sm:text-[15.5px] leading-relaxed mb-10 font-medium">
+                        <p className="text-slate-600 text-[10px] sm:text-[15.5px] leading-relaxed mb-6 lg:mb-10 font-medium">
                             Every student's journey is unique, but they all begin with the same goal—to build a better future. Explore inspiring success stories from Amigo Academy students who turned their ambitions into careers through dedication, learning, and the right guidance.
                         </p>
                         
-                        <button className="bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[14px] py-4 px-8 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-3 w-fit">
+                        <button className="bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[9px] sm:text-xs lg:text-[14px] py-2.5 px-4 sm:py-3.5 sm:px-8 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 lg:gap-3 w-fit">
                             Read Success Stories
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                             </svg>
                         </button>

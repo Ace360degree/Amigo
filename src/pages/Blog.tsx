@@ -115,10 +115,10 @@ export default function Blog() {
 
     return (
         <div className="flex flex-col bg-white">
-            <section className="relative w-full min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
+            <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
 
-                {/* Right Background Image Container (Visible on large screens, faded behind overlay) */}
-                <div className="absolute right-0 top-0 bottom-0 w-full lg:w-[65%] xl:w-[70%] h-full z-0">
+                {/* Desktop Background Image Container (Visible on large screens, faded behind overlay) */}
+                <div className="hidden lg:block absolute inset-y-0 right-0 w-[50%] h-full z-0">
                     <img
                         src={Bloghero}
                         alt="Amigo Academy Blog"
@@ -126,17 +126,29 @@ export default function Blog() {
                     />
                 </div>
 
+                {/* Mobile Background Image Container */}
+                <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+                    <img
+                        src={new URL("../assets/img/mobileheroblog.png", import.meta.url).href}
+                        alt="Amigo Academy Blog Mobile"
+                        className="w-full h-full object-cover object-[right_center]"
+                        onError={(e) => {
+                            e.currentTarget.style.display = "none";
+                        }}
+                    />
+                </div>
+
                 {/* Content Area */}
-                <div className="max-w-7xl mx-auto w-full px-6 pt-12 pb-32 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="max-w-7xl mx-auto w-full px-6 pt-6 pb-20 sm:pt-12 sm:pb-32 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
 
                     {/* Left Column: Heading and Text */}
-                    <div className="lg:col-span-6 flex flex-col space-y-6 text-left items-start justify-center">
+                    <div className="w-[50%] sm:w-[50%] lg:w-full lg:col-span-6 flex flex-col space-y-3 sm:space-y-6 text-left items-start justify-center">
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
+                        <h1 className="text-xl sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.2] lg:leading-[1.12]">
                             Insights, Stories <br />& Resources
                         </h1>
 
-                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
+                        <p className="text-slate-600 text-[10px] sm:text-base leading-relaxed font-sans max-w-xl">
                             Stay informed with articles covering aviation, Artificial Intelligence, career development, student success stories, and updates from Amigo Academy. Whether you're exploring career opportunities, preparing for interviews, or looking for industry insights, our blog is here to help you learn beyond the classroom.
                         </p>
 
@@ -145,11 +157,11 @@ export default function Blog() {
                                 const element = document.getElementById("blogPosts");
                                 element?.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
+                            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-sm px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
                         >
                             Explore Latest Articles
 
-                            <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                            <svg className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
                         </button>
@@ -206,7 +218,7 @@ export default function Blog() {
             <section className="py-12 lg:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-gradient-to-r from-[#122e5a] to-[#1c4485] rounded-3xl p-10 lg:p-16 text-center shadow-lg relative overflow-hidden">
-                        
+
                         <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center">
                             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold text-white mb-6 font-sans tracking-tight">
                                 Your Dream Career Starts Here
@@ -214,7 +226,7 @@ export default function Blog() {
                             <p className="text-blue-100 text-[15px] sm:text-base leading-[1.8] mb-10 max-w-2xl">
                                 Get expert guidance, industry-focused training, and placement support to help you move confidently towards your career goals.
                             </p>
-                            
+
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto">
                                 {/* Primary Button */}
                                 <button className="w-full sm:w-auto bg-white text-[#122e5a] font-bold text-[14px] sm:text-[15px] py-4 px-8 rounded-lg shadow-md hover:bg-slate-50 transition-colors inline-flex justify-center items-center gap-2 group">
@@ -223,7 +235,7 @@ export default function Blog() {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </button>
-                                
+
                                 {/* Secondary Button */}
                                 <button className="w-full sm:w-auto bg-transparent border border-white/40 text-white hover:bg-white/10 font-bold text-[14px] sm:text-[15px] py-4 px-8 rounded-lg transition-colors inline-flex justify-center items-center gap-2">
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -244,9 +256,9 @@ export default function Blog() {
                     <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1c355e] mb-12 font-sans tracking-tight">
                         More Articles You May Like
                     </h2>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-                        
+
                         {/* Card 1 */}
                         <div className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300">
                             <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">

@@ -1,5 +1,60 @@
-import React from "react";
+import React, { useState } from "react";
 import heroScholarship from "../assets/img/heroscholarship.png";
+
+function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div
+      className={`bg-white border rounded-3xl overflow-hidden transition-all duration-300 ${isOpen
+        ? "border-neutral-200 shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+        : "border-neutral-200/80 shadow-sm"
+        }`}
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left cursor-pointer group"
+      >
+        <div className="flex items-center space-x-4">
+          {/* Index Circle Indicator */}
+          <div
+            className={`w-8 h-8 rounded-full flex items-center justify-center font-sans font-bold text-xs shrink-0 transition-colors duration-300 ${
+              isOpen ? "bg-[#0b2f61] text-white" : "bg-[#f0f4f9] text-[#0b2f61]"
+            }`}
+          >
+            {index}
+          </div>
+          <span className="text-sm sm:text-[15px] font-sans font-bold text-[#0b2f61] pr-4">
+            {question}
+          </span>
+        </div>
+        <svg
+          className={`w-5 h-5 text-neutral-400 shrink-0 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div
+        className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="px-6 pb-6 pt-2">
+          <div className="border-l-2 border-[#0b2f61] pl-4 py-1">
+            <p className="text-neutral-500 font-sans text-xs sm:text-[13px] leading-relaxed">
+              {answer}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Scholarship() {
   return (
@@ -44,9 +99,14 @@ export default function Scholarship() {
             </h1>
 
             {/* Paragraph Text */}
-            <p className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-semibold max-w-md md:max-w-[480px]">
-              We believe money should never stop a student from building a successful career. Amigo Academy offers scholarships of up to ₹50,000 along with Zero-Interest EMI across all three courses. Our counsellors help every student understand the financial support they are eligible for through a free eligibility assessment.
-            </p>
+            <div className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-semibold max-w-md md:max-w-[480px] space-y-3 sm:space-y-4">
+              <p>
+                We believe money should never stop a student from building a successful career. Amigo Academy offers scholarships of up to ₹50,000 along with Zero-Interest EMI across all three courses.
+              </p>
+              <p>
+                Our counsellors help every student understand the financial support they are eligible for through a free eligibility assessment.
+              </p>
+            </div>
 
             {/* Check Eligibility Button */}
             <div className="pt-1">
@@ -54,7 +114,7 @@ export default function Scholarship() {
                 href="/contact#enquiry-form"
                 className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group whitespace-nowrap"
               >
-                Check My Eligibility
+                Enroll Now To Avail Scholarship
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
               </a>
             </div>
@@ -968,120 +1028,43 @@ export default function Scholarship() {
       </section>
 
       {/* Frequently Asked Questions Section */}
-      <section className="w-full bg-[#f1f5f9] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="max-w-4xl mx-auto space-y-12">
-
-          {/* Header */}
-          <div className="space-y-4 text-center flex flex-col items-center">
-            <span className="bg-[#fdf3e7] text-[#7c5529] text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-500/10">
-              SCHOLARSHIP QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] leading-tight">
+      <section className="w-full bg-[#f8fafc] py-20 border-t border-neutral-200/50">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col items-center space-y-12">
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl sm:text-[38px] font-outfit font-black text-[#0b2f61] leading-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed max-w-xl font-semibold">
-              Clear answers about scholarship amounts, EMI and the eligibility check.
+            <p className="text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] max-w-xl mx-auto leading-relaxed">
+              Got questions? We've got answers. Find out everything you need to know about our courses.
             </p>
           </div>
 
-          {/* Accordion List */}
-          <div className="space-y-4">
-
-            {/* FAQ 1 */}
-            <div className="border border-neutral-200/60 rounded-3xl overflow-hidden shadow-[0_12px_35px_rgba(11,47,97,0.06)]">
-              <details className="group">
-                <summary className="flex items-center justify-between p-6 sm:p-8 cursor-pointer select-none list-none text-left bg-white hover:bg-neutral-50/50 transition-colors">
-                  <span className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base pr-4">
-                    How much scholarship can I get?
-                  </span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold bg-white border-t border-neutral-100/50">
-                  Depending on your profile check and interview performance, you can get scholarships up to ₹50,000 off your chosen program fees.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 2 */}
-            <div className="border border-neutral-200/60 rounded-3xl overflow-hidden shadow-[0_12px_35px_rgba(11,47,97,0.06)]">
-              <details className="group">
-                <summary className="flex items-center justify-between p-6 sm:p-8 cursor-pointer select-none list-none text-left bg-white hover:bg-neutral-50/50 transition-colors">
-                  <span className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base pr-4">
-                    Is EMI really zero-interest?
-                  </span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold bg-white border-t border-neutral-100/50">
-                  Yes, absolutely. We partner directly with premium financing organizations to structure monthly payment plans that carry 0% interest charges for your family.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 3 */}
-            <div className="border border-neutral-200/60 rounded-3xl overflow-hidden shadow-[0_12px_35px_rgba(11,47,97,0.06)]">
-              <details className="group">
-                <summary className="flex items-center justify-between p-6 sm:p-8 cursor-pointer select-none list-none text-left bg-white hover:bg-neutral-50/50 transition-colors">
-                  <span className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base pr-4">
-                    Which courses are covered by the scholarship?
-                  </span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold bg-white border-t border-neutral-100/50">
-                  All three of our major training courses—Air Hostess / Cabin Crew, Airport Ground Staff, and AI & Data Science—have scholarship seats allocated.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 4 */}
-            <div className="border border-neutral-200/60 rounded-3xl overflow-hidden shadow-[0_12px_35px_rgba(11,47,97,0.06)]">
-              <details className="group">
-                <summary className="flex items-center justify-between p-6 sm:p-8 cursor-pointer select-none list-none text-left bg-white hover:bg-neutral-50/50 transition-colors">
-                  <span className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base pr-4">
-                    Does checking my eligibility cost anything?
-                  </span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold bg-white border-t border-neutral-100/50">
-                  No, our assessment check and counselling call are 100% free of cost with zero obligations.
-                </div>
-              </details>
-            </div>
-
-            {/* FAQ 5 */}
-            <div className="border border-neutral-200/60 rounded-3xl overflow-hidden shadow-[0_12px_35px_rgba(11,47,97,0.06)]">
-              <details className="group">
-                <summary className="flex items-center justify-between p-6 sm:p-8 cursor-pointer select-none list-none text-left bg-white hover:bg-neutral-50/50 transition-colors">
-                  <span className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base pr-4">
-                    Is Amigoz Academy certified?
-                  </span>
-                  <span className="text-neutral-400 group-open:rotate-180 transition-transform duration-300">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
-                  </span>
-                </summary>
-                <div className="px-6 pb-6 sm:px-8 sm:pb-8 text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold bg-white border-t border-neutral-100/50">
-                  Yes, Amigoz Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane.
-                </div>
-              </details>
-            </div>
-
+          <div className="w-full space-y-4">
+            <FAQItem
+              index={1}
+              question="How much scholarship can I get?"
+              answer="You can receive a scholarship of **up to ₹50,000**, depending on your eligibility."
+            />
+            <FAQItem
+              index={2}
+              question="Is EMI really zero-interest?"
+              answer="Yes, we partner directly with premium financing organizations to structure monthly payment plans that carry 0% interest charges for your family."
+            />
+            <FAQItem
+              index={3}
+              question="Which courses are covered by the scholarship?"
+              answer="All three of our major training courses—Air Hostess / Cabin Crew, Airport Ground Staff, and AI & Data Science—have scholarship seats allocated."
+            />
+            <FAQItem
+              index={4}
+              question="Does checking my eligibility cost anything?"
+              answer="No, our assessment check and counselling call are 100% free of cost with zero obligations."
+            />
+            <FAQItem
+              index={5}
+              question="Is Amigoz Academy certified?"
+              answer="Yes, Amigoz Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane."
+            />
           </div>
         </div>
       </section>

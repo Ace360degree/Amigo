@@ -132,9 +132,9 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
     <div className="flex flex-col space-y-20 pb-20">
 
       {/* About Us Hero Section */}
-      <section className="w-full bg-[#f1f5f9] h-[520px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
-        {/* Split Background Image on the Right */}
-        <div className="absolute top-0 right-0 h-full w-full lg:w-[50%] z-0">
+      <section className="w-full bg-[#f1f5f9] min-h-[420px] sm:min-h-[500px] lg:h-[520px] relative overflow-hidden flex items-center border-b border-neutral-200/50">
+        {/* Desktop Background Image: right-0, w-[50%], hidden on mobile */}
+        <div className="hidden lg:block absolute top-0 right-0 h-full w-[50%] z-0">
           <img
             src={new URL("../assets/img/aboutushero.png", import.meta.url).href}
             alt="Cabin Crew Cabin Flight"
@@ -145,30 +145,41 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             }}
           />
           {/* Subtle gradient overlay to fade into the content container background */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] via-[#f1f5f9]/70 to-transparent z-10 lg:block hidden" />
-          <div className="absolute inset-0 bg-[#f1f5f9]/80 z-10 lg:hidden block" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] via-[#f1f5f9]/70 to-transparent z-10" />
+        </div>
+
+        {/* Mobile Background Image: w-full, height is 100% */}
+        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+          <img
+            src={new URL("../assets/img/mobileheroaboutus.png", import.meta.url).href}
+            alt="Cabin Crew Cabin Flight Mobile"
+            className="w-full h-full object-cover object-[right_center]"
+            onError={(e) => {
+              e.currentTarget.src = "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80&w=800";
+            }}
+          />
         </div>
 
         {/* Content Container */}
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
-          <div className="max-w-[480px] space-y-6 text-left">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full py-12 lg:py-0">
+          <div className="w-[50%] sm:w-[50%] lg:w-full max-w-[480px] space-y-4 sm:space-y-6 text-left">
 
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-1.5 text-xs font-bold font-sans tracking-wide">
+            <div className="flex items-center gap-1.5 text-[9px] sm:text-xs font-bold font-sans tracking-wide">
               <span className="text-neutral-400">Home</span>
               <span className="text-neutral-300">/</span>
               <span className="text-[#e31e24] uppercase tracking-wider">About Us</span>
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-[48px] font-outfit font-extrabold text-[#0b2f61] leading-[1.1] tracking-tight">
+            <h1 className="text-xl sm:text-3xl lg:text-[48px] font-outfit font-extrabold text-[#0b2f61] leading-[1.2] lg:leading-[1.1] tracking-tight">
               About Us
             </h1>
 
             {/* Copy Paragraphs */}
-            <div className="space-y-4 font-sans font-semibold text-neutral-600 text-xs sm:text-[13px] leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-neutral-600 text-[10px] sm:text-[13px] leading-relaxed">
               <p>
-                Amigoz Academy is a leading career-focused professional training institute, committed to transforming ambition into achievement.
+                Amigo Academy is a leading career-focused professional training institute, committed to transforming ambition into achievement.
               </p>
               <p>
                 Founded in 2017, the academy was built with a single vision — to bridge the gap between education and employability through industry-aligned, placement-driven training programs.
@@ -180,23 +191,23 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
       </section>
 
       {/* Highlights Stats Section */}
-      <section className="bg-slate-50/30 py-16 border-t border-slate-100/80">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="bg-slate-50/30 py-12 sm:py-16 border-t border-slate-100/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
-              { value: "10,000+", label: "Students trained" },
-              { value: "10+", label: "Years of excellence" },
-              { value: "3", label: "Specialised Career Paths" },
+              { value: "10,000+", label: "Students Trained" },
+              { value: "10+", label: "Years of Excellence" },
+              { value: "3", label: "Specialized Career Paths" },
               { value: "12 Months", label: "Programme Duration" }
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[24px] border border-slate-100/80 shadow-[0_8px_30px_rgba(0,0,0,0.015)] p-8 sm:p-10 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.03)] hover:-translate-y-0.5"
+                className="bg-white rounded-[24px] border border-slate-100/80 shadow-[0_8px_30px_rgba(0,0,0,0.015)] p-5 sm:p-10 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-[0_16px_40px_rgba(0,0,0,0.03)] hover:-translate-y-0.5"
               >
-                <span className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] tracking-tight leading-none mb-3">
+                <span className="text-xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] tracking-tight leading-none mb-3">
                   {stat.value}
                 </span>
-                <span className="text-slate-500 font-sans font-bold text-xs sm:text-[13px] tracking-wide">
+                <span className="text-slate-500 font-sans font-bold text-[10px] sm:text-[13px] tracking-wide">
                   {stat.label}
                 </span>
               </div>
