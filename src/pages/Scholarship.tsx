@@ -1063,6 +1063,21 @@ export default function Scholarship() {
               answer="Yes, Amigo Academy is Maharashtra Government Certified, providing premium training formats across our campus branches in Ghatkopar, Andheri, and Thane."
             />
           </div>
+
+          {/* Have More Questions Banner Pill */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+              className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+            >
+              <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+              <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                Have more questions — click here
+              </span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -1119,24 +1134,24 @@ export default function Scholarship() {
 
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             Check my eligibility now
-          </a>
+          </button>
 
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             Start my career
-          </a>
+          </button>
 
           <a
             href="https://wa.me/919987588932"

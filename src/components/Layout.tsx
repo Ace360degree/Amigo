@@ -41,6 +41,10 @@ export default function Layout({ children }: LayoutProps) {
     };
   }, [pathname, children]);
 
+  if (pathname === "/thank-you") {
+    return <>{children}</>;
+  }
+
   return (
     <div className="flex flex-col min-h-screen bg-neutral-50 text-neutral-900 font-sans selection:bg-indigo-500 selection:text-white antialiased relative overflow-x-clip">
       {/* Premium background mesh gradients */}

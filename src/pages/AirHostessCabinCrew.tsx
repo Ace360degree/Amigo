@@ -797,15 +797,15 @@ export default function AirHostessCabinCrew() {
                 Don't worry! Our counselors will evaluate your profile and suggest the best career path in aviation for you.
               </p>
             </div>
-            <a
-              href="/contact#enquiry-form"
-              className="shrink-0 rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-7 py-3 text-sm font-bold shadow-md transition-all inline-flex items-center gap-2"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="shrink-0 rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-7 py-3 text-sm font-bold shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
             >
               <span>Check My Eligibility</span>
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -859,6 +859,21 @@ export default function AirHostessCabinCrew() {
                 </div>
               </details>
             ))}
+          </div>
+
+          {/* Have More Questions Banner Pill */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+              className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+            >
+              <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+              <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                Have more questions — click here
+              </span>
+            </button>
           </div>
 
           {/* Bottom Stats */}

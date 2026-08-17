@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import phoneIcon from "../assets/img/phone-icon.png";
+import EligibilityModal from "./EligibilityModal";
 
 export default function Header() {
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isEligibilityModalOpen, setIsEligibilityModalOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleOpenModal = () => setIsEligibilityModalOpen(true);
+    window.addEventListener("openEligibilityModal", handleOpenModal);
+    return () => window.removeEventListener("openEligibilityModal", handleOpenModal);
+  }, []);
 
   const handleNavClick = (path: string) => {
     navigate(path);
@@ -27,7 +35,7 @@ export default function Header() {
       {/* Top Bar 1: Certification Notice */}
       <div className="w-full bg-[#f6a619] py-2 px-4 text-center border-b border-amber-600/10">
         <p className="text-neutral-900 font-sans font-bold text-[11px] sm:text-xs md:text-sm flex items-center justify-center gap-1.5 leading-none">
-          <span>🏛️</span> Maharashtra Govt Certified Aviation & AI & Data Science Institute
+          <span>🏛️</span> Maharashtra Govt Certified Aviation Academy
         </p>
       </div>
 
@@ -36,10 +44,10 @@ export default function Header() {
         <div className="relative w-full flex items-center">
           <div className="animate-marquee whitespace-nowrap flex items-center text-xs sm:text-sm font-bold tracking-wide gap-8">
             <span>
-              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
             <span>
-              🚀 Become an Air Hostess in Mumbai in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
           </div>
         </div>
@@ -134,6 +142,15 @@ export default function Header() {
               >
                 Branches
               </button>
+
+              <span className="text-neutral-300 font-normal">|</span>
+
+              <button
+                onClick={() => handleNavClick("/franchise")}
+                className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/franchise" ? "text-[#e31e24]" : ""}`}
+              >
+                Franchise
+              </button>
             </nav>
           </div>
 
@@ -150,8 +167,8 @@ export default function Header() {
 
             {/* CTA Eligibility Button */}
             <button
-              onClick={() => handleNavClick("/contact")}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap focus:outline-none"
+              onClick={() => setIsEligibilityModalOpen(true)}
+              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
             >
               Check my Eligibility
             </button>
@@ -220,9 +237,26 @@ export default function Header() {
             >
               Branches
             </button>
+
+            <button
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsEligibilityModalOpen(true);
+              }}
+              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm px-6 py-3 rounded-full shadow-md text-center"
+            >
+              Check my Eligibility
+            </button>
           </nav>
         </div>
       )}
+
+      {/* Eligibility Form Modal */}
+      <EligibilityModal
+        isOpen={isEligibilityModalOpen}
+        onClose={() => setIsEligibilityModalOpen(false)}
+      />
     </header>
   );
 }
+

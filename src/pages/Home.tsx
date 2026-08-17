@@ -624,15 +624,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
         </div>
 
-        {/* Lower Banner Pill */}
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)]">
-            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Limited Seats — Apply Early To Secure Your Spot
-            </span>
-          </div>
-        </div>
+
 
       </section>
 
@@ -772,11 +764,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Floating CTA Eligibility Button */}
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0 z-20 whitespace-nowrap">
                 <button
-                  onClick={() => {
-                    const element = document.getElementById("eligibilityForm");
-                    element?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2 focus:outline-none"
+                  onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                  className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-6 sm:px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all active:scale-95 flex items-center gap-2 focus:outline-none cursor-pointer"
                 >
                   Check My Eligibility Now
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
@@ -790,15 +779,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
         </div>
 
-        {/* Lower Banner Pill */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)]">
-            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Limited Seats — Apply Early To Secure Your Spot
-            </span>
-          </div>
-        </div>
+
 
       </section>
 
@@ -875,11 +856,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Red CTA Button */}
           <div className="mt-10">
             <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 sm:px-12 py-4 rounded-2xl shadow-[0_8px_25px_rgba(227,30,36,0.35)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.5)] transition-all active:scale-95 uppercase focus:outline-none"
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 sm:px-12 py-4 rounded-2xl shadow-[0_8px_25px_rgba(227,30,36,0.35)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.5)] transition-all active:scale-95 uppercase focus:outline-none cursor-pointer"
             >
               CHECK MY ELIGIBILITY NOW &rarr;
             </button>
@@ -895,7 +873,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Link */}
           <div className="mt-4">
             <button
-              onClick={() => navigate("/courses")}
+              onClick={() => navigate("/scholarship")}
               className="text-white hover:text-[#DDAB30] text-xs sm:text-sm font-bold underline transition-colors focus:outline-none"
             >
               View full scholarship details
@@ -904,15 +882,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
         </div>
 
-        {/* Lower Banner Pill */}
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)]">
-            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Limited Seats — Apply Early To Secure Your Spot
-            </span>
-          </div>
-        </div>
+
 
       </section>
 
@@ -1137,13 +1107,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             </svg>
           </button>
 
-          {/* Limited Seats Banner */}
-          <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-4">
-            <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-            </svg>
-            <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
-          </div>
+
         </div>
       </section>
 
@@ -1291,14 +1255,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           ))}
 
         </div>
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)]">
-            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Limited Seats — Apply Early To Secure Your Spot
-            </span>
-          </div>
-        </div>
+
       </section>
 
       {/* Career Guides & Advice Section */}
@@ -1424,23 +1381,30 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           </p>
         </div>
 
-        {/* Brands Logo Grid */}
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16 max-w-6xl mx-auto mb-16">
-          {[
-            { img: brandAirIndia, name: "Air India" },
-            { img: brandQatar, name: "Qatar Airways" },
-            { img: brandEmirates, name: "Emirates" },
-            { img: brandSpiceJet, name: "SpiceJet" },
-            { img: brandVistara, name: "Vistara" }
-          ].map((brand, idx) => (
-            <div key={idx} className="w-32 sm:w-40 h-16 flex items-center justify-center transition-transform hover:scale-105 duration-300">
-              <img
-                src={brand.img}
-                alt={brand.name}
-                className="max-w-full max-h-full object-contain"
-              />
-            </div>
-          ))}
+        {/* Brands Logo Marquee Ticker */}
+        <div className="w-full overflow-hidden relative py-4 mb-16">
+          <div className="animate-marquee whitespace-nowrap flex items-center gap-12 sm:gap-16">
+            {[
+              { img: brandAirIndia, name: "Air India" },
+              { img: brandQatar, name: "Qatar Airways" },
+              { img: brandEmirates, name: "Emirates" },
+              { img: brandSpiceJet, name: "SpiceJet" },
+              { img: brandVistara, name: "Vistara" },
+              { img: brandAirIndia, name: "Air India" },
+              { img: brandQatar, name: "Qatar Airways" },
+              { img: brandEmirates, name: "Emirates" },
+              { img: brandSpiceJet, name: "SpiceJet" },
+              { img: brandVistara, name: "Vistara" },
+            ].map((brand, idx) => (
+              <div key={idx} className="w-32 sm:w-40 h-16 inline-flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
+                <img
+                  src={brand.img}
+                  alt={brand.name}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
       </section>
@@ -1522,13 +1486,22 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           })}
         </div>
 
-        {/* Limited Seats Banner */}
-        <div className="bg-[#fff6ee] border border-[#ffdfc4] text-[#1e3e66] text-xs font-extrabold px-6 py-3.5 rounded-full font-sans shadow-sm flex items-center justify-center gap-2 mt-12">
-          <svg className="w-4 h-4 text-[#ff9800]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-          </svg>
-          <span>LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT</span>
+        {/* Have More Questions Banner Pill */}
+        <div className="mt-12 text-center">
+          <button
+            onClick={() => {
+              navigate("/contact");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+          >
+            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+              Have more questions — click here
+            </span>
+          </button>
         </div>
+
       </section>
 
       {/* Latest News & Updates Section */}
@@ -1732,24 +1705,24 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             Check my eligibility now
-          </a>
+          </button>
 
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             Start my career
-          </a>
+          </button>
 
           <a
             href="https://wa.me/919987588932"

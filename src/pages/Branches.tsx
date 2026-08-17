@@ -469,7 +469,7 @@ export default function Branches() {
           {/* Action Buttons Row */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 mb-10">
             <button
-              onClick={() => handleBranchClick("/contact")}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="inline-flex min-w-[230px] items-center justify-center gap-2.5 rounded-2xl bg-[#E02424] hover:bg-[#c81c1c] px-7 py-4 text-xs sm:text-sm font-extrabold text-white uppercase tracking-wider shadow-[0_8px_25px_rgba(224,36,36,0.45)] transition-all hover:shadow-[0_12px_30px_rgba(224,36,36,0.55)] active:scale-95 cursor-pointer focus:outline-none"
             >
               <span className="text-base">✈️</span>
@@ -477,7 +477,7 @@ export default function Branches() {
             </button>
 
             <button
-              onClick={() => handleBranchClick("/contact")}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="inline-flex min-w-[190px] items-center justify-center gap-2 rounded-2xl bg-[#E02424] hover:bg-[#c81c1c] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-[0_8px_25px_rgba(224,36,36,0.45)] transition-all hover:shadow-[0_12px_30px_rgba(224,36,36,0.55)] active:scale-95 cursor-pointer focus:outline-none"
             >
               Start My Career

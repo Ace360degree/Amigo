@@ -15,8 +15,7 @@ export default function CareerGuides() {
   const navigate = useNavigate();
 
   const handleCTA = () => {
-    navigate("/contact");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("openEligibilityModal"));
   };
 
   return (

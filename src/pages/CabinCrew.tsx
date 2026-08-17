@@ -199,8 +199,7 @@ export default function CabinCrew() {
   const navigate = useNavigate();
 
   const handleCTA = () => {
-    navigate("/contact");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.dispatchEvent(new CustomEvent("openEligibilityModal"));
   };
 
   return (
@@ -627,6 +626,22 @@ export default function CabinCrew() {
                 answer={faq.answer}
               />
             ))}
+          </div>
+
+          {/* Have More Questions Banner Pill */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => {
+                navigate("/contact");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+            >
+              <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+              <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                Have more questions — click here
+              </span>
+            </button>
           </div>
         </div>
       </section>

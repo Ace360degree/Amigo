@@ -85,6 +85,7 @@ export default function Footer() {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
+              <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">Aviation & Hospitality Management</button>
               <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Air Hostess / Cabin Crew</button>
               <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
               <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
@@ -174,9 +175,8 @@ export default function Footer() {
                 Thane Branch
               </h5>
               <p className="text-slate-400 leading-relaxed">
-                A204, 2nd floor, Thakor Niwas<br />
-                CHS, above Tip Top Mithaiwala,<br />
-                Jambli Naka, Opp Railway Station,<br />
+                3rd Floor, Above McDonald's,<br />
+                Opp Railway Station,<br />
                 Thane West, Maharashtra 400601
               </p>
             </div>
@@ -233,6 +233,17 @@ export default function Footer() {
         </div>
 
       </div>
+
+      {/* Floating Scroll-to-Top Button */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-6 right-6 z-50 bg-[#e31e24] hover:bg-[#c2141a] text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
+        aria-label="Scroll back to top"
+      >
+        <svg className="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+      </button>
     </footer>
   );
 }

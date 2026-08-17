@@ -26,6 +26,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Courses from "./pages/Courses";
 import AirHostessCabinCrew from "./pages/AirHostessCabinCrew";
 import Branches from "./pages/Branches";
+import ThankYou from "./pages/ThankYou";
 
 // Helper component to smoothly scroll to top on route change
 function ScrollToTop() {
@@ -69,6 +70,7 @@ function App() {
           <Route path="/courses/airport-ground-staff-hospitality-management" element={<AirportGroundStaff />} />
           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
           <Route path="/branches" element={<Branches />} />
+          <Route path="/thank-you" element={<ThankYou />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>

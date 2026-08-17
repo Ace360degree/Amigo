@@ -390,7 +390,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             <span className="bg-[#fdf3e7] text-[#7c5529] text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-500/10">
               Student & Parent Support
             </span>
-            <h2 className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61] drop-shadow-sm">
+            <h2 className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#fff] drop-shadow-sm">
               Why Contact Amigo?
             </h2>
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">
@@ -500,6 +500,21 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
         </div>
 
         <FaqAccordion />
+
+        {/* Have More Questions Banner Pill */}
+        <div className="mt-10 text-center">
+          <button
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+          >
+            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+              Have more questions — click here
+            </span>
+          </button>
+        </div>
       </section>
 
       {/* CTA Batch open urgency footer section */}
@@ -556,24 +571,24 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
             Check my eligibility now
-          </a>
+          </button>
 
-          <a
-            href="#enquiry-form"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             style={{ backgroundColor: "#e0392f", color: "#ffffff" }}
-            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors"
+            className="w-full sm:w-auto inline-flex items-center justify-center text-sm font-bold px-8 py-3.5 rounded-full transition-colors cursor-pointer"
           >
             Start my career
-          </a>
+          </button>
 
           <a
             href="https://wa.me/919987588932"

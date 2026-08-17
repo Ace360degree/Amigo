@@ -797,6 +797,21 @@ export default function Courses() {
             })}
           </div>
 
+          {/* Have More Questions Banner Pill */}
+          <div className="mt-10 text-center">
+            <button
+              onClick={() => {
+                window.location.href = "/contact";
+              }}
+              className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+            >
+              <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+              <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                Have more questions — click here
+              </span>
+            </button>
+          </div>
+
           <a
             href="/contact#enquiry-form"
             className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
@@ -957,10 +972,7 @@ export default function Courses() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
             {/* Check Eligibility Red Button */}
             <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
             >
               <span>⚡</span> CHECK MY ELIGIBILITY NOW
@@ -968,10 +980,7 @@ export default function Courses() {
 
             {/* Start My Career Red Button */}
             <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
             >
               Start My Career

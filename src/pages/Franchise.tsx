@@ -1116,16 +1116,20 @@ export default function Franchise() {
                         })}
                     </div>
 
-                    {/* Bottom Banner */}
-                    <div className="flex justify-center">
-                        <div className="inline-flex items-center gap-2 px-8 py-4 bg-[#fff7ed] border border-orange-200 rounded-full shadow-[0_4px_14px_rgba(251,146,60,0.1)]">
-                            <svg className="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                            </svg>
-                            <span className="text-[#0f2a4a] font-bold text-sm tracking-wide">
-                                LIMITED SEATS — APPLY EARLY TO SECURE YOUR SPOT
+                    {/* Have More Questions Banner Pill */}
+                    <div className="mt-10 text-center">
+                        <button
+                            onClick={() => {
+                                navigate("/contact");
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }}
+                            className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+                        >
+                            <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
+                            <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
+                                Have more questions — click here
                             </span>
-                        </div>
+                        </button>
                     </div>
 
                 </div>
@@ -1164,10 +1168,7 @@ export default function Franchise() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
                         {/* Check Eligibility Red Button */}
                         <button
-                            onClick={() => {
-                                const element = document.getElementById("eligibilityForm");
-                                element?.scrollIntoView({ behavior: "smooth" });
-                            }}
+                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
                             className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
                         >
                             <span>⚡</span> CHECK MY ELIGIBILITY NOW
@@ -1175,10 +1176,7 @@ export default function Franchise() {
 
                         {/* Start My Career Red Button */}
                         <button
-                            onClick={() => {
-                                const element = document.getElementById("eligibilityForm");
-                                element?.scrollIntoView({ behavior: "smooth" });
-                            }}
+                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
                             className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
                         >
                             Start My Career
