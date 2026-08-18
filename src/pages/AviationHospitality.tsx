@@ -7,6 +7,13 @@ import coursesVideo2a from "../assets/img/coursesvideo2a.png";
 import coursesVideo3a from "../assets/img/coursesvideo3a.png";
 import coursesVideo4a from "../assets/img/coursesvideo4a.png";
 import coursesVideo5a from "../assets/img/coursesvideo5a.png";
+import course9 from "../assets/img/courses/9.png";
+import course10 from "../assets/img/courses/10.png";
+import course11 from "../assets/img/courses/11.png";
+import course12 from "../assets/img/courses/12.png";
+import course13 from "../assets/img/courses/13.png";
+import course14 from "../assets/img/courses/14.png";
+import course15 from "../assets/img/courses/15.png";
 
 type OverviewItem = {
   label: string;
@@ -20,6 +27,7 @@ type HighlightCard = {
 };
 
 type LearnCard = {
+  image: string;
   title: string;
 };
 
@@ -95,13 +103,34 @@ const highlights: HighlightCard[] = [
 ];
 
 const learnCards: LearnCard[] = [
-  { title: "Airport Operations & Ground Handling" },
-  { title: "Passenger Check-in & Boarding" },
-  { title: "Baggage & Cargo Handling" },
-  { title: "Customer Service & Communication" },
-  { title: "Grooming & Personality Development" },
-  { title: "Airport Safety & Security" },
-  { title: "Interview Preparation & Job Readiness" },
+  {
+    image: course9,
+    title: "Airport Operations & Ground Handling",
+  },
+  {
+    image: course10,
+    title: "Passenger Check-in & Boarding",
+  },
+  {
+    image: course11,
+    title: "Baggage & Cargo Handling",
+  },
+  {
+    image: course12,
+    title: "Customer Service & Communication",
+  },
+  {
+    image: course13,
+    title: "Grooming & Personality Development",
+  },
+  {
+    image: course14,
+    title: "Airport Safety & Security",
+  },
+  {
+    image: course15,
+    title: "Interview Preparation & Job Readiness",
+  },
 ];
 
 const criteriaCards: CriteriaCard[] = [
@@ -269,7 +298,7 @@ export default function AviationHospitality() {
         <div className="absolute top-0 right-0 h-full w-full lg:w-[48%] z-0">
           <img
             src={aviationHero}
-            alt="Aviation & Hospitality Management"
+            alt="Airport Ground Staff & Hospitality Management"
             className="h-full w-full object-cover object-center"
             onError={(e) => {
               e.currentTarget.src =
@@ -285,13 +314,12 @@ export default function AviationHospitality() {
               <span className="text-[#53657d]">Home</span>
               <span className="text-[#9ca3af]">›</span>
               <span className="text-[#e31e24] font-semibold">
-                Aviation &amp; Hospitality Management
+                Airport Ground Staff & Hospitality Management
               </span>
             </div>
 
             <h1 className="text-[38px] sm:text-[42px] lg:text-[46px] font-outfit font-extrabold text-[#0b2f61] leading-[1.1] tracking-tight">
-              Aviation &amp; Hospitality<br />
-              Management
+              Airport Ground Staff &amp; Hospitality Management
             </h1>
 
             <div className="flex flex-wrap items-center gap-2 mt-4 text-[15px] sm:text-[16px] font-semibold">
@@ -540,42 +568,43 @@ export default function AviationHospitality() {
       </section>
 
       {/* What Will You Learn */}
-      <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0b2f61] text-center mb-12 sm:mb-14">
+      <section className="bg-[#f9fafb] py-16 sm:py-24 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] text-center mb-12 sm:mb-16 font-sans">
             What Will You Learn?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {learnCards.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {learnCards.map((item, idx) => (
               <div
-                key={item.title}
-                className="bg-white rounded-[22px] border border-slate-100/90 shadow-[0_6px_24px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between relative group hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 min-h-[140px]"
+                key={idx}
+                className="bg-white rounded-[24px] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-base sm:text-[17px] font-bold text-[#0b2f61] leading-snug pr-4">
+                <div className="h-[200px] sm:h-[210px] w-full overflow-hidden relative bg-slate-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6 flex flex-col justify-center flex-1 bg-white min-h-[90px]">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1f2937] leading-snug font-sans">
                     {item.title}
                   </h3>
-                  <svg className="w-4 h-4 text-[#e31e24] shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </div>
-                <div className="mt-4">
-                  <span className="text-[#e31e24] font-bold text-xs sm:text-sm cursor-pointer hover:underline">
-                    View Details
-                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-14 flex justify-center">
             <button
               type="button"
-              className="inline-flex items-center gap-2 text-[#e31e24] font-bold text-sm sm:text-base hover:underline cursor-pointer"
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="inline-flex items-center justify-center gap-2.5 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.28)] hover:shadow-[0_12px_28px_rgba(223,24,24,0.38)] transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <span>Show More</span>
-              <span className="text-base">➔</span>
+              <span>Enroll Now to Start
+              </span>
+              <span className="font-bold">&nbsp;➔</span>
             </button>
           </div>
         </div>
@@ -617,11 +646,10 @@ export default function AviationHospitality() {
                         </svg>
                       </div>
                       <span
-                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
-                          isRequired
-                            ? "bg-[#fff1f2] text-[#f43f5e] border-[#fecdd3]"
-                            : "bg-[#fff7ed] text-[#ea580c] border-[#ffedd5]"
-                        }`}
+                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${isRequired
+                          ? "bg-[#fff1f2] text-[#f43f5e] border-[#fecdd3]"
+                          : "bg-[#fff7ed] text-[#ea580c] border-[#ffedd5]"
+                          }`}
                       >
                         {item.tag}
                       </span>

@@ -48,7 +48,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
             {/* Main Headline */}
             <h1 className="text-xl sm:text-3xl lg:text-[52px] font-outfit font-extrabold tracking-tight text-[#11243e] leading-[1.2] lg:leading-[1.12] drop-shadow-sm">
-              Contact <span className="text-[#f6a619]"><br />Amigo Academy</span>
+              Contact <span className="text-[#DF1818]"><br />Amigo Academy</span>
             </h1>
 
             {/* Description Text */}

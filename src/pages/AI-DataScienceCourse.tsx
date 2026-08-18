@@ -7,6 +7,17 @@ import coursesVideo2a from "../assets/img/coursesvideo2a.png";
 import coursesVideo3a from "../assets/img/coursesvideo3a.png";
 import coursesVideo4a from "../assets/img/coursesvideo4a.png";
 import coursesVideo5a from "../assets/img/coursesvideo5a.png";
+import course16 from "../assets/img/courses/16.png";
+import course17 from "../assets/img/courses/17.png";
+import course18 from "../assets/img/courses/18.png";
+import course19 from "../assets/img/courses/19.png";
+import course20 from "../assets/img/courses/20.png";
+import course21 from "../assets/img/courses/21.png";
+import course22 from "../assets/img/courses/22.png";
+import course23 from "../assets/img/courses/23.png";
+import course24 from "../assets/img/courses/24.png";
+import course25 from "../assets/img/courses/25.png";
+import course26 from "../assets/img/courses/26.png";
 
 type OverviewItem = {
   label: string;
@@ -20,6 +31,7 @@ type HighlightCard = {
 };
 
 type LearnCard = {
+  image: string;
   title: string;
 };
 
@@ -96,17 +108,50 @@ const highlights: HighlightCard[] = [
 ];
 
 const learnCards: LearnCard[] = [
-  { title: "Introduction to Artificial Intelligence & Data" },
-  { title: "Python Programming for Data Science" },
-  { title: "Data Analysis with Pandas & NumPy" },
-  { title: "Data Visualization & Storytelling" },
-  { title: "Machine Learning Fundamentals" },
-  { title: "Deep Learning Concepts" },
-  { title: "Generative AI & Modern AI Tools" },
-  { title: "Statistics & Mathematical Foundations" },
-  { title: "Real-World Projects & Case Studies" },
-  { title: "Career Preparation & Job Readiness" },
-  { title: "Big Data & Cloud Basics" },
+  {
+    image: course16,
+    title: "Introduction to Artificial Intelligence & Data",
+  },
+  {
+    image: course17,
+    title: "Python Programming for Data Science",
+  },
+  {
+    image: course18,
+    title: "Data Analysis with Pandas & NumPy",
+  },
+  {
+    image: course19,
+    title: "Data Visualization & Storytelling",
+  },
+  {
+    image: course20,
+    title: "Machine Learning Fundamentals",
+  },
+  {
+    image: course21,
+    title: "Deep Learning Concepts",
+  },
+  {
+    image: course22,
+    title: "Generative AI & Modern AI Tools",
+  },
+  {
+    image: course23,
+    title: "Statistics & Mathematical Foundations",
+  },
+  {
+    image: course24,
+    title: "Real-World Projects & Case Studies",
+  },
+  {
+    image: course25,
+    title: "Career Preparation & Job Readiness",
+  },
+  {
+    image: course26,
+    title: "Big Data & Cloud Basics",
+  },
 ];
 
 const criteriaCards: CriteriaCard[] = [
@@ -569,38 +614,42 @@ export default function AIDataScienceCourse() {
       </section>
 
       {/* What Will You Learn? Section */}
-      <section className="py-20 px-4 sm:px-6 md:px-8 bg-white">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0b2f61] mb-12 font-outfit">
+      <section className="bg-[#f9fafb] py-16 sm:py-24 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] text-center mb-12 sm:mb-16 font-sans">
             What Will You Learn?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 text-left">
-            {learnCards.map((card, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {learnCards.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+                className="bg-white rounded-[24px] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group text-left"
               >
-                <h3 className="text-sm sm:text-base font-extrabold text-[#0b2f61] leading-snug mb-4">
-                  {card.title}
-                </h3>
-                <button
-                  onClick={handleCTA}
-                  className="text-xs font-bold text-[#e31e24] hover:underline flex items-center gap-1 w-fit cursor-pointer"
-                >
-                  View Details ›
-                </button>
+                <div className="h-[200px] sm:h-[210px] w-full overflow-hidden relative bg-slate-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6 flex flex-col justify-center flex-1 bg-white min-h-[90px]">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1f2937] leading-snug font-sans">
+                    {item.title}
+                  </h3>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="flex justify-center">
+          <div className="mt-14 flex justify-center">
             <button
+              type="button"
               onClick={handleCTA}
-              className="inline-flex items-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-sm px-8 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.28)] hover:shadow-[0_12px_28px_rgba(223,24,24,0.38)] transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <span>Explore AI & Data Science Course</span>
-              <span className="text-base">➔</span>
+              <span>Enroll Now to Start</span>
+              <span className="font-bold">&nbsp;➔</span>
             </button>
           </div>
         </div>
@@ -631,13 +680,12 @@ export default function AIDataScienceCourse() {
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-xl">🎓</span>
                     <span
-                      className={`text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider ${
-                        c.badgeType === "REQUIRED"
+                      className={`text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider ${c.badgeType === "REQUIRED"
                           ? "bg-rose-50 text-rose-600 border border-rose-100"
                           : c.badgeType === "ESSENTIAL"
-                          ? "bg-amber-50 text-amber-600 border border-amber-100"
-                          : "bg-indigo-50 text-indigo-600 border border-indigo-100"
-                      }`}
+                            ? "bg-amber-50 text-amber-600 border border-amber-100"
+                            : "bg-indigo-50 text-indigo-600 border border-indigo-100"
+                        }`}
                     >
                       {c.tag}
                     </span>
