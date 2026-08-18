@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 
 // Static imports for instant page transitions without any loading screen
@@ -25,6 +25,8 @@ import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Courses from "./pages/Courses";
 import AirHostessCabinCrew from "./pages/AirHostessCabinCrew";
+import AviationHospitality from "./pages/AviationHospitality";
+import AIDataScienceCourse from "./pages/AI-DataScienceCourse";
 import Branches from "./pages/Branches";
 import ThankYou from "./pages/ThankYou";
 
@@ -61,14 +63,15 @@ function App() {
           <Route path="/student-success" element={<StudentSuccess />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/innerblog" element={<InnerBlog />} />
+          <Route path="/how-to-become-a-cabin-crew-after-12th" element={<InnerBlog />} />
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/courses" element={<Courses />} />
+          <Route path="/courses/aviation-hospitality-management" element={<Navigate to="/courses/airport-ground-staff-hospitality-management" replace />} />
           <Route path="/courses/air-hostess-cabin-crew-hospitality-management" element={<AirHostessCabinCrew />} />
-          <Route path="/courses/airport-ground-staff-hospitality-management" element={<AirportGroundStaff />} />
-          <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AiDataScience />} />
+          <Route path="/courses/airport-ground-staff-hospitality-management" element={<AviationHospitality />} />
+          <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AIDataScienceCourse />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
           {/* Catch-all route to redirect back to home or render 404 */}

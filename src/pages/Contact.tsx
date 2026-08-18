@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import heroContact from "../assets/img/herocontact.png";
 
 interface ContactProps {
@@ -6,6 +7,8 @@ interface ContactProps {
 }
 
 export default function Contact({ setCurrentPage }: ContactProps = {}) {
+  const navigate = useNavigate();
+  const [selectedMapTab, setSelectedMapTab] = useState<"ghatkopar" | "andheri" | "thane">("ghatkopar");
   return (
     <div className="flex flex-col">
       {/* Hero Section styled to match the visual image (Full width with fade transition) */}
@@ -55,13 +58,15 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
             {/* Red Button with Shadow and Arrow Icon */}
             <div className="pt-1">
-              <a
-                href="#enquiry-form"
-                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group focus:outline-none whitespace-nowrap"
+              <button
+                onClick={() => {
+                  document.getElementById("tell-us-how-we-can-help")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group focus:outline-none whitespace-nowrap cursor-pointer"
               >
                 Contact Now
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
-              </a>
+              </button>
             </div>
 
           </div>
@@ -139,9 +144,15 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 <p className="text-neutral-500 text-xs mt-1 font-semibold">Monday – Saturday<br />10:00 AM – 7:00 PM</p>
               </div>
             </div>
-            <span className="text-[#e31e24] font-sans font-bold text-xs uppercase tracking-wider mt-4">
+            <a
+              href="https://maps.app.goo.gl/VUcP8V3PtDAQdEPv5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4 flex items-center gap-1 group"
+            >
               Walk-ins Welcome
-            </span>
+              <span className="transition-transform group-hover:translate-x-0.5">➔</span>
+            </a>
           </div>
 
         </div>
@@ -196,12 +207,15 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
-                  <a
-                    href="#"
-                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                  <button
+                    onClick={() => {
+                      setSelectedMapTab("ghatkopar");
+                      document.getElementById("interactive-map")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
                   >
                     <span>✈️</span> View Map
-                  </a>
+                  </button>
                   <a
                     href="tel:+919987588932"
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
@@ -239,12 +253,15 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
-                  <a
-                    href="#"
-                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                  <button
+                    onClick={() => {
+                      setSelectedMapTab("andheri");
+                      document.getElementById("interactive-map")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
                   >
                     <span>✈️</span> View Map
-                  </a>
+                  </button>
                   <a
                     href="tel:+919987588932"
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
@@ -283,12 +300,15 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
-                  <a
-                    href="#"
-                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
+                  <button
+                    onClick={() => {
+                      setSelectedMapTab("thane");
+                      document.getElementById("interactive-map")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="bg-[#0b2f61] hover:bg-[#072042] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all cursor-pointer"
                   >
                     <span>✈️</span> View Map
-                  </a>
+                  </button>
                   <a
                     href="tel:+919987588932"
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
@@ -303,7 +323,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
         </div>
       </section>
       {/* Interactive Campus Location Maps Section */}
-      <section className="w-full bg-white py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      <section id="interactive-map" className="w-full bg-white py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="max-w-7xl mx-auto space-y-10 text-center">
 
           <div className="space-y-4 max-w-2xl mx-auto flex flex-col items-center">
@@ -319,11 +339,11 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
           </div>
 
           {/* Map Tabs and Map Display */}
-          <MapTabs />
+          <MapTabs activeTab={selectedMapTab} onTabChange={setSelectedMapTab} />
 
         </div>
       </section>
-      <section className="w-full bg-[#f1f5f9] py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-200/50">
+      <section id="tell-us-how-we-can-help" className="w-full bg-[#f1f5f9] py-16 px-4 sm:px-6 md:px-8 border-t border-neutral-200/50">
         <div className="max-w-7xl mx-auto space-y-12 text-center">
 
           {/* Section Header */}
@@ -494,7 +514,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
           <h2 className="text-[32px] font-outfit font-extrabold text-[#0b2f61] tracking-tight mb-3">
             Frequently Asked Questions
           </h2>
-          <p className="text-neutral-500 text-[13.5px]">
+          <p className="text-neutral-500 text-sm sm:text-base">
             Quick answers about branches, appointments and how fast our team replies.
           </p>
         </div>
@@ -511,7 +531,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
           >
             <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
             <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Have more questions — click here
+              If you have anymore question, please contact us
             </span>
           </button>
         </div>
@@ -620,6 +640,19 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
             )
           )}
         </div>
+
+        {/* Download Brochure (PDF) Pill Button */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 hover:border-white/80 transition-all text-sm font-semibold cursor-pointer shadow-md active:scale-95 focus:outline-none"
+          >
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+            </svg>
+            <span>Download Brochure (PDF)</span>
+          </button>
+        </div>
       </section>
     </div>
   );
@@ -628,6 +661,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
 // Sub-component to manage form inputs and submission
 function EnquiryForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -639,17 +673,7 @@ function EnquiryForm() {
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({
-        name: "",
-        mobile: "",
-        email: "",
-        type: "Admission",
-        message: ""
-      });
-    }, 3000);
+    navigate("/thank-you");
   };
 
   if (submitted) {
@@ -753,21 +777,28 @@ function EnquiryForm() {
   );
 }
 
+interface MapTabsProps {
+  activeTab?: "ghatkopar" | "andheri" | "thane";
+  onTabChange?: (tab: "ghatkopar" | "andheri" | "thane") => void;
+}
+
 // Sub-component to manage interactive map switching
-function MapTabs() {
-  const [activeTab, setActiveTab] = useState<"ghatkopar" | "andheri" | "thane">("ghatkopar");
+function MapTabs({ activeTab: propActiveTab, onTabChange }: MapTabsProps = {}) {
+  const [internalTab, setInternalTab] = useState<"ghatkopar" | "andheri" | "thane">("ghatkopar");
+  const activeTab = propActiveTab || internalTab;
+
+  const handleTabClick = (tab: "ghatkopar" | "andheri" | "thane") => {
+    setInternalTab(tab);
+    if (onTabChange) {
+      onTabChange(tab);
+    }
+  };
 
   // Real Google Maps embed URLs for Ghatkopar, Andheri, and Thane
   const mapUrls = {
     ghatkopar: "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed",
     andheri: "https://maps.google.com/maps?q=Amigo%20Academy%20Andheri%20Time%20Chambers%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed",
     thane: "https://maps.google.com/maps?q=Amigo%20Academy%20Thane%20Thakor%20Niwas%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed"
-  };
-
-  const directionLinks = {
-    ghatkopar: "https://maps.google.com/?q=Sai+Infotech+Ghatkopar+East+Mumbai",
-    andheri: "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai",
-    thane: "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra"
   };
 
   return (
@@ -777,8 +808,8 @@ function MapTabs() {
         {(["ghatkopar", "andheri", "thane"] as const).map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeTab === tab
+            onClick={() => handleTabClick(tab)}
+            className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${activeTab === tab
               ? "bg-[#0b2f61] text-white shadow-md scale-105"
               : "bg-neutral-50 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800"
               }`}
@@ -854,9 +885,9 @@ function FaqAccordion() {
             {/* Accordion header button */}
             <button
               onClick={() => toggleAccordion(index)}
-              className="w-full flex items-center justify-between px-7 py-4 text-left focus:outline-none group"
+              className="w-full flex items-center justify-between px-7 py-5 text-left focus:outline-none group cursor-pointer"
             >
-              <span className="text-[13px] font-outfit font-extrabold text-[#0b2f61] tracking-tight">
+              <span className="text-base sm:text-lg font-outfit font-extrabold text-[#0b2f61] tracking-tight">
                 {faq.question}
               </span>
               <span
@@ -864,7 +895,7 @@ function FaqAccordion() {
                   }`}
               >
                 <svg
-                  className="w-4 h-4 text-neutral-400 group-hover:text-[#0b2f61] transition-colors"
+                  className="w-5 h-5 text-neutral-400 group-hover:text-[#0b2f61] transition-colors"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2.5}
@@ -877,10 +908,10 @@ function FaqAccordion() {
 
             {/* Accordion content body */}
             <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[280px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
+              className={`transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[350px] border-t border-neutral-100/70 bg-neutral-50/20" : "max-h-0"
                 }`}
             >
-              <div className="px-7 py-4 text-[12.5px] text-neutral-500 font-semibold leading-relaxed text-left">
+              <div className="px-7 py-5 text-sm sm:text-base text-neutral-600 font-medium leading-relaxed text-left">
                 {faq.answer}
               </div>
             </div>

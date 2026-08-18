@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logofooter from "../assets/img/logofooter.png";
 import FooterQR from "../assets/img/FooterQR.png";
 
 export default function Footer() {
   const navigate = useNavigate();
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   const handleNavClick = (path: string) => {
     navigate(path);
@@ -65,7 +66,7 @@ export default function Footer() {
           {/* Links Col 1: Home */}
           <div className="lg:col-span-2 flex flex-col space-y-4 text-left">
             <h4 className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
-              Navigation
+              Quick Links
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">About us</button>
@@ -76,6 +77,25 @@ export default function Footer() {
               <button onClick={() => handleNavClick("/gallery")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
               <button onClick={() => handleNavClick("/student-success")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
               <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Contact Us</button>
+
+              {/* Online Payment Collapsible Menu */}
+              <div className="flex flex-col space-y-1.5 pt-1">
+                <button
+                  onClick={() => setIsPaymentOpen(!isPaymentOpen)}
+                  className="flex items-center justify-between text-left hover:text-white transition-colors w-fit gap-1.5 focus:outline-none cursor-pointer"
+                >
+                  <span>Online Payment</span>
+                  <svg className={`w-3 h-3 transition-transform duration-200 ${isPaymentOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                {isPaymentOpen && (
+                  <div className="flex flex-col space-y-2 pl-3 border-l border-slate-700 mt-1">
+                    <a href="https://pages.razorpay.com/amigoacademypayment" target="_blank" rel="noreferrer" className="hover:text-white transition-colors text-xs w-fit">Razorpay</a>
+                    <a href="https://www.instamojo.com/@amigoairacademy/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors text-xs w-fit">Instamojo</a>
+                  </div>
+                )}
+              </div>
             </nav>
           </div>
 
@@ -85,8 +105,8 @@ export default function Footer() {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">Aviation & Hospitality Management</button>
               <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Air Hostess / Cabin Crew</button>
+              <button onClick={() => handleNavClick("/courses/airport-ground-staff-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff & Hospitality Management</button>
               <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
               <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
             </nav>
@@ -133,11 +153,11 @@ export default function Footer() {
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
               <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
-                Mumbai Ghatkopar (Head Office)
+                Ghatkopar Branch
               </h5>
-              <p className="text-slate-400 leading-relaxed font-semibold">
+              {/* <p className="text-slate-400 leading-relaxed font-semibold">
                 AMIGO ACADEMY GHATKOPAR
-              </p>
+              </p> */}
               <p className="text-slate-400 leading-relaxed">
                 107 & 108, Sai Infotech, Patel Chowk,<br />
                 Opposite Railway Station, Pant Nagar,<br />
@@ -154,7 +174,7 @@ export default function Footer() {
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
               <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
-                Mumbai Andheri Branch
+                Andheri Branch
               </h5>
               <p className="text-slate-400 leading-relaxed">
                 902, 9th Floor, Time Chambers,<br />
@@ -196,7 +216,7 @@ export default function Footer() {
             </a>
 
             {/* Instagram */}
-            <a href="https://www.instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg==" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
+            <a href="https://www.instagram.com/amigozacademy" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Instagram">
               <svg className="w-5 h-5 fill-none stroke-current" strokeWidth={2} viewBox="0 0 24 24">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
@@ -204,17 +224,17 @@ export default function Footer() {
               </svg>
             </a>
 
-            {/* X (formerly Twitter) */}
-            <a href="https://x.com/amigo_academy" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="X (Twitter)">
+            {/* YouTube */}
+            <a href="https://www.youtube.com/@amigoacademy6050" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="YouTube">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
               </svg>
             </a>
 
             {/* LinkedIn */}
             <a href="https://www.linkedin.com/company/amigo-academy" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="LinkedIn">
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
               </svg>
             </a>
           </div>
@@ -228,7 +248,7 @@ export default function Footer() {
 
           {/* Copyright text */}
           <p className="text-slate-500">
-            &copy; 2024 Amigo Academy. All Rights Reserved
+            &copy; 2026 Amigo Academy. All Rights Reserved
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "../assets/img/aircourseh111a.png";
 import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
 import courseIcon121 from "../assets/img/courseicon121.png";
@@ -8,6 +9,15 @@ import coursesVideo2a from "../assets/img/coursesvideo2a.png";
 import coursesVideo3a from "../assets/img/coursesvideo3a.png";
 import coursesVideo4a from "../assets/img/coursesvideo4a.png";
 import coursesVideo5a from "../assets/img/coursesvideo5a.png";
+
+import courseImg1 from "../assets/img/courses/1.png";
+import courseImg2 from "../assets/img/courses/2.png";
+import courseImg3 from "../assets/img/courses/3.png";
+import courseImg4 from "../assets/img/courses/4.png";
+import courseImg5 from "../assets/img/courses/5.png";
+import courseImg6 from "../assets/img/courses/6.png";
+import courseImg7 from "../assets/img/courses/7.png";
+import courseImg8 from "../assets/img/courses/8.png";
 
 type OverviewItem = {
   label: string;
@@ -22,6 +32,7 @@ type HighlightCard = {
 
 type LearnCard = {
   title: string;
+  image: string;
 };
 
 type CriteriaCard = {
@@ -45,12 +56,11 @@ type StoryCard = {
 };
 
 const overview: OverviewItem[] = [
-  { label: "Next Batch Starting", value: "May 2026" },
   { label: "Timing", value: "Morning / Afternoon / Evening" },
   { label: "Our Branches", value: "Ghatkopar, Andheri & Thane" },
-  { label: "Age", value: "17 to 24 Years" },
   { label: "Duration", value: "12 Months (6 Days/Week, 2 Hours/Day)" },
   { label: "Eligibility", value: "12th Pass" },
+  { label: "Age", value: "17 to 24 Years" },
 ];
 
 const highlights: HighlightCard[] = [
@@ -97,14 +107,14 @@ const highlights: HighlightCard[] = [
 ];
 
 const learnCards: LearnCard[] = [
-  { title: "Introduction to Aviation & Cabin Crew Roles" },
-  { title: "Grooming & Personality Development" },
-  { title: "Communication Skills for Cabin Crew" },
-  { title: "Passenger Handling & In-Flight Service" },
-  { title: "Safety, Emergency & First Aid Procedures" },
-  { title: "Cabin Crew Eligibility & Career Roadmap" },
-  { title: "Interview Preparation & Job Readiness" },
-  { title: "Aviation Industry Exposure & Airline Recruitment Process" },
+  { title: "Introduction to Aviation & Cabin Crew Roles", image: courseImg1 },
+  { title: "Grooming & Personality Development", image: courseImg2 },
+  { title: "Communication Skills for Cabin Crew", image: courseImg3 },
+  { title: "Passenger Handling & In-Flight Service", image: courseImg4 },
+  { title: "Safety, Emergency & First Aid Procedures", image: courseImg5 },
+  { title: "Cabin Crew Eligibility & Career Roadmap", image: courseImg6 },
+  { title: "Interview Preparation & Job Readiness", image: courseImg7 },
+  { title: "Aviation Industry Exposure & Airline Recruitment Process", image: courseImg8 },
 ];
 
 const criteriaCards: CriteriaCard[] = [
@@ -203,7 +213,7 @@ const faqItems: FaqItem[] = [
       "Minimum height varies by airline. We help you understand the current requirements during the eligibility discussion.",
   },
   {
-    question: "What if I donâ€™t meet the airline height requirement?",
+    question: "What if I don't meet the airline height requirement?",
     answer:
       "If cabin crew height expectations are not met, we can guide you toward airport ground staff or other suitable paths.",
   },
@@ -223,7 +233,7 @@ const faqItems: FaqItem[] = [
       "You learn grooming, communication, passenger handling, safety, emergency procedures, interview preparation and aviation industry exposure.",
   },
   {
-    question: "What makes Amigoz Academyâ€™s cabin crew course different?",
+    question: "What makes Amigoz Academy's cabin crew course different?",
     answer:
       "Our course combines government certification, practical classroom training, placement support and career guidance in one structured program.",
   },
@@ -278,6 +288,7 @@ const storyCards: StoryCard[] = [
 ];
 
 export default function AirHostessCabinCrew() {
+  const navigate = useNavigate();
   return (
     <div className="bg-[#f5f7fb] text-neutral-900">
       {/* Hero Section */}
@@ -327,13 +338,6 @@ export default function AirHostessCabinCrew() {
               </h2>
 
               <div className="space-y-3 text-[16px] text-[#42526a]">
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">▣</span>
-                  <p>
-                    <span className="font-semibold">Next Batch Starting:</span>
-                    <span className="ml-3">July 2026</span>
-                  </p>
-                </div>
 
                 <div className="flex items-center gap-3">
                   <span className="text-[#17365d]">◷</span>
@@ -345,22 +349,12 @@ export default function AirHostessCabinCrew() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-x-8 gap-y-3">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[#17365d]">⌖</span>
-                    <p>
-                      <span className="font-semibold">Our Branches:</span>
-                      <span className="ml-2">Ghatkopar, Andheri &amp; Thane</span>
-                    </p>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <span className="text-[#17365d]">♙</span>
-                    <p>
-                      <span className="font-semibold">Age:</span>
-                      <span className="ml-2">17 to 24 Years</span>
-                    </p>
-                  </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">⌖</span>
+                  <p>
+                    <span className="font-semibold">Our Branches:</span>
+                    <span className="ml-2">Ghatkopar, Andheri &amp; Thane</span>
+                  </p>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -376,6 +370,14 @@ export default function AirHostessCabinCrew() {
                   <p>
                     <span className="font-semibold">Eligibility:</span>
                     <span className="ml-3">12th Pass</span>
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <span className="text-[#17365d]">♙</span>
+                  <p>
+                    <span className="font-semibold">Age:</span>
+                    <span className="ml-2">17 to 24 Years</span>
                   </p>
                 </div>
               </div>
@@ -424,16 +426,6 @@ export default function AirHostessCabinCrew() {
           </h2>
 
           <div className="space-y-4 text-xs">
-            {/* Batch */}
-            <div className="flex items-center justify-between gap-3 text-[#42526a]">
-              <div className="flex items-center gap-2.5">
-                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 9v7.5" />
-                </svg>
-                <span className="font-semibold text-slate-700">Next Batch Starting:</span>
-              </div>
-              <span className="text-[#17365d] font-medium">July 2026</span>
-            </div>
 
             {/* Timing */}
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
@@ -458,17 +450,6 @@ export default function AirHostessCabinCrew() {
               <span className="text-[#17365d] font-medium text-right">Ghatkopar, Andheri &amp; Thane</span>
             </div>
 
-            {/* Age */}
-            <div className="flex items-center justify-between gap-3 text-[#42526a]">
-              <div className="flex items-center gap-2.5">
-                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                </svg>
-                <span className="font-semibold text-slate-700">Age:</span>
-              </div>
-              <span className="text-[#17365d] font-medium">17 to 24 Years</span>
-            </div>
-
             {/* Duration */}
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <div className="flex items-center gap-2.5">
@@ -489,6 +470,17 @@ export default function AirHostessCabinCrew() {
                 <span className="font-semibold text-slate-700">Eligibility:</span>
               </div>
               <span className="text-[#17365d] font-medium">12th Pass</span>
+            </div>
+
+            {/* Age */}
+            <div className="flex items-center justify-between gap-3 text-[#42526a]">
+              <div className="flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-[#17365d] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+                <span className="font-semibold text-slate-700">Age:</span>
+              </div>
+              <span className="text-[#17365d] font-medium">17 to 24 Years</span>
             </div>
           </div>
         </div>
@@ -560,7 +552,7 @@ export default function AirHostessCabinCrew() {
               </p>
             </div>
 
-            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
               {/* Field 1: Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <svg className="w-4 h-4 text-slate-400 ml-1 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -568,6 +560,7 @@ export default function AirHostessCabinCrew() {
                 </svg>
                 <input
                   type="tel"
+                  required
                   placeholder="Mobile Number"
                   className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
                 />
@@ -581,6 +574,7 @@ export default function AirHostessCabinCrew() {
                 </svg>
                 <input
                   type="text"
+                  required
                   placeholder="Full Name"
                   className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
                 />
@@ -589,7 +583,7 @@ export default function AirHostessCabinCrew() {
 
               {/* Field 3: Age */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
                   <option value="" disabled selected hidden>Age</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
@@ -610,7 +604,7 @@ export default function AirHostessCabinCrew() {
 
               {/* Field 4: Qualification */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
                   <option value="" disabled selected hidden>Qualification</option>
                   <option value="12th">12th Pass</option>
                   <option value="undergraduate">Undergraduate</option>
@@ -626,7 +620,7 @@ export default function AirHostessCabinCrew() {
 
               {/* Field 5: Preferred Branch */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
                   <option value="" disabled selected hidden>Preferred Branch</option>
                   <option value="ghatkopar">Ghatkopar</option>
                   <option value="andheri">Andheri</option>
@@ -642,7 +636,7 @@ export default function AirHostessCabinCrew() {
 
               {/* Field 6: Gender */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6">
+                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
                   <option value="" disabled selected hidden>Gender</option>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
@@ -655,64 +649,58 @@ export default function AirHostessCabinCrew() {
                   <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
                 </div>
               </div>
-            </form>
 
-            <div className="mt-7 flex justify-end">
-              <button
-                type="submit"
-                className="rounded-full bg-[#8ba2cf] hover:bg-[#7e97c7] text-[#142954] font-bold text-sm sm:text-base pl-7 pr-1.5 py-1.5 inline-flex items-center gap-5 shadow-md transition-all active:scale-98"
-              >
-                <span>Enroll Now</span>
-                <div className="w-9 h-9 rounded-full bg-[#8c1c34] flex items-center justify-center text-white shrink-0 shadow-inner">
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </button>
-            </div>
+              <div className="md:col-span-3 flex justify-end pt-2">
+                <button
+                  type="submit"
+                  className="rounded-full bg-[#8ba2cf] hover:bg-[#7e97c7] text-[#142954] font-bold text-sm sm:text-base pl-7 pr-1.5 py-1.5 inline-flex items-center gap-5 shadow-md transition-all active:scale-98 cursor-pointer"
+                >
+                  <span>Enroll Now</span>
+                  <span className="w-8 h-8 rounded-full bg-[#142954] text-white flex items-center justify-center text-sm font-extrabold">➔</span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
 
       {/* What Will You Learn */}
-      <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1a1a1a] text-center mb-12 sm:mb-14">
+      <section className="bg-[#f9fafb] py-16 sm:py-24 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#111827] text-center mb-12 sm:mb-16 font-sans">
             What Will You Learn?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {learnCards.map((item) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {learnCards.map((item, idx) => (
               <div
-                key={item.title}
-                className="bg-white rounded-[22px] border border-slate-100/90 shadow-[0_6px_24px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between relative group hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] transition-all duration-300 min-h-[150px]"
+                key={idx}
+                className="bg-white rounded-[24px] overflow-hidden border border-slate-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="text-base sm:text-[17px] font-bold text-[#1e293b] leading-snug pr-4">
+                <div className="h-[200px] sm:h-[210px] w-full overflow-hidden relative bg-slate-100">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-5 sm:p-6 flex flex-col justify-center flex-1 bg-white min-h-[90px]">
+                  <h3 className="text-[15px] sm:text-[16px] font-bold text-[#1f2937] leading-snug font-sans">
                     {item.title}
                   </h3>
-                  <svg className="w-4 h-4 text-[#e31e24] shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                  </svg>
-                </div>
-                <div className="mt-6">
-                  <span className="text-[#e31e24] font-bold text-sm cursor-pointer hover:underline">
-                    View Details
-                  </span>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-12 flex justify-center">
+          <div className="mt-14 flex justify-center">
             <button
               type="button"
-              className="inline-flex items-center gap-2 text-[#e31e24] font-bold text-sm sm:text-base hover:underline cursor-pointer"
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="inline-flex items-center justify-center gap-2.5 bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.28)] hover:shadow-[0_12px_28px_rgba(227,30,36,0.38)] transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <span>Show More</span>
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
+              <span>Enroll Now to Start</span>
+              <span className="text-base font-extrabold">➔</span>
             </button>
           </div>
         </div>
@@ -756,11 +744,10 @@ export default function AirHostessCabinCrew() {
                         </svg>
                       </div>
                       <span
-                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${
-                          isRed
-                            ? "bg-[#fff1f2] text-[#f43f5e] border-[#fecdd3]"
-                            : "bg-[#fff7ed] text-[#ea580c] border-[#ffedd5]"
-                        }`}
+                        className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${isRed
+                          ? "bg-[#fff1f2] text-[#f43f5e] border-[#fecdd3]"
+                          : "bg-[#fff7ed] text-[#ea580c] border-[#ffedd5]"
+                          }`}
                       >
                         {item.tag}
                       </span>
@@ -815,9 +802,9 @@ export default function AirHostessCabinCrew() {
         <div className="mx-auto max-w-4xl text-center">
           {/* Pill Badge */}
           <div className="inline-flex items-center gap-1.5 rounded-full bg-[#eff6ff] px-4 py-1.5 text-xs font-semibold text-[#2563eb] border border-[#dbeafe]">
-            <svg className="w-4 h-4 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            {/* <svg className="w-4 h-4 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M12 18h.01" />
-            </svg>
+            </svg> */}
             <span>Common Questions Answered</span>
           </div>
 
@@ -871,7 +858,7 @@ export default function AirHostessCabinCrew() {
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                Have more questions — click here
+                If you have anymore question, please contact us
               </span>
             </button>
           </div>
@@ -881,7 +868,7 @@ export default function AirHostessCabinCrew() {
             {[
               { value: "1,200+", label: "Students Enrolled" },
               { value: "200+", label: "Hiring Partners" },
-              { value: "90 Days", label: "Avg. Placement Time" },
+              { value: "120+", label: "Students Placed" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#11223f]">

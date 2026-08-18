@@ -402,7 +402,7 @@ export default function AiDataScience() {
                         } else if (card.title.includes("Ground Staff")) {
                           navigate("/career-guide/airport-ground-staff");
                         } else {
-                          navigate("/contact");
+                          navigate("/how-to-become-a-cabin-crew-after-12th");
                         }
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
@@ -504,7 +504,7 @@ export default function AiDataScience() {
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                Have more questions — click here
+                If you have anymore question, please contact us
               </span>
             </button>
           </div>

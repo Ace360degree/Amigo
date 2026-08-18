@@ -569,7 +569,7 @@ export default function Scholarship() {
                 {/* Info */}
                 <div className="space-y-2">
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-lg sm:text-xl">
-                    Airport Ground Staff
+                    Airport Ground Staff & Hospitality Management
                   </h4>
                   <p className="text-neutral-500 text-[13px] leading-relaxed font-semibold">
                     Check-in, customer service and ground operations training for airport and airline jobs.
@@ -1074,7 +1074,7 @@ export default function Scholarship() {
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                Have more questions — click here
+                If you have anymore question, please contact us
               </span>
             </button>
           </div>
@@ -1182,6 +1182,19 @@ export default function Scholarship() {
               </span>
             )
           )}
+        </div>
+
+        {/* Download Brochure (PDF) Pill Button */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 hover:border-white/80 transition-all text-sm font-semibold cursor-pointer shadow-md active:scale-95 focus:outline-none"
+          >
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+            </svg>
+            <span>Download Brochure (PDF)</span>
+          </button>
         </div>
       </section>
     </div>

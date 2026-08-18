@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
@@ -41,6 +42,12 @@ import newsImage3 from "../assets/img/newsImage3.png";
 import newsImage4 from "../assets/img/newsImage4.png";
 import newsFeatured from "../assets/img/newsFeatured.png";
 
+// Real Instagram post photos
+import instaPost1 from "../assets/img/Gallerygroup1.png";
+import instaPost2 from "../assets/img/Gallerygroup2.png";
+import instaPost3 from "../assets/img/Gallerygroup3.png";
+import instaPost4 from "../assets/img/Gallerygroup4.png";
+
 interface HomeProps {
   setCurrentPage?: (page: string) => void;
 }
@@ -56,6 +63,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
   const [selectedGender, setSelectedGender] = useState("");
   const [activeGuide, setActiveGuide] = useState("");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
 
 
@@ -65,15 +73,12 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       alert("Please fill in all required fields.");
       return;
     }
-    alert(`Success! Application submitted for ${fullName}. We will contact you shortly.`);
+    navigate("/thank-you");
   };
 
   const coursesList = [
-    "Air Hostess & Cabin Crew",
-    "Airport Ground Staff & Hospitality",
-    "Cruise Line & Hospitality Management",
-    "Digital Marketing",
-    "Cyber Security",
+    "Air Hostess / Cabin Crew",
+    "Airport Ground Staff & Hospitality Management",
     "AI & Data Science"
   ];
 
@@ -125,9 +130,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             <p className="hidden lg:block text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
               Air Hostess & Cabin Crew <span className="text-slate-400 font-bold mx-2">*</span>
               Airport Ground Staff & Hospitality <span className="text-slate-400 font-bold mx-2">*</span>
-              Cruise Line & Hospitality Management <span className="text-slate-400 font-bold mx-2">*</span>
-              Digital Marketing <span className="text-slate-400 font-bold mx-2">*</span>
-              Cyber Security <span className="text-slate-400 font-bold mx-2">*</span>
+              <br />
               AI & Data Science
             </p>
 
@@ -139,10 +142,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             </div>
 
             <button
-              onClick={() => {
-                const element = document.getElementById("eligibilityForm");
-                element?.scrollIntoView({ behavior: "smooth" });
-              }}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-xs lg:text-sm px-5 py-3 lg:px-6 lg:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
             >
               Enroll Now To Avail Scholarship
@@ -751,7 +751,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Video Play Button Overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
-                  onClick={() => alert("Playing academy video...")}
+                  onClick={() => setIsVideoModalOpen(true)}
                   className="w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-full flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-transform duration-300 focus:outline-none cursor-pointer"
                   aria-label="Play video"
                 >
@@ -778,6 +778,41 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           </div>
 
         </div>
+
+        {/* YouTube Video Modal Popup */}
+        {isVideoModalOpen &&
+          createPortal(
+            <div
+              onClick={() => setIsVideoModalOpen(false)}
+              className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-lg w-screen h-screen"
+            >
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-5xl bg-black rounded-3xl overflow-visible shadow-2xl border border-white/10"
+              >
+                {/* Close Button */}
+                <button
+                  onClick={() => setIsVideoModalOpen(false)}
+                  className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-white text-neutral-900 hover:bg-[#e31e24] hover:text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-200 focus:outline-none cursor-pointer border-2 border-white/20 active:scale-95"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+
+                <div className="relative w-full pt-[56.25%] rounded-3xl overflow-hidden bg-black">
+                  <iframe
+                    className="absolute inset-0 w-full h-full border-0 rounded-3xl"
+                    src="https://www.youtube.com/embed/j04rbjw2B9M?si=0gO4vXb6kcrM3xO6&autoplay=1"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>,
+            document.body
+          )}
 
 
 
@@ -1112,8 +1147,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
 
-      {/* Student Success Stories Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-16 relative z-20">
+      {/* Student Success Stories Section (Hidden) */}
+      <section className="hidden max-w-7xl mx-auto w-full px-6 pt-16 pb-16 relative z-20">
 
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1338,7 +1373,14 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                 {isOpen && (
                   <div className="border-t border-slate-50 bg-slate-50/30 p-5 space-y-3">
                     {cat.articles.map((art, aIdx) => (
-                      <div key={aIdx} className="flex items-center justify-between p-3 bg-white border border-neutral-100 rounded-xl hover:border-blue-100 hover:shadow-sm transition-all cursor-pointer group">
+                      <div
+                        key={aIdx}
+                        onClick={() => {
+                          navigate("/how-to-become-a-cabin-crew-after-12th");
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }}
+                        className="flex items-center justify-between p-3 bg-white border border-neutral-100 rounded-xl hover:border-blue-100 hover:shadow-sm transition-all cursor-pointer group"
+                      >
                         <span className="text-slate-700 font-semibold font-sans text-xs sm:text-sm group-hover:text-blue-600 transition-colors">
                           {art.title}
                         </span>
@@ -1497,15 +1539,15 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           >
             <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
             <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-              Have more questions — click here
+              If you have anymore question, please contact us
             </span>
           </button>
         </div>
 
       </section>
 
-      {/* Latest News & Updates Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
+      {/* Latest News & Updates Section (Hidden) */}
+      <section className="hidden max-w-7xl mx-auto w-full px-6 pt-16 pb-20 relative z-20">
 
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -1603,36 +1645,42 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       <section className="max-w-7xl mx-auto w-full px-6 pt-12 pb-20 relative z-20">
 
         {/* Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f2a4a] leading-tight font-sans">
             Follow our Journey - Instagram
           </h2>
+          <p className="text-slate-500 text-xs sm:text-sm mt-2 font-semibold font-sans">
+            Stay updated with our latest campus moments, student celebrations, and live updates on Instagram.
+          </p>
         </div>
 
-        {/* Instagram Grid of 5 Cards */}
+        {/* Instagram Grid / Official Post Embeds */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-6xl mx-auto items-stretch mb-16">
           {[
-            { img: newsFeatured, type: "img" },
-            { img: newsImage1, type: "img" },
-            { img: newsImage2, type: "img" },
-            { img: newsImage3, type: "img" },
-            { type: "cta" }
+            { url: "https://www.instagram.com/p/DbVRoCkjokA/", type: "embed" },
+            { url: "https://www.instagram.com/reel/DLXbyzcBSF_/", type: "embed" },
+            { url: "https://www.instagram.com/p/DbVRZRRDrda/", type: "embed" },
+            { url: "https://www.instagram.com/reel/DM71KtVBKbP/", type: "embed" },
+            { url: "https://www.instagram.com/amigozacademy", type: "cta" }
           ].map((item, idx) => {
-            if (item.type === "img") {
+            if (item.type === "embed") {
+              const match = item.url.match(/\/(p|reel)\/([^/?]+)/);
+              const embedPath = match ? `${match[1]}/${match[2]}` : "";
               return (
-                <div key={idx} className="aspect-square rounded-2xl overflow-hidden shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 bg-slate-100 border border-neutral-100">
-                  <img
-                    src={item.img}
-                    alt={`Instagram post ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                <div key={idx} className="aspect-square rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white relative">
+                  <iframe
+                    src={`https://www.instagram.com/${embedPath}/embed`}
+                    title={`Instagram post ${idx + 1}`}
+                    className="w-full h-[calc(100%+60px)] -mt-[56px] border-0"
+                    scrolling="no"
+                  ></iframe>
                 </div>
               );
             } else {
               return (
                 <a
                   key={idx}
-                  href="instagram.com/amigo_academy?igsh=MXVyOGR3Y3lid3RsMg=="
+                  href={item.url}
                   target="_blank"
                   rel="noreferrer"
                   className="aspect-square rounded-2xl bg-[#1E417A] hover:bg-[#12284C] text-white flex flex-col items-center justify-center p-4 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-300 cursor-pointer"
@@ -1641,7 +1689,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499c.15-.427.76-.427.91 0l1.838 5.234 5.589.444c.456.036.638.6.291.902l-4.223 3.666 1.34 5.378c.11.442-.38.8-.755.536l-4.877-3.487-4.878 3.487c-.374.264-.866-.094-.755-.536l1.34-5.378-4.223-3.666c-.347-.302-.165-.866.291-.902l5.589-.444 1.838-5.234z" />
                   </svg>
                   <span className="text-[10px] sm:text-xs font-sans font-extrabold tracking-wide uppercase">
-                    @amigoacademy
+                    @amigozacademy
                   </span>
                 </a>
               );
@@ -1753,6 +1801,19 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </span>
             )
           )}
+        </div>
+
+        {/* Download Brochure (PDF) Pill Button */}
+        <div className="mt-8 flex justify-center">
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 hover:border-white/80 transition-all text-sm font-semibold cursor-pointer shadow-md active:scale-95 focus:outline-none"
+          >
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+            </svg>
+            <span>Download Brochure (PDF)</span>
+          </button>
         </div>
       </section>
 

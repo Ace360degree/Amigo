@@ -1,42 +1,42 @@
 import React from "react";
 import heroImg from "../assets/img/StudentSuccesshero.png";
 import decisionImg from "../assets/img/StudentSuccess1.png";
-import student1 from "../assets/img/SuccessStudenty1.png";
-import student2 from "../assets/img/SuccessStudenty2.png";
-import student3 from "../assets/img/SuccessStudenty3.png";
-import student4 from "../assets/img/SuccessStudenty4.png";
+import student1 from "../assets/img/placementstudent3.png";
+import student2 from "../assets/img/placementstudent2.png";
+import student3 from "../assets/img/placementstudent7.png";
+import student4 from "../assets/img/placementstudent4.png";
 
 const students = [
     {
-        name: "Neha Sharma",
+        name: "Reema Mascarenhas",
         course: "Air Hostess / Cabin Crew",
-        branch: "Ghatkopar",
-        placedAt: "IndiGo Airlines",
-        quote: "Amigo Academy helped me build the confidence and skills I needed. Today, I'm living my dream with IndiGo as part of the ground staff.",
+        branch: "Thane",
+        placedAt: "Air India",
+        quote: "Grooming sessions changed how I carried myself in the interview.",
         image: student1
     },
     {
-        name: "Rohit Verma",
+        name: "Waqas Shaikh",
         course: "Airport Ground Staff",
         branch: "Andheri",
         placedAt: "Air India",
-        quote: "The practical training and real-time projects at Amigo Academy prepared me for my first job in digital marketing.",
+        quote: "My trainer pushed my profile until I got the offer letter.",
         image: student2
     },
     {
-        name: "Priya Nair",
-        course: "Air Hostess / Cabin Crew",
+        name: "Bhumika Jadhav",
+        course: "Cabin Crew",
         branch: "Thane",
-        placedAt: "Air India Express",
-        quote: "From grooming to communication, everything I learned here helped me clear my interview and achieve my dream of working in aviation.",
+        placedAt: "Quess",
+        quote: "The mock interviews made the real airline round feel familiar.",
         image: student3
     },
     {
-        name: "Aditya Patel",
-        course: "AI & Data Science",
+        name: "Mehwish Sayyed",
+        course: "Airport Ground Staff",
         branch: "Ghatkopar",
-        placedAt: "Tata Consultancy Services",
-        quote: "The trainers guided me at every step, and the placement support helped me start my career with a great opportunity at TCS.",
+        placedAt: "Vistara Air",
+        quote: "The mock interviews made the real airline round feel familiar.",
         image: student4
     }
 ];
@@ -45,40 +45,40 @@ export default function StudentSuccess() {
     return (
         <div className="flex flex-col bg-white">
             <section className="w-full bg-white min-h-[420px] sm:min-h-[500px] lg:min-h-[600px] relative flex items-center overflow-hidden">
-                
+
                 {/* Desktop Background Image Container */}
                 <div className="hidden lg:block absolute top-0 right-0 h-full w-[65%] z-0">
                     {/* Gradient overlay to blend image seamlessly into the white background on the left */}
                     <div className="absolute top-0 left-0 bottom-0 w-32 md:w-48 lg:w-64 bg-gradient-to-r from-white via-white/90 to-transparent z-10"></div>
-                    
-                    <img 
-                        src={heroImg} 
-                        alt="Student Success Stories" 
+
+                    <img
+                        src={heroImg}
+                        alt="Student Success Stories"
                         className="w-full h-full object-cover object-[center_top] lg:object-[center_20%]"
                     />
                 </div>
 
                 {/* Mobile Background Image Container */}
                 <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
-                    <img 
-                        src={new URL("../assets/img/mobileherostudentsuccess.png", import.meta.url).href} 
-                        alt="Student Success Stories Mobile" 
+                    <img
+                        src={new URL("../assets/img/mobileherostudentsuccess.png", import.meta.url).href}
+                        alt="Student Success Stories Mobile"
                         className="w-full h-full object-cover object-[right_center]"
                         onError={(e) => {
                             e.currentTarget.style.display = "none";
                         }}
                     />
                 </div>
- 
+
                 <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-20">
                     <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
                         <h1 className="text-xl sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-4 lg:mb-6 font-sans">
                             Student Success Stories
                         </h1>
-                        <p className="text-slate-600 text-[10px] sm:text-[15.5px] leading-relaxed mb-6 lg:mb-10 font-medium">
+                        <p className="text-slate-600 text-[20px] sm:text-[15.5px] leading-relaxed mb-6 lg:mb-10 font-medium">
                             Every student's journey is unique, but they all begin with the same goal—to build a better future. Explore inspiring success stories from Amigo Academy students who turned their ambitions into careers through dedication, learning, and the right guidance.
                         </p>
-                        
+
                         <button className="bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[9px] sm:text-xs lg:text-[14px] py-2.5 px-4 sm:py-3.5 sm:px-8 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 lg:gap-3 w-fit">
                             Read Success Stories
                             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -87,7 +87,7 @@ export default function StudentSuccess() {
                         </button>
                     </div>
                 </div>
-                
+
             </section>
 
             {/* Decision Section */}
@@ -97,11 +97,11 @@ export default function StudentSuccess() {
                         {/* Text Content */}
                         <div className="w-full lg:w-1/2 flex flex-col justify-center lg:pr-8">
                             <div className="w-12 h-[3px] bg-amber-400 mb-6 lg:mb-8 rounded-full"></div>
-                            
+
                             <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-6">
                                 Every Success Begins<br className="hidden sm:block lg:hidden xl:block" /> with a Decision
                             </h2>
-                            
+
                             <div className="space-y-6 text-slate-500 font-medium text-[15px] sm:text-[15.5px] leading-relaxed">
                                 <p>
                                     Behind every success story is a student who chose to learn, grow, and work towards a career with determination.
@@ -115,9 +115,9 @@ export default function StudentSuccess() {
                         {/* Image Content */}
                         <div className="w-full lg:w-1/2">
                             <div className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(15,42,74,0.1)] relative group border border-slate-100">
-                                <img 
-                                    src={decisionImg} 
-                                    alt="Every Success Begins with a Decision" 
+                                <img
+                                    src={decisionImg}
+                                    alt="Every Success Begins with a Decision"
                                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                                 />
                                 {/* Optional subtle overlay */}
@@ -131,7 +131,7 @@ export default function StudentSuccess() {
             {/* Meet Our Students Section */}
             <section className="py-20 lg:py-28 bg-[#f4f7f9] relative">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-                    
+
                     {/* Header */}
                     <div className="text-center max-w-3xl mx-auto mb-20 lg:mb-24">
                         <div className="w-12 h-[3px] bg-amber-400 mx-auto mb-6 rounded-full"></div>
@@ -147,13 +147,13 @@ export default function StudentSuccess() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 pt-8">
                         {students.map((student, idx) => (
                             <div key={idx} className="bg-white rounded-[1.5rem] p-6 xl:p-8 shadow-[0_10px_40px_rgba(15,42,74,0.04)] border border-slate-100 relative mt-12 flex flex-col hover:shadow-[0_20px_50px_rgba(15,42,74,0.08)] transition-all duration-300">
-                                
+
                                 {/* Avatar */}
                                 <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                                     <div className="relative">
-                                        <img 
-                                            src={student.image} 
-                                            alt={student.name} 
+                                        <img
+                                            src={student.image}
+                                            alt={student.name}
                                             className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg bg-slate-50"
                                         />
                                         <div className="absolute top-1 -right-2 w-7 h-7 bg-amber-400 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
@@ -214,7 +214,7 @@ export default function StudentSuccess() {
             <section className="py-20 lg:py-28 bg-white relative">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 xl:gap-24">
-                        
+
                         {/* Feature 1 */}
                         <div className="flex flex-col">
                             <div className="w-16 h-16 bg-[#040f26] rounded-2xl flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(4,15,38,0.2)]">
@@ -239,7 +239,7 @@ export default function StudentSuccess() {
                         <div className="flex flex-col">
                             <div className="w-16 h-16 bg-[#040f26] rounded-2xl flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(4,15,38,0.2)]">
                                 <svg className="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 22a1 1 0 0 1-1-1v-3H8a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-1 1zm8-18h-2V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1H4a2 2 0 0 0-2 2v2c0 2.22 1.48 4.14 3.52 4.77 1.34 3.73 4.96 6.23 9.07 5.76A6.979 6.979 0 0 0 20 12.87V12a1 1 0 0 0-2 0v.87c0 2.65-2.02 4.93-4.66 5.1-2.91.19-5.34-2.12-5.34-5.01V4h10v10a1 1 0 0 0 2 0V6a2 2 0 0 0-2-2zM4 9V6h2v4.88C4.81 10.42 4 9.28 4 9z"/>
+                                    <path d="M12 22a1 1 0 0 1-1-1v-3H8a1 1 0 0 1 0-2h8a1 1 0 0 1 0 2h-3v3a1 1 0 0 1-1 1zm8-18h-2V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1H4a2 2 0 0 0-2 2v2c0 2.22 1.48 4.14 3.52 4.77 1.34 3.73 4.96 6.23 9.07 5.76A6.979 6.979 0 0 0 20 12.87V12a1 1 0 0 0-2 0v.87c0 2.65-2.02 4.93-4.66 5.1-2.91.19-5.34-2.12-5.34-5.01V4h10v10a1 1 0 0 0 2 0V6a2 2 0 0 0-2-2zM4 9V6h2v4.88C4.81 10.42 4 9.28 4 9z" />
                                 </svg>
                             </div>
                             <h3 className="text-2xl font-bold text-[#0f2a4a] mb-6 font-sans">
@@ -286,9 +286,9 @@ export default function StudentSuccess() {
             <section className="pb-20 lg:pb-28 bg-white relative">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-[#eff6ff] rounded-3xl p-8 lg:p-12 border border-blue-100 shadow-sm">
-                        
+
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-0 lg:divide-x divide-blue-200/80">
-                            
+
                             {/* Stat 1 */}
                             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 lg:justify-center lg:px-6">
                                 <svg className="w-9 h-9 text-[#0f2a4a] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">

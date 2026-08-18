@@ -177,7 +177,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             </h1>
 
             {/* Copy Paragraphs */}
-            <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-neutral-600 text-[10px] sm:text-[13px] leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-neutral-600 text-[15px] sm:text-[15px] leading-relaxed">
               <p>
                 Amigo Academy is a leading career-focused professional training institute, committed to transforming ambition into achievement.
               </p>
@@ -336,112 +336,31 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             From Classroom to Career with
           </h2>
 
-          {/* Logos Row Carousel */}
-          <div className="flex items-center justify-center gap-6 sm:gap-10 py-6 max-w-5xl mx-auto overflow-hidden">
-            {/* Left navigation arrow */}
-            <button className="hidden md:flex w-10 h-10 rounded-full bg-[#e31e24] text-white items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
-              <span className="text-sm font-bold">&larr;</span>
-            </button>
-
-            {/* Logos Grid */}
-            <div className="w-full overflow-hidden px-2 relative">
-              <style>{`
-                @keyframes marqueeMobile {
-                  0% { transform: translateX(0%); }
-                  100% { transform: translateX(-50%); }
-                }
-                .marquee-container-mobile {
-                  display: flex;
-                  gap: 2.5rem;
-                  width: max-content;
-                  animation: marqueeMobile 8s linear infinite;
-                }
-                @media (min-width: 768px) {
-                  .marquee-container-mobile {
-                    animation: none;
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    gap: 0;
-                  }
-                }
-              `}</style>
-
-              <div className="marquee-container-mobile">
-                {/* First Set of Logos */}
-                <div className="flex items-center justify-between gap-8 md:gap-0 w-full shrink-0">
+          {/* Logos Continuous Marquee Slider (No Arrows) */}
+          <div className="w-full overflow-hidden relative py-6">
+            <div className="animate-marquee whitespace-nowrap flex items-center gap-12 sm:gap-16">
+              {[
+                { img: new URL("../assets/img/brand1.png", import.meta.url).href, alt: "Air India" },
+                { img: new URL("../assets/img/brand2.png", import.meta.url).href, alt: "SpiceJet" },
+                { img: new URL("../assets/img/brand3.png", import.meta.url).href, alt: "AirAsia" },
+                { img: new URL("../assets/img/brand4.png", import.meta.url).href, alt: "Lufthansa" },
+                { img: new URL("../assets/img/brand5.png", import.meta.url).href, alt: "Etihad Airways" },
+                { img: new URL("../assets/img/brand1.png", import.meta.url).href, alt: "Air India" },
+                { img: new URL("../assets/img/brand2.png", import.meta.url).href, alt: "SpiceJet" },
+                { img: new URL("../assets/img/brand3.png", import.meta.url).href, alt: "AirAsia" },
+                { img: new URL("../assets/img/brand4.png", import.meta.url).href, alt: "Lufthansa" },
+                { img: new URL("../assets/img/brand5.png", import.meta.url).href, alt: "Etihad Airways" },
+              ].map((brand, idx) => (
+                <div key={idx} className="h-14 sm:h-16 md:h-20 inline-flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
                   <img
-                    src={new URL("../assets/img/brand1.png", import.meta.url).href}
-                    alt="Air India"
-                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand2.png", import.meta.url).href}
-                    alt="SpiceJet"
-                    className="h-10 sm:h-12 object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand3.png", import.meta.url).href}
-                    alt="AirAsia"
-                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand4.png", import.meta.url).href}
-                    alt="Lufthansa"
-                    className="h-10 sm:h-12 object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand5.png", import.meta.url).href}
-                    alt="Etihad Airways"
-                    className="h-10 sm:h-12 object-contain shrink-0"
+                    src={brand.img}
+                    alt={brand.alt}
+                    className="max-h-full w-auto object-contain shrink-0"
                     onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
-
-                {/* Duplicate Set of Logos for Mobile Marquee Loop */}
-                <div className="flex md:hidden items-center gap-10 shrink-0">
-                  <img
-                    src={new URL("../assets/img/brand1.png", import.meta.url).href}
-                    alt="Air India"
-                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand2.png", import.meta.url).href}
-                    alt="SpiceJet"
-                    className="h-10 sm:h-12 object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand3.png", import.meta.url).href}
-                    alt="AirAsia"
-                    className="h-14 sm:h-16 md:h-20 object-contain scale-110 shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand4.png", import.meta.url).href}
-                    alt="Lufthansa"
-                    className="h-10 sm:h-12 object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                  <img
-                    src={new URL("../assets/img/brand5.png", import.meta.url).href}
-                    alt="Etihad Airways"
-                    className="h-10 sm:h-12 object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
-                  />
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* Right navigation arrow */}
-            <button className="hidden md:flex w-10 h-10 rounded-full bg-[#e31e24] text-white items-center justify-center hover:bg-[#c2141a] transition-colors focus:outline-none flex-shrink-0">
-              <span className="text-sm font-bold">&rarr;</span>
-            </button>
           </div>
 
         </div>
@@ -583,7 +502,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto w-full px-6 pt-16 pb-16 relative z-20">
+      <section className="hidden max-w-7xl mx-auto w-full px-6 pt-16 pb-16 relative z-20">
 
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-16">

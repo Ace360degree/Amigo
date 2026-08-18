@@ -311,18 +311,14 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                       <option disabled value="">
                         Course *
                       </option>
-                      <option value="Diploma in Hospitality (Aviation, Hotels & Travel)">
-                        Diploma in Hospitality (Aviation, Hotels & Travel)
+                      <option value="Air Hostess / Cabin Crew">
+                        Air Hostess / Cabin Crew
                       </option>
-                      <option value="Advance Diploma in Hospitality (Aviation, Hotels & Travel)">
-                        Advance Diploma in Hospitality (Aviation, Hotels & Travel)
+                      <option value="Airport Ground Staff & Hospitality Management">
+                        Airport Ground Staff & Hospitality Management
                       </option>
-                      <option value="Pilot Training">Pilot Training</option>
-                      <option value="Cabin Crew / Flight Attendant">
-                        Cabin Crew / Flight Attendant
-                      </option>
-                      <option value="Ground Staff / Airport Operations">
-                        Ground Staff / Airport Operations
+                      <option value="AI & Data Science">
+                        AI & Data Science
                       </option>
                     </select>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-300">

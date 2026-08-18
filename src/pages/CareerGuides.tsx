@@ -41,7 +41,7 @@ export default function CareerGuides() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-xl lg:max-w-[680px] text-left flex flex-col space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-snug sm:leading-[1.28] lg:leading-[1.32]">
               Career Guides to Help You Make the Right Career Choice
             </h1>
 
@@ -74,7 +74,7 @@ export default function CareerGuides() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[310px]">
-            <h1 className="text-[32px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+            <h1 className="text-[32px] font-extrabold text-[#17365d] leading-[1.3] tracking-tight mb-4 font-outfit">
               Career Guides<br />
               to Help You<br />
               Make the<br />
@@ -330,7 +330,10 @@ export default function CareerGuides() {
           {/* Centered Button */}
           <div className="flex justify-center pt-4">
             <button
-              onClick={handleCTA}
+              onClick={() => {
+                navigate("/about-us");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.15)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
             >
               Learn More About Amigo Academy
@@ -391,7 +394,11 @@ export default function CareerGuides() {
             ].map((guide, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left"
+                onClick={() => {
+                  navigate("/how-to-become-a-cabin-crew-after-12th");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group hover:-translate-y-1"
               >
                 <div>
                   <div className="relative w-full h-[200px] overflow-hidden">
@@ -559,6 +566,19 @@ export default function CareerGuides() {
             <span className="flex items-center gap-1.5">
               <span className="text-[#25D366]">✓</span> 200+ Hiring Partners
             </span>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleCTA}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
 
         </div>

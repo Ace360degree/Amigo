@@ -182,7 +182,14 @@ export default function Blog() {
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {category.posts.map((post, postIdx) => (
-                                    <div key={postIdx} className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300">
+                                    <div
+                                        key={postIdx}
+                                        onClick={() => {
+                                            navigate("/how-to-become-a-cabin-crew-after-12th");
+                                            window.scrollTo({ top: 0, behavior: "smooth" });
+                                        }}
+                                        className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300 cursor-pointer"
+                                    >
 
                                         {/* Image */}
                                         <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">

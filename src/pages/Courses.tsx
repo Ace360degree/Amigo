@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import coursesHero from "../assets/img/courses1121.png";
 import coursesMobileHero from "../assets/img/coursesmain-mobile.png";
 import coursesCard1 from "../assets/img/courses2.png";
@@ -55,6 +56,7 @@ type LearningCard = {
   description: string;
   image: string;
   cta: string;
+  link: string;
 };
 
 type FaqItem = {
@@ -107,12 +109,6 @@ const comparisonRows: ComparisonRow[] = [
     cabinCrew: "In-flight service",
     groundStaff: "Airport operations",
     aiDataScience: "Technology and analytics",
-  },
-  {
-    label: "Starting Salary",
-    cabinCrew: "Rs25,000-Rs50,000 / month",
-    groundStaff: "Rs20,000-Rs40,000 / month",
-    aiDataScience: "Rs12 LPA (Job and internship)",
   },
   {
     label: "Work Environment",
@@ -177,7 +173,7 @@ const whyCards: WhyCard[] = [
       "Three job-focused courses with real hiring demand in every track.",
     bullets: [
       "Air Hostess / Cabin Crew",
-      "Airport Ground Staff",
+      "Airport Ground Staff & Hospitality Management",
       "AI & Data Science",
     ],
     icon: coursesIcon3,
@@ -228,6 +224,7 @@ const learningCards: LearningCard[] = [
       "From interviews, application support to employer interviews, our dedicated placement cell helps students prepare, connect and get selected for the right career.",
     image: courses444a,
     cta: "Learn About Placements",
+    link: "/placement",
   },
   {
     title: "Scholarships & EMI",
@@ -235,6 +232,7 @@ const learningCards: LearningCard[] = [
       "We offer scholarship support of up to Rs50,000 and flexible EMI options, making your dream career more accessible and affordable.",
     image: courses555a,
     cta: "Learn About Scholarships",
+    link: "/scholarship",
   },
   {
     title: "Career Guides",
@@ -242,6 +240,7 @@ const learningCards: LearningCard[] = [
       "From resume building to interview preparation, our career guidance sessions help students build confidence and understand their next steps.",
     image: courses666a,
     cta: "Learn About Career Guides",
+    link: "/career-guides",
   },
 ];
 
@@ -356,11 +355,11 @@ const courses: CourseCard[] = [
       "Passenger handling basics",
     ],
     outcomes: ["Cabin Crew", "Air Hostess", "Flight Attendant", "Customer Service"],
-    cta: "Explore Air Hostess / Cabin Crew Course",
+    cta: "Explore Course",
   },
   {
     id: "ground-staff",
-    title: "Airport Ground Staff",
+    title: "Airport Ground Staff & Hospitality Management",
     description:
       "Airports depend on skilled professionals to ensure smooth passenger and aircraft operations. This course builds the service, safety, and coordination skills required for ground support roles.",
     image: coursesCard2,
@@ -372,7 +371,7 @@ const courses: CourseCard[] = [
       "Hospitality and workflow management",
     ],
     outcomes: ["Airport Ground Staff", "Passenger Service Executive", "Check-in Executive", "Customer Service"],
-    cta: "Explore Airport Ground Staff Course",
+    cta: "Explore Course",
   },
   {
     id: "ai-data-science",
@@ -388,11 +387,12 @@ const courses: CourseCard[] = [
       "Project-based practical learning",
     ],
     outcomes: ["AI Associate", "Data Analyst", "Junior Data Scientist", "Machine Learning Assistant"],
-    cta: "Explore AI & Data Science Course",
+    cta: "Explore Course",
   },
 ];
 
 export default function Courses() {
+  const navigate = useNavigate();
   return (
     <div className="bg-white text-neutral-900">
       {/* Hero Section */}
@@ -449,15 +449,15 @@ export default function Courses() {
 
             {/* CTA Button */}
             <div className="pt-2 sm:pt-2">
-              <a
-                href="/contact#enquiry-form"
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-6 sm:px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
               >
                 <span>Enrol Now To Avail Scholarship</span>
                 <svg className="w-4 h-4 text-white shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -558,21 +558,23 @@ export default function Courses() {
                   </div>
                 </div>
 
-                <a
-                  href={
-                    course.id === "air-hostess"
-                      ? "/courses/air-hostess-cabin-crew-hospitality-management"
-                      : course.id === "ground-staff"
-                        ? "/courses/airport-ground-staff-hospitality-management"
-                        : course.id === "ai-data-science"
-                          ? "/courses/ai-data-science-with-generative-ai-machine-learning"
-                          : "/contact#enquiry-form"
-                  }
-                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.15)] transition-all hover:bg-[#c8191f] active:scale-95"
+                <button
+                  type="button"
+                  onClick={() => {
+                    const path =
+                      course.id === "air-hostess"
+                        ? "/courses/air-hostess-cabin-crew-hospitality-management"
+                        : course.id === "ground-staff"
+                          ? "/courses/airport-ground-staff-hospitality-management"
+                          : "/courses/ai-data-science-with-generative-ai-machine-learning";
+                    navigate(path);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.15)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
                 >
-                  {course.cta}
-                  <span className="ml-2">+</span>
-                </a>
+                  <span>{course.cta}</span>
+                  <span className="ml-2">➔</span>
+                </button>
               </div>
             </article>
           ))}
@@ -599,8 +601,8 @@ export default function Courses() {
                   <tr className="bg-[#234a8a] text-white">
                     <th className="px-5 py-4 text-[10px] font-bold uppercase tracking-[0.2em]">Compare</th>
                     <th className="px-5 py-4 text-sm font-bold">Air Hostess / Cabin Crew</th>
-                    <th className="px-5 py-4 text-sm font-bold">Airport Ground Staff</th>
-                    <th className="px-5 py-4 text-sm font-bold">AI & Data Science</th>
+                    <th className="px-5 py-4 text-sm font-bold">Airport Ground Staff &amp; Hospitality Management</th>
+                    <th className="px-5 py-4 text-sm font-bold">AI &amp; Data Science</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -632,13 +634,19 @@ export default function Courses() {
             </p>
           </div>
 
-          <a
-            href="/contact#enquiry-form"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
+          <button
+            onClick={() => {
+              navigate("/contact");
+              setTimeout(() => {
+                const el = document.getElementById("tell-us-how-we-can-help");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }, 100);
+            }}
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
           >
-            Book Free Career Counselling
-            <span className="ml-2">+</span>
-          </a>
+            <span>Book Free Career Counselling</span>
+            <span className="ml-2">➔</span>
+          </button>
         </div>
       </section>
 
@@ -696,13 +704,16 @@ export default function Courses() {
             ))}
           </div>
 
-          <a
-            href="/contact#enquiry-form"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
+          <button
+            onClick={() => {
+              navigate("/about-us");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
           >
-            Learn More About Amigo Academy
-            <span className="ml-2">+</span>
-          </a>
+            <span>Learn More About Amigo Academy</span>
+            <span className="ml-2">➔</span>
+          </button>
         </div>
       </section>
 
@@ -739,11 +750,11 @@ export default function Courses() {
                   </p>
 
                   <a
-                    href="/contact#enquiry-form"
+                    href={card.link}
                     className="mt-5 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white transition-all hover:bg-[#c8191f] active:scale-95"
                   >
                     {card.cta}
-                    <span className="ml-2">+</span>
+                    <span className="ml-2">➔</span>
                   </a>
                 </div>
               </article>
@@ -807,18 +818,10 @@ export default function Courses() {
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                Have more questions — click here
+                If you have anymore question, please contact us
               </span>
             </button>
           </div>
-
-          <a
-            href="/contact#enquiry-form"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95"
-          >
-            Enroll Now To Avail Scholarship
-            <span className="ml-2">+</span>
-          </a>
         </div>
       </section>
 
@@ -842,12 +845,13 @@ export default function Courses() {
                 Talk to Counselor Now
                 <span className="ml-2">➔</span>
               </a>
-              <a
-                href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center rounded-lg border border-white/50 bg-transparent px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-white/10 active:scale-95"
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                className="inline-flex items-center justify-center rounded-lg border border-white/50 bg-transparent px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-white/10 active:scale-95 cursor-pointer"
               >
                 Download Brochure (PDF)
-              </a>
+              </button>
             </div>
           </div>
 
@@ -929,7 +933,11 @@ export default function Courses() {
             </button>
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] px-5 py-2.5 text-xs font-bold text-white shadow-sm"
+              onClick={() => {
+                navigate("/student-success");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] hover:bg-[#183d84] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all cursor-pointer active:scale-95"
             >
               Next Story
               <span className="ml-2">➔</span>
@@ -969,7 +977,7 @@ export default function Courses() {
           </div>
 
           {/* Buttons Row */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-5xl mx-auto">
             {/* Check Eligibility Red Button */}
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
@@ -1018,6 +1026,19 @@ export default function Courses() {
               <span className="text-emerald-400">✓</span>
               <span>200+ Hiring Partners</span>
             </div>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
 
         </div>

@@ -6,8 +6,10 @@ export default function Franchise() {
     const [openFaq, setOpenFaq] = React.useState<number | null>(1);
 
     const handleCTA = () => {
-        navigate("/contact");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        const el = document.getElementById("franchise-enquiry");
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+        }
     };
 
     return (
@@ -69,7 +71,7 @@ export default function Franchise() {
                                 onClick={handleCTA}
                                 className="inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-sm px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
                             >
-                                Enroll Now To Avail Scholarship &rarr;
+                                Enquire About a Franchise &rarr;
                             </button>
                         </div>
 
@@ -129,7 +131,7 @@ export default function Franchise() {
                                 category: "PROGRAMS",
                                 title: "High-Demand Courses",
                                 desc: "Three job-focused courses with real hiring demand in every city.",
-                                points: ["Air Hostess / Cabin Crew", "Airport Ground Staff", "AI & Data Science"]
+                                points: ["Air Hostess / Cabin Crew", "Airport Ground Staff & Hospitality Management", "AI & Data Science"]
                             },
                             {
                                 icon: (
@@ -215,106 +217,108 @@ export default function Franchise() {
                 </div>
             </section>
 
-            {/* Why Invest in Education Section */}
-            <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/80">
-                <div className="max-w-7xl mx-auto px-6">
+            {/* Why Invest in Education Section (Hidden) */}
+            {false && (
+                <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/80">
+                    <div className="max-w-7xl mx-auto px-6">
 
-                    {/* Badge & Headings */}
-                    <div className="flex flex-col items-center text-center mb-16">
-                        <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-amber-200 bg-amber-50/60 text-[10px] sm:text-xs font-bold text-amber-700 uppercase tracking-widest mb-4">
-                            <span>Business Opportunity</span>
+                        {/* Badge & Headings */}
+                        <div className="flex flex-col items-center text-center mb-16">
+                            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-amber-200 bg-amber-50/60 text-[10px] sm:text-xs font-bold text-amber-700 uppercase tracking-widest mb-4">
+                                <span>Business Opportunity</span>
+                            </div>
+
+                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-3">
+                                Why Invest in Education?
+                            </h2>
+                            <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm max-w-2xl leading-relaxed">
+                                Education franchises combine steady demand with long-term brand value — and aviation and AI training sit right at the centre of that growth.
+                            </p>
                         </div>
 
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-3">
-                            Why Invest in Education?
-                        </h2>
-                        <p className="text-slate-500 font-semibold font-sans text-xs sm:text-sm max-w-2xl leading-relaxed">
-                            Education franchises combine steady demand with long-term brand value — and aviation and AI training sit right at the centre of that growth.
-                        </p>
-                    </div>
+                        {/* Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {[
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 2.22m6.16 6.16a7.72 7.72 0 11-10.92 10.92m10.92-10.92a7.72 7.72 0 00-10.92 10.92m0 0H2.25v-2.25" />
+                                        </svg>
+                                    ),
+                                    title: "Fast Growing Industry",
+                                    desc: "Aviation and technology education is one of India's fastest-expanding sectors."
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-10.5h16.5M2.25 9h19.5M4.5 21V9m15 12V9M6.75 21V9m10.5 12V9M9 21V9m6 12V9m-3 12V9" />
+                                        </svg>
+                                    ),
+                                    title: "Stable Business Model",
+                                    desc: "Structured courses, defined batches and predictable operating costs."
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                        </svg>
+                                    ),
+                                    title: "Recurring Admissions",
+                                    desc: "New batches every quarter create a steady, repeating admission cycle."
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                                        </svg>
+                                    ),
+                                    title: "High Demand Careers",
+                                    desc: "Students enrol because airlines, airports and tech firms are actively hiring."
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-6.75a1.125 1.125 0 00-1.125 1.125v3.375m9 0h-9M9 10.5a3 3 0 116 0 3 3 0 01-6 0z" />
+                                        </svg>
+                                    ),
+                                    title: "Student Success",
+                                    desc: "Placement outcomes drive referrals — your strongest local marketing channel."
+                                },
+                                {
+                                    icon: (
+                                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                                        </svg>
+                                    ),
+                                    title: "Long-Term Growth",
+                                    desc: "An education brand compounds in value year after year in its city."
+                                }
+                            ].map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="bg-white rounded-3xl border border-slate-100/80 shadow-[0_20px_40px_rgba(15,42,74,0.06)] p-6 sm:p-7 flex items-center text-left transition-all duration-300 hover:shadow-[0_30px_60px_rgba(15,42,74,0.12)] hover:-translate-y-1"
+                                >
+                                    {/* Icon Wrapper */}
+                                    <div className="w-12 h-12 rounded-2xl bg-[#0b2f61] flex items-center justify-center mr-4 sm:mr-5 flex-shrink-0 shadow-sm">
+                                        {item.icon}
+                                    </div>
 
-                    {/* Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 2.22m6.16 6.16a7.72 7.72 0 11-10.92 10.92m10.92-10.92a7.72 7.72 0 00-10.92 10.92m0 0H2.25v-2.25" />
-                                    </svg>
-                                ),
-                                title: "Fast Growing Industry",
-                                desc: "Aviation and technology education is one of India's fastest-expanding sectors."
-                            },
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-10.5h16.5M2.25 9h19.5M4.5 21V9m15 12V9M6.75 21V9m10.5 12V9M9 21V9m6 12V9m-3 12V9" />
-                                    </svg>
-                                ),
-                                title: "Stable Business Model",
-                                desc: "Structured courses, defined batches and predictable operating costs."
-                            },
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                                    </svg>
-                                ),
-                                title: "Recurring Admissions",
-                                desc: "New batches every quarter create a steady, repeating admission cycle."
-                            },
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-                                    </svg>
-                                ),
-                                title: "High Demand Careers",
-                                desc: "Students enrol because airlines, airports and tech firms are actively hiring."
-                            },
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.504-1.125-1.125-1.125h-6.75a1.125 1.125 0 00-1.125 1.125v3.375m9 0h-9M9 10.5a3 3 0 116 0 3 3 0 01-6 0z" />
-                                    </svg>
-                                ),
-                                title: "Student Success",
-                                desc: "Placement outcomes drive referrals — your strongest local marketing channel."
-                            },
-                            {
-                                icon: (
-                                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-                                    </svg>
-                                ),
-                                title: "Long-Term Growth",
-                                desc: "An education brand compounds in value year after year in its city."
-                            }
-                        ].map((item, idx) => (
-                            <div
-                                key={idx}
-                                className="bg-white rounded-3xl border border-slate-100/80 shadow-[0_20px_40px_rgba(15,42,74,0.06)] p-6 sm:p-7 flex items-center text-left transition-all duration-300 hover:shadow-[0_30px_60px_rgba(15,42,74,0.12)] hover:-translate-y-1"
-                            >
-                                {/* Icon Wrapper */}
-                                <div className="w-12 h-12 rounded-2xl bg-[#0b2f61] flex items-center justify-center mr-4 sm:mr-5 flex-shrink-0 shadow-sm">
-                                    {item.icon}
+                                    {/* Text Details */}
+                                    <div>
+                                        <h3 className="font-sans font-bold text-[#0f2a4a] text-sm sm:text-base mb-1">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-slate-400 font-sans font-semibold text-xs sm:text-[13px] leading-normal">
+                                            {item.desc}
+                                        </p>
+                                    </div>
                                 </div>
+                            ))}
+                        </div>
 
-                                {/* Text Details */}
-                                <div>
-                                    <h3 className="font-sans font-bold text-[#0f2a4a] text-sm sm:text-base mb-1">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-slate-400 font-sans font-semibold text-xs sm:text-[13px] leading-normal">
-                                        {item.desc}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
                     </div>
-
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* Franchise Support Section */}
             <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/80">
@@ -699,7 +703,7 @@ export default function Franchise() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                            <button onClick={handleCTA} className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] cursor-pointer">
                                 Enquire About Franchise
                             </button>
                         </div>
@@ -710,7 +714,7 @@ export default function Franchise() {
                                 <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
                                 <span className="relative z-10">FRANCHISE PROGRAM</span>
                             </div>
-                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Airport Ground Staff</h3>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Airport Ground Staff & Hospitality Management</h3>
                             <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
                                 Check-in, passenger handling and ground operations training for airport jobs.
                             </p>
@@ -730,7 +734,7 @@ export default function Franchise() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                            <button onClick={handleCTA} className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] cursor-pointer">
                                 Enquire About Franchise
                             </button>
                         </div>
@@ -762,7 +766,7 @@ export default function Franchise() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)]">
+                            <button onClick={handleCTA} className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-sm py-3.5 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] cursor-pointer">
                                 Enquire About Franchise
                             </button>
                         </div>
@@ -771,123 +775,125 @@ export default function Franchise() {
                 </div>
             </section>
 
-            {/* Who Should Apply Section */}
-            <section className="py-20 lg:py-28 bg-white relative">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Who Should Apply Section (Hidden) */}
+            {false && (
+                <section className="py-20 lg:py-28 bg-white relative">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* Section Header */}
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200 bg-[#fef9c3] text-[10px] sm:text-xs font-bold text-[#92400e] uppercase tracking-widest mb-4">
-                            <span>IDEAL PARTNERS</span>
+                        {/* Section Header */}
+                        <div className="text-center max-w-3xl mx-auto mb-16">
+                            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-amber-200 bg-[#fef9c3] text-[10px] sm:text-xs font-bold text-[#92400e] uppercase tracking-widest mb-4">
+                                <span>IDEAL PARTNERS</span>
+                            </div>
+
+                            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
+                                Who Should Apply?
+                            </h2>
+                            <p className="text-slate-500 font-semibold font-sans text-sm sm:text-[15px] max-w-2xl mx-auto leading-relaxed">
+                                If you want to run a credible, high-demand education business in your city, we would like to talk.
+                            </p>
                         </div>
 
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight mb-4">
-                            Who Should Apply?
-                        </h2>
-                        <p className="text-slate-500 font-semibold font-sans text-sm sm:text-[15px] max-w-2xl mx-auto leading-relaxed">
-                            If you want to run a credible, high-demand education business in your city, we would like to talk.
-                        </p>
+                        {/* Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                            {/* Card 1 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316V18" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Education Entrepreneurs</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Founders who want to build a meaningful, high-demand education business.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card 2 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Business Owners</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Established owners looking to diversify into the education sector.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card 3 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Training Institutes</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Existing institutes ready to add proven aviation and AI programs.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card 4 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Career Counsellors</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Counsellors who already guide students and want their own centre.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card 5 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Investors</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Investors seeking a stable, recurring-revenue education model.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Card 6 */}
+                            <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
+                                <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
+                                    <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Professionals Seeking a Business</h3>
+                                    <p className="text-slate-500 text-[13px] leading-relaxed">
+                                        Working professionals ready to run a purpose-driven business.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
-
-                    {/* Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                        {/* Card 1 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316V18" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Education Entrepreneurs</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Founders who want to build a meaningful, high-demand education business.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Business Owners</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Established owners looking to diversify into the education sector.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Training Institutes</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Existing institutes ready to add proven aviation and AI programs.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Card 4 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Career Counsellors</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Counsellors who already guide students and want their own centre.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Card 5 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Investors</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Investors seeking a stable, recurring-revenue education model.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Card 6 */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgba(15,42,74,0.04)] flex gap-5 hover:shadow-[0_8px_30px_rgba(15,42,74,0.08)] transition-shadow duration-300">
-                            <div className="w-12 h-12 rounded-full bg-[#fef3c7] flex items-center justify-center flex-shrink-0">
-                                <svg className="w-6 h-6 text-[#92400e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-[15px] font-bold text-[#0f2a4a] mb-1.5">Professionals Seeking a Business</h3>
-                                <p className="text-slate-500 text-[13px] leading-relaxed">
-                                    Working professionals ready to run a purpose-driven business.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+                </section>
+            )}
 
             {/* Enquire About a Franchise Section */}
-            <section className="py-20 lg:py-28 bg-[#f4f7f9] relative">
+            <section id="franchise-enquiry" className="py-20 lg:py-28 bg-[#f4f7f9] relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Section Header */}
@@ -906,19 +912,18 @@ export default function Franchise() {
 
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-                        {/* Form Card */}
                         <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100">
-                            <form className="space-y-6">
+                            <form onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Name */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Name</label>
-                                        <input type="text" placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" required placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Mobile */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Mobile</label>
-                                        <input type="text" placeholder="10-digit mobile number" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" required placeholder="10-digit mobile number" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Email */}
                                     <div className="space-y-2">
@@ -964,7 +969,7 @@ export default function Franchise() {
 
                                 {/* Submit Button */}
                                 <div className="pt-4">
-                                    <button type="button" className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[15px] py-4 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2">
+                                    <button type="submit" className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[15px] py-4 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 cursor-pointer">
                                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                         </svg>
@@ -1052,7 +1057,7 @@ export default function Franchise() {
                             {
                                 id: 3,
                                 question: "Which courses can a franchise offer?",
-                                answer: "Our franchises offer three core programs: Air Hostess/Cabin Crew, Airport Ground Staff, and AI & Data Science, all designed with industry-relevant curriculum."
+                                answer: "Our franchises offer three core programs: Air Hostess/Cabin Crew, Airport Ground Staff & Hospitality Management, and AI & Data Science, all designed with industry-relevant curriculum."
                             },
                             {
                                 id: 4,
@@ -1127,7 +1132,7 @@ export default function Franchise() {
                         >
                             <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
                             <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                                Have more questions — click here
+                                If you have anymore question, please contact us
                             </span>
                         </button>
                     </div>
@@ -1214,6 +1219,19 @@ export default function Franchise() {
                             <span className="text-emerald-400">✓</span>
                             <span>200+ Hiring Partners</span>
                         </div>
+                    </div>
+
+                    {/* Download Brochure (PDF) Pill Button */}
+                    <div className="mt-8 flex justify-center">
+                        <button
+                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 hover:border-white/80 transition-all text-sm font-semibold cursor-pointer shadow-md active:scale-95 focus:outline-none"
+                        >
+                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+                            </svg>
+                            <span>Download Brochure (PDF)</span>
+                        </button>
                     </div>
 
                 </div>
