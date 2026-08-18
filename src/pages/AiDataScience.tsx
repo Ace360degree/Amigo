@@ -14,6 +14,18 @@ import cc7 from "../assets/img/career guides/cc7.png";
 import cc8 from "../assets/img/career guides/cc8.png";
 import cc9 from "../assets/img/career guides/cc9.png";
 import cc10 from "../assets/img/career guides/cc10.png";
+import cc11 from "../assets/img/career guides/cc11.png";
+import cc12 from "../assets/img/career guides/cc12.png";
+import cc13 from "../assets/img/career guides/cc13.png";
+import cc14 from "../assets/img/career guides/cc14.png";
+import cc15 from "../assets/img/career guides/cc15.png";
+
+import icon1 from "../assets/img/icons/1.png";
+import icon2 from "../assets/img/icons/2.png";
+import icon3 from "../assets/img/icons/3.png";
+import icon4 from "../assets/img/icons/4.png";
+import icon5 from "../assets/img/icons/5.png";
+import icon6 from "../assets/img/icons/6.png";
 
 function FAQItem({ number, question, answer }: { number: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -70,44 +82,41 @@ const categories = [
   {
     title: "Career Planning",
     cards: [
-      { image: cc1, title: "Is AI & Data Science a Good Career?", meta: "May 24, 2026 \u2022 4 min read" },
-      { image: cc2, title: "AI & Data Science Career Path", meta: "May 20, 2026 \u2022 5 min read" },
-      { image: cc3, title: "AI & Data Science Opportunities", meta: "May 15, 2026 \u2022 5 min read" }
+      { image: cc1, title: "Is AI & Data Science a Good Career?", meta: "May 24, 2026 • 8 min read" },
+      { image: cc2, title: "AI & Data Science Career Path", meta: "May 20, 2026 • 5 min read" },
+      { image: cc3, title: "AI & Data Science Opportunities", meta: "May 16, 2026 • 5 min read" }
     ]
   },
   {
     title: "Eligibility & Requirements",
     cards: [
-      { image: cc4, title: "AI & Data Science Eligibility & Syllabus", meta: "Aug 10, 2026 \u2022 5 min read" },
-      { image: cc5, title: "AI & Data Science Learning Path", meta: "Aug 1, 2026 \u2022 15 min read" },
-      { image: cc6, title: "AI & Data Science Course Preparation", meta: "Aug 1, 2026 \u2022 10 min read" }
+      { image: cc4, title: "AI & Data Science Eligibility & Syllabus", meta: "Aug 12, 2026 • 5 min read" },
+      { image: cc5, title: "AI & Data Science Learning Path", meta: "Aug 1, 2026 • 15 min read" },
+      { image: cc6, title: "AI & Data Science Course Preparation", meta: "Aug 1, 2026 • 15 min read" }
     ]
   },
   {
     title: "Salary & Career Growth",
     cards: [
-      { image: cc7, title: "Data Science Jobs in Mumbai", meta: "Aug 10, 2026 \u2022 6 min read" },
-      { image: cc8, title: "AI & Data Science Career Opportunities", meta: "Aug 5, 2026 \u2022 12 min read" }
+      { image: cc7, title: "Data Science Jobs in Mumbai", meta: "Aug 10, 2026 • 6 min read" },
+      { image: cc8, title: "AI & Data Science Career Opportunities", meta: "Aug 5, 2026 • 12 min read" },
+      { image: cc9, title: "Data Scientist Salary in India", meta: "Aug 6, 2026 • 12 min read" }
     ]
   },
   {
     title: "Skills & Interview Preparation",
     cards: [
-      { image: cc9, title: "Python for Data Science: A Beginner's Guide", meta: "July 10, 2026 \u2022 10 min read" },
-      { image: cc10, title: "AI & Data Science Skills", meta: "Aug 5, 2026 \u2022 7 min read" }
-    ]
-  },
-  {
-    title: "Training",
-    cards: [
-      { image: cc9, title: "AI & Data Science Course in Mumbai", meta: "July 10, 2026 \u2022 6 min read" }
+      { image: cc10, title: "Python for Data Science: A Beginner's Guide", meta: "July 10, 2026 • 6 min read" },
+      { image: cc11, title: "AI & Data Science Skills", meta: "Aug 5, 2026 • 7 min read" },
+      { image: cc12, title: "How to Become Job-Ready for a Data Science Career", meta: "Aug 20, 2026 • 12 min read" }
     ]
   },
   {
     title: "Related Careers",
     cards: [
-      { image: cc9, title: "Cabin Crew Career Guide", meta: "July 10, 2026 \u2022 6 min read" },
-      { image: cc9, title: "Airport Ground Staff Career Guide", meta: "July 31, 2026 \u2022 6 min read" }
+      { image: cc13, title: "Cabin Crew Career Guide", meta: "July 10, 2026 • 16 min read" },
+      { image: cc14, title: "Airport Ground Staff Career Guide", meta: "July 10, 2026 • 16 min read" },
+      { image: cc15, title: "AI & Data Science Career Guide", meta: "July 10, 2026 • 16 min read" }
     ]
   }
 ];
@@ -166,7 +175,7 @@ export default function AiDataScience() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-xl lg:max-w-[680px] text-left flex flex-col space-y-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-snug sm:leading-[1.28] lg:leading-[1.32]">
               AI & Data Science Career Guide
             </h1>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[18px] leading-relaxed max-w-lg sm:max-w-xl">
@@ -200,7 +209,7 @@ export default function AiDataScience() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[275px]">
-            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.3] tracking-tight mb-4 font-outfit">
               AI &amp;<br />
               Data Science<br />
               Career Guide
@@ -259,56 +268,29 @@ export default function AiDataScience() {
       </section>
 
       {/* What Does an AI & Data Science Professional Do section */}
-      <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/60">
+      <section className="bg-[#f0f4f9] py-20 sm:py-24 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-16 text-center leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#17365d] font-outfit mb-14 text-center leading-tight tracking-tight">
             What Does an AI & Data Science<br className="hidden sm:block" /> Professional Do?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
-              { title: "Develop Machine Learning Models", desc: "AI & Data Science professionals develop machine learning models and create predictive solutions to solve real-world problems." },
-              { title: "Collect & Analyse Data", desc: "AI & Data Science professionals collect, analyse, and interpret data to identify patterns and support better decision-making." },
-              { title: "Create AI-Powered Applications", desc: "Professionals build AI-powered applications using intelligent technologies to develop practical solutions across industries." },
-              { title: "Analyse Trends & Insights", desc: "AI & Data Science professionals analyse trends and use data-driven insights to help organisations make informed decisions." },
-              { title: "Automate Processes", desc: "Professionals use AI and automation technologies to improve efficiency and solve business challenges." },
-              { title: "Build Intelligent Solutions", desc: "AI & Data Science professionals create innovative solutions using data, machine learning, and emerging technologies." }
+              { icon: icon1, title: "Develop Machine Learning Models", desc: "AI & Data Science professionals develop machine learning models and create predictive solutions to solve real-world problems." },
+              { icon: icon2, title: "Collect & Analyse Data", desc: "AI & Data Science professionals collect, analyse, and interpret data to identify patterns and support better decision-making." },
+              { icon: icon3, title: "Create AI-Powered Applications", desc: "Professionals build AI-powered applications using intelligent technologies to develop practical solutions across industries." },
+              { icon: icon4, title: "Analyse Trends & Insights", desc: "AI & Data Science professionals analyse trends and use data-driven insights to help organisations make informed decisions." },
+              { icon: icon5, title: "Automate Processes", desc: "Professionals use AI and automation technologies to improve efficiency and solve business challenges." },
+              { icon: icon6, title: "Build Intelligent Solutions", desc: "AI & Data Science professionals create innovative solutions using data, machine learning, and emerging technologies." }
             ].map((card, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[20px] p-7 border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col text-left"
+                className="bg-white rounded-[24px] p-7 sm:p-8 border border-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col text-left justify-start"
               >
-                <div className="w-10 h-10 rounded-full bg-[#E8B84B] flex items-center justify-center mb-5 flex-shrink-0">
-                  <div className="w-3.5 h-3.5 rounded-full bg-white/70" />
+                <div className="w-11 h-11 rounded-full bg-[#fef3c7] flex items-center justify-center mb-6 shrink-0">
+                  <img src={card.icon} alt="" className="w-5 h-5 object-contain" />
                 </div>
-                <h3 className="text-[14.5px] sm:text-[15.5px] font-bold text-[#1C3E8A] font-outfit mb-3 leading-snug">{card.title}</h3>
-                <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-semibold leading-relaxed">{card.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Career at a Glance section */}
-      <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-14 text-center leading-tight tracking-tight">
-            Career at a Glance
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { label: "Career", value: "AI & Data Science Professional" },
-              { label: "Industry", value: "Technology & Data Science" },
-              { label: "Eligibility", value: "12th Pass / Graduate" },
-              { label: "Work Environment", value: "IT Companies, Startups & Global Organisations" },
-              { label: "Key Skills", value: "Analytical Thinking, Programming & Problem Solving" },
-              { label: "Career Growth", value: "High-demand opportunities across multiple industries" }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[20px] p-7 border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.05)] transition-all duration-300 flex flex-col text-left min-h-[130px]"
-              >
-                <p className="text-[13.5px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">{item.label}</p>
-                <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">{item.value}</p>
+                <h3 className="text-[16px] sm:text-[17px] font-bold text-[#17365d] font-outfit mb-3 leading-snug">{card.title}</h3>
+                <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-normal leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -397,30 +379,24 @@ export default function AiDataScience() {
                     <div
                       key={cardIdx}
                       onClick={() => {
-                        if (card.title.includes("Cabin Crew")) {
-                          navigate("/career-guide/cabin-crew");
-                        } else if (card.title.includes("Ground Staff")) {
-                          navigate("/career-guide/airport-ground-staff");
-                        } else {
-                          navigate("/how-to-become-a-cabin-crew-after-12th");
-                        }
+                        navigate("/how-to-become-a-cabin-crew-after-12th");
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer"
+                      className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer hover:-translate-y-1"
                     >
                       <div>
-                        <div className="relative w-full h-[200px] overflow-hidden">
+                        <div className="relative w-full h-[190px] sm:h-[200px] overflow-hidden bg-slate-100">
                           <img
                             src={card.image}
                             alt={card.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         </div>
-                        <div className="p-6 flex flex-col space-y-4">
-                          <h4 className="text-[17px] sm:text-[19px] font-bold text-[#1C3E8A] font-outfit leading-snug group-hover:text-[#DF1818] transition-colors duration-300">
+                        <div className="p-6 flex flex-col justify-between min-h-[110px]">
+                          <h4 className="text-[15px] sm:text-[16px] font-bold text-[#17365d] font-outfit leading-snug mb-3 group-hover:text-[#DF1818] transition-colors duration-300">
                             {card.title}
                           </h4>
-                          <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">
+                          <p className="text-[#94a3b8] font-sans text-[11.5px] sm:text-[12px] font-medium leading-relaxed">
                             {card.meta}
                           </p>
                         </div>
@@ -556,6 +532,19 @@ export default function AiDataScience() {
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Govt Certified</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 200+ Hiring Partners</span>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleCTA}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
         </div>
       </section>

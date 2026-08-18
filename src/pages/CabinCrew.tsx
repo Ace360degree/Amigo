@@ -5,11 +5,10 @@ function FAQItem({ number, question, answer }: { number: number; question: strin
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div
-      className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${
-        isOpen
-          ? "border-[#1C3E8A]/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]"
-          : "border-[#E1E5ED] shadow-sm"
-      }`}
+      className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${isOpen
+        ? "border-[#1C3E8A]/20 shadow-[0_8px_30px_rgba(0,0,0,0.05)]"
+        : "border-[#E1E5ED] shadow-sm"
+        }`}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -17,9 +16,8 @@ function FAQItem({ number, question, answer }: { number: number; question: strin
       >
         <div className="flex items-center space-x-4">
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-bold transition-colors duration-300 ${
-              isOpen ? "bg-[#1C3E8A] text-white" : "bg-[#e8ecf4] text-[#1C3E8A]"
-            }`}
+            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-bold transition-colors duration-300 ${isOpen ? "bg-[#1C3E8A] text-white" : "bg-[#e8ecf4] text-[#1C3E8A]"
+              }`}
           >
             {number}
           </div>
@@ -28,9 +26,8 @@ function FAQItem({ number, question, answer }: { number: number; question: strin
           </span>
         </div>
         <svg
-          className={`w-5 h-5 text-[#1C3E8A] shrink-0 transition-transform duration-300 ${
-            isOpen ? "rotate-180" : ""
-          }`}
+          className={`w-5 h-5 text-[#1C3E8A] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+            }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -40,9 +37,8 @@ function FAQItem({ number, question, answer }: { number: number; question: strin
         </svg>
       </button>
       <div
-        className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-6 pb-5 pt-1">
           <div className="bg-[#f8fafc] border-l-4 border-[#1C3E8A] p-4 rounded-r-lg">
@@ -100,7 +96,19 @@ import cc7 from "../assets/img/career guides/cc7.png";
 import cc8 from "../assets/img/career guides/cc8.png";
 import cc9 from "../assets/img/career guides/cc9.png";
 import cc10 from "../assets/img/career guides/cc10.png";
+import cc11 from "../assets/img/career guides/cc11.png";
+import cc12 from "../assets/img/career guides/cc12.png";
 import cabinJourneyImg from "../assets/img/career guides/9.png";
+import courseCabiny1 from "../assets/img/career guides/cc13.png";
+import courseGroundy1 from "../assets/img/career guides/cc14.png";
+import courseAiy1 from "../assets/img/career guides/cc15.png";
+
+import icon1 from "../assets/img/icons/1.png";
+import icon2 from "../assets/img/icons/2.png";
+import icon3 from "../assets/img/icons/3.png";
+import icon4 from "../assets/img/icons/4.png";
+import icon5 from "../assets/img/icons/5.png";
+import icon6 from "../assets/img/icons/6.png";
 
 const categories = [
   {
@@ -135,6 +143,11 @@ const categories = [
         image: cc5,
         title: "Air Hostess Height Requirements",
         meta: "Aug 1, 2026 • 15 min read"
+      },
+      {
+        image: cc6,
+        title: "Cabin Crew Qualification After 12th Eligibility",
+        meta: "June 16, 2026 • 8 min read"
       }
     ]
   },
@@ -142,14 +155,19 @@ const categories = [
     title: "Salary & Career Growth",
     cards: [
       {
-        image: cc6,
+        image: cc7,
         title: "Air Hostess Salary in India",
         meta: "Aug 10, 2026 • 8 min read"
       },
       {
-        image: cc7,
+        image: cc8,
         title: "Domestic vs International Cabin Crew Salary",
         meta: "Aug 5, 2026 • 12 min read"
+      },
+      {
+        image: cc9,
+        title: "Cabin Crew Career Growth: Future Opportunities",
+        meta: "May 22, 2026 • 11 min read"
       }
     ]
   },
@@ -157,24 +175,19 @@ const categories = [
     title: "Skills & Interview Preparation",
     cards: [
       {
-        image: cc8,
+        image: cc10,
         title: "Cabin Crew Skills Required",
         meta: "July 10, 2026 • 6 min read"
       },
       {
-        image: cc9,
+        image: cc11,
         title: "Cabin Crew Interview Tips & Common Mistakes",
         meta: "Aug 5, 2026 • 7 min read"
-      }
-    ]
-  },
-  {
-    title: "Training",
-    cards: [
+      },
       {
-        image: cc10,
-        title: "Air Hostess Course Duration & Batch Timings",
-        meta: "July 10, 2026 • 6 min read"
+        image: cc12,
+        title: "Cabin Crew Grooming & Communication Skills",
+        meta: "July 5, 2026 • 8 min read"
       }
     ]
   },
@@ -182,14 +195,19 @@ const categories = [
     title: "Related Careers",
     cards: [
       {
-        image: cc2,
-        title: "Airport Ground Staff Career",
+        image: courseCabiny1,
+        title: "Air Hostess Course Duration & Batch Timings",
         meta: "July 10, 2026 • 6 min read"
       },
       {
-        image: cc3,
+        image: courseGroundy1,
+        title: "Airport Ground Staff Career",
+        meta: "July 10, 2026 • 16 min read"
+      },
+      {
+        image: courseAiy1,
         title: "AI & Data Science Career Guide",
-        meta: "July 10, 2026 • 6 min read"
+        meta: "July 10, 2026 • 16 min read"
       }
     ]
   }
@@ -212,7 +230,7 @@ export default function CabinCrew() {
             <img
               src={cabinHero}
               alt="Cabin Crew Career Guide"
-              className="w-full h-full object-cover object-left lg:object-center"
+              className="w-full h-full object-contain object-right"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
@@ -253,7 +271,7 @@ export default function CabinCrew() {
           <img
             src={cabinHeroMobile}
             alt="Cabin Crew Career Guide"
-            className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+            className="absolute inset-0 w-full h-full object-contain object-right-top"
           />
 
           {/* Text Content overlay matching screenshot */}
@@ -317,91 +335,61 @@ export default function CabinCrew() {
       </section>
 
       {/* Roles & Responsibilities section */}
-      <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/60">
+      <section className="bg-[#f0f4f9] py-20 sm:py-24 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Header */}
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-16 text-center leading-tight tracking-tight">
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#17365d] font-outfit mb-14 text-center leading-tight tracking-tight">
             Roles & Responsibilities of<br className="hidden sm:block" /> Cabin Crew
           </h2>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {[
               {
+                icon: icon1,
                 title: "Ensure Passenger Safety",
                 desc: "Cabin Crew professionals are trained to handle safety procedures, emergencies, and passenger protection throughout the flight."
               },
               {
+                icon: icon2,
                 title: "Provide Passenger Comfort & Service",
                 desc: "Assist passengers, deliver in-flight services, and ensure a comfortable travel experience."
               },
               {
+                icon: icon3,
                 title: "Manage Emergency Situations",
                 desc: "Cabin Crew members are prepared to respond calmly and effectively during unexpected situations."
               },
               {
+                icon: icon4,
                 title: "Maintain Professional Standards",
                 desc: "They represent the airline by following service standards, grooming guidelines, and professional conduct."
               },
               {
+                icon: icon5,
                 title: "Support Passenger Needs",
                 desc: "They help passengers with queries, special requirements, and overall journey assistance."
               },
               {
+                icon: icon6,
                 title: "Deliver a Positive Travel Experience",
                 desc: "They combine safety, hospitality, and communication skills to create a smooth flight experience."
               }
             ].map((card, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[20px] p-7 border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col text-left"
+                className="bg-white rounded-[24px] p-7 sm:p-8 border border-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_40px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col text-left justify-start"
               >
                 {/* Gold Circle Icon */}
-                <div className="w-10 h-10 rounded-full bg-[#E8B84B] flex items-center justify-center mb-5 flex-shrink-0">
-                  <div className="w-3.5 h-3.5 rounded-full bg-white/70" />
+                <div className="w-11 h-11 rounded-full bg-[#fef3c7] flex items-center justify-center mb-6 shrink-0">
+                  <img src={card.icon} alt="" className="w-5 h-5 object-contain" />
                 </div>
-                <h3 className="text-[14.5px] sm:text-[15.5px] font-bold text-[#1C3E8A] font-outfit mb-3 leading-snug">
+                <h3 className="text-[16px] sm:text-[17px] font-bold text-[#17365d] font-outfit mb-3 leading-snug">
                   {card.title}
                 </h3>
-                <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-semibold leading-relaxed">
+                <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-normal leading-relaxed">
                   {card.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Career at a Glance section */}
-      <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-
-          {/* Header */}
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-14 text-center leading-tight tracking-tight">
-            Career at a Glance
-          </h2>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { label: "Career", value: "Cabin Crew" },
-              { label: "Industry", value: "Aviation" },
-              { label: "Eligibility", value: "12th Pass" },
-              { label: "Work Environment", value: "Domestic & International Airlines" },
-              { label: "Key Skills", value: "Communication, Professionalism & Customer Service" },
-              { label: "Career Growth", value: "Multiple opportunities within the aviation industry" }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[20px] p-7 border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.05)] transition-all duration-300 flex flex-col text-left min-h-[130px]"
-              >
-                <p className="text-[13.5px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">
-                  {item.label}
-                </p>
-                <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">
-                  {item.value}
                 </p>
               </div>
             ))}
@@ -490,12 +478,12 @@ export default function CabinCrew() {
       {/* Explore Cabin Crew Career Guides Section */}
       <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 text-center">
-          
+
           {/* Header */}
           <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-5 leading-tight tracking-tight">
             Explore Cabin Crew Career Guides
           </h2>
-          
+
           {/* Subtitle */}
           <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[15.5px] max-w-[820px] mx-auto mb-16 leading-relaxed">
             Every student has different questions before choosing a career. Explore the guides below to understand every important aspect of becoming a Cabin Crew professional.
@@ -516,20 +504,14 @@ export default function CabinCrew() {
                     <div
                       key={cardIdx}
                       onClick={() => {
-                        if (card.title.includes("Ground Staff")) {
-                          navigate("/career-guide/airport-ground-staff");
-                        } else if (card.title.includes("AI") || card.title.includes("Data Science")) {
-                          navigate("/career-guide/ai-data-science");
-                        } else {
-                          navigate("/how-to-become-a-cabin-crew-after-12th");
-                        }
+                        navigate("/how-to-become-a-cabin-crew-after-12th");
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer"
+                      className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer hover:-translate-y-1"
                     >
                       <div>
                         {/* Card Image */}
-                        <div className="relative w-full h-[200px] overflow-hidden">
+                        <div className="relative w-full h-[190px] sm:h-[200px] overflow-hidden bg-slate-100">
                           <img
                             src={card.image}
                             alt={card.title}
@@ -537,11 +519,11 @@ export default function CabinCrew() {
                           />
                         </div>
                         {/* Card Body */}
-                        <div className="p-6 flex flex-col space-y-4">
-                          <h4 className="text-[17px] sm:text-[19px] font-bold text-[#1C3E8A] font-outfit leading-snug group-hover:text-[#DF1818] transition-colors duration-300">
+                        <div className="p-6 flex flex-col justify-between min-h-[110px]">
+                          <h4 className="text-[15px] sm:text-[16px] font-bold text-[#17365d] font-outfit leading-snug mb-3 group-hover:text-[#DF1818] transition-colors duration-300">
                             {card.title}
                           </h4>
-                          <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">
+                          <p className="text-[#94a3b8] font-sans text-[11.5px] sm:text-[12px] font-medium leading-relaxed">
                             {card.meta}
                           </p>
                         </div>
@@ -604,7 +586,7 @@ export default function CabinCrew() {
       {/* Frequently Asked Questions Section */}
       <section className="w-full bg-white py-20 border-t border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col items-center space-y-12">
-          
+
           <div className="text-center space-y-4">
             <span className="inline-block bg-[#FDF6E2] text-[#B7791F] text-[10.5px] font-extrabold uppercase px-5 py-1.5 rounded-full tracking-wider border border-[#F6E05E]/40">
               Questions By Students & Parents
@@ -649,7 +631,7 @@ export default function CabinCrew() {
       {/* Batches are filling fast section */}
       <section className="bg-[#001D4A] py-16 sm:py-20 text-center text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
-          
+
           {/* Top Badge */}
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-6">
             <span>⚡</span> LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT
@@ -711,6 +693,19 @@ export default function CabinCrew() {
             <span className="flex items-center gap-1.5">
               <span className="text-[#25D366]">✓</span> 200+ Hiring Partners
             </span>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleCTA}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
 
         </div>

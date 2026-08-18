@@ -187,7 +187,6 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                   </div>
                   <div>
                     <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">Ghatkopar</h4>
-                    <span className="text-[10px] text-amber-700 font-extrabold uppercase tracking-wider block mt-1">Head Office</span>
                   </div>
                 </div>
 

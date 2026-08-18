@@ -111,10 +111,10 @@ export default function GhatkoparBranch() {
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-[580px] lg:max-w-[650px] text-left flex flex-col space-y-8">
             <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.2] mb-2">
-              Amigo Academy<br />Ghatkopar Branch<br />(Head Office)
+              Amigo Academy<br />Ghatkopar Branch
             </h1>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed max-w-xl">
-              Located in the heart of Ghatkopar, our Head Office has been helping students build successful careers in aviation and technology since 2017. Offering Maharashtra Government Certified aviation training, industry-focused programmes, dedicated placement support, and honest career guidance, the Ghatkopar branch welcomes students who are ready to take the first step towards their future.
+              Located in the heart of Ghatkopar, our branch has been helping students build successful careers in aviation and technology since 2017. Offering Maharashtra Government Certified aviation training, industry-focused programmes, dedicated placement support, and honest career guidance, the Ghatkopar branch welcomes students who are ready to take the first step towards their future.
             </p>
             <div className="pt-2">
               <button
@@ -135,7 +135,7 @@ export default function GhatkoparBranch() {
           {/* Background Image without gradient overlay */}
           <img
             src={ghatkoparHeroMobile}
-            alt="Amigo Academy Ghatkopar Branch (Head Office)"
+            alt="Amigo Academy Ghatkopar Branch"
             className="absolute inset-0 w-full h-full object-cover object-[right_top]"
           />
 
@@ -143,12 +143,11 @@ export default function GhatkoparBranch() {
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
             <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
               Amigo Academy<br />
-              Ghatkopar Branch<br />
-              (Head Office)
+              Ghatkopar Branch
             </h1>
 
             <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
-              Located in the heart of Ghatkopar, our Head Office has been helping students build careers in aviation and technology since 2017, with Maharashtra Government Certified aviation training, practical programmes, placement support, and honest career guidance.
+              Located in the heart of Ghatkopar, our branch has been helping students build careers in aviation and technology since 2017, with Maharashtra Government Certified aviation training, practical programmes, placement support, and honest career guidance.
             </p>
 
             <div>
@@ -169,7 +168,7 @@ export default function GhatkoparBranch() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-[920px] mx-auto text-center">
             <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-8 leading-tight tracking-tight">
-              Welcome to Ghatkopar Branch,<br className="hidden sm:block" /> Our Head Office
+              Welcome to Ghatkopar Branch
             </h2>
             <div className="space-y-5 text-slate-600 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed">
               <p>
@@ -432,6 +431,19 @@ export default function GhatkoparBranch() {
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Govt Certified</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 200+ Hiring Partners</span>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={handleCTA}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
 
         </div>

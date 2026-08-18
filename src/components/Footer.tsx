@@ -72,6 +72,7 @@ export default function Footer() {
               <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">About us</button>
               <button onClick={() => handleNavClick("/placement")} className="text-left hover:text-white transition-colors w-fit">Placements</button>
               <button onClick={() => handleNavClick("/scholarship")} className="text-left hover:text-white transition-colors w-fit">Scholarships</button>
+              <button onClick={() => handleNavClick("/branches")} className="text-left hover:text-white transition-colors w-fit">Branches</button>
               <button onClick={() => handleNavClick("/franchise")} className="text-left hover:text-white transition-colors w-fit">Franchise</button>
               <button onClick={() => handleNavClick("/blog")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
               <button onClick={() => handleNavClick("/gallery")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>

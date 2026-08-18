@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import heroImage from "../assets/img/brancheshero1a.png";
+import heroImage from "../assets/img/branches/branches-main.png";
 import branchesMobileHero from "../assets/img/branches/branches-main-mobile.png";
 import branchesIllustration from "../assets/img/branches2a.png";
 import branchImage1 from "../assets/img/branchesimg1a.png";
@@ -44,7 +44,6 @@ const stats: Stat[] = [
 const branches: BranchCard[] = [
   {
     name: "Ghatkopar",
-    tag: "Head Office",
     address: [
       "AMIGO ACADEMY GHATKOPAR",
       "SAI INFOTECH, 107 & 108, Patel Chowk",
@@ -82,9 +81,9 @@ const branches: BranchCard[] = [
 
 const branchShowcase = [
   {
-    title: "Ghatkopar Branch (Head Office)",
+    title: "Ghatkopar Branch",
     description:
-      "Our Ghatkopar branch serves as the head office of Amigo Academy and has been guiding students towards careers in aviation and technology since 2017.",
+      "Our Ghatkopar branch has been guiding students towards careers in aviation and technology since 2017.",
     image: branchImage1,
     cta: "Explore Ghatkopar Branch",
     link: "/ghatkopar-branch"
@@ -146,38 +145,35 @@ export default function Branches() {
     <div className="bg-white text-neutral-900">
       {/* Hero Section */}
       {/* Desktop Hero View */}
-      <section className="hidden sm:flex relative overflow-hidden bg-white border-b border-neutral-100 py-12 lg:py-20">
-        <div className="absolute inset-0">
-          <div className="absolute inset-y-0 right-0 w-full lg:w-[64%]">
+      <section className="hidden sm:flex relative w-full min-h-[580px] lg:h-[620px] bg-white items-center overflow-hidden border-b border-neutral-100">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-y-0 right-0 w-full lg:w-[58%] h-full">
             <img
               src={heroImage}
-              alt="Amigo Academy branch"
-              className="h-full w-full object-cover object-center lg:object-[left_center]"
+              alt="Find an Amigo Academy Branch Near You"
+              className="w-full h-full object-cover object-left"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 via-42% to-transparent" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 md:px-12 py-6 lg:py-10">
-          <div className="max-w-[540px] space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight text-[#112a46] leading-[1.1]">
-              Find an Amigo Academy Branch Near You
+        <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
+          <div className="max-w-xl lg:max-w-[580px] text-left flex flex-col space-y-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-outfit font-extrabold tracking-tight text-[#17365d] leading-snug sm:leading-[1.28] lg:leading-[1.32]">
+              Find an Amigo Academy<br />
+              Branch Near You
             </h1>
-            <p className="text-sm sm:text-[15px] leading-[1.7] text-slate-500 font-normal">
-              With three branches across Mumbai, Amigo Academy makes quality career-focused
-              education more accessible to students. Whether you choose our Ghatkopar,
-              Andheri, or Thane branch, you&apos;ll receive the same practical training,
-              dedicated placement support, and honest career guidance that have helped over
-              10,000 students begin their careers in aviation and technology.
+
+            <p className="text-[#475569] font-sans font-medium text-xs sm:text-[15.5px] leading-relaxed max-w-lg">
+              With three branches across Mumbai— Ghatkopar, Andheri, and Thane— Amigo Academy makes career-focused education more accessible, with the same practical training, placement support, and career guidance at every location.
             </p>
 
             <div className="pt-2">
               <a
                 href="#branch-grid"
-                className="inline-flex items-center justify-center gap-3 rounded-full bg-[#E02424] hover:bg-[#c81c1c] px-7 py-3.5 text-xs sm:text-sm font-bold text-white shadow-[0_10px_25px_rgba(224,36,36,0.38)] transition-all hover:shadow-[0_14px_30px_rgba(224,36,36,0.48)] active:scale-95 cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.3)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.4)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
               >
-                <span>Find Your Nearest Branch</span>
-                <span className="text-sm font-bold">➔</span>
+                Find Your Nearest Branch
+                <span className="font-bold">&nbsp;➔</span>
               </a>
             </div>
           </div>
@@ -508,6 +504,19 @@ export default function Branches() {
             <div className="flex items-center gap-2">
               <span className="text-[#22c55e] font-extrabold">✓</span> 200+ Hiring Partners
             </div>
+          </div>
+
+          {/* Download Brochure PDF Button below Trust Markers */}
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="inline-flex items-center justify-center gap-2.5 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-sans font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
+              </svg>
+              <span>Download Brochure (PDF)</span>
+            </button>
           </div>
 
         </div>
