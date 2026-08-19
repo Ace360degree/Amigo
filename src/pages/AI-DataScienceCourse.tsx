@@ -703,15 +703,15 @@ export default function AIDataScienceCourse() {
           </div>
 
           {/* Not Sure If You Qualify Callout */}
-          <div className="bg-white rounded-3xl p-8 border border-slate-200/80 shadow-sm max-w-3xl mx-auto text-center space-y-4">
-            <h3 className="text-lg font-extrabold text-[#0b2f61]">Not Sure If You Qualify?</h3>
-            <p className="text-xs sm:text-sm text-slate-500 font-semibold max-w-xl mx-auto">
+          <div className="mt-8 min-h-[255px] rounded-[16px] border border-slate-100 bg-white px-6 py-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] mx-auto flex flex-col items-center justify-center text-center">
+            <h3 className="text-[19px] sm:text-[21px] font-extrabold text-[#17213a]">Not Sure If You Qualify?</h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
               Don't worry! Our counsellors will evaluate your profile and suggest the best career path in Data Science for you.
             </p>
-            <div>
+            <div className="mt-8">
               <button
                 onClick={handleCTA}
-                className="inline-flex items-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+                className="inline-flex items-center gap-8 bg-[#ed1c24] hover:bg-[#cb151c] text-white font-bold text-sm px-[72px] py-3.5 rounded-full shadow-[0_10px_20px_rgba(237,28,36,0.2)] transition-all active:scale-95 cursor-pointer"
               >
                 <span>Check My Eligibility</span>
                 <span className="text-base font-bold">➔</span>
@@ -753,11 +753,21 @@ export default function AIDataScienceCourse() {
                       </span>
                       <span>{faq.question}</span>
                     </div>
-                    <span className="text-lg font-bold text-slate-400">{isOpen ? "−" : "+"}</span>
+                    <svg
+                      className={`h-4 w-4 shrink-0 text-[#0b2f61] transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
                   </button>
                   {isOpen && (
-                    <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-slate-600 font-medium leading-relaxed border-t border-slate-50">
-                      {faq.answer}
+                    <div className="px-5 pb-5">
+                      <div className="rounded-xl border-l-4 border-[#0b2f61] bg-[#f8fafc] p-4 text-xs sm:text-sm font-medium leading-relaxed text-slate-600">
+                        {faq.answer}
+                      </div>
                     </div>
                   )}
                 </div>

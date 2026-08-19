@@ -294,11 +294,11 @@ export default function AirHostessCabinCrew() {
       {/* Hero Section */}
       {/* Desktop Hero View */}
       <section className="hidden sm:flex w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden items-center border-b border-neutral-200/50">
-        <div className="absolute top-0 right-0 h-full w-full lg:w-[42%] z-0">
+        <div className="absolute top-0 right-0 h-full w-full lg:w-[55%] z-0">
           <img
             src={new URL("../assets/img/aircourseh111a.png", import.meta.url).href}
             alt="Air Hostess and Cabin Crew Training"
-            className="h-full w-full object-cover object-top lg:object-[35%_top]"
+            className="h-full w-full object-cover object-center"
             onError={(e) => {
               e.currentTarget.src =
                 "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
@@ -332,49 +332,49 @@ export default function AirHostessCabinCrew() {
               <span className="text-[#e31e24]">Practical Training</span>
             </div>
 
-            <div className="mt-8">
-              <h2 className="text-[20px] font-bold text-[#17365d] mb-5">
+            <div className="mt-9">
+              <h2 className="text-[24px] font-extrabold text-[#17365d] mb-8">
                 Course Overview
               </h2>
 
-              <div className="space-y-3 text-[16px] text-[#42526a]">
+              <div className="space-y-5 text-[20px] leading-none text-[#4b5e7d]">
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">◷</span>
+                <div className="flex items-center gap-4">
+                  <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">◷</span>
                   <p>
                     <span className="font-semibold">Timing:</span>
-                    <span className="ml-3 font-bold text-[#17365d]">
+                    <span className="ml-4 font-bold text-[#17365d]">
                       Morning / Afternoon / Evening
                     </span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">⌖</span>
+                <div className="flex items-center gap-4">
+                  <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">⌖</span>
                   <p>
                     <span className="font-semibold">Our Branches:</span>
-                    <span className="ml-2">Ghatkopar, Andheri &amp; Thane</span>
+                    <span className="ml-3">Ghatkopar, Andheri &amp; Thane</span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">▤</span>
+                <div className="flex items-center gap-4">
+                  <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">▤</span>
                   <p>
                     <span className="font-semibold">Duration:</span>
                     <span className="ml-3">12 Months (5 Days/Week, 2 Hours/Day)</span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">▧</span>
+                <div className="flex items-center gap-4">
+                  <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">▧</span>
                   <p>
                     <span className="font-semibold">Eligibility:</span>
                     <span className="ml-3">12th Pass</span>
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[#17365d]">♙</span>
+                <div className="flex items-center gap-4">
+                  <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">♙</span>
                   <p>
                     <span className="font-semibold">Age:</span>
                     <span className="ml-2">17 to 24 Years</span>
@@ -539,11 +539,11 @@ export default function AirHostessCabinCrew() {
         </div>
       </section>
 
-      {/* Enquiry Form */}
-      <section className="bg-[#f4f6fb] py-10 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      {/* Form Container: Kickstart Your Career In 12 Months */}
+      <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-12 shadow-[0_20px_50px_rgba(24,58,125,0.18)] text-white">
-            <div>
+            <div className="text-left">
               <h2 className="text-2xl sm:text-[34px] font-extrabold leading-tight tracking-tight text-white">
                 Kickstart Your Career In 12 Months
               </h2>
@@ -553,37 +553,29 @@ export default function AirHostessCabinCrew() {
             </div>
 
             <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
-              {/* Field 1: Mobile Number */}
+              {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <svg className="w-4 h-4 text-slate-400 ml-1 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
                 <input
                   type="tel"
                   required
-                  placeholder="Mobile Number"
-                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
+                  placeholder="Mobile Number *"
+                  className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
-                <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
               </div>
 
-              {/* Field 2: Full Name */}
+              {/* Full Name */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <svg className="w-4 h-4 text-slate-400 ml-1 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
                 <input
                   type="text"
                   required
-                  placeholder="Full Name"
-                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
+                  placeholder="Full Name *"
+                  className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
-                <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
               </div>
 
-              {/* Field 3: Age */}
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
+              {/* Age */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Age</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
@@ -593,70 +585,48 @@ export default function AirHostessCabinCrew() {
                   <option value="22">22 Years</option>
                   <option value="23">23 Years</option>
                   <option value="24">24 Years</option>
+                  <option value="25">25 Years</option>
                 </select>
-                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
-                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
-                </div>
               </div>
 
-              {/* Field 4: Qualification */}
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
+              {/* Qualification */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Qualification</option>
                   <option value="12th">12th Pass</option>
                   <option value="undergraduate">Undergraduate</option>
                   <option value="graduate">Graduate</option>
                 </select>
-                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
-                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
-                </div>
               </div>
 
-              {/* Field 5: Preferred Branch */}
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
+              {/* Preferred Branch */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Preferred Branch</option>
                   <option value="ghatkopar">Ghatkopar</option>
                   <option value="andheri">Andheri</option>
                   <option value="thane">Thane</option>
                 </select>
-                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
-                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
-                </div>
               </div>
 
-              {/* Field 6: Gender */}
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-400 outline-none appearance-none cursor-pointer pr-6" required>
+              {/* Gender */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Gender</option>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
                   <option value="other">Other</option>
                 </select>
-                <div className="absolute right-4 flex items-center gap-1.5 pointer-events-none">
-                  <svg className="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                  </svg>
-                  <span className="text-[#e31e24] font-bold text-sm select-none">*</span>
-                </div>
               </div>
 
-              <div className="md:col-span-3 flex justify-end pt-2">
+              {/* Submit button spanning full row on desktop */}
+              <div className="md:col-span-3 flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="rounded-full bg-[#8ba2cf] hover:bg-[#7e97c7] text-[#142954] font-bold text-sm sm:text-base pl-7 pr-1.5 py-1.5 inline-flex items-center gap-5 shadow-md transition-all active:scale-98 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-sm px-10 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
                 >
-                  <span>Enroll Now</span>
-                  <span className="w-8 h-8 rounded-full bg-[#142954] text-white flex items-center justify-center text-sm font-extrabold">➔</span>
+                  <span>Enrol Now</span>
+                  <span className="text-base font-extrabold">➔</span>
                 </button>
               </div>
             </form>
@@ -775,18 +745,18 @@ export default function AirHostessCabinCrew() {
           </div>
 
           {/* Bottom Card inside Eligibility section */}
-          <div className="mt-8 rounded-[22px] border border-slate-100/90 bg-white p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+          <div className="mt-8 min-h-[255px] rounded-[16px] border border-slate-100 bg-white px-6 py-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col items-center justify-center gap-3 text-center">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#11223f]">
+              <h3 className="text-[19px] sm:text-[21px] font-extrabold text-[#17213a]">
                 Not Sure If You Qualify?
               </h3>
-              <p className="mt-1 text-xs sm:text-sm text-slate-500">
+              <p className="mt-2 text-xs sm:text-sm text-slate-500">
                 Don't worry! Our counselors will evaluate your profile and suggest the best career path in aviation for you.
               </p>
             </div>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-              className="shrink-0 rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-7 py-3 text-sm font-bold shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+              className="mt-8 shrink-0 rounded-full bg-[#ed1c24] hover:bg-[#cb151c] text-white px-[72px] py-3.5 text-sm font-bold shadow-[0_10px_20px_rgba(237,28,36,0.2)] transition-all inline-flex items-center gap-8 cursor-pointer"
             >
               <span>Check My Eligibility</span>
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">

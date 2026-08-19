@@ -398,6 +398,34 @@ export default function AirportGroundStaff() {
         </div>
       </section>
 
+      {/* Career at a Glance */}
+      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center text-3xl sm:text-[34px] font-extrabold tracking-tight text-[#234681]">
+            Career at a Glance
+          </h2>
+
+          <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Career", "Airport Ground Staff"],
+              ["Industry", "Aviation"],
+              ["Eligibility", "12th Pass"],
+              ["Work Environment", "Airports & Airline Operations"],
+              ["Key Skills", "Communication, Professionalism & Customer Service"],
+              ["Career Growth", "Multiple opportunities within the aviation industry"],
+            ].map(([label, value]) => (
+              <article
+                key={label}
+                className="flex min-h-[102px] flex-col justify-center rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_3px_12px_rgba(15,42,74,0.02)]"
+              >
+                <h3 className="text-[13px] font-extrabold text-[#234681]">{label}</h3>
+                <p className="mt-2 text-[11px] leading-4 text-slate-500">{value}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose a Career as Airport Ground Staff section */}
       <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6">

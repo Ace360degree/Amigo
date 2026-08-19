@@ -248,10 +248,10 @@ const faqItems: FaqItem[] = [
   {
     question: "Which course should I choose after 12th?",
     answer:
-      "If you want an aviation career, Air Hostess / Cabin Crew is the right fit. If you prefer airport support roles, choose Airport Ground Staff. If you like tech and data, AI & Data Science is ideal. We can help you compare them during counselling.",
+      "The right course depends on your interests, strengths, and career goals. Explore Aviation or AI & Data Science, and speak with a career counsellor to choose confidently.",
   },
   {
-    question: "What course does Amigo Academy offer?",
+    question: "What courses does Amigo Academy offer?",
     answer:
       "We currently offer three main courses: Air Hostess / Cabin Crew, Airport Ground Staff, and AI & Data Science.",
   },
@@ -399,11 +399,11 @@ export default function Courses() {
       <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-10 sm:py-12 lg:py-20 min-h-[500px] sm:min-h-[auto] flex items-center">
         <div className="absolute inset-0">
           {/* Desktop Image */}
-          <div className="hidden sm:block absolute inset-y-0 right-0 w-full lg:w-[44%]">
+          <div className="hidden sm:block absolute inset-y-0 right-0 w-full lg:w-[55%]">
             <img
               src={coursesHero}
               alt="Amigo Academy course guidance session"
-              className="h-full w-full object-cover object-center lg:object-[left_center]"
+              className="h-full w-full object-cover object-center"
             />
           </div>
 
@@ -629,11 +629,11 @@ export default function Courses() {
               </table>
             </div>
 
+
+          </div>
             <p className="px-6 pt-4 text-[10px] leading-5 text-slate-400">
               Salary ranges are approximate and may vary by employer, city and performance. We will share the latest, verified range during counselling.
             </p>
-          </div>
-
           <button
             onClick={() => {
               navigate("/contact");
@@ -651,51 +651,47 @@ export default function Courses() {
       </section>
 
       {/* Why Choose Amigo */}
-      <section className="bg-[#eef2f8] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-7xl text-center">
-          <div className="inline-flex items-center rounded-full border border-[#ead9a9] bg-[#fff7e7] px-4 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#7c5529]">
+      <section className="bg-[#f3f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-[1120px] text-center">
+          <div className="inline-flex items-center rounded-full border border-[#ead9a9] bg-[#fff7e7] px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-[#7c5529]">
             Why Amigo?
           </div>
-          <h2 className="mt-4 text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+          <h2 className="mt-3 text-3xl sm:text-[31px] font-extrabold text-[#234681] leading-tight tracking-tight">
             Why Choose Amigo Academy
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
-            A govt certified brand, proven courses and complete operational support - everything a franchise partner needs to build a credible education business.
+          <p className="mx-auto mt-4 max-w-[590px] text-[11px] leading-5 text-slate-500">
+            A certified brand, proven courses and complete operational support — everything a franchise partner needs to build a credible education business.
           </p>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 text-left">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
             {whyCards.map((card) => (
               <article
                 key={card.title}
-                className="rounded-[22px] border border-white bg-white p-6 shadow-[0_10px_28px_rgba(15,42,74,0.06)]"
+                className="rounded-[14px] border border-slate-200/80 bg-white p-4 shadow-[0_8px_18px_rgba(15,42,74,0.08)]"
               >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#f7e8bf]">
-                    <img
-                      src={card.icon}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-6 w-6 object-contain"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#e31e24]">
-                      {card.eyebrow}
-                    </div>
-                    <h3 className="mt-1 text-[15px] font-extrabold text-[#1f3658] leading-snug">
-                      {card.title}
-                    </h3>
-                  </div>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#ffedc3]">
+                  <img
+                    src={card.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-4 w-4 object-contain"
+                  />
                 </div>
+                <div className="mt-3 text-[8px] font-bold uppercase tracking-[0.16em] text-[#e31e24]">
+                  {card.eyebrow}
+                </div>
+                <h3 className="mt-1 text-[13px] font-extrabold text-[#234681] leading-snug">
+                  {card.title}
+                </h3>
 
-                <p className="mt-4 text-xs leading-6 text-slate-500">
+                <p className="mt-2 text-[10px] leading-4 text-slate-500">
                   {card.description}
                 </p>
 
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-3 space-y-1.5">
                   {card.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-xs text-slate-600">
-                      <span className="mt-1.5 h-2 w-2 rounded-full bg-[#f0c36d]" />
+                    <li key={bullet} className="flex items-start gap-1.5 text-[10px] leading-4 text-slate-700">
+                      <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#ffedc3] text-[8px] font-bold text-[#8a632f]">✓</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -709,7 +705,7 @@ export default function Courses() {
               navigate("/about-us");
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-8 py-3.5 text-sm font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
+            className="mt-12 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-7 py-3 text-[10px] font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
           >
             <span>Learn More About Amigo Academy</span>
             <span className="ml-2">➔</span>
@@ -764,12 +760,12 @@ export default function Courses() {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-[#eef2f8] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1f3658] leading-tight">
+      <section className="bg-[#f3f6fb] py-14 sm:py-16 px-4 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-[720px] text-center">
+          <h2 className="text-[27px] sm:text-[32px] font-extrabold text-[#234681] leading-tight tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-7 text-slate-500">
+          <p className="mx-auto mt-3 max-w-2xl text-xs leading-5 text-slate-500">
             Got questions? We&apos;ve got answers. Find out everything you need to know about our courses.
           </p>
 
@@ -781,17 +777,17 @@ export default function Courses() {
                 <details
                   key={faq.question}
                   open={isOpen}
-                  className="group rounded-xl border border-white bg-white shadow-[0_10px_28px_rgba(15,42,74,0.05)] overflow-hidden"
+                  className="group overflow-hidden rounded-[8px] border border-slate-200/80 bg-white shadow-[0_6px_16px_rgba(15,42,74,0.04)]"
                 >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-[#1f3658]">
-                    <span className="flex items-center gap-3">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#234a8a] text-[11px] font-bold text-white">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-xs font-bold text-[#172846]">
+                    <span className="flex min-w-0 items-center gap-3">
+                      <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${isOpen ? "bg-[#234a8a] text-white" : "bg-[#edf3ff] text-[#315796]"}`}>
                         {index + 1}
                       </span>
-                      <span>{faq.question}</span>
+                      <span className="leading-5">{faq.question}</span>
                     </span>
                     <svg
-                      className="h-4 w-4 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180"
+                      className="h-4 w-4 shrink-0 text-[#234a8a] transition-transform duration-300 group-open:rotate-180"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -800,7 +796,7 @@ export default function Courses() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                     </svg>
                   </summary>
-                  <div className="border-t border-slate-100 px-5 py-4 text-xs leading-6 text-slate-500">
+                  <div className="mx-[52px] mb-5 rounded-r-md border-l-2 border-[#234a8a] bg-[#f7f9fc] px-4 py-3 text-[11px] leading-5 text-slate-500">
                     {faq.answer}
                   </div>
                 </details>
@@ -808,18 +804,16 @@ export default function Courses() {
             })}
           </div>
 
-          {/* Have More Questions Banner Pill */}
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center">
             <button
               onClick={() => {
-                window.location.href = "/contact";
+                navigate("/scholarship");
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full bg-[#e31e24] px-7 py-3.5 text-[11px] font-bold text-white shadow-[0_10px_20px_rgba(227,30,36,0.22)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
             >
-              <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
-              <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
-                If you have anymore question, please contact us
-              </span>
+              <span>Enroll Now To Avail Scholarship</span>
+              <span className="text-sm leading-none">➜</span>
             </button>
           </div>
         </div>

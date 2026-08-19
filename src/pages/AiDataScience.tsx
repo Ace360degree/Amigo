@@ -4,21 +4,21 @@ import aiDsHero from "../assets/img/career guides/ai-ds-hero.png";
 import aiDsHeroMobile from "../assets/img/career guides/ai-ds-hero-mobile.png";
 import aiDs12 from "../assets/img/career guides/12.png";
 import aiDs13 from "../assets/img/career guides/13.png";
-import cc1 from "../assets/img/career guides/cc1.png";
-import cc2 from "../assets/img/career guides/cc2.png";
-import cc3 from "../assets/img/career guides/cc3.png";
-import cc4 from "../assets/img/career guides/cc4.png";
-import cc5 from "../assets/img/career guides/cc5.png";
-import cc6 from "../assets/img/career guides/cc6.png";
-import cc7 from "../assets/img/career guides/cc7.png";
-import cc8 from "../assets/img/career guides/cc8.png";
-import cc9 from "../assets/img/career guides/cc9.png";
-import cc10 from "../assets/img/career guides/cc10.png";
-import cc11 from "../assets/img/career guides/cc11.png";
-import cc12 from "../assets/img/career guides/cc12.png";
-import cc13 from "../assets/img/career guides/cc13.png";
-import cc14 from "../assets/img/career guides/cc14.png";
-import cc15 from "../assets/img/career guides/cc15.png";
+import cc1 from "../assets/img/imgs19aug/1.png";
+import cc2 from "../assets/img/imgs19aug/2.png";
+import cc3 from "../assets/img/imgs19aug/3.png";
+import cc4 from "../assets/img/imgs19aug/4.png";
+import cc5 from "../assets/img/imgs19aug/5.png";
+import cc6 from "../assets/img/imgs19aug/6.png";
+import cc7 from "../assets/img/imgs19aug/7.png";
+import cc8 from "../assets/img/imgs19aug/8.png";
+import cc9 from "../assets/img/imgs19aug/9.png";
+import cc10 from "../assets/img/imgs19aug/10.png";
+import cc11 from "../assets/img/imgs19aug/11.png";
+import cc12 from "../assets/img/imgs19aug/12.png";
+import cc13 from "../assets/img/imgs19aug/13.png";
+import cc14 from "../assets/img/imgs19aug/14.png";
+import cc15 from "../assets/img/imgs19aug/15.png";
 
 import icon1 from "../assets/img/icons/1.png";
 import icon2 from "../assets/img/icons/2.png";
@@ -292,6 +292,34 @@ export default function AiDataScience() {
                 <h3 className="text-[16px] sm:text-[17px] font-bold text-[#17365d] font-outfit mb-3 leading-snug">{card.title}</h3>
                 <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-normal leading-relaxed">{card.desc}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Career at a Glance */}
+      <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-center text-3xl sm:text-[34px] font-extrabold tracking-tight text-[#234681]">
+            Career at a Glance
+          </h2>
+
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              ["Career", "AI & Data Science"],
+              ["Industry", "Technology"],
+              ["Eligibility", "12th Pass"],
+              ["Work Environment", "IT Companies, Startups & Global Organisations"],
+              ["Key Skills", "Analytical Thinking, Programming & Problem Solving"],
+              ["Career Growth", "High-demand opportunities across multiple industries"],
+            ].map(([label, value]) => (
+              <article
+                key={label}
+                className="flex min-h-[102px] flex-col justify-center rounded-[18px] border border-slate-200 bg-white px-5 py-5 shadow-[0_3px_12px_rgba(15,42,74,0.02)]"
+              >
+                <h3 className="text-[13px] font-extrabold text-[#234681]">{label}</h3>
+                <p className="mt-2 text-[11px] leading-4 text-slate-500">{value}</p>
+              </article>
             ))}
           </div>
         </div>

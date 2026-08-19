@@ -479,11 +479,11 @@ export default function AviationHospitality() {
         </div>
       </section>
 
-      {/* Enquiry Form */}
-      <section className="bg-[#f4f6fb] py-10 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      {/* Form Container: Kickstart Your Career In 12 Months */}
+      <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-[28px] sm:rounded-[36px] bg-[#0b2f61] px-6 sm:px-12 py-10 sm:py-12 shadow-xl text-white">
-            <div>
+          <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-12 shadow-[0_20px_50px_rgba(24,58,125,0.18)] text-white">
+            <div className="text-left">
               <h2 className="text-2xl sm:text-[34px] font-extrabold leading-tight tracking-tight text-white">
                 Kickstart Your Career In 12 Months
               </h2>
@@ -493,26 +493,29 @@ export default function AviationHospitality() {
             </div>
 
             <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
+              {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <input
                   type="tel"
                   required
                   placeholder="Mobile Number *"
-                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
+                  className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
               </div>
 
+              {/* Full Name */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <input
                   type="text"
                   required
                   placeholder="Full Name *"
-                  className="w-full bg-transparent text-sm text-slate-800 placeholder:text-slate-400 outline-none pr-3"
+                  className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
               </div>
 
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-600 outline-none appearance-none cursor-pointer pr-6">
+              {/* Age */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Age</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
@@ -526,8 +529,9 @@ export default function AviationHospitality() {
                 </select>
               </div>
 
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-600 outline-none appearance-none cursor-pointer pr-6">
+              {/* Qualification */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Qualification</option>
                   <option value="12th">12th Pass</option>
                   <option value="undergraduate">Undergraduate</option>
@@ -535,8 +539,9 @@ export default function AviationHospitality() {
                 </select>
               </div>
 
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-600 outline-none appearance-none cursor-pointer pr-6">
+              {/* Preferred Branch */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Preferred Branch</option>
                   <option value="ghatkopar">Ghatkopar</option>
                   <option value="andheri">Andheri</option>
@@ -544,8 +549,9 @@ export default function AviationHospitality() {
                 </select>
               </div>
 
-              <div className="relative flex items-center bg-white rounded-full h-[50px] px-5 shadow-sm">
-                <select className="w-full bg-transparent text-sm text-slate-600 outline-none appearance-none cursor-pointer pr-6">
+              {/* Gender */}
+              <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Gender</option>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
@@ -553,13 +559,14 @@ export default function AviationHospitality() {
                 </select>
               </div>
 
-              <div className="md:col-span-3 flex justify-end pt-2">
+              {/* Submit button spanning full row on desktop */}
+              <div className="md:col-span-3 flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="rounded-full bg-[#8ba2cf] hover:bg-[#7e97c7] text-[#0b2f61] font-bold text-sm sm:text-base px-8 py-3 inline-flex items-center gap-3 shadow-md transition-all active:scale-95 cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-sm px-10 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
                 >
-                  <span>Enroll Now</span>
-                  <span className="text-lg">➔</span>
+                  <span>Enrol Now</span>
+                  <span className="text-base font-extrabold">➔</span>
                 </button>
               </div>
             </form>
@@ -602,7 +609,7 @@ export default function AviationHospitality() {
               onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="inline-flex items-center justify-center gap-2.5 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.28)] hover:shadow-[0_12px_28px_rgba(223,24,24,0.38)] transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <span>Enroll Now to Start
+              <span>Explore Airport Ground Staff Course
               </span>
               <span className="font-bold">&nbsp;➔</span>
             </button>
@@ -677,18 +684,18 @@ export default function AviationHospitality() {
           </div>
 
           {/* Bottom Card inside Eligibility section */}
-          <div className="mt-8 rounded-[22px] border border-slate-100/90 bg-white p-6 sm:p-8 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col sm:flex-row items-center justify-between gap-6 text-left">
+          <div className="mt-8 min-h-[255px] rounded-[16px] border border-slate-100 bg-white px-6 py-10 shadow-[0_8px_30px_rgba(0,0,0,0.03)] flex flex-col items-center justify-center gap-3 text-center">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#0b2f61]">
+              <h3 className="text-[19px] sm:text-[21px] font-extrabold text-[#17213a]">
                 Not Sure If You Qualify?
               </h3>
-              <p className="mt-1 text-xs sm:text-sm text-slate-500">
+              <p className="mt-2 text-xs sm:text-sm text-slate-500">
                 Don't worry! Our counselors will evaluate your profile and suggest the best career path in aviation for you.
               </p>
             </div>
             <button
               onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-              className="shrink-0 rounded-full bg-[#0b2f61] hover:bg-[#071f42] text-white px-7 py-3 text-sm font-bold shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
+              className="mt-8 shrink-0 rounded-full bg-[#ed1c24] hover:bg-[#cb151c] text-white px-[72px] py-3.5 text-sm font-bold shadow-[0_10px_20px_rgba(237,28,36,0.2)] transition-all inline-flex items-center gap-8 cursor-pointer"
             >
               <span>Check My Eligibility</span>
               <span>➔</span>
@@ -733,7 +740,7 @@ export default function AviationHospitality() {
       </section>
 
       {/* Student Success Stories */}
-      <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+      {/* <section className="bg-[#f4f6fb] py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl text-center">
           <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#0b2f61] leading-tight">
             Student Success Stories
@@ -811,7 +818,7 @@ export default function AviationHospitality() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
