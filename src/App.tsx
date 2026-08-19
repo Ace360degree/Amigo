@@ -29,6 +29,8 @@ import AviationHospitality from "./pages/AviationHospitality";
 import AIDataScienceCourse from "./pages/AI-DataScienceCourse";
 import Branches from "./pages/Branches";
 import ThankYou from "./pages/ThankYou";
+import Mumbai from "./pages/Mumbai";
+import MumbaiSEODetail from "./pages/MumbaiSEODetail";
 
 // Helper component to smoothly scroll to top on route change
 function ScrollToTop() {
@@ -74,6 +76,8 @@ function App() {
           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AIDataScienceCourse />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/mumbai" element={<Mumbai />} />
+          <Route path="/mumbai/:slug" element={<MumbaiSEODetail />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>
