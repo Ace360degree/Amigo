@@ -319,9 +319,7 @@ export default function AirHostessCabinCrew() {
             </div>
 
             <h1 className="text-[40px] sm:text-[42px] lg:text-[45px] font-outfit font-extrabold text-[#17365d] leading-[1.08] tracking-tight">
-              Air Hostess / Cabin Crew &amp;
-              <br />
-              Hospitality Management
+              Air Hostess / Cabin Crew
             </h1>
 
             <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] font-semibold">

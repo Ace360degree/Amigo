@@ -132,13 +132,18 @@ export default function Footer() {
               Scan & Pre Register<br />For Seminar
             </h4>
             {/* Footer QR Image */}
-            <div className="bg-white p-2 rounded-xl border border-slate-700/50 shadow-md">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new CustomEvent("openSeminarModal"))}
+              className="bg-white p-2 rounded-xl border border-slate-700/50 shadow-md hover:scale-105 transition-transform cursor-pointer group text-left"
+              title="Click to open Seminar Form"
+            >
               <img
                 src={FooterQR}
                 alt="Scan & Pre Register QR Code"
                 className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
               />
-            </div>
+            </button>
           </div>
 
         </div>

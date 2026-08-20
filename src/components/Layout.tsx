@@ -1,14 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import SeminarModal from "./SeminarModal";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  const [isSeminarModalOpen, setIsSeminarModalOpen] = useState(false);
+
+  // Check URL query params for QR code scan triggers
+  useEffect(() => {
+    const params = new URLSearchParams(search);
+    const formParam = params.get("form");
+    const qrParam = params.get("qr");
+    const scanParam = params.get("scan");
+
+    if (
+      formParam === "seminar" ||
+      qrParam === "1" ||
+      qrParam === "true" ||
+      scanParam === "true"
+    ) {
+      setIsSeminarModalOpen(true);
+    }
+  }, [search]);
+
+  // Listen for custom window event to trigger seminar popup modal manually
+  useEffect(() => {
+    const handleOpenSeminar = () => setIsSeminarModalOpen(true);
+    window.addEventListener("openSeminarModal", handleOpenSeminar);
+    return () => window.removeEventListener("openSeminarModal", handleOpenSeminar);
+  }, []);
 
   useEffect(() => {
     // Automatically attach IntersectionObserver to sections for lazy load scroll animation
@@ -61,6 +87,13 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* Footer Navigation */}
       <Footer />
+
+      {/* QR Code Seminar Modal */}
+      <SeminarModal
+        isOpen={isSeminarModalOpen}
+        onClose={() => setIsSeminarModalOpen(false)}
+      />
     </div>
   );
 }
+
