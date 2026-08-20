@@ -128,7 +128,7 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
           <div className="flex flex-col items-center justify-center text-center space-y-3 pt-2">
             <img
               src={logo}
-              alt="Amigoz Academy Logo"
+              alt="Amigo Academy Logo"
               className="h-14 sm:h-16 object-contain"
             />
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0B2F61] tracking-tight">

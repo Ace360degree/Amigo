@@ -165,7 +165,7 @@ export default function MumbaiSEODetail() {
           </h1>
 
           <p className="text-slate-600 font-sans font-medium text-sm sm:text-base leading-relaxed max-w-xl">
-            Amigoz Academy offers career-focused aviation training at our Ghatkopar branch for students living in and around {locationText}. Explore professional courses in Cabin Crew and Airport Ground Staff with practical training and dedicated placement support.
+            Amigo Academy offers career-focused aviation training at our Ghatkopar branch for students living in and around {locationText}. Explore professional courses in Cabin Crew and Airport Ground Staff with practical training and dedicated placement support.
           </p>
 
           <div className="pt-2">
@@ -489,7 +489,7 @@ export default function MumbaiSEODetail() {
             <div className="lg:col-span-6 space-y-6 text-left">
               <h3 className="text-2xl sm:text-3xl font-outfit font-extrabold text-[#1C3E8A]">Ghatkopar Branch</h3>
               <p className="text-slate-600 font-sans font-semibold text-sm sm:text-base leading-relaxed">
-                The Ghatkopar branch is the nearest Amigoz Academy centre for students from {locationText} and nearby areas.
+                The Ghatkopar branch is the nearest Amigo Academy centre for students from {locationText} and nearby areas.
               </p>
               
               <ul className="space-y-3 font-sans font-semibold text-xs sm:text-sm text-slate-500">

@@ -158,7 +158,7 @@ const criteriaCards: CriteriaCard[] = [
 
 const faqItems: FaqItem[] = [
   {
-    question: "What is the duration of the air hostess / cabin crew course at Amigoz Academy?",
+    question: "What is the duration of the air hostess / cabin crew course at Amigo Academy?",
     answer:
       "The air hostess / cabin crew course is a 12-month program with 6 days a week, 2 hours a day. Morning, afternoon and evening batches are available at our Ghatkopar, Andheri, Thane and Pune branches.",
   },
@@ -233,7 +233,7 @@ const faqItems: FaqItem[] = [
       "You learn grooming, communication, passenger handling, safety, emergency procedures, interview preparation and aviation industry exposure.",
   },
   {
-    question: "What makes Amigoz Academy's cabin crew course different?",
+    question: "What makes Amigo Academy's cabin crew course different?",
     answer:
       "Our course combines government certification, practical classroom training, placement support and career guidance in one structured program.",
   },
@@ -250,7 +250,7 @@ const storyCards: StoryCard[] = [
     role: "Cabin Crew Executive",
     company: "Air Asia 2025",
     quote:
-      '"Amigoz Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating."',
+      '"Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating."',
     image: coursesVideo1a,
   },
   {

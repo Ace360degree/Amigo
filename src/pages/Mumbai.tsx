@@ -63,7 +63,7 @@ export default function Mumbai() {
             Mumbai
           </h1>
           <p className="text-slate-600 font-sans font-medium text-sm sm:text-base md:text-lg leading-relaxed">
-            Explore Amigoz Academy aviation and technology training across Mumbai.
+            Explore Amigo Academy aviation and technology training across Mumbai.
             <br />
             Find the course and location most convenient for you.
           </p>
