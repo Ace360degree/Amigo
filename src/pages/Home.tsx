@@ -1232,7 +1232,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
                 {/* Play Button Overlay */}
                 <button
-                  onClick={() => alert(`Playing video story of ${story.name}...`)}
+                  onClick={() => setIsVideoModalOpen(true)}
                   className="relative z-10 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer focus:outline-none"
                   aria-label="Play video"
                 >

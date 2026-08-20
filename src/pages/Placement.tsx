@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import placementStudent1 from "../assets/img/placementstudent1.png";
 import placementStudent2 from "../assets/img/placementstudent2.png";
 import placementStudent3 from "../assets/img/placementstudent3.png";
@@ -96,6 +97,7 @@ function FAQItem({ index, question, answer }: { index: number; question: string;
 }
 
 export default function Placement() {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const statistics = [
     { number: "10,000+", label: "Students Placed Successfully" },
     { number: "100%", label: "Placement Assistance Guarantee" },
@@ -381,13 +383,13 @@ export default function Placement() {
               <p>Ai &amp; Data Science</p>
             </div>
             <div className="pt-1">
-              <a
-                href="#enquiry-form"
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
                 style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
-                className="inline-flex items-center justify-center gap-2 text-[9px] sm:text-sm font-bold px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 text-[9px] sm:text-sm font-bold px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-full transition-colors shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95 whitespace-nowrap cursor-pointer"
               >
                 Enroll Now To Avail Scholarship &rarr;
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -487,13 +489,13 @@ export default function Placement() {
 
           {/* Call to Action Button */}
           <div className="pt-6">
-            <a
-              href="#enquiry-form"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               style={{ backgroundColor: "#e31e24", color: "#ffffff" }}
-              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95"
+              className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold px-8 py-3.5 rounded-full transition-all shadow-[0_8px_20px_rgba(227,30,36,0.15)] hover:bg-[#c2141a] active:scale-95 cursor-pointer"
             >
               Enroll Now &rarr;
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -638,16 +640,25 @@ export default function Placement() {
                 className="bg-white border border-neutral-200/80 rounded-3xl p-5 flex flex-col space-y-4 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative text-left"
               >
                 {/* Image Container with Play Overlay */}
-                <div className="relative w-full h-[220px] bg-neutral-50 rounded-2xl overflow-hidden group">
+                <div
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="relative w-full h-[220px] bg-neutral-50 rounded-2xl overflow-hidden group cursor-pointer"
+                >
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
 
                   {/* Play Button Overlay */}
-                  <div className="absolute inset-0 bg-black/10 z-0 group-hover:bg-black/20 transition-colors duration-300" />
-                  <div className="w-14 h-14 rounded-full bg-[#e31e24] flex items-center justify-center text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg cursor-pointer hover:scale-110 active:scale-95 transition-transform duration-300 z-10">
+                  <div className="absolute inset-0 bg-black/10 z-0 group-hover:bg-black/25 transition-colors duration-300" />
+                  <div
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsVideoModalOpen(true);
+                    }}
+                    className="w-14 h-14 rounded-full bg-[#e31e24] flex items-center justify-center text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg cursor-pointer group-hover:scale-110 active:scale-95 transition-transform duration-300 z-10"
+                  >
                     {/* SVG Triangle Play Icon */}
                     <svg
                       className="w-5 h-5 fill-current ml-1"
@@ -914,6 +925,42 @@ export default function Placement() {
           </button>
         </div>
       </section>
+
+      {/* YouTube Video Modal Popup */}
+      {isVideoModalOpen &&
+        createPortal(
+          <div
+            onClick={() => setIsVideoModalOpen(false)}
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-lg w-screen h-screen"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl bg-black rounded-3xl overflow-visible shadow-2xl border border-white/10"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsVideoModalOpen(false)}
+                className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-white text-neutral-900 hover:bg-[#e31e24] hover:text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-200 focus:outline-none cursor-pointer border-2 border-white/20 active:scale-95"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+
+              <div className="relative w-full pt-[56.25%] rounded-3xl overflow-hidden bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full border-0 rounded-3xl"
+                  src="https://www.youtube.com/embed/j04rbjw2B9M?si=0gO4vXb6kcrM3xO6&autoplay=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
+

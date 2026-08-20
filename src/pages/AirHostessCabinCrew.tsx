@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
+
+// ... existing code ...
+
 import { useNavigate } from "react-router-dom";
 import heroImage from "../assets/img/aircourseh111a.png";
 import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
@@ -289,6 +293,7 @@ const storyCards: StoryCard[] = [
 
 export default function AirHostessCabinCrew() {
   const navigate = useNavigate();
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   return (
     <div className="bg-[#f5f7fb] text-neutral-900">
       {/* Hero Section */}
@@ -906,16 +911,23 @@ export default function AirHostessCabinCrew() {
               >
                 <div>
                   {/* Thumbnail */}
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+                  <div
+                    onClick={() => setIsVideoModalOpen(true)}
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 cursor-pointer group"
+                  >
                     <img
                       src={story.image}
                       alt={story.title}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/15" />
+                    <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors" />
                     <button
                       type="button"
-                      className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#e31e24] shadow-lg transition-transform hover:scale-105"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsVideoModalOpen(true);
+                      }}
+                      className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#e31e24] shadow-lg transition-transform group-hover:scale-110"
                       aria-label={`Play story for ${story.title}`}
                     >
                       <svg className="ml-0.5 h-5 w-5 fill-current" viewBox="0 0 24 24">
@@ -979,6 +991,41 @@ export default function AirHostessCabinCrew() {
           </div>
         </div>
       </section>
+
+      {/* YouTube Video Modal Popup */}
+      {isVideoModalOpen &&
+        createPortal(
+          <div
+            onClick={() => setIsVideoModalOpen(false)}
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-lg w-screen h-screen"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl bg-black rounded-3xl overflow-visible shadow-2xl border border-white/10"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsVideoModalOpen(false)}
+                className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-white text-neutral-900 hover:bg-[#e31e24] hover:text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-200 focus:outline-none cursor-pointer border-2 border-white/20 active:scale-95"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+
+              <div className="relative w-full pt-[56.25%] rounded-3xl overflow-hidden bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full border-0 rounded-3xl"
+                  src="https://www.youtube.com/embed/j04rbjw2B9M?si=0gO4vXb6kcrM3xO6&autoplay=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }

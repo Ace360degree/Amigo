@@ -107,13 +107,13 @@ export default function Scholarship() {
 
             {/* Check Eligibility Button */}
             <div className="pt-1">
-              <a
-                href="/contact#enquiry-form"
-                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group whitespace-nowrap"
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                className="inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[9px] sm:text-xs lg:text-[13px] px-4 py-2.5 sm:px-6 sm:py-3 lg:px-8 lg:py-3.5 rounded-full shadow-[0_12px_24px_rgba(227,30,36,0.22)] hover:shadow-[0_16px_32px_rgba(227,30,36,0.3)] transition-all duration-300 active:scale-95 group whitespace-nowrap cursor-pointer"
               >
                 Enroll Now To Avail Scholarship
                 <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1 font-bold">➔</span>
-              </a>
+              </button>
             </div>
 
           </div>
@@ -549,12 +549,12 @@ export default function Scholarship() {
 
               {/* Button */}
               <div className="pt-6">
-                <a
-                  href="/contact#enquiry-form"
-                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95"
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 cursor-pointer"
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
             </div>
 
@@ -594,12 +594,12 @@ export default function Scholarship() {
 
               {/* Button */}
               <div className="pt-6">
-                <a
-                  href="/contact#enquiry-form"
-                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95"
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 cursor-pointer"
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
             </div>
 
@@ -639,12 +639,12 @@ export default function Scholarship() {
 
               {/* Button */}
               <div className="pt-6">
-                <a
-                  href="/contact#enquiry-form"
-                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95"
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                  className="w-full inline-flex items-center justify-center bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[13px] py-3.5 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.15)] transition-all duration-300 active:scale-95 cursor-pointer"
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
             </div>
 

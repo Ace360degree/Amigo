@@ -316,8 +316,8 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             {/* Button */}
             <div className="w-full lg:w-auto pt-2 lg:pt-0">
               <button
-                onClick={() => navigate("/contact")}
-                className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-[#0b2f61] font-sans font-bold text-[13px] px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(255,255,255,0.05)] transition-all duration-300 active:scale-95 whitespace-nowrap"
+                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                className="w-full lg:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-50 text-[#0b2f61] font-sans font-bold text-[13px] px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(255,255,255,0.05)] transition-all duration-300 active:scale-95 whitespace-nowrap cursor-pointer"
               >
                 Get Free Counselling &rarr;
               </button>

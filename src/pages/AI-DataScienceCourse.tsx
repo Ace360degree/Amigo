@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
@@ -319,6 +320,7 @@ export default function AIDataScienceCourse() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [storyIndex, setStoryIndex] = useState<number>(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const handleCTA = () => {
     window.dispatchEvent(new CustomEvent("openEligibilityModal"));
@@ -842,16 +844,22 @@ export default function AIDataScienceCourse() {
                 key={idx}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
               >
-                <div className="relative w-full h-[200px] overflow-hidden bg-slate-900">
+                <div
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="relative w-full h-[200px] overflow-hidden bg-slate-900 cursor-pointer group"
+                >
                   <img
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-full object-cover opacity-90"
+                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <button
-                      onClick={handleCTA}
-                      className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setIsVideoModalOpen(true);
+                      }}
+                      className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer"
                     >
                       <svg className="w-5 h-5 text-[#e31e24] fill-current ml-0.5" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
@@ -878,20 +886,54 @@ export default function AIDataScienceCourse() {
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={handlePrevStory}
-              className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer"
+              className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
             >
               ←
             </button>
             <button
               onClick={handleNextStory}
-              className="inline-flex items-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-xs sm:text-sm px-6 py-2.5 rounded-full shadow-md transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full border border-slate-300 flex items-center justify-center text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer"
             >
-              <span>Next Story</span>
-              <span>➔</span>
+              →
             </button>
           </div>
         </div>
       </section>
+
+      {/* YouTube Video Modal Popup */}
+      {isVideoModalOpen &&
+        createPortal(
+          <div
+            onClick={() => setIsVideoModalOpen(false)}
+            className="fixed inset-0 z-[99999] flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/80 backdrop-blur-lg w-screen h-screen"
+          >
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-5xl bg-black rounded-3xl overflow-visible shadow-2xl border border-white/10"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setIsVideoModalOpen(false)}
+                className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-white text-neutral-900 hover:bg-[#e31e24] hover:text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold shadow-2xl transition-all duration-200 focus:outline-none cursor-pointer border-2 border-white/20 active:scale-95"
+                aria-label="Close modal"
+              >
+                ✕
+              </button>
+
+              <div className="relative w-full pt-[56.25%] rounded-3xl overflow-hidden bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full border-0 rounded-3xl"
+                  src="https://www.youtube.com/embed/j04rbjw2B9M?si=0gO4vXb6kcrM3xO6&autoplay=1"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
