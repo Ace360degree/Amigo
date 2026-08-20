@@ -671,7 +671,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
 
 
       {/* Core Team Members Section */}
-      <section className="bg-white py-20 sm:py-24 border-t border-slate-100/80">
+      <section className="hidden bg-white py-20 sm:py-24 border-t border-slate-100/80">
         <div className="max-w-7xl mx-auto px-6 text-center">
 
           {/* Headings */}
