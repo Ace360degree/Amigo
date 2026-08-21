@@ -1,13 +1,59 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import innerBlogImg from "../assets/img/innerblogimg.png";
 import innerBlogImg1 from "../assets/img/innerblogimg2.png";
 import imgAviation3 from "../assets/img/BlogInsights3.png";
 import imgAi1 from "../assets/img/BlogInsights4.png";
 import imgAviation2 from "../assets/img/BlogInsights2.png";
+import { fetchBlogPostBySlug, WPPost } from "../services/wordpress";
 
 export default function InnerBlog() {
   const navigate = useNavigate();
+  const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<WPPost | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (slug) {
+      setLoading(true);
+      fetchBlogPostBySlug(slug).then((data) => {
+        setPost(data);
+        setLoading(false);
+      }).catch((err) => {
+        console.error("Error loading post:", err);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-40 min-h-[50vh] bg-white">
+        <div className="w-12 h-12 border-4 border-[#e31e24] border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-slate-500 font-sans font-bold mt-4">Loading article...</p>
+      </div>
+    );
+  }
+
+  // Formatting date
+  const dateStr = post ? new Date(post.date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  }) : "July 24, 2026";
+
+  // Author Name
+  const authorName = post?._embedded?.author?.[0]?.name || "Amigo Academy";
+
+  // Read Time calculation
+  const words = post?.content?.rendered ? post.content.rendered.replace(/<[^>]+>/g, "").split(/\s+/).length : 0;
+  const readTime = post ? `${Math.max(1, Math.ceil(words / 200))} min read` : "8 min read";
+
+  // Featured Media
+  const heroImage = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || innerBlogImg;
+
   return (
     <div className="flex flex-col bg-white">
       {/* Inner Blog Header & Hero Section */}
@@ -15,23 +61,23 @@ export default function InnerBlog() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Main Title */}
           <h1 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold text-[#0b2f61] text-center font-sans leading-[1.2] mb-6 tracking-tight">
-            How to Become a Cabin Crew<br className="hidden sm:block" /> After 12th: A Complete Guide
+            {post ? post.title.rendered : "How to Become a Cabin Crew After 12th: A Complete Guide"}
           </h1>
 
           {/* Subtitle */}
           <p className="text-slate-500 text-xs sm:text-sm md:text-base leading-relaxed text-center font-medium max-w-2xl mx-auto mb-10">
-            If you're interested in building a career in aviation after completing 12th, becoming a Cabin Crew professional can be an exciting career option. This guide explains the eligibility requirements, skills, training, career opportunities, and steps involved in starting a Cabin Crew career.
+            {post?.excerpt?.rendered ? post.excerpt.rendered.replace(/<[^>]+>/g, "") : "If you're interested in building a career in aviation after completing 12th, becoming a Cabin Crew professional can be an exciting career option. This guide explains the eligibility requirements, skills, training, career opportunities, and steps involved in starting a Cabin Crew career."}
           </p>
 
           {/* Author & Social Share Bar */}
           <div className="flex items-center justify-between border-b border-slate-100 pb-5 mb-8 sm:mb-12">
             {/* Author Info */}
             <div className="flex flex-col text-left">
-              <span className="text-xs sm:text-sm font-bold text-[#0b2f61]">Amigo Academy</span>
+              <span className="text-xs sm:text-sm font-bold text-[#0b2f61]">{authorName}</span>
               <div className="text-[11px] sm:text-xs text-slate-400 font-medium flex items-center mt-0.5">
-                <span>July 24 2005</span>
+                <span>{dateStr}</span>
                 <span className="mx-2">•</span>
-                <span>8 min read</span>
+                <span>{readTime}</span>
               </div>
             </div>
 
@@ -81,8 +127,8 @@ export default function InnerBlog() {
           {/* Main Hero Image */}
           <div className="w-full rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-sm mb-12 sm:mb-16">
             <img
-              src={innerBlogImg}
-              alt="Cabin Crew Professional"
+              src={heroImage}
+              alt={post ? post.title.rendered : "Cabin Crew Professional"}
               className="w-full h-auto object-cover"
             />
           </div>
@@ -92,167 +138,183 @@ export default function InnerBlog() {
       {/* Article Content Section */}
       <section className="pb-16 sm:pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 font-sans text-slate-600 text-sm sm:text-[15px] leading-relaxed space-y-10 sm:space-y-12">
-          {/* Section 1 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              1. Overview of Cabin Crew Career
-            </h2>
-            <p className="mb-3">
-              Cabin Crew professionals are the face of the airline. They ensure passenger safety, provide exceptional customer service, and make every journey comfortable and enjoyable.
-            </p>
-            <p>
-              It is a dynamic career offering opportunities to travel, meet new people, and grow professionally.
-            </p>
-          </div>
-
-          {/* Section 2 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              2. Eligibility Criteria
-            </h2>
-            <p className="mb-3">
-              While requirements may vary slightly between airlines, here are some general eligibility criteria to become a Cabin Crew professional after 12th:
-            </p>
-            <ul className="list-disc pl-6 space-y-1.5 mb-3 text-slate-600 font-medium">
-              <li>12th pass (from a recognised board)</li>
-              <li>Age requirements may vary by airline</li>
-              <li>Minimum height requirements may vary by airline and role</li>
-              <li>Good communication skills in English</li>
-              <li>Additional language skills can be an advantage</li>
-              <li>Physically fit and medically suitable</li>
-              <li>Pleasant personality and confident attitude</li>
-              <li>Professional grooming and presentation</li>
-            </ul>
-            <p className="text-xs sm:text-sm text-slate-500 font-medium italic mt-2">
-              Students should always verify the latest eligibility requirements directly with the airline before applying.
-            </p>
-          </div>
-
-          {/* Section 3 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              3. Skills Required
-            </h2>
-            <p className="mb-4">
-              Airlines look for candidates who are not only qualified but also well-groomed, confident, and service-oriented.
-            </p>
-            <div className="space-y-3">
-              <p>
-                <strong className="text-[#0b2f61] font-bold">Communication Skills:</strong> Clear and confident communication is essential when interacting with passengers, colleagues, and airline teams.
-              </p>
-              <p>
-                <strong className="text-[#0b2f61] font-bold">Customer Service Mindset:</strong> Cabin Crew professionals need to understand passenger needs and provide helpful, professional service throughout the journey.
-              </p>
-              <p>
-                <strong className="text-[#0b2f61] font-bold">Teamwork & Adaptability:</strong> Cabin Crew members work closely with other crew members and must adapt quickly to changing situations.
-              </p>
-              <p>
-                <strong className="text-[#0b2f61] font-bold">Problem-Solving Ability:</strong> The ability to remain calm and find practical solutions is important when dealing with passenger concerns or unexpected situations.
-              </p>
-              <p>
-                <strong className="text-[#0b2f61] font-bold">Calm & Positive Attitude:</strong> Cabin Crew professionals need to maintain professionalism and composure, especially during challenging situations.
-              </p>
-            </div>
-          </div>
-
-          {/* Middle Inline Image */}
-          <div className="w-full rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-sm my-10 sm:my-14">
-            <img
-              src={innerBlogImg1}
-              alt="Cabin Crew Training & Service"
-              className="w-full h-auto object-cover"
+          {post && post.content.rendered ? (
+            <div 
+              className="wp-content prose prose-slate max-w-none 
+                prose-headings:text-[#0b2f61] prose-headings:font-bold prose-headings:font-sans
+                prose-h2:text-xl sm:prose-h2:text-2xl lg:prose-h2:text-[26px] prose-h2:tracking-tight prose-h2:mb-3 prose-h2:mt-8
+                prose-p:mb-4
+                prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-1.5 prose-ul:mb-4
+                prose-li:text-slate-600 prose-li:font-medium
+                prose-strong:text-[#0b2f61] prose-strong:font-bold
+                prose-img:rounded-[24px] prose-img:shadow-sm prose-img:my-6"
+              dangerouslySetInnerHTML={{ __html: post.content.rendered }}
             />
-          </div>
+          ) : (
+            <>
+              {/* Section 1 */}
+              <div>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  1. Overview of Cabin Crew Career
+                </h2>
+                <p className="mb-3">
+                  Cabin Crew professionals are the face of the airline. They ensure passenger safety, provide exceptional customer service, and make every journey comfortable and enjoyable.
+                </p>
+                <p>
+                  It is a dynamic career offering opportunities to travel, meet new people, and grow professionally.
+                </p>
+              </div>
 
-          {/* Section 4 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              4. Training & Certification
-            </h2>
-            <p className="mb-3">
-              Professional training can help students become more prepared for opportunities in the aviation industry.
-            </p>
-            <p className="mb-3 font-semibold text-[#0b2f61]">
-              At Amigo Academy, Cabin Crew training focuses on areas such as:
-            </p>
-            <ul className="list-disc pl-6 space-y-1.5 mb-4 text-slate-600 font-medium">
-              <li>Aviation & Airline Industry Knowledge</li>
-              <li>Safety & Emergency Procedures</li>
-              <li>In-Flight Service Training</li>
-              <li>Grooming, Etiquette & Personality Development</li>
-              <li>Communication & Soft Skills</li>
-              <li>Interview Preparation & Mock Sessions</li>
-            </ul>
-            <p>
-              The objective is to help students develop the professional knowledge, confidence, communication skills, and practical understanding required for aviation careers.
-            </p>
-          </div>
+              {/* Section 2 */}
+              <div>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  2. Eligibility Criteria
+                </h2>
+                <p className="mb-3">
+                  While requirements may vary slightly between airlines, here are some general eligibility criteria to become a Cabin Crew professional after 12th:
+                </p>
+                <ul className="list-disc pl-6 space-y-1.5 mb-3 text-slate-600 font-medium">
+                  <li>12th pass (from a recognised board)</li>
+                  <li>Age requirements may vary by airline</li>
+                  <li>Minimum height requirements may vary by airline and role</li>
+                  <li>Good communication skills in English</li>
+                  <li>Additional language skills can be an advantage</li>
+                  <li>Physically fit and medically suitable</li>
+                  <li>Pleasant personality and confident attitude</li>
+                  <li>Professional grooming and presentation</li>
+                </ul>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium italic mt-2">
+                  Students should always verify the latest eligibility requirements directly with the airline before applying.
+                </p>
+              </div>
 
-          {/* Section 5 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              5. Career Opportunities
-            </h2>
-            <p className="mb-3">
-              After completing appropriate training, students can explore opportunities across different customer-facing and aviation-related roles.
-            </p>
-            <p className="mb-2 font-bold text-[#0b2f61]">Potential Career Roles</p>
-            <ul className="list-disc pl-6 space-y-1.5 mb-3 text-slate-600 font-medium">
-              <li>Cabin Crew</li>
-              <li>Flight Attendant</li>
-              <li>Air Hostess</li>
-              <li>Customer Service Executive</li>
-              <li>Airport Ground Staff</li>
-              <li>Airport Operations</li>
-              <li>Career opportunities and job responsibilities vary depending on the employer, role, and experience.</li>
-            </ul>
-          </div>
+              {/* Section 3 */}
+              <div>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  3. Skills Required
+                </h2>
+                <p className="mb-4">
+                  Airlines look for candidates who are not only qualified but also well-groomed, confident, and service-oriented.
+                </p>
+                <div className="space-y-3">
+                  <p>
+                    <strong className="text-[#0b2f61] font-bold">Communication Skills:</strong> Clear and confident communication is essential when interacting with passengers, colleagues, and airline teams.
+                  </p>
+                  <p>
+                    <strong className="text-[#0b2f61] font-bold">Customer Service Mindset:</strong> Cabin Crew professionals need to understand passenger needs and provide helpful, professional service throughout the journey.
+                  </p>
+                  <p>
+                    <strong className="text-[#0b2f61] font-bold">Teamwork & Adaptability:</strong> Cabin Crew members work closely with other crew members and must adapt quickly to changing situations.
+                  </p>
+                  <p>
+                    <strong className="text-[#0b2f61] font-bold">Problem-Solving Ability:</strong> The ability to remain calm and find practical solutions is important when dealing with passenger concerns or unexpected situations.
+                  </p>
+                  <p>
+                    <strong className="text-[#0b2f61] font-bold">Calm & Positive Attitude:</strong> Cabin Crew professionals need to maintain professionalism and composure, especially during challenging situations.
+                  </p>
+                </div>
+              </div>
 
-          {/* Section 6 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
-              6. Salary & Career Growth
-            </h2>
-            <p className="mb-3">
-              Cabin Crew salaries can vary depending on the airline, location, experience, role, and other factors. As professionals gain experience and take on greater responsibilities, they may have opportunities for career growth within the aviation industry.
-            </p>
-            <p>
-              Career progression can include opportunities to move into senior Cabin Crew positions and other airline-related roles.
-            </p>
-          </div>
+              {/* Middle Inline Image */}
+              <div className="w-full rounded-[24px] sm:rounded-[28px] overflow-hidden shadow-sm my-10 sm:my-14">
+                <img
+                  src={innerBlogImg1}
+                  alt="Cabin Crew Training & Service"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
 
-          {/* Section 7 */}
-          <div>
-            <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-4 tracking-tight">
-              7. How to Become a Cabin Crew After 12th – Step by Step
-            </h2>
-            <div className="space-y-4">
+              {/* Section 4 */}
               <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 1: Check the eligibility criteria</h3>
-                <p>Understand the requirements of the airlines and roles you're interested in.</p>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  4. Training & Certification
+                </h2>
+                <p className="mb-3">
+                  Professional training can help students become more prepared for opportunities in the aviation industry.
+                </p>
+                <p className="mb-3 font-semibold text-[#0b2f61]">
+                  At Amigo Academy, Cabin Crew training focuses on areas such as:
+                </p>
+                <ul className="list-disc pl-6 space-y-1.5 mb-4 text-slate-600 font-medium">
+                  <li>Aviation & Airline Industry Knowledge</li>
+                  <li>Safety & Emergency Procedures</li>
+                  <li>In-Flight Service Training</li>
+                  <li>Grooming, Etiquette & Personality Development</li>
+                  <li>Communication & Soft Skills</li>
+                  <li>Interview Preparation & Mock Sessions</li>
+                </ul>
+                <p>
+                  The objective is to help students develop the professional knowledge, confidence, communication skills, and practical understanding required for aviation careers.
+                </p>
               </div>
+
+              {/* Section 5 */}
               <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 2: Improve communication and personality skills</h3>
-                <p>Develop your communication, confidence, grooming, customer-service, and interpersonal skills.</p>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  5. Career Opportunities
+                </h2>
+                <p className="mb-3">
+                  After completing appropriate training, students can explore opportunities across different customer-facing and aviation-related roles.
+                </p>
+                <p className="mb-2 font-bold text-[#0b2f61]">Potential Career Roles</p>
+                <ul className="list-disc pl-6 space-y-1.5 mb-3 text-slate-600 font-medium">
+                  <li>Cabin Crew</li>
+                  <li>Flight Attendant</li>
+                  <li>Air Hostess</li>
+                  <li>Customer Service Executive</li>
+                  <li>Airport Ground Staff</li>
+                  <li>Airport Operations</li>
+                  <li>Career opportunities and job responsibilities vary depending on the employer, role, and experience.</li>
+                </ul>
               </div>
+
+              {/* Section 6 */}
               <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 3: Enrol in a professional Cabin Crew training programme</h3>
-                <p>Choose training that provides practical knowledge and prepares you for the aviation industry.</p>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-3 tracking-tight">
+                  6. Salary & Career Growth
+                </h2>
+                <p className="mb-3">
+                  Cabin Crew salaries can vary depending on the airline, location, experience, role, and other factors. As professionals gain experience and take on greater responsibilities, they may have opportunities for career growth within the aviation industry.
+                </p>
+                <p>
+                  Career progression can include opportunities to move into senior Cabin Crew positions and other airline-related roles.
+                </p>
               </div>
+
+              {/* Section 7 */}
               <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 4: Prepare for airline interviews</h3>
-                <p>Work on interview preparation, presentation, communication, and confidence.</p>
+                <h2 className="text-xl sm:text-2xl lg:text-[26px] font-bold text-[#0b2f61] mb-4 tracking-tight">
+                  7. How to Become a Cabin Crew After 12th – Step by Step
+                </h2>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 1: Check the eligibility criteria</h3>
+                    <p>Understand the requirements of the airlines and roles you're interested in.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 2: Improve communication and personality skills</h3>
+                    <p>Develop your communication, confidence, grooming, customer-service, and interpersonal skills.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 3: Enrol in a professional Cabin Crew training programme</h3>
+                    <p>Choose training that provides practical knowledge and prepares you for the aviation industry.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 4: Prepare for airline interviews</h3>
+                    <p>Work on interview preparation, presentation, communication, and confidence.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 5: Complete the required selection process</h3>
+                    <p>Depending on the airline, the process may include interviews, assessments, medical checks, and other selection stages.</p>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 6: Start your career in the aviation industry</h3>
+                    <p>Once selected, begin your professional journey and continue developing your skills and experience.</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 5: Complete the required selection process</h3>
-                <p>Depending on the airline, the process may include interviews, assessments, medical checks, and other selection stages.</p>
-              </div>
-              <div>
-                <h3 className="font-bold text-[#0b2f61] text-base mb-1">Step 6: Start your career in the aviation industry</h3>
-                <p>Once selected, begin your professional journey and continue developing your skills and experience.</p>
-              </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </section>
 
@@ -305,24 +367,27 @@ export default function InnerBlog() {
                 date: "July 16 2005",
                 readTime: "5 min read",
                 img: imgAviation3,
+                slug: "airport-ground-staff-career-guide-roles-salary-growth"
               },
               {
-                title: "Top AI Skills to Learn in 2025 for a Future-Ready Career",
+                title: "Top AI Skills to Learn in 2026 for a Future-Ready Career",
                 date: "Aug 12 2005",
                 readTime: "5 min read",
                 img: imgAi1,
+                slug: "top-ai-skills-to-learn-in-2026-for-a-future-ready-career"
               },
               {
                 title: "Cabin Crew Eligibility, Skills & Requirements Explained",
                 date: "June 20 2005",
                 readTime: "5 min read",
                 img: imgAviation2,
+                slug: "cabin-crew-eligibility-skills-requirements-explained"
               },
             ].map((post, idx) => (
               <div
                 key={idx}
                 onClick={() => {
-                  navigate("/how-to-become-a-cabin-crew-after-12th");
+                  navigate(`/${post.slug}`);
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="bg-white rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-slate-100 overflow-hidden flex flex-col group hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer"

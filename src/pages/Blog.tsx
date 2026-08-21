@@ -110,8 +110,77 @@ const blogCategories = [
     }
 ];
 
+import { fetchBlogPosts } from "../services/wordpress";
+
+interface GroupedPosts {
+    title: string;
+    posts: Array<{
+        title: string;
+        slug: string;
+        date: string;
+        readTime: string;
+        image: string;
+    }>;
+}
+
 export default function Blog() {
     const navigate = useNavigate();
+    const [categories, setCategories] = React.useState<GroupedPosts[]>([]);
+    const [loading, setLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        fetchBlogPosts().then((posts) => {
+            const groups: { [key: string]: GroupedPosts["posts"] } = {};
+            posts.forEach((post) => {
+                const catName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Aviation Insights";
+                const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+                
+                // Calculate read time
+                const words = post.content.rendered ? post.content.rendered.replace(/<[^>]+>/g, "").split(/\s+/).length : 200;
+                const readTimeVal = `${Math.max(1, Math.ceil(words / 200))} min read`;
+                
+                // Format date
+                const dateObj = new Date(post.date);
+                const formattedDate = dateObj.toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric"
+                });
+
+                // Fallback image based on category
+                let fallbackImage = imgAviation1;
+                if (catName.toLowerCase().includes("ai") || catName.toLowerCase().includes("tech")) {
+                    fallbackImage = imgAi1;
+                } else if (catName.toLowerCase().includes("career")) {
+                    fallbackImage = imgCareer1;
+                } else if (catName.toLowerCase().includes("story") || catName.toLowerCase().includes("update")) {
+                    fallbackImage = imgStory1;
+                }
+
+                if (!groups[catName]) {
+                    groups[catName] = [];
+                }
+                groups[catName].push({
+                    title: post.title.rendered,
+                    slug: post.slug,
+                    date: formattedDate,
+                    readTime: readTimeVal,
+                    image: featuredMedia || fallbackImage
+                });
+            });
+
+            const groupedList = Object.keys(groups).map((catTitle) => ({
+                title: catTitle,
+                posts: groups[catTitle]
+            }));
+
+            setCategories(groupedList);
+            setLoading(false);
+        }).catch((err) => {
+            console.error(err);
+            setLoading(false);
+        });
+    }, []);
 
     return (
         <div className="flex flex-col bg-white">
@@ -175,48 +244,55 @@ export default function Blog() {
             <section id="blogPosts" className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
-                    {blogCategories.map((category, catIdx) => (
-                        <div key={catIdx}>
-                            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1c355e] mb-8 font-sans tracking-tight">
-                                {category.title}
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {category.posts.map((post, postIdx) => (
-                                    <div
-                                        key={postIdx}
-                                        onClick={() => {
-                                            navigate("/how-to-become-a-cabin-crew-after-12th");
-                                            window.scrollTo({ top: 0, behavior: "smooth" });
-                                        }}
-                                        className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300 cursor-pointer"
-                                    >
-
-                                        {/* Image */}
-                                        <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
-                                            <img
-                                                src={post.image}
-                                                alt={post.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
-                                        </div>
-
-                                        {/* Content */}
-                                        <div className="p-6 flex flex-col flex-1">
-                                            <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
-                                                {post.title}
-                                            </h3>
-                                            <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
-                                                <span>{post.date}</span>
-                                                <span className="mx-2">•</span>
-                                                <span>{post.readTime}</span>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                ))}
-                            </div>
+                    {loading ? (
+                        <div className="flex flex-col items-center justify-center py-20">
+                            <div className="w-12 h-12 border-4 border-[#e31e24] border-t-transparent rounded-full animate-spin"></div>
+                            <p className="text-slate-500 font-sans font-bold mt-4">Loading articles...</p>
                         </div>
-                    ))}
+                    ) : (
+                        categories.map((category, catIdx) => (
+                            <div key={catIdx}>
+                                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1c355e] mb-8 font-sans tracking-tight">
+                                    {category.title}
+                                </h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                    {category.posts.map((post, postIdx) => (
+                                        <div
+                                            key={postIdx}
+                                            onClick={() => {
+                                                navigate(`/${post.slug}`);
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                            }}
+                                            className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300 cursor-pointer"
+                                        >
+
+                                            {/* Image */}
+                                            <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
+                                                <img
+                                                    src={post.image}
+                                                    alt={post.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            </div>
+
+                                            {/* Content */}
+                                            <div className="p-6 flex flex-col flex-1">
+                                                <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
+                                                    {post.title}
+                                                </h3>
+                                                <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
+                                                    <span>{post.date}</span>
+                                                    <span className="mx-2">•</span>
+                                                    <span>{post.readTime}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    )}
 
                 </div>
             </section>

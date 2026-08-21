@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 
 // Import brand logos and student photos for placement support section
 import placementbrandy1 from "../assets/img/placementbrandy1.png";
@@ -56,42 +57,72 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 export default function MumbaiSEODetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const [seoPage, setSeoPage] = useState<WPPost | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  // Parsing slug e.g. "best-aviation-institute-near-bhandup"
-  const slugText = slug || "";
-  const parts = slugText.split("-");
-  const nearIndex = parts.indexOf("near");
+  useEffect(() => {
+    if (slug) {
+      setLoading(true);
+      fetchSEOPageBySlug(slug).then((data) => {
+        setSeoPage(data);
+        setLoading(false);
+      }).catch((err) => {
+        console.error("Error loading SEO page:", err);
+        setLoading(false);
+      });
+    } else {
+      setLoading(false);
+    }
+  }, [slug]);
 
+  // Determine queryText and locationText
+  const displayTitle = seoPage ? seoPage.title.rendered : "";
   let queryText = "Best Aviation Institute Near";
   let locationText = "Bhandup";
 
-  if (nearIndex !== -1) {
-    const queryParts = parts.slice(0, nearIndex);
-    const locationParts = parts.slice(nearIndex + 1);
+  if (displayTitle) {
+    const nearIndex = displayTitle.toLowerCase().indexOf("near");
+    if (nearIndex !== -1) {
+      queryText = displayTitle.substring(0, nearIndex + 4);
+      locationText = displayTitle.substring(nearIndex + 4).trim();
+    } else {
+      queryText = displayTitle;
+      locationText = "";
+    }
+  } else {
+    // Parsing slug e.g. "best-aviation-institute-near-bhandup"
+    const slugText = slug || "";
+    const parts = slugText.split("-");
+    const nearIndex = parts.indexOf("near");
 
-    queryText = queryParts
-      .map((p) => (p === "ai" ? "AI & Data Science" : p.charAt(0).toUpperCase() + p.slice(1)))
-      .join(" ");
-    locationText = locationParts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
-  }
+    if (nearIndex !== -1) {
+      const queryParts = parts.slice(0, nearIndex);
+      const locationParts = parts.slice(nearIndex + 1);
 
-  // Adjust display text for specific course/query strings
-  if (queryText.toLowerCase().includes("ai data science")) {
-    queryText = "AI & Data Science Course Near";
-  } else if (queryText.toLowerCase() === "best courses after 12th") {
-    queryText = "Best Courses After 12th Near";
-  } else if (queryText.toLowerCase() === "aviation courses") {
-    queryText = "Aviation Courses Near";
-  } else if (queryText.toLowerCase() === "aviation career guidance") {
-    queryText = "Aviation Career Guidance Near";
-  } else if (queryText.toLowerCase() === "cabin crew course") {
-    queryText = "Cabin Crew Course Near";
-  } else if (queryText.toLowerCase() === "air hostess course") {
-    queryText = "Air Hostess Course Near";
-  } else if (queryText.toLowerCase() === "airport ground staff course") {
-    queryText = "Airport Ground Staff Course Near";
-  } else if (!queryText.endsWith("Near")) {
-    queryText += " Near";
+      queryText = queryParts
+        .map((p) => (p === "ai" ? "AI & Data Science" : p.charAt(0).toUpperCase() + p.slice(1)))
+        .join(" ");
+      locationText = locationParts.map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join(" ");
+    }
+
+    // Adjust display text for specific course/query strings
+    if (queryText.toLowerCase().includes("ai data science")) {
+      queryText = "AI & Data Science Course Near";
+    } else if (queryText.toLowerCase() === "best courses after 12th") {
+      queryText = "Best Courses After 12th Near";
+    } else if (queryText.toLowerCase() === "aviation courses") {
+      queryText = "Aviation Courses Near";
+    } else if (queryText.toLowerCase() === "aviation career guidance") {
+      queryText = "Aviation Career Guidance Near";
+    } else if (queryText.toLowerCase() === "cabin crew course") {
+      queryText = "Cabin Crew Course Near";
+    } else if (queryText.toLowerCase() === "air hostess course") {
+      queryText = "Air Hostess Course Near";
+    } else if (queryText.toLowerCase() === "airport ground staff course") {
+      queryText = "Airport Ground Staff Course Near";
+    } else if (!queryText.endsWith("Near")) {
+      queryText += " Near";
+    }
   }
 
   // Form states
@@ -275,6 +306,25 @@ export default function MumbaiSEODetail() {
 
         </div>
       </section>
+
+      {/* Dynamic WP Content Section */}
+      {seoPage && seoPage.content.rendered && (
+        <section className="bg-white py-16 px-6 border-b border-neutral-100">
+          <div className="max-w-4xl mx-auto font-sans text-slate-600 text-sm sm:text-[15px] leading-relaxed">
+            <div 
+              className="prose prose-slate max-w-none 
+                prose-headings:text-[#1C3E8A] prose-headings:font-bold prose-headings:font-outfit
+                prose-h2:text-2xl prose-h2:font-extrabold prose-h2:mb-4 prose-h2:mt-8
+                prose-p:mb-4
+                prose-ul:list-disc prose-ul:pl-6 prose-ul:space-y-1.5 prose-ul:mb-4
+                prose-li:text-slate-600 prose-li:font-semibold
+                prose-strong:text-[#1C3E8A] prose-strong:font-bold
+                prose-img:rounded-[24px] prose-img:shadow-md prose-img:my-6"
+              dangerouslySetInnerHTML={{ __html: seoPage.content.rendered }}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Courses Near Location Section */}
       <section className="bg-slate-50/50 py-16 sm:py-24 px-6">

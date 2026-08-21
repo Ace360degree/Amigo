@@ -31,6 +31,7 @@ import Branches from "./pages/Branches";
 import ThankYou from "./pages/ThankYou";
 import Mumbai from "./pages/Mumbai";
 import MumbaiSEODetail from "./pages/MumbaiSEODetail";
+import DynamicSlugRoute from "./pages/DynamicSlugRoute";
 
 // Helper component to smoothly scroll to top on route change
 function ScrollToTop() {
@@ -65,7 +66,6 @@ function App() {
           <Route path="/student-success" element={<StudentSuccess />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/how-to-become-a-cabin-crew-after-12th" element={<InnerBlog />} />
           <Route path="/terms-and-conditions" element={<TermsConditions />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -77,7 +77,7 @@ function App() {
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/mumbai" element={<Mumbai />} />
-          <Route path="/mumbai/:slug" element={<MumbaiSEODetail />} />
+          <Route path="/:slug" element={<DynamicSlugRoute />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />
         </Routes>
