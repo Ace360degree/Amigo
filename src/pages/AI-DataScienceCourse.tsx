@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
-import { submitForm } from "../services/api";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
@@ -534,35 +533,7 @@ export default function AIDataScienceCourse() {
               </p>
             </div>
 
-            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={async (e) => {
-              e.preventDefault();
-              const target = e.currentTarget;
-              const mobile = (target.querySelector('input[type="tel"]') as HTMLInputElement)?.value || "";
-              const name = (target.querySelector('input[type="text"]') as HTMLInputElement)?.value || "";
-              const selects = target.querySelectorAll('select');
-              const age = selects[0]?.value || "";
-              const qualification = selects[1]?.value || "";
-              const branch = selects[2]?.value || "";
-              const gender = selects[3]?.value || "";
-
-              const res = await submitForm({
-                action: "counsellor",
-                name,
-                phone: mobile,
-                course: "AI & Data Science",
-                branch,
-                age,
-                gender,
-                qualification,
-                form_location: "AI & Data Science Page",
-              });
-
-              if (res.success) {
-                navigate("/thank-you");
-              } else {
-                alert(res.message || "Failed to submit enquiry. Please try again.");
-              }
-            }}>
+            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
               {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <input

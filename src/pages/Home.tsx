@@ -1,12 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import heroScholarship from "../assets/img/heroscholarship.png";
-import mobileHeroScholarship from "../assets/img/mobileheroScholarship.png";
+import { useNavigate } from "react-router-dom";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
-import Swal from "sweetalert2";
-import { submitForm } from "../services/api";
 import courseCabin from "../assets/img/course-cabiny1.png";
 import courseGround from "../assets/img/course-groundy1.png";
 import courseAi from "../assets/img/course-aiy1.png";
@@ -71,29 +67,13 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
 
 
-  const handleApply = async (e: React.FormEvent) => {
+  const handleApply = (e: React.FormEvent) => {
     e.preventDefault();
     if (!mobileNumber || !fullName || !selectedCourse || !selectedBranch || !selectedAge || !selectedGender) {
       alert("Please fill in all required fields.");
       return;
     }
-
-    const res = await submitForm({
-      action: "counsellor",
-      fullName,
-      mobileNumber,
-      selectedCourse,
-      selectedBranch,
-      selectedAge,
-      selectedGender,
-      form_location: "Home Page Hero Form",
-    });
-
-    if (res.success) {
-      navigate("/thank-you");
-    } else {
-      alert(res.message || "Failed to submit enquiry. Please try again.");
-    }
+    navigate("/thank-you");
   };
 
   const coursesList = [

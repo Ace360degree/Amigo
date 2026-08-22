@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heroContact from "../assets/img/herocontact.png";
-import { submitForm } from "../services/api";
 
 interface ContactProps {
   setCurrentPage?: (page: string) => void;
@@ -671,15 +670,9 @@ function EnquiryForm() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await submitForm({ action: "contact", ...formData });
-
-    if (res.success) {
-      navigate("/thank-you");
-    } else {
-      alert(res.message || "Failed to submit enquiry. Please try again.");
-    }
+    navigate("/thank-you");
   };
 
   if (submitted) {

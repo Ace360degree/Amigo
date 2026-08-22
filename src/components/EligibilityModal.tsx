@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { submitForm } from "../services/api";
 
 interface EligibilityModalProps {
   isOpen: boolean;
@@ -31,33 +30,23 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     formData.qualif !== "" &&
     formData.branch !== "";
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
 
-    const res = await submitForm({ action: "eligibility", ...formData });
+    onClose();
 
-    if (res.success) {
-      onClose();
-      Swal.fire({
-        title: "Application Submitted!",
-        text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
-        icon: "success",
-        confirmButtonColor: "#1C3E8A",
-        timer: 2000,
-        timerProgressBar: true,
-        showConfirmButton: false,
-      }).then(() => {
-        navigate("/thank-you");
-      });
-    } else {
-      Swal.fire({
-        title: "Submission Failed",
-        text: res.message || "Failed to save your entry. Please try again.",
-        icon: "error",
-        confirmButtonColor: "#DF1818",
-      });
-    }
+    Swal.fire({
+      title: "Application Submitted!",
+      text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
+      icon: "success",
+      confirmButtonColor: "#1C3E8A",
+      timer: 2000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    }).then(() => {
+      navigate("/thank-you");
+    });
   };
 
   return (

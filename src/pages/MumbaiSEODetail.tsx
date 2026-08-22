@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
-import { submitForm } from "../services/api";
 
 // Import brand logos and student photos for placement support section
 import placementbrandy1 from "../assets/img/placementbrandy1.png";
@@ -133,40 +132,23 @@ export default function MumbaiSEODetail() {
     course: "",
   });
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || formData.phone.length !== 10 || !formData.course) {
       return;
     }
 
-    const res = await submitForm({
-      action: "counsellor",
-      name: formData.name,
-      phone: formData.phone,
-      course: formData.course,
-      form_location: `SEO Page: ${locationText || slug || "General"}`,
+    Swal.fire({
+      title: "Application Submitted!",
+      text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
+      icon: "success",
+      confirmButtonColor: "#1C3E8A",
+      timer: 2000,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    }).then(() => {
+      navigate("/thank-you");
     });
-
-    if (res.success) {
-      Swal.fire({
-        title: "Application Submitted!",
-        text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
-        icon: "success",
-        confirmButtonColor: "#1C3E8A",
-        timer: 2000,
-        timerProgressBar: true,
-        showConfirmButton: false,
-      }).then(() => {
-        navigate("/thank-you");
-      });
-    } else {
-      Swal.fire({
-        title: "Submission Failed",
-        text: res.message || "Failed to submit request. Please try again.",
-        icon: "error",
-        confirmButtonColor: "#DF1818",
-      });
-    }
   };
 
   const handleCTA = () => {

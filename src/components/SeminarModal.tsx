@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/img/logo.png";
-import { submitForm } from "../services/api";
 
 interface SeminarModalProps {
   isOpen: boolean;
@@ -79,39 +78,22 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await submitForm({
-      action: "seminar",
-      personalDetails,
-      contactDetails,
-      parentDetails,
-      educationalDetails,
-      references,
-    });
+    onClose();
 
-    if (res.success) {
-      onClose();
-      Swal.fire({
-        title: "Seminar Seat Reserved!",
-        text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
-        icon: "success",
-        confirmButtonColor: "#1C3E8A",
-        timer: 2500,
-        timerProgressBar: true,
-        showConfirmButton: false,
-      }).then(() => {
-        navigate("/thank-you");
-      });
-    } else {
-      Swal.fire({
-        title: "Reservation Failed",
-        text: res.message || "Failed to reserve your seat. Please try again.",
-        icon: "error",
-        confirmButtonColor: "#1C3E8A",
-      });
-    }
+    Swal.fire({
+      title: "Seminar Seat Reserved!",
+      text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
+      icon: "success",
+      confirmButtonColor: "#1C3E8A",
+      timer: 2500,
+      timerProgressBar: true,
+      showConfirmButton: false,
+    }).then(() => {
+      navigate("/thank-you");
+    });
   };
 
   return (
