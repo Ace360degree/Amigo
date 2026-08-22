@@ -658,9 +658,12 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 }
 
 
+import { submitContactForm } from "../services/api";
+
 // Sub-component to manage form inputs and submission
 function EnquiryForm() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
@@ -670,9 +673,29 @@ function EnquiryForm() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/thank-you");
+    if (loading) return;
+
+    setLoading(true);
+    try {
+      await submitContactForm({
+        enquiry_type: formData.type,
+        name: formData.name,
+        phone: formData.mobile,
+        email: formData.email,
+        message: formData.message
+      });
+
+      setSubmitted(true);
+      setFormData({ name: "", mobile: "", email: "", type: "Admission", message: "" });
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("Contact submission error:", error);
+      alert("Failed to submit enquiry. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {

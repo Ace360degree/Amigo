@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import { submitCounsellorForm } from "../services/api";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
 import courseCabin from "../assets/img/course-cabiny1.png";
@@ -67,13 +68,41 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
 
 
-  const handleApply = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleApply = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!mobileNumber || !fullName || !selectedCourse || !selectedBranch || !selectedAge || !selectedGender) {
+    if (!mobileNumber || !fullName || !selectedCourse || !selectedBranch || !selectedAge || !selectedGender || loading) {
       alert("Please fill in all required fields.");
       return;
     }
-    navigate("/thank-you");
+
+    setLoading(true);
+    try {
+      await submitCounsellorForm({
+        name: fullName,
+        phone: mobileNumber,
+        course: selectedCourse,
+        branch: selectedBranch,
+        age: selectedAge,
+        gender: selectedGender,
+        form_location: "Home Page Hero Form"
+      });
+
+      setMobileNumber("");
+      setFullName("");
+      setSelectedCourse("");
+      setSelectedBranch("");
+      setSelectedAge("");
+      setSelectedGender("");
+
+      navigate("/thank-you");
+    } catch (error) {
+      console.error("Home form submit error:", error);
+      alert("Failed to submit form. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const coursesList = [

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import { submitEligibilityForm } from "../services/api";
+
 interface EligibilityModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -9,6 +11,7 @@ interface EligibilityModalProps {
 
 export default function EligibilityModal({ isOpen, onClose }: EligibilityModalProps) {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone: "",
     fullName: "",
@@ -30,23 +33,59 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     formData.qualif !== "" &&
     formData.branch !== "";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!isFormValid) return;
+    if (!isFormValid || loading) return;
 
-    onClose();
+    setLoading(true);
 
-    Swal.fire({
-      title: "Application Submitted!",
-      text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
-      icon: "success",
-      confirmButtonColor: "#1C3E8A",
-      timer: 2000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/thank-you");
-    });
+    try {
+      await submitEligibilityForm({
+        full_name: formData.fullName,
+        phone: formData.phone,
+        age: formData.age,
+        gender: formData.gender,
+        course: formData.course,
+        qualification: formData.qualif,
+        branch: formData.branch,
+        source_page: window.location.pathname
+      });
+
+      // Reset form
+      setFormData({
+        phone: "",
+        fullName: "",
+        age: "",
+        gender: "",
+        course: "",
+        qualif: "",
+        branch: "",
+      });
+
+      onClose();
+
+      Swal.fire({
+        title: "Application Submitted!",
+        text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } catch (error: any) {
+      console.error("Eligibility form submit error:", error);
+      Swal.fire({
+        title: "Submission Failed",
+        text: error?.response?.data?.message || "Failed to submit enquiry. Please try again or contact us directly.",
+        icon: "error",
+        confirmButtonColor: "#DF1818"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

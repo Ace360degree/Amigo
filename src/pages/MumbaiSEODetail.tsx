@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
+import { submitCounsellorForm } from "../services/api";
 
 // Import brand logos and student photos for placement support section
 import placementbrandy1 from "../assets/img/placementbrandy1.png";
@@ -131,24 +132,47 @@ export default function MumbaiSEODetail() {
     phone: "",
     course: "",
   });
+  const [formSubmitting, setFormSubmitting] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || formData.phone.length !== 10 || !formData.course) {
+    if (!formData.name.trim() || formData.phone.length !== 10 || !formData.course || formSubmitting) {
       return;
     }
 
-    Swal.fire({
-      title: "Application Submitted!",
-      text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
-      icon: "success",
-      confirmButtonColor: "#1C3E8A",
-      timer: 2000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/thank-you");
-    });
+    setFormSubmitting(true);
+    try {
+      await submitCounsellorForm({
+        name: formData.name,
+        phone: formData.phone,
+        course: formData.course,
+        form_location: `SEO Page: ${locationText || slug || "Mumbai"}`
+      });
+
+      setFormData({ name: "", phone: "", course: "" });
+
+      Swal.fire({
+        title: "Application Submitted!",
+        text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } catch (error) {
+      console.error("SEO form submit error:", error);
+      Swal.fire({
+        title: "Submission Failed",
+        text: "Failed to submit enquiry. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#DF1818"
+      });
+    } finally {
+      setFormSubmitting(false);
+    }
   };
 
   const handleCTA = () => {

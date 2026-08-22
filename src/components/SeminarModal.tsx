@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/img/logo.png";
+import { submitSeminarForm } from "../services/api";
 
 interface SeminarModalProps {
   isOpen: boolean;
@@ -78,22 +79,73 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loading) return;
 
-    onClose();
+    setLoading(true);
 
-    Swal.fire({
-      title: "Seminar Seat Reserved!",
-      text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
-      icon: "success",
-      confirmButtonColor: "#1C3E8A",
-      timer: 2500,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/thank-you");
-    });
+    try {
+      await submitSeminarForm({
+        first_name: personalDetails.firstName,
+        middle_name: personalDetails.middleName,
+        surname: personalDetails.surname,
+        gender: personalDetails.gender,
+        height: personalDetails.height,
+        weight: personalDetails.weight,
+        age: personalDetails.age,
+        marital_status: personalDetails.maritalStatus,
+        whatsapp: contactDetails.whatsapp,
+        mobile2: contactDetails.mobile2,
+        mobile3: contactDetails.mobile3,
+        father_name: parentDetails.fatherName,
+        father_occupation: parentDetails.fatherOccupation,
+        father_mobile: parentDetails.fatherMobile,
+        mother_name: parentDetails.motherName,
+        mother_occupation: parentDetails.motherOccupation,
+        mother_mobile: parentDetails.motherMobile,
+        education_level: educationalDetails.educationLevel,
+        school_college: educationalDetails.schoolCollege,
+        stream: educationalDetails.stream,
+        year: educationalDetails.year,
+        medium: educationalDetails.medium,
+        percentage: educationalDetails.percentage,
+        references_json: references
+      });
+
+      // Reset states
+      setPersonalDetails({ firstName: "", middleName: "", surname: "", gender: "", height: "", weight: "", age: "", maritalStatus: "" });
+      setContactDetails({ whatsapp: "", mobile2: "", mobile3: "" });
+      setParentDetails({ fatherName: "", fatherOccupation: "", fatherMobile: "", motherName: "", motherOccupation: "", motherMobile: "" });
+      setEducationalDetails({ educationLevel: "", schoolCollege: "", stream: "", year: "", medium: "", percentage: "" });
+      setReferences([{ id: 1, fullName: "", mobile: "" }]);
+
+      onClose();
+
+      Swal.fire({
+        title: "Seminar Seat Reserved!",
+        text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2500,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } catch (error: any) {
+      console.error("Seminar registration error:", error);
+      Swal.fire({
+        title: "Registration Failed",
+        text: error?.response?.data?.message || "Failed to reserve seat. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#DF1818"
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
