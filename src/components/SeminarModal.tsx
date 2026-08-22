@@ -82,17 +82,18 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     e.preventDefault();
 
     try {
+      const bodyParams = new URLSearchParams();
+      bodyParams.append("action", "seminar");
+      bodyParams.append("personalDetails", JSON.stringify(personalDetails));
+      bodyParams.append("contactDetails", JSON.stringify(contactDetails));
+      bodyParams.append("parentDetails", JSON.stringify(parentDetails));
+      bodyParams.append("educationalDetails", JSON.stringify(educationalDetails));
+      bodyParams.append("references", JSON.stringify(references));
+
       const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "seminar",
-          personalDetails,
-          contactDetails,
-          parentDetails,
-          educationalDetails,
-          references,
-        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: bodyParams.toString(),
       });
       const data = await res.json();
 

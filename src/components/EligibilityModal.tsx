@@ -35,10 +35,14 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     if (!isFormValid) return;
 
     try {
+      const bodyParams = new URLSearchParams();
+      bodyParams.append("action", "eligibility");
+      Object.entries(formData).forEach(([k, v]) => bodyParams.append(k, v));
+
       const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "eligibility", ...formData }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: bodyParams.toString(),
       });
       const data = await res.json();
 

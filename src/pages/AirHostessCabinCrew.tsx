@@ -567,20 +567,21 @@ export default function AirHostessCabinCrew() {
               const gender = selects[3]?.value || "";
 
               try {
+                const bodyParams = new URLSearchParams();
+                bodyParams.append("action", "counsellor");
+                bodyParams.append("name", name);
+                bodyParams.append("phone", mobile);
+                bodyParams.append("course", "Air Hostess / Cabin Crew");
+                bodyParams.append("branch", branch);
+                bodyParams.append("age", age);
+                bodyParams.append("gender", gender);
+                bodyParams.append("qualification", qualification);
+                bodyParams.append("form_location", "Air Hostess Cabin Crew Page");
+
                 const res = await fetch("https://amigoacademy.in/api/submit.php", {
                   method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    action: "counsellor",
-                    name,
-                    phone: mobile,
-                    course: "Air Hostess / Cabin Crew",
-                    branch,
-                    age,
-                    gender,
-                    qualification,
-                    form_location: "Air Hostess Cabin Crew Page",
-                  }),
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                  body: bodyParams.toString(),
                 });
                 const data = await res.json();
                 if (res.ok && data.status === "success") {

@@ -928,10 +928,13 @@ export default function Franchise() {
                                     message: (target.elements.namedItem("message") as HTMLTextAreaElement)?.value || ""
                                 };
                                 try {
+                                    const bodyParams = new URLSearchParams();
+                                    Object.entries(formDataObj).forEach(([k, v]) => bodyParams.append(k, v));
+
                                     const res = await fetch("https://amigoacademy.in/api/submit.php", {
                                         method: "POST",
-                                        headers: { "Content-Type": "application/json" },
-                                        body: JSON.stringify(formDataObj)
+                                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                                        body: bodyParams.toString()
                                     });
                                     const data = await res.json();
                                     if (res.ok && data.status === "success") {

@@ -75,19 +75,20 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
     }
 
     try {
+      const bodyParams = new URLSearchParams();
+      bodyParams.append("action", "counsellor");
+      bodyParams.append("fullName", fullName);
+      bodyParams.append("mobileNumber", mobileNumber);
+      bodyParams.append("selectedCourse", selectedCourse);
+      bodyParams.append("selectedBranch", selectedBranch);
+      bodyParams.append("selectedAge", selectedAge);
+      bodyParams.append("selectedGender", selectedGender);
+      bodyParams.append("form_location", "Home Page Hero Form");
+
       const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "counsellor",
-          fullName,
-          mobileNumber,
-          selectedCourse,
-          selectedBranch,
-          selectedAge,
-          selectedGender,
-          form_location: "Home Page Hero Form",
-        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: bodyParams.toString(),
       });
       const data = await res.json();
 

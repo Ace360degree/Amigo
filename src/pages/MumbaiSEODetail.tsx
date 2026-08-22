@@ -139,16 +139,17 @@ export default function MumbaiSEODetail() {
     }
 
     try {
+      const bodyParams = new URLSearchParams();
+      bodyParams.append("action", "counsellor");
+      bodyParams.append("name", formData.name);
+      bodyParams.append("phone", formData.phone);
+      bodyParams.append("course", formData.course);
+      bodyParams.append("form_location", `SEO Page: ${locationText || slug || "General"}`);
+
       const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "counsellor",
-          name: formData.name,
-          phone: formData.phone,
-          course: formData.course,
-          form_location: `SEO Page: ${locationText || slug || "General"}`,
-        }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: bodyParams.toString(),
       });
       const data = await res.json();
 
