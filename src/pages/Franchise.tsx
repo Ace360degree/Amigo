@@ -928,15 +928,21 @@ export default function Franchise() {
                                     message: (target.elements.namedItem("message") as HTMLTextAreaElement)?.value || ""
                                 };
                                 try {
-                                    await fetch("https://amigoacademy.in/api/submit.php", {
+                                    const res = await fetch("https://amigoacademy.in/api/submit.php", {
                                         method: "POST",
                                         headers: { "Content-Type": "application/json" },
                                         body: JSON.stringify(formDataObj)
                                     });
+                                    const data = await res.json();
+                                    if (res.ok && data.status === "success") {
+                                        navigate("/thank-you");
+                                    } else {
+                                        alert(data.message || "Failed to submit franchise enquiry. Please try again.");
+                                    }
                                 } catch (err) {
-                                    console.warn("Backend API error:", err);
+                                    console.error("Backend API error:", err);
+                                    alert("Network error. Please check your connection and try again.");
                                 }
-                                navigate("/thank-you");
                             }} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Name */}

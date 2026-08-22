@@ -82,7 +82,7 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     e.preventDefault();
 
     try {
-      await fetch("https://amigoacademy.in/api/submit.php", {
+      const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -94,23 +94,38 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
           references,
         }),
       });
+      const data = await res.json();
+
+      if (res.ok && data.status === "success") {
+        onClose();
+        Swal.fire({
+          title: "Seminar Seat Reserved!",
+          text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
+          icon: "success",
+          confirmButtonColor: "#1C3E8A",
+          timer: 2500,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        }).then(() => {
+          navigate("/thank-you");
+        });
+      } else {
+        Swal.fire({
+          title: "Reservation Failed",
+          text: data.message || "Failed to reserve your seat. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#1C3E8A",
+        });
+      }
     } catch (err) {
-      console.warn("Backend API error:", err);
+      console.error("Backend API error:", err);
+      Swal.fire({
+        title: "Network Error",
+        text: "Could not connect to server. Please check your internet connection.",
+        icon: "error",
+        confirmButtonColor: "#1C3E8A",
+      });
     }
-
-    onClose();
-
-    Swal.fire({
-      title: "Seminar Seat Reserved!",
-      text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
-      icon: "success",
-      confirmButtonColor: "#1C3E8A",
-      timer: 2500,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/thank-you");
-    });
   };
 
   return (

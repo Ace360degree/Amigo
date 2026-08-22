@@ -673,15 +673,22 @@ function EnquiryForm() {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await fetch("https://amigoacademy.in/api/submit.php", {
+      const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "contact", ...formData }),
       });
+      const data = await res.json();
+
+      if (res.ok && data.status === "success") {
+        navigate("/thank-you");
+      } else {
+        alert(data.message || "Failed to submit enquiry. Please try again.");
+      }
     } catch (err) {
-      console.warn("Backend API error:", err);
+      console.error("Backend API error:", err);
+      alert("Network error. Please check your connection and try again.");
     }
-    navigate("/thank-you");
   };
 
   if (submitted) {

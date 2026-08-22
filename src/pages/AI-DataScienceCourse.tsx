@@ -545,7 +545,7 @@ export default function AIDataScienceCourse() {
               const gender = selects[3]?.value || "";
 
               try {
-                await fetch("https://amigoacademy.in/api/submit.php", {
+                const res = await fetch("https://amigoacademy.in/api/submit.php", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
@@ -560,10 +560,16 @@ export default function AIDataScienceCourse() {
                     form_location: "AI & Data Science Page",
                   }),
                 });
+                const data = await res.json();
+                if (res.ok && data.status === "success") {
+                  navigate("/thank-you");
+                } else {
+                  alert(data.message || "Failed to submit enquiry. Please try again.");
+                }
               } catch (err) {
-                console.warn("Backend API error:", err);
+                console.error("Backend API error:", err);
+                alert("Network error. Please check your connection and try again.");
               }
-              navigate("/thank-you");
             }}>
               {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">

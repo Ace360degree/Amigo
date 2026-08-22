@@ -139,7 +139,7 @@ export default function MumbaiSEODetail() {
     }
 
     try {
-      await fetch("https://amigoacademy.in/api/submit.php", {
+      const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -150,21 +150,37 @@ export default function MumbaiSEODetail() {
           form_location: `SEO Page: ${locationText || slug || "General"}`,
         }),
       });
-    } catch (err) {
-      console.warn("Backend API error:", err);
-    }
+      const data = await res.json();
 
-    Swal.fire({
-      title: "Application Submitted!",
-      text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
-      icon: "success",
-      confirmButtonColor: "#1C3E8A",
-      timer: 2000,
-      timerProgressBar: true,
-      showConfirmButton: false,
-    }).then(() => {
-      navigate("/thank-you");
-    });
+      if (res.ok && data.status === "success") {
+        Swal.fire({
+          title: "Application Submitted!",
+          text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
+          icon: "success",
+          confirmButtonColor: "#1C3E8A",
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        }).then(() => {
+          navigate("/thank-you");
+        });
+      } else {
+        Swal.fire({
+          title: "Submission Failed",
+          text: data.message || "Failed to submit request. Please try again.",
+          icon: "error",
+          confirmButtonColor: "#DF1818",
+        });
+      }
+    } catch (err) {
+      console.error("Backend API error:", err);
+      Swal.fire({
+        title: "Network Error",
+        text: "Could not connect to server. Please check your internet connection.",
+        icon: "error",
+        confirmButtonColor: "#DF1818",
+      });
+    }
   };
 
   const handleCTA = () => {

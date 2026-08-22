@@ -75,7 +75,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
     }
 
     try {
-      await fetch("https://amigoacademy.in/api/submit.php", {
+      const res = await fetch("https://amigoacademy.in/api/submit.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -89,11 +89,17 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           form_location: "Home Page Hero Form",
         }),
       });
-    } catch (err) {
-      console.warn("Backend API error:", err);
-    }
+      const data = await res.json();
 
-    navigate("/thank-you");
+      if (res.ok && data.status === "success") {
+        navigate("/thank-you");
+      } else {
+        alert(data.message || "Failed to submit enquiry. Please try again.");
+      }
+    } catch (err) {
+      console.error("Backend API error:", err);
+      alert("Network error. Please check your connection and try again.");
+    }
   };
 
   const coursesList = [
