@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-
-// ... existing code ...
-
 import { useNavigate } from "react-router-dom";
+import { submitForm } from "../services/api";
 import heroImage from "../assets/img/aircourseh111a.png";
 import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
 import courseIcon121 from "../assets/img/courseicon121.png";
@@ -566,32 +564,22 @@ export default function AirHostessCabinCrew() {
               const branch = selects[2]?.value || "";
               const gender = selects[3]?.value || "";
 
-              try {
-                const bodyParams = new URLSearchParams();
-                bodyParams.append("action", "counsellor");
-                bodyParams.append("name", name);
-                bodyParams.append("phone", mobile);
-                bodyParams.append("course", "Air Hostess / Cabin Crew");
-                bodyParams.append("branch", branch);
-                bodyParams.append("age", age);
-                bodyParams.append("gender", gender);
-                bodyParams.append("qualification", qualification);
-                bodyParams.append("form_location", "Air Hostess Cabin Crew Page");
+              const res = await submitForm({
+                action: "counsellor",
+                name,
+                phone: mobile,
+                course: "Air Hostess / Cabin Crew",
+                branch,
+                age,
+                gender,
+                qualification,
+                form_location: "Air Hostess Cabin Crew Page",
+              });
 
-                const res = await fetch("https://amigoacademy.in/api/submit.php", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                  body: bodyParams.toString(),
-                });
-                const data = await res.json();
-                if (res.ok && data.status === "success") {
-                  navigate("/thank-you");
-                } else {
-                  alert(data.message || "Failed to submit enquiry. Please try again.");
-                }
-              } catch (err) {
-                console.error("Backend API error:", err);
-                alert("Network error. Please check your connection and try again.");
+              if (res.success) {
+                navigate("/thank-you");
+              } else {
+                alert(res.message || "Failed to submit enquiry. Please try again.");
               }
             }}>
               {/* Mobile Number */}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import heroContact from "../assets/img/herocontact.png";
+import { submitForm } from "../services/api";
 
 interface ContactProps {
   setCurrentPage?: (page: string) => void;
@@ -672,26 +673,12 @@ function EnquiryForm() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const bodyParams = new URLSearchParams();
-      bodyParams.append("action", "contact");
-      Object.entries(formData).forEach(([k, v]) => bodyParams.append(k, v));
+    const res = await submitForm({ action: "contact", ...formData });
 
-      const res = await fetch("https://amigoacademy.in/api/submit.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: bodyParams.toString(),
-      });
-      const data = await res.json();
-
-      if (res.ok && data.status === "success") {
-        navigate("/thank-you");
-      } else {
-        alert(data.message || "Failed to submit enquiry. Please try again.");
-      }
-    } catch (err) {
-      console.error("Backend API error:", err);
-      alert("Network error. Please check your connection and try again.");
+    if (res.success) {
+      navigate("/thank-you");
+    } else {
+      alert(res.message || "Failed to submit enquiry. Please try again.");
     }
   };
 

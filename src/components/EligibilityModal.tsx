@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { submitForm } from "../services/api";
 
 interface EligibilityModalProps {
   isOpen: boolean;
@@ -34,44 +35,25 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     e.preventDefault();
     if (!isFormValid) return;
 
-    try {
-      const bodyParams = new URLSearchParams();
-      bodyParams.append("action", "eligibility");
-      Object.entries(formData).forEach(([k, v]) => bodyParams.append(k, v));
+    const res = await submitForm({ action: "eligibility", ...formData });
 
-      const res = await fetch("https://amigoacademy.in/api/submit.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: bodyParams.toString(),
-      });
-      const data = await res.json();
-
-      if (res.ok && data.status === "success") {
-        onClose();
-        Swal.fire({
-          title: "Application Submitted!",
-          text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
-          icon: "success",
-          confirmButtonColor: "#1C3E8A",
-          timer: 2000,
-          timerProgressBar: true,
-          showConfirmButton: false,
-        }).then(() => {
-          navigate("/thank-you");
-        });
-      } else {
-        Swal.fire({
-          title: "Submission Failed",
-          text: data.message || "Failed to save your entry. Please try again.",
-          icon: "error",
-          confirmButtonColor: "#DF1818",
-        });
-      }
-    } catch (err) {
-      console.error("Backend API error:", err);
+    if (res.success) {
+      onClose();
       Swal.fire({
-        title: "Network Error",
-        text: "Could not connect to server. Please check your internet connection.",
+        title: "Application Submitted!",
+        text: "Thank you for checking your eligibility. Redirecting to confirmation page...",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } else {
+      Swal.fire({
+        title: "Submission Failed",
+        text: res.message || "Failed to save your entry. Please try again.",
         icon: "error",
         confirmButtonColor: "#DF1818",
       });

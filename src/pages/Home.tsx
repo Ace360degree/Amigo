@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import heroScholarship from "../assets/img/heroscholarship.png";
+import mobileHeroScholarship from "../assets/img/mobileheroScholarship.png";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
+import Swal from "sweetalert2";
+import { submitForm } from "../services/api";
 import courseCabin from "../assets/img/course-cabiny1.png";
 import courseGround from "../assets/img/course-groundy1.png";
 import courseAi from "../assets/img/course-aiy1.png";
@@ -74,32 +78,21 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       return;
     }
 
-    try {
-      const bodyParams = new URLSearchParams();
-      bodyParams.append("action", "counsellor");
-      bodyParams.append("fullName", fullName);
-      bodyParams.append("mobileNumber", mobileNumber);
-      bodyParams.append("selectedCourse", selectedCourse);
-      bodyParams.append("selectedBranch", selectedBranch);
-      bodyParams.append("selectedAge", selectedAge);
-      bodyParams.append("selectedGender", selectedGender);
-      bodyParams.append("form_location", "Home Page Hero Form");
+    const res = await submitForm({
+      action: "counsellor",
+      fullName,
+      mobileNumber,
+      selectedCourse,
+      selectedBranch,
+      selectedAge,
+      selectedGender,
+      form_location: "Home Page Hero Form",
+    });
 
-      const res = await fetch("https://amigoacademy.in/api/submit.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: bodyParams.toString(),
-      });
-      const data = await res.json();
-
-      if (res.ok && data.status === "success") {
-        navigate("/thank-you");
-      } else {
-        alert(data.message || "Failed to submit enquiry. Please try again.");
-      }
-    } catch (err) {
-      console.error("Backend API error:", err);
-      alert("Network error. Please check your connection and try again.");
+    if (res.success) {
+      navigate("/thank-you");
+    } else {
+      alert(res.message || "Failed to submit enquiry. Please try again.");
     }
   };
 

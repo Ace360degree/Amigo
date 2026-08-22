@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
+import { submitForm } from "../services/api";
 
 // Import brand logos and student photos for placement support section
 import placementbrandy1 from "../assets/img/placementbrandy1.png";
@@ -138,46 +139,30 @@ export default function MumbaiSEODetail() {
       return;
     }
 
-    try {
-      const bodyParams = new URLSearchParams();
-      bodyParams.append("action", "counsellor");
-      bodyParams.append("name", formData.name);
-      bodyParams.append("phone", formData.phone);
-      bodyParams.append("course", formData.course);
-      bodyParams.append("form_location", `SEO Page: ${locationText || slug || "General"}`);
+    const res = await submitForm({
+      action: "counsellor",
+      name: formData.name,
+      phone: formData.phone,
+      course: formData.course,
+      form_location: `SEO Page: ${locationText || slug || "General"}`,
+    });
 
-      const res = await fetch("https://amigoacademy.in/api/submit.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: bodyParams.toString(),
-      });
-      const data = await res.json();
-
-      if (res.ok && data.status === "success") {
-        Swal.fire({
-          title: "Application Submitted!",
-          text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
-          icon: "success",
-          confirmButtonColor: "#1C3E8A",
-          timer: 2000,
-          timerProgressBar: true,
-          showConfirmButton: false,
-        }).then(() => {
-          navigate("/thank-you");
-        });
-      } else {
-        Swal.fire({
-          title: "Submission Failed",
-          text: data.message || "Failed to submit request. Please try again.",
-          icon: "error",
-          confirmButtonColor: "#DF1818",
-        });
-      }
-    } catch (err) {
-      console.error("Backend API error:", err);
+    if (res.success) {
       Swal.fire({
-        title: "Network Error",
-        text: "Could not connect to server. Please check your internet connection.",
+        title: "Application Submitted!",
+        text: `Thank you, ${formData.name}. Redirecting to confirmation page...`,
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } else {
+      Swal.fire({
+        title: "Submission Failed",
+        text: res.message || "Failed to submit request. Please try again.",
         icon: "error",
         confirmButtonColor: "#DF1818",
       });

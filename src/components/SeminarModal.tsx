@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import logo from "../assets/img/logo.png";
+import { submitForm } from "../services/api";
 
 interface SeminarModalProps {
   isOpen: boolean;
@@ -81,48 +82,32 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const bodyParams = new URLSearchParams();
-      bodyParams.append("action", "seminar");
-      bodyParams.append("personalDetails", JSON.stringify(personalDetails));
-      bodyParams.append("contactDetails", JSON.stringify(contactDetails));
-      bodyParams.append("parentDetails", JSON.stringify(parentDetails));
-      bodyParams.append("educationalDetails", JSON.stringify(educationalDetails));
-      bodyParams.append("references", JSON.stringify(references));
+    const res = await submitForm({
+      action: "seminar",
+      personalDetails,
+      contactDetails,
+      parentDetails,
+      educationalDetails,
+      references,
+    });
 
-      const res = await fetch("https://amigoacademy.in/api/submit.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: bodyParams.toString(),
-      });
-      const data = await res.json();
-
-      if (res.ok && data.status === "success") {
-        onClose();
-        Swal.fire({
-          title: "Seminar Seat Reserved!",
-          text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
-          icon: "success",
-          confirmButtonColor: "#1C3E8A",
-          timer: 2500,
-          timerProgressBar: true,
-          showConfirmButton: false,
-        }).then(() => {
-          navigate("/thank-you");
-        });
-      } else {
-        Swal.fire({
-          title: "Reservation Failed",
-          text: data.message || "Failed to reserve your seat. Please try again.",
-          icon: "error",
-          confirmButtonColor: "#1C3E8A",
-        });
-      }
-    } catch (err) {
-      console.error("Backend API error:", err);
+    if (res.success) {
+      onClose();
       Swal.fire({
-        title: "Network Error",
-        text: "Could not connect to server. Please check your internet connection.",
+        title: "Seminar Seat Reserved!",
+        text: "Seminar Appointment No will be sent to your WhatsApp No. as a confirmation.",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2500,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
+    } else {
+      Swal.fire({
+        title: "Reservation Failed",
+        text: res.message || "Failed to reserve your seat. Please try again.",
         icon: "error",
         confirmButtonColor: "#1C3E8A",
       });

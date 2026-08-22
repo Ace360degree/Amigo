@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import { submitForm } from "../services/api";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
@@ -544,32 +545,22 @@ export default function AIDataScienceCourse() {
               const branch = selects[2]?.value || "";
               const gender = selects[3]?.value || "";
 
-              try {
-                const bodyParams = new URLSearchParams();
-                bodyParams.append("action", "counsellor");
-                bodyParams.append("name", name);
-                bodyParams.append("phone", mobile);
-                bodyParams.append("course", "AI & Data Science");
-                bodyParams.append("branch", branch);
-                bodyParams.append("age", age);
-                bodyParams.append("gender", gender);
-                bodyParams.append("qualification", qualification);
-                bodyParams.append("form_location", "AI & Data Science Page");
+              const res = await submitForm({
+                action: "counsellor",
+                name,
+                phone: mobile,
+                course: "AI & Data Science",
+                branch,
+                age,
+                gender,
+                qualification,
+                form_location: "AI & Data Science Page",
+              });
 
-                const res = await fetch("https://amigoacademy.in/api/submit.php", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                  body: bodyParams.toString(),
-                });
-                const data = await res.json();
-                if (res.ok && data.status === "success") {
-                  navigate("/thank-you");
-                } else {
-                  alert(data.message || "Failed to submit enquiry. Please try again.");
-                }
-              } catch (err) {
-                console.error("Backend API error:", err);
-                alert("Network error. Please check your connection and try again.");
+              if (res.success) {
+                navigate("/thank-you");
+              } else {
+                alert(res.message || "Failed to submit enquiry. Please try again.");
               }
             }}>
               {/* Mobile Number */}

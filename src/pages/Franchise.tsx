@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import franchiseHero from "../assets/img/Franchisehero.png";
+import mobileFranchiseHero from "../assets/img/mobilefranchise.png";
+import { submitForm } from "../services/api";
 
-export default function Franchise() {
+interface FranchiseProps {
+    setCurrentPage?: (page: string) => void;
+}
+
+export default function Franchise({ setCurrentPage }: FranchiseProps) {
     const navigate = useNavigate();
     const [openFaq, setOpenFaq] = React.useState<number | null>(1);
 
@@ -917,7 +924,7 @@ export default function Franchise() {
                                 e.preventDefault();
                                 const target = e.currentTarget;
                                 const formDataObj = {
-                                    action: "franchise",
+                                    action: "franchise" as const,
                                     name: (target.elements.namedItem("name") as HTMLInputElement)?.value || "",
                                     mobile: (target.elements.namedItem("mobile") as HTMLInputElement)?.value || "",
                                     email: (target.elements.namedItem("email") as HTMLInputElement)?.value || "",
@@ -927,24 +934,12 @@ export default function Franchise() {
                                     investment_range: (target.elements.namedItem("investment_range") as HTMLSelectElement)?.value || "",
                                     message: (target.elements.namedItem("message") as HTMLTextAreaElement)?.value || ""
                                 };
-                                try {
-                                    const bodyParams = new URLSearchParams();
-                                    Object.entries(formDataObj).forEach(([k, v]) => bodyParams.append(k, v));
 
-                                    const res = await fetch("https://amigoacademy.in/api/submit.php", {
-                                        method: "POST",
-                                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                                        body: bodyParams.toString()
-                                    });
-                                    const data = await res.json();
-                                    if (res.ok && data.status === "success") {
-                                        navigate("/thank-you");
-                                    } else {
-                                        alert(data.message || "Failed to submit franchise enquiry. Please try again.");
-                                    }
-                                } catch (err) {
-                                    console.error("Backend API error:", err);
-                                    alert("Network error. Please check your connection and try again.");
+                                const res = await submitForm(formDataObj);
+                                if (res.success) {
+                                    navigate("/thank-you");
+                                } else {
+                                    alert(res.message || "Failed to submit franchise enquiry. Please try again.");
                                 }
                             }} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
