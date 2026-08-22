@@ -30,9 +30,19 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
     formData.qualif !== "" &&
     formData.branch !== "";
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
+
+    try {
+      await fetch("https://amigoacademy.in/api/submit.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "eligibility", ...formData }),
+      });
+    } catch (err) {
+      console.warn("Backend API error:", err);
+    }
 
     onClose();
 

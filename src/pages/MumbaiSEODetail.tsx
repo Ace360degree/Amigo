@@ -132,10 +132,26 @@ export default function MumbaiSEODetail() {
     course: "",
   });
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || formData.phone.length !== 10 || !formData.course) {
       return;
+    }
+
+    try {
+      await fetch("https://amigoacademy.in/api/submit.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "counsellor",
+          name: formData.name,
+          phone: formData.phone,
+          course: formData.course,
+          form_location: `SEO Page: ${locationText || slug || "General"}`,
+        }),
+      });
+    } catch (err) {
+      console.warn("Backend API error:", err);
     }
 
     Swal.fire({

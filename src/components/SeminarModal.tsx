@@ -78,8 +78,25 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    try {
+      await fetch("https://amigoacademy.in/api/submit.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "seminar",
+          personalDetails,
+          contactDetails,
+          parentDetails,
+          educationalDetails,
+          references,
+        }),
+      });
+    } catch (err) {
+      console.warn("Backend API error:", err);
+    }
 
     onClose();
 

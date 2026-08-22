@@ -176,7 +176,7 @@ export async function fetchSEOPages(): Promise<WPPost[]> {
       id: index + 100,
       date: new Date().toISOString(),
       slug: toSlug(title),
-      link: `/mumbai/${toSlug(title)}`,
+      link: `/${toSlug(title)}`,
       title: { rendered: title },
       content: { rendered: "" },
       excerpt: { rendered: "" }
@@ -199,7 +199,7 @@ export async function fetchSEOPageBySlug(slug: string): Promise<WPPost | null> {
         id: 999,
         date: new Date().toISOString(),
         slug: slug,
-        link: `/mumbai/${slug}`,
+        link: `/${slug}`,
         title: { rendered: mockTitle },
         content: { rendered: "" },
         excerpt: { rendered: "" }

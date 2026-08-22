@@ -533,7 +533,38 @@ export default function AIDataScienceCourse() {
               </p>
             </div>
 
-            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
+            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={async (e) => {
+              e.preventDefault();
+              const target = e.currentTarget;
+              const mobile = (target.querySelector('input[type="tel"]') as HTMLInputElement)?.value || "";
+              const name = (target.querySelector('input[type="text"]') as HTMLInputElement)?.value || "";
+              const selects = target.querySelectorAll('select');
+              const age = selects[0]?.value || "";
+              const qualification = selects[1]?.value || "";
+              const branch = selects[2]?.value || "";
+              const gender = selects[3]?.value || "";
+
+              try {
+                await fetch("https://amigoacademy.in/api/submit.php", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    action: "counsellor",
+                    name,
+                    phone: mobile,
+                    course: "AI & Data Science",
+                    branch,
+                    age,
+                    gender,
+                    qualification,
+                    form_location: "AI & Data Science Page",
+                  }),
+                });
+              } catch (err) {
+                console.warn("Backend API error:", err);
+              }
+              navigate("/thank-you");
+            }}>
               {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <input

@@ -670,8 +670,17 @@ function EnquiryForm() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    try {
+      await fetch("https://amigoacademy.in/api/submit.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "contact", ...formData }),
+      });
+    } catch (err) {
+      console.warn("Backend API error:", err);
+    }
     navigate("/thank-you");
   };
 

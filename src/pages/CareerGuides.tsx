@@ -10,6 +10,11 @@ import cardImg5 from "../assets/img/career guides/5.png";
 import cardImg6 from "../assets/img/career guides/6.png";
 import cardImg7 from "../assets/img/career guides/7.png";
 import cardImg8 from "../assets/img/career guides/8.png";
+import guide12_1 from "../assets/img/career guides/12-1.png";
+import guide12_2 from "../assets/img/career guides/12-2.png";
+import guide12_3 from "../assets/img/career guides/12-3.png";
+import guide12_4 from "../assets/img/career guides/12-4.png";
+import guide12_5 from "../assets/img/career guides/12-5.png";
 
 export default function CareerGuides() {
   const navigate = useNavigate();
@@ -285,60 +290,71 @@ export default function CareerGuides() {
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[15.5px] max-w-[820px] mx-auto mb-16 text-center leading-relaxed">
+          <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[15.5px] max-w-[820px] mx-auto mb-10 text-center leading-relaxed">
             Choosing what to do after 12th can feel overwhelming. These guides help you explore different career paths, compare opportunities, and understand which options best match your interests and future goals.
           </p>
 
+          {/* Subheading */}
+          <h3 className="text-2xl sm:text-[28px] font-bold text-[#1C3E8A] font-outfit text-center mb-12">
+            Explore These Guides
+          </h3>
+
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Best Courses After 12th (Mumbai)",
+                img: guide12_1,
+                title: "Best Courses After 12th",
                 desc: "Explore career-focused courses across aviation, technology, and other industries."
               },
               {
+                img: guide12_2,
                 title: "High-Salary Courses After 12th",
                 desc: "Understand which careers offer strong earning potential and long-term growth."
               },
               {
+                img: guide12_3,
                 title: "Career Options After 12th (Commerce, Science & Arts)",
                 desc: "Compare different career paths and find the one that matches your interests and goals."
               },
               {
+                img: guide12_4,
                 title: "Career Courses After 12th Without NEET or JEE",
                 desc: "Explore professional careers that don't require competitive entrance exams."
               },
               {
+                img: guide12_5,
                 title: "Best Career Options After 12th",
                 desc: "Compare different career paths and find the one that matches your interests and goals."
               }
             ].map((guide, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[24px] p-8 sm:p-10 border border-slate-100/50 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-center items-center text-center min-h-[200px]"
+                onClick={() => {
+                  navigate("/how-to-become-a-cabin-crew-after-12th");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group hover:-translate-y-1"
               >
-                <h3 className="text-[17px] sm:text-[19px] font-bold text-[#1C3E8A] font-outfit mb-3.5 leading-snug">
-                  {guide.title}
-                </h3>
-                <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-semibold leading-relaxed">
-                  {guide.desc}
-                </p>
+                <div>
+                  <div className="relative w-full h-[200px] overflow-hidden">
+                    <img
+                      src={guide.img}
+                      alt={guide.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6 sm:p-7 flex flex-col space-y-3.5">
+                    <h3 className="text-[17px] sm:text-[19px] font-bold text-[#1C3E8A] font-outfit leading-snug">
+                      {guide.title}
+                    </h3>
+                    <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-semibold leading-relaxed">
+                      {guide.desc}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
-          </div>
-
-          {/* Centered Button */}
-          <div className="flex justify-center pt-4">
-            <button
-              onClick={() => {
-                navigate("/about-us");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
-              className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-4 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.15)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
-            >
-              Learn More About Amigo Academy
-              <span className="font-bold">&nbsp;➔</span>
-            </button>
           </div>
 
         </div>

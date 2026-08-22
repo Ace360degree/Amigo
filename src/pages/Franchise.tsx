@@ -913,7 +913,31 @@ export default function Franchise() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                         <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100">
-                            <form onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }} className="space-y-6">
+                            <form onSubmit={async (e) => {
+                                e.preventDefault();
+                                const target = e.currentTarget;
+                                const formDataObj = {
+                                    action: "franchise",
+                                    name: (target.elements.namedItem("name") as HTMLInputElement)?.value || "",
+                                    mobile: (target.elements.namedItem("mobile") as HTMLInputElement)?.value || "",
+                                    email: (target.elements.namedItem("email") as HTMLInputElement)?.value || "",
+                                    city: (target.elements.namedItem("city") as HTMLInputElement)?.value || "",
+                                    preferred_location: (target.elements.namedItem("preferred_location") as HTMLInputElement)?.value || "",
+                                    business_experience: (target.elements.namedItem("business_experience") as HTMLSelectElement)?.value || "",
+                                    investment_range: (target.elements.namedItem("investment_range") as HTMLSelectElement)?.value || "",
+                                    message: (target.elements.namedItem("message") as HTMLTextAreaElement)?.value || ""
+                                };
+                                try {
+                                    await fetch("https://amigoacademy.in/api/submit.php", {
+                                        method: "POST",
+                                        headers: { "Content-Type": "application/json" },
+                                        body: JSON.stringify(formDataObj)
+                                    });
+                                } catch (err) {
+                                    console.warn("Backend API error:", err);
+                                }
+                                navigate("/thank-you");
+                            }} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Name */}
                                     <div className="space-y-2">

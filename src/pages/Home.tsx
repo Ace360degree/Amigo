@@ -67,12 +67,32 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
 
 
-  const handleApply = (e: React.FormEvent) => {
+  const handleApply = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!mobileNumber || !fullName || !selectedCourse || !selectedBranch || !selectedAge || !selectedGender) {
       alert("Please fill in all required fields.");
       return;
     }
+
+    try {
+      await fetch("https://amigoacademy.in/api/submit.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "counsellor",
+          fullName,
+          mobileNumber,
+          selectedCourse,
+          selectedBranch,
+          selectedAge,
+          selectedGender,
+          form_location: "Home Page Hero Form",
+        }),
+      });
+    } catch (err) {
+      console.warn("Backend API error:", err);
+    }
+
     navigate("/thank-you");
   };
 
