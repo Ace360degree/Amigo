@@ -12,22 +12,25 @@ export default function Layout({ children }: LayoutProps) {
   const { pathname, search } = useLocation();
   const [isSeminarModalOpen, setIsSeminarModalOpen] = useState(false);
 
-  // Check URL query params for QR code scan triggers
+  // Check URL query params or pathname for QR code scan triggers & direct seminar links
   useEffect(() => {
     const params = new URLSearchParams(search);
     const formParam = params.get("form");
     const qrParam = params.get("qr");
     const scanParam = params.get("scan");
+    const cleanPath = pathname.toLowerCase().replace(/\/$/, "");
 
     if (
       formParam === "seminar" ||
       qrParam === "1" ||
       qrParam === "true" ||
-      scanParam === "true"
+      scanParam === "true" ||
+      cleanPath === "/seminar" ||
+      cleanPath === "/seminar-form"
     ) {
       setIsSeminarModalOpen(true);
     }
-  }, [search]);
+  }, [search, pathname]);
 
   // Listen for custom window event to trigger seminar popup modal manually
   useEffect(() => {

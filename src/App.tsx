@@ -77,6 +77,8 @@ function App() {
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/mumbai" element={<Mumbai />} />
+          <Route path="/seminar" element={<Home />} />
+          <Route path="/seminar-form" element={<Home />} />
           <Route path="/:slug" element={<DynamicSlugRoute />} />
           {/* Catch-all route to redirect back to home or render 404 */}
           <Route path="*" element={<Home />} />

@@ -58,6 +58,8 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
     { id: 1, fullName: "", mobile: "" },
   ]);
 
+  const [loading, setLoading] = useState(false);
+
   if (!isOpen) return null;
 
   const handleAddReference = () => {
@@ -78,8 +80,6 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
       return updated;
     });
   };
-
-  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

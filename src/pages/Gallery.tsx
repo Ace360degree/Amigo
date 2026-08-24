@@ -214,22 +214,22 @@ export default function Gallery() {
             </section>
 
             {/* Glimpse Section */}
-            <section className="py-20 lg:py-28 bg-[#fafafa]">
+            <section className="py-12 sm:py-16 lg:py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Header */}
-                    <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24">
-                        <div className="w-10 h-1 bg-amber-400 mx-auto mb-6 rounded-full"></div>
-                        <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0f2a4a] mb-6 font-sans tracking-tight">
+                    <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+                        <div className="w-12 h-1 bg-[#fbbf24] mx-auto mb-4 rounded-full"></div>
+                        <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-[#0f2a4a] mb-4 font-sans tracking-tight">
                             A Glimpse into Life at Amigo Academy
                         </h2>
-                        <p className="text-slate-600 font-medium text-[15px] sm:text-base leading-[1.8]">
+                        <p className="text-slate-500 font-normal text-xs sm:text-[13px] sm:leading-relaxed leading-normal">
                             Every journey begins with learning, and every milestone deserves to be remembered. Our gallery showcases moments from across our campuses, giving you a closer look at the learning environment, practical training, student activities, and experiences that shape life at Amigo Academy.
                         </p>
                     </div>
 
                     {/* Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mb-10 sm:mb-12">
                         {galleryCards.map((card, idx) => {
                             const folderImgs = getImagesFromFolder(card.folderName);
                             const imagesToDisplay = folderImgs.length > 0 ? folderImgs : [card.image];
@@ -238,33 +238,33 @@ export default function Gallery() {
                                 <div
                                     key={idx}
                                     onClick={() => openPopup(card.title, imagesToDisplay, 0)}
-                                    className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col group hover:shadow-[0_16px_35px_rgba(15,42,74,0.12)] hover:-translate-y-2 transition-all duration-300 cursor-pointer relative"
+                                    className="bg-white rounded-2xl overflow-hidden shadow-[0_2px_15px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col group hover:shadow-[0_12px_28px_rgba(15,42,74,0.08)] hover:-translate-y-1 transition-all duration-300 cursor-pointer relative"
                                 >
                                     <div className="relative overflow-hidden">
                                         <img
                                             src={card.image}
                                             alt={card.title}
-                                            className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
+                                            className="w-full h-44 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                             <span className="bg-white/95 backdrop-blur-sm text-[#0f2a4a] font-bold text-xs px-3.5 py-1.5 rounded-full shadow-md">
                                                 Click to View ({imagesToDisplay.length})
                                             </span>
                                         </div>
 
-                                        {/* Icon Badge - Positioned cleanly inside image top right */}
-                                        <div className="absolute top-4 right-4 w-10 h-10 rounded-full border-2 border-white flex items-center justify-center z-10 bg-white shadow-md group-hover:scale-110 transition-transform duration-300">
+                                        {/* Icon Badge - Positioned overlapping bottom-left of card image */}
+                                        <div className="absolute -bottom-4 left-5 w-9 h-9 rounded-full border-2 border-white flex items-center justify-center z-10 bg-white shadow-sm group-hover:scale-110 transition-transform duration-300">
                                             <div className={`w-full h-full rounded-full flex items-center justify-center ${card.bgColor}`}>
                                                 {card.icon}
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className="p-6 flex-1 flex flex-col">
-                                        <h3 className="text-[19px] font-bold text-[#0f2a4a] mb-3 font-sans group-hover:text-[#e31e24] transition-colors">
+                                    <div className="p-5 pt-7 flex-1 flex flex-col">
+                                        <h3 className="text-base font-bold text-[#0f2a4a] mb-2 font-sans group-hover:text-[#e31e24] transition-colors">
                                             {card.title}
                                         </h3>
-                                        <p className="text-slate-500 text-[14px] leading-[1.7] mb-6 font-medium">
+                                        <p className="text-slate-500 text-xs leading-relaxed mb-4 font-normal flex-1">
                                             {card.desc}
                                         </p>
 
@@ -274,10 +274,10 @@ export default function Gallery() {
                                                 e.stopPropagation();
                                                 openPopup(card.title, imagesToDisplay, 0);
                                             }}
-                                            className={`mt-auto inline-flex items-center text-[13px] font-bold tracking-wide ${card.color} group-hover:translate-x-1 transition-transform`}
+                                            className={`mt-auto inline-flex items-center text-xs font-bold ${card.color} group-hover:translate-x-1 transition-transform`}
                                         >
                                             {card.linkText}
-                                            <svg className="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                            <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                             </svg>
                                         </button>
@@ -287,49 +287,32 @@ export default function Gallery() {
                         })}
                     </div>
 
-                </div>
-            </section>
-
-            {/* Photo Grid Section - Our Gallery */}
-            <section className="py-20 lg:py-28 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                    {/* Header */}
-                    <div className="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
-                        <div className="w-10 h-1 bg-amber-400 mx-auto mb-6 rounded-full"></div>
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] mb-4 font-sans tracking-tight">
-                            Our Gallery
-                        </h2>
-                        <p className="text-slate-500 text-[15px] leading-relaxed font-medium">
-                            A collection of moments from classrooms, training sessions, events, and placements at Amigo Academy.
-                        </p>
-                    </div>
-
-                    {/* Photo Grid - Displaying images strictly inside Amigo/src/assets/img/gallery/ root */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    {/* Photo Grid - Displaying images with exact span pattern from reference screenshot */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                         {ourGalleryImages.map((imgSrc, index) => {
-                            // Alternate grid spans matching the reference layout
-                            const spanClass =
-                                index % 7 === 0
-                                    ? "col-span-2 md:col-span-2"
-                                    : index % 5 === 0
-                                    ? "col-span-2 md:col-span-2"
-                                    : "col-span-1";
+                            // Exact column span matching the reference screenshot layout:
+                            // Row 1: Image 0 (wide / span 2), Image 1 (span 1), Image 2 (span 1)
+                            // Row 2: Image 3 (span 1), Image 4 (wide / span 2), Image 5 (span 1)
+                            // Row 3: Image 6 (span 1), Image 7 (span 1)
+                            const pos = index % 8;
+                            const spanClass = (pos === 0 || pos === 4)
+                                ? "col-span-1 md:col-span-2"
+                                : "col-span-1 md:col-span-1";
 
                             return (
                                 <div
                                     key={index}
                                     onClick={() => openPopup("Our Gallery", allGalleryImagesCombined, index)}
-                                    className={`${spanClass} relative overflow-hidden rounded-2xl group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 h-52 md:h-64 border border-slate-100`}
+                                    className={`${spanClass} relative overflow-hidden rounded-xl sm:rounded-2xl group cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 h-48 sm:h-56 md:h-64 border border-slate-100`}
                                 >
                                     <img
                                         src={imgSrc}
                                         alt={`Gallery item ${index + 1}`}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="w-10 h-10 rounded-full bg-white/90 text-[#0f2a4a] flex items-center justify-center shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
-                                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="w-9 h-9 rounded-full bg-white/90 text-[#0f2a4a] flex items-center justify-center shadow-md transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
                                             </svg>
                                         </div>
@@ -341,6 +324,7 @@ export default function Gallery() {
 
                 </div>
             </section>
+
 
             {/* Banner Section */}
             <section className="py-16 lg:py-24 bg-white">
