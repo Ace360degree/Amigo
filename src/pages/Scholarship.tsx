@@ -71,6 +71,8 @@ export default function Scholarship() {
           />
           {/* Subtle overlay tint */}
           <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
+          {/* Gradient overlay to fade left edge into white without covering the girl */}
+          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
         </div>
 
         {/* Mobile Background Image: w-full, height is 100% */}

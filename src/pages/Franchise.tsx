@@ -29,6 +29,8 @@ export default function Franchise() {
                             e.currentTarget.src = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800";
                         }}
                     />
+                    {/* Gradient overlay to fade left edge into white without covering contents */}
+                    <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 </div>
 
                 {/* Mobile Background Image: w-full, height is 100%, with linear gradient overlay */}

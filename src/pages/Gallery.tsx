@@ -184,6 +184,8 @@ export default function Gallery() {
                         alt="Amigo Academy Aviation Classroom"
                         className="w-full h-full object-cover object-center"
                     />
+                    {/* Gradient overlay to fade left edge into white without covering contents */}
+                    <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
                 </div>
 
                 {/* Mobile Background Image Container */}

@@ -189,6 +189,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   alt={slide.courseName}
                   className="w-full h-full object-cover object-center"
                 />
+                {/* Gradient overlay to fade left side into white */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent z-10" />
               </div>
 
               {/* Mobile Background: w-full, height is 100%, with linear gradient overlay */}
