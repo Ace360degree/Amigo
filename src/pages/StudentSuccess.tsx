@@ -71,15 +71,23 @@ export default function StudentSuccess() {
                 </div>
 
                 <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-20">
-                    <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
-                        <h1 className="text-xl sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-4 lg:mb-6 font-sans">
+                    <div className="w-[55%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
+                        <h1 className="text-[26px] sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-3 sm:mb-4 lg:mb-6 font-sans">
                             Student Success Stories
                         </h1>
-                        <p className="text-slate-600 text-[20px] sm:text-[15.5px] leading-relaxed mb-6 lg:mb-10 font-medium">
-                            Every student's journey is unique, but they all begin with the same goal—to build a better future. Explore inspiring success stories from Amigo Academy students who turned their ambitions into careers through dedication, learning, and the right guidance.
+                        <p className="text-[#475569] text-[11.5px] sm:text-[15.5px] leading-relaxed mb-5 lg:mb-10 font-medium">
+                            Every student's journey is unique, but they all begin with the same goal—to build a better future. Explore inspiring success stories from Amigo Academy students who turned their ambitions into careers through dedication.
                         </p>
 
-                        <button className="bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[9px] sm:text-xs lg:text-[14px] py-2.5 px-4 sm:py-3.5 sm:px-8 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 lg:gap-3 w-fit">
+                        <button
+                            onClick={() => {
+                                const section = document.getElementById("meet-our-students");
+                                if (section) {
+                                    section.scrollIntoView({ behavior: "smooth" });
+                                }
+                            }}
+                            className="bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[10px] sm:text-xs lg:text-[14px] py-2.5 px-4 sm:py-3.5 sm:px-8 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 lg:gap-3 w-fit cursor-pointer"
+                        >
                             Read Success Stories
                             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -129,7 +137,7 @@ export default function StudentSuccess() {
             </section>
 
             {/* Meet Our Students Section */}
-            <section className="py-20 lg:py-28 bg-[#f4f7f9] relative">
+            <section id="meet-our-students" className="py-20 lg:py-28 bg-[#f4f7f9] relative">
                 <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Header */}

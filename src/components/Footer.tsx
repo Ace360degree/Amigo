@@ -263,7 +263,7 @@ export default function Footer() {
       {/* Floating Scroll-to-Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 z-50 bg-[#e31e24] hover:bg-[#c2141a] text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
+        className="fixed bottom-20 right-5 md:bottom-6 md:right-6 z-40 bg-[#e31e24] hover:bg-[#c2141a] text-white p-3 sm:p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
         aria-label="Scroll back to top"
       >
         <svg className="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
