@@ -871,7 +871,7 @@ export default function AirHostessCabinCrew() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="/contact#enquiry-form"
+                href="tel:+919987588932"
                 className="rounded-full bg-white hover:bg-slate-50 text-[#183a7d] font-bold px-7 py-3 text-sm shadow-md transition-all inline-flex items-center gap-2"
               >
                 <span>Talk to Counselor Now</span>
@@ -912,15 +912,15 @@ export default function AirHostessCabinCrew() {
                 <div>
                   {/* Thumbnail */}
                   <div
-                    onClick={() => setIsVideoModalOpen(true)}
-                    className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 cursor-pointer group"
+                    className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100 group"
                   >
                     <img
                       src={story.image}
                       alt={story.title}
-                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors" />
+                    {/* Play Button Overlay - Disabled */}
+                    {/* <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors" />
                     <button
                       type="button"
                       onClick={(e) => {
@@ -933,7 +933,7 @@ export default function AirHostessCabinCrew() {
                       <svg className="ml-0.5 h-5 w-5 fill-current" viewBox="0 0 24 24">
                         <path d="M8 5v14l11-7z" />
                       </svg>
-                    </button>
+                    </button> */}
                     <div className="absolute left-3 bottom-3 bg-black/80 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-white">
                       SELECTED FOR INDIGO
                     </div>
@@ -981,9 +981,10 @@ export default function AirHostessCabinCrew() {
             </button>
             <button
               type="button"
-              className="rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all"
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="rounded-full bg-[#183a7d] hover:bg-[#122c60] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer"
             >
-              <span>Next Story</span>
+              <span>Be in Amigo's Next Story</span>
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

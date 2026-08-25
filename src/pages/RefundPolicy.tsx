@@ -166,7 +166,7 @@ export default function RefundPolicy() {
                     <p className="text-slate-500 text-[15px] sm:text-base leading-[1.8] mb-10">
                         Choosing a career is an important decision. If you have questions about our courses, eligibility, batches, fees, EMI options or career opportunities, speak with our counsellors before making your admission decision.
                     </p>
-                    <button className="bg-[#e31e24] text-white font-bold text-[15px] py-4 px-8 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.25)] hover:bg-[#c21a1f] hover:shadow-[0_10px_25px_rgba(227,30,36,0.35)] transition-all flex items-center justify-center gap-2 group">
+                    <button onClick={() => window.location.href = "tel:+919987588932"} className="bg-[#e31e24] text-white font-bold text-[15px] py-4 px-8 rounded-full shadow-[0_8px_20px_rgba(227,30,36,0.25)] hover:bg-[#c21a1f] hover:shadow-[0_10px_25px_rgba(227,30,36,0.35)] transition-all flex items-center justify-center gap-2 group cursor-pointer">
                         Talk to a Career Counsellor
                         <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />

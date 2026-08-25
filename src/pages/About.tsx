@@ -196,7 +196,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               { value: "10,000+", label: "Students Trained" },
-              { value: "10+", label: "Years of Excellence" },
+              { value: "9+", label: "Years of Excellence" },
               { value: "3", label: "Specialized Career Paths" },
               { value: "12 Months", label: "Programme Duration" }
             ].map((stat, idx) => (
@@ -584,8 +584,8 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                 {/* Dark overlay mask */}
                 <div className="absolute inset-0 bg-slate-900/20 rounded-t-3xl" />
 
-                {/* Play Button Overlay */}
-                <button
+                {/* Play Button Overlay - Disabled */}
+                {/* <button
                   onClick={() => alert(`Playing video story of ${story.name}...`)}
                   className="relative z-10 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer focus:outline-none"
                   aria-label="Play video"
@@ -593,7 +593,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                   <svg className="w-5 h-5 text-[#e31e24] fill-current ml-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </button>
+                </button> */}
 
                 {/* Badge Overlay */}
                 {story.badge && (
@@ -656,12 +656,12 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             </svg>
           </button>
 
-          {/* Next Story Button */}
+          {/* Be in Amigo's Next Story Button */}
           <button
-            onClick={() => alert("Next story clicked (Carousel navigation placeholder)")}
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
             className="inline-flex items-center gap-2 bg-[#244270] hover:bg-[#1a3052] text-white font-sans font-bold text-sm px-6 py-3.5 rounded-full shadow-[0_4px_12px_rgba(36,66,112,0.15)] active:scale-95 transition-all duration-200 focus:outline-none cursor-pointer"
           >
-            <span>Next Story</span>
+            <span>Be in Amigo's Next Story</span>
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>

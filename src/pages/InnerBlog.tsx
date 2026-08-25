@@ -332,7 +332,7 @@ export default function InnerBlog() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
                 <button
-                  onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                  onClick={() => window.location.href = "tel:+919987588932"}
                   className="w-full sm:w-auto bg-white text-[#0b2f61] hover:bg-slate-100 font-bold text-xs sm:text-sm py-3.5 px-8 rounded-full shadow-md transition-all active:scale-95 inline-flex justify-center items-center gap-2 cursor-pointer focus:outline-none"
                 >
                   Talk to Counselor Now ➔

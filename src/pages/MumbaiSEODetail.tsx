@@ -196,13 +196,13 @@ export default function MumbaiSEODetail() {
 
   return (
     <div className="bg-white min-h-screen">
-      
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-10 sm:py-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
+
         {/* Left Column Content */}
         <div className="lg:col-span-7 space-y-6 text-left">
-          
+
           {/* Breadcrumbs */}
           <nav className="flex items-center space-x-2 text-xs sm:text-sm font-sans font-semibold text-slate-500">
             <Link to="/" className="hover:text-[#DF1818] transition-colors">Home</Link>
@@ -245,7 +245,7 @@ export default function MumbaiSEODetail() {
             </p>
 
             <form onSubmit={handleFormSubmit} className="space-y-4">
-              
+
               {/* Name */}
               <div className="space-y-1">
                 <label className="text-[10px] font-bold tracking-wider text-slate-300 uppercase block">Name *</label>
@@ -307,7 +307,7 @@ export default function MumbaiSEODetail() {
       {/* Trust Stats Bar */}
       <section className="bg-slate-50 py-12 border-y border-neutral-100 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-6">
-          
+
           <div className="bg-white border border-neutral-200/60 rounded-[20px] p-6 text-center shadow-sm">
             <p className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#1C3E8A] mb-1">10,000+</p>
             <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-bold">Students Trained</p>
@@ -315,7 +315,7 @@ export default function MumbaiSEODetail() {
 
           <div className="bg-white border border-neutral-200/60 rounded-[20px] p-6 text-center shadow-sm">
             <p className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#1C3E8A] mb-1">4.6/5</p>
-            <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-bold">Google Rating (790+ Reviews)</p>
+            <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-bold">Google Rating (850+ Reviews)</p>
           </div>
 
           <div className="bg-white border border-neutral-200/60 rounded-[20px] p-6 text-center shadow-sm">
@@ -335,7 +335,7 @@ export default function MumbaiSEODetail() {
       {seoPage && seoPage.content.rendered && (
         <section className="bg-white py-16 px-6 border-b border-neutral-100">
           <div className="max-w-4xl mx-auto font-sans text-slate-600 text-sm sm:text-[15px] leading-relaxed">
-            <div 
+            <div
               className="prose prose-slate max-w-none 
                 prose-headings:text-[#1C3E8A] prose-headings:font-bold prose-headings:font-outfit
                 prose-h2:text-2xl prose-h2:font-extrabold prose-h2:mb-4 prose-h2:mt-8
@@ -360,7 +360,7 @@ export default function MumbaiSEODetail() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
+
             {/* Card 1: Air Hostess */}
             <div className="bg-white rounded-[24px] border border-[#E1E5ED] shadow-sm flex flex-col justify-between overflow-hidden">
               <div>
@@ -492,7 +492,7 @@ export default function MumbaiSEODetail() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Checklist Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               {[
@@ -558,14 +558,14 @@ export default function MumbaiSEODetail() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Column Description */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h3 className="text-2xl sm:text-3xl font-outfit font-extrabold text-[#1C3E8A]">Ghatkopar Branch</h3>
               <p className="text-slate-600 font-sans font-semibold text-sm sm:text-base leading-relaxed">
                 The Ghatkopar branch is the nearest Amigo Academy centre for students from {locationText} and nearby areas.
               </p>
-              
+
               <ul className="space-y-3 font-sans font-semibold text-xs sm:text-sm text-slate-500">
                 <li className="flex items-center gap-2">
                   <span className="text-[#DF1818] font-bold">✓</span> Convenient connectivity from {locationText}
@@ -602,7 +602,7 @@ export default function MumbaiSEODetail() {
       {/* Placement Support Section */}
       <section className="bg-white py-16 sm:py-24 px-6 border-t border-slate-100">
         <div className="max-w-7xl mx-auto text-center space-y-12">
-          
+
           <div className="space-y-4 max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-[40px] font-outfit font-extrabold text-[#112A46] leading-tight">
               Career &amp; Placement Support
@@ -645,7 +645,7 @@ export default function MumbaiSEODetail() {
       {/* FAQs Section */}
       <section className="bg-slate-50/50 py-16 sm:py-24 px-6 border-t border-slate-100">
         <div className="max-w-3xl mx-auto space-y-12">
-          
+
           <div className="text-center space-y-4">
             <h2 className="text-3xl sm:text-[40px] font-outfit font-extrabold text-[#112A46] leading-tight">
               Frequently Asked Questions

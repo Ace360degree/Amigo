@@ -191,7 +191,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  AMIGO ACADEMY GHATKOPAR<br />
+                  {/* AMIGO ACADEMY GHATKOPAR<br /> */}
                   SAI INFOTECH, 107 & 108, Patel Chowk<br />
                   opposite Ghatkopar Station, Saibaba Nagar<br />
                   Pant Nagar, Ghatkopar East, Mumbai,<br />
@@ -238,7 +238,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  AMIGO ACADEMY ANDHERI<br />
+                  {/* AMIGO ACADEMY ANDHERI<br /> */}
                   902, 9th, Time Chambers, Swami Vivekanand<br />
                   Rd, Andheri West, Mumbai, Maharashtra<br />
                   400058
@@ -284,7 +284,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  AMIGO ACADEMY THANE<br />
+                  {/* AMIGO ACADEMY THANE<br /> */}
                   A204, 2nd floor, Amigo Academy, Thakor<br />
                   Niwas CHS, above Tip Top Mithaiwala, Jambli<br />
                   Naka, Thane West, Thane, Maharashtra<br />

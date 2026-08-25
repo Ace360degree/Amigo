@@ -77,7 +77,7 @@ const stats: Stat[] = [
   { value: "10,000+", label: "Students Trained" },
   { value: "3", label: "Specialised Career Paths" },
   { value: "12 Months", label: "Programme Duration" },
-  { value: "10+", label: "Years of Excellence" },
+  { value: "9+", label: "Years of Excellence" },
 ];
 
 const comparisonRows: ComparisonRow[] = [
@@ -91,13 +91,13 @@ const comparisonRows: ComparisonRow[] = [
     label: "Eligibility",
     cabinCrew: "12th Pass",
     groundStaff: "12th Pass",
-    aiDataScience: "12th Pass",
+    aiDataScience: "10th Pass",
   },
   {
     label: "Age",
     cabinCrew: "Typically 18+",
     groundStaff: "Typically 18+",
-    aiDataScience: "Typically 18+",
+    aiDataScience: "Typically 15+",
   },
   {
     label: "Certification",
@@ -844,7 +844,7 @@ export default function Courses() {
 
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="/contact#enquiry-form"
+                href="tel:+919987588932"
                 className="inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-xs font-bold text-[#1f4da3] shadow-sm transition-all hover:opacity-95 active:scale-95"
               >
                 Talk to Counselor Now
@@ -876,15 +876,15 @@ export default function Courses() {
                 className="overflow-hidden rounded-[20px] bg-white shadow-[0_10px_28px_rgba(15,42,74,0.08)] border border-neutral-100"
               >
                 <div
-                  onClick={() => setIsVideoModalOpen(true)}
-                  className="relative h-60 w-full overflow-hidden bg-slate-100 cursor-pointer group"
+                  className="relative h-60 w-full overflow-hidden bg-slate-100 group"
                 >
                   <img
                     src={story.image}
                     alt={story.title}
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="h-full w-full object-cover transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors" />
+                  {/* Play Button Overlay - Disabled */}
+                  {/* <div className="absolute inset-0 bg-black/10 group-hover:bg-black/25 transition-colors" />
                   <button
                     type="button"
                     onClick={(e) => {
@@ -897,7 +897,7 @@ export default function Courses() {
                     <svg className="ml-1 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                  </button>
+                  </button> */}
                   <div className="absolute left-0 right-0 bottom-0 bg-white/90 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.22em] text-[#1f3658]">
                     Selected for India
                   </div>
@@ -945,13 +945,10 @@ export default function Courses() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                navigate("/student-success");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
               className="inline-flex items-center justify-center rounded-full bg-[#1f4da3] hover:bg-[#183d84] px-5 py-2.5 text-xs font-bold text-white shadow-sm transition-all cursor-pointer active:scale-95"
             >
-              Next Story
+              Be in Amigo's Next Story
               <span className="ml-2">➔</span>
             </button>
           </div>

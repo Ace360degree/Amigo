@@ -805,7 +805,7 @@ export default function AIDataScienceCourse() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
               <button
-                onClick={handleCTA}
+                onClick={() => window.location.href = "tel:+919987588932"}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-[#183a7d] hover:bg-slate-100 font-bold text-xs sm:text-sm px-8 py-3.5 rounded-full shadow-md transition-all cursor-pointer"
               >
                 <span>Talk to Counselor Now</span>
@@ -845,15 +845,15 @@ export default function AIDataScienceCourse() {
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
               >
                 <div
-                  onClick={() => setIsVideoModalOpen(true)}
-                  className="relative w-full h-[200px] overflow-hidden bg-slate-900 cursor-pointer group"
+                  className="relative w-full h-[200px] overflow-hidden bg-slate-900 group"
                 >
                   <img
                     src={story.image}
                     alt={story.title}
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover opacity-90 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* Play Button Overlay - Disabled */}
+                  {/* <div className="absolute inset-0 flex items-center justify-center">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -865,7 +865,7 @@ export default function AIDataScienceCourse() {
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </button>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="p-6 flex flex-col justify-between flex-1 space-y-4">

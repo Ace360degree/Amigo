@@ -252,7 +252,7 @@ export default function AirportGroundStaff() {
 
             <div className="pt-2">
               <button
-                onClick={handleCTA}
+                onClick={() => window.location.href = "tel:+919987588932"}
                 className="inline-flex items-center justify-center gap-2 bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[14px] px-8 py-3.5 rounded-full shadow-[0_8px_20px_rgba(223,24,24,0.2)] hover:shadow-[0_12px_24px_rgba(223,24,24,0.3)] transition-all duration-300 active:scale-95 whitespace-nowrap focus:outline-none cursor-pointer"
               >
                 Talk to a Career Counsellor
@@ -287,7 +287,7 @@ export default function AirportGroundStaff() {
 
             <div>
               <button
-                onClick={handleCTA}
+                onClick={() => window.location.href = "tel:+919987588932"}
                 className="inline-flex items-center justify-between gap-3 bg-[#e02607] hover:bg-[#c81e04] text-white font-bold text-[13.5px] px-5 py-3 rounded-full shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 <span>Talk to a Career Counsellor</span>

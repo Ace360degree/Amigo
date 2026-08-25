@@ -101,7 +101,7 @@ export default function Placement() {
   const statistics = [
     { number: "10,000+", label: "Students Trained Successfully" },
     { number: "100%", label: "Placement Assistance Guarantee" },
-    { number: "150+", label: "Global Airlines & Tech Recruiters" },
+    { number: "200+", label: "Global Airlines & Tech Recruiters" },
     { number: "Upto ₹9 L", label: "Average Starting Salary Range (Based on Eligibility*)" },
   ];
 
@@ -111,7 +111,7 @@ export default function Placement() {
       role: "Ground Staff — Customer Service",
       company: "Akasa Air",
       branch: "Andheri Branch",
-      year: "Placed 2015",
+      year: "Placed 2025",
       quote: "The mock interviews made the real airline round feel familiar.",
       image: placementStudent1,
     },
@@ -127,7 +127,7 @@ export default function Placement() {
     {
       name: "Reema Mascarenhas",
       role: "Cabin Crew",
-      company: "Air India",
+      company: "IndiGo",
       branch: "Thane Branch",
       year: "Placed 2024",
       quote: "Grooming sessions changed how I carried myself in the interview.",
@@ -136,7 +136,7 @@ export default function Placement() {
     {
       name: "Mehwish Sayyed",
       role: "Airport Ground Staff",
-      company: "Indigo",
+      company: "Vistara",
       branch: "Ghatkopar Branch",
       year: "Placed 2025",
       quote: "The mock interviews made the real airline round feel familiar.",
@@ -144,17 +144,17 @@ export default function Placement() {
     },
     {
       name: "Vrihikesh Gore",
-      role: "Junior Data Analyst",
-      company: "ITC Maratha Mumbai",
+      role: "Guest Relations",
+      company: "JW Marriott Mumbai",
       branch: "Andheri Branch",
-      year: "Placed 2025",
-      quote: "The AI & Data Science projects were exactly what recruiters asked about.",
+      year: "Placed 2024",
+      quote: "The practical training and interview preparation made me ready for my job.",
       image: placementStudent5,
     },
     {
       name: "Fatima Shaikh",
       role: "Cabin Crew",
-      company: "Emirates",
+      company: "Air Asia",
       branch: "Ghatkopar Branch",
       year: "Placed 2024",
       quote: "English communication classes got me through the Emirates assessment.",
@@ -163,7 +163,7 @@ export default function Placement() {
     {
       name: "Bhumika Jadhav",
       role: "Cabin Crew",
-      company: "Akasa Air",
+      company: "Qatar",
       branch: "Thane Branch",
       year: "Placed 2024",
       quote: "The mock interviews made the real airline round feel familiar.",
@@ -172,7 +172,7 @@ export default function Placement() {
     {
       name: "Danish Dafadar",
       role: "Ramp & Ground Operations",
-      company: "Adani Electricity",
+      company: "Mumbai Airport",
       branch: "Andheri Branch",
       year: "Placed 2025",
       quote: "Practical airport training made day one at work easy.",
@@ -180,7 +180,7 @@ export default function Placement() {
     },
     {
       name: "Samir Ovhal",
-      role: "AI Support Engineer",
+      role: "Guest Relations",
       company: "The Oberoi Group",
       branch: "Ghatkopar Branch",
       year: "Placed 2024",
@@ -198,10 +198,7 @@ export default function Placement() {
     placementbrandy6,
     placementbrandy7,
     placementbrandy8,
-    placementbrandy9,
-    placementbrandy10,
-    placementbrandy11,
-    placementbrandy12,
+    placementbrandy9
   ];
   const journeySteps = [
     {
@@ -369,19 +366,19 @@ export default function Placement() {
           <div className="w-[48%] sm:w-[50%] lg:w-full max-w-[520px] space-y-4 sm:space-y-6 text-left">
             <h1 className="text-xl sm:text-3xl lg:text-[48px] font-outfit font-extrabold text-[#0b2f61] tracking-tight">
               <span className="block leading-[1.2]">Our Student Placements</span>
-              <span className="block mt-2 leading-[1.2]">&amp; Success Stories</span>
+              {/* <span className="block mt-2 leading-[1.2]">&amp; Success Stories</span> */}
             </h1>
             {/* Desktop list of courses */}
-            <p className="hidden lg:block text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
+            {/* <p className="hidden lg:block text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
               Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality *<br />
               Ai &amp; Data Science
-            </p>
+            </p> */}
             {/* Mobile list of courses stacked vertically */}
-            <div className="block lg:hidden text-neutral-500 font-sans font-semibold text-[10px] leading-relaxed space-y-0.5">
+            {/* <div className="block lg:hidden text-neutral-500 font-sans font-semibold text-[10px] leading-relaxed space-y-0.5">
               <p>Air Hostess &amp; Cabin Crew *</p>
               <p>Airport Ground Staff &amp; Hospitality *</p>
               <p>Ai &amp; Data Science</p>
-            </div>
+            </div> */}
             <div className="pt-1">
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
@@ -514,16 +511,16 @@ export default function Placement() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-5xl">
           {hiringPartners.map((logo, idx) => (
             <div
               key={idx}
-              className="bg-white border border-neutral-200/60 rounded-3xl py-6 px-8 flex items-center justify-center shadow-sm hover:shadow hover:border-neutral-300 hover:-translate-y-0.5 transition-all duration-300 min-h-[90px]"
+              className="bg-white border border-neutral-200/80 rounded-2xl sm:rounded-3xl p-4 sm:p-5 flex items-center justify-center shadow-sm hover:shadow-md hover:border-neutral-300 hover:-translate-y-0.5 transition-all duration-300 h-24 sm:h-28"
             >
               <img
                 src={logo}
                 alt={`Hiring Partner Logo ${idx + 1}`}
-                className="max-h-10 max-w-full object-contain"
+                className="max-h-12 sm:max-h-16 w-auto max-w-[88%] object-contain"
               />
             </div>
           ))}
@@ -639,19 +636,18 @@ export default function Placement() {
                 key={idx}
                 className="bg-white border border-neutral-200/80 rounded-3xl p-5 flex flex-col space-y-4 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative text-left"
               >
-                {/* Image Container with Play Overlay */}
+                {/* Image Container */}
                 <div
-                  onClick={() => setIsVideoModalOpen(true)}
-                  className="relative w-full h-[220px] bg-neutral-50 rounded-2xl overflow-hidden group cursor-pointer"
+                  className="relative w-full h-[220px] bg-neutral-50 rounded-2xl overflow-hidden group"
                 >
                   <img
                     src={story.image}
                     alt={story.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500"
                   />
 
-                  {/* Play Button Overlay */}
-                  <div className="absolute inset-0 bg-black/10 z-0 group-hover:bg-black/25 transition-colors duration-300" />
+                  {/* Play Button Overlay - Disabled for now */}
+                  {/* <div className="absolute inset-0 bg-black/10 z-0 group-hover:bg-black/25 transition-colors duration-300" />
                   <div
                     onClick={(e) => {
                       e.stopPropagation();
@@ -659,7 +655,6 @@ export default function Placement() {
                     }}
                     className="w-14 h-14 rounded-full bg-[#e31e24] flex items-center justify-center text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg cursor-pointer group-hover:scale-110 active:scale-95 transition-transform duration-300 z-10"
                   >
-                    {/* SVG Triangle Play Icon */}
                     <svg
                       className="w-5 h-5 fill-current ml-1"
                       viewBox="0 0 24 24"
@@ -667,7 +662,7 @@ export default function Placement() {
                     >
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                  </div>
+                  </div> */}
 
                   {/* Company Badge */}
                   <div className="bg-white/95 backdrop-blur-sm text-[10px] font-bold text-neutral-800 px-3 py-1 rounded-full absolute bottom-3.5 left-3.5 shadow-sm border border-neutral-100/50 z-10">
@@ -769,18 +764,18 @@ export default function Placement() {
             <FAQItem
               index={1}
               question="Are these real Amigo Academy placements?"
-              answer="Yes, these are real Amigo Academy placements?"
+              answer="Yes, these are real Amigo Academy placements"
             />
             <FAQItem
               index={2}
               question="Which companies hire Amigo students?"
               answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
             />
-            <FAQItem
+            {/* <FAQItem
               index={3}
               question="Which companies hire Amigo students?"
               answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
-            />
+            /> */}
             <FAQItem
               index={4}
               question="Does Amigo guarantee placement?"

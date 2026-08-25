@@ -93,7 +93,7 @@ export default function CareerGuides() {
 
             <div>
               <button
-                onClick={handleCTA}
+                onClick={() => window.location.href = "tel:+919987588932"}
                 className="inline-flex items-center justify-between gap-3 bg-[#e02607] hover:bg-[#c81e04] text-white font-bold text-[13.5px] px-5 py-3 rounded-full shadow-lg active:scale-95 transition-all duration-300 cursor-pointer"
               >
                 <span>Talk to a Career Counsellor</span>

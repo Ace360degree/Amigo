@@ -720,7 +720,7 @@ export default function AviationHospitality() {
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <button
-                onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                onClick={() => window.location.href = "tel:+919987588932"}
                 className="rounded-full bg-white hover:bg-slate-50 text-[#0b2f61] font-bold px-7 py-3 text-sm shadow-md transition-all inline-flex items-center gap-2 cursor-pointer"
               >
                 <span>Talk to Counselor Now</span>
@@ -812,9 +812,10 @@ export default function AviationHospitality() {
             </button>
             <button
               type="button"
-              className="rounded-full bg-[#0b2f61] hover:bg-[#071f42] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all"
+              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+              className="rounded-full bg-[#0b2f61] hover:bg-[#071f42] text-white px-6 py-2.5 text-xs font-bold flex items-center gap-2 shadow-md transition-all cursor-pointer"
             >
-              <span>Next Story</span>
+              <span>Be in Amigo's Next Story</span>
               <span>➔</span>
             </button>
           </div>

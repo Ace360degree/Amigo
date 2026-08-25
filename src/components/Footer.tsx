@@ -119,9 +119,9 @@ export default function Footer() {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/career-guide/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew</button>
-              <button onClick={() => handleNavClick("/career-guide/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff</button>
-              <button onClick={() => handleNavClick("/career-guide/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
+              <button onClick={() => handleNavClick("/career-guide/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew Career Guide</button>
+              <button onClick={() => handleNavClick("/career-guide/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff Career Guide</button>
+              <button onClick={() => handleNavClick("/career-guide/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science Career Guide</button>
               <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">All Career Guides</button>
             </nav>
           </div>
@@ -254,7 +254,7 @@ export default function Footer() {
 
           {/* Copyright text */}
           <p className="text-slate-500">
-            &copy; 2026 Amigo Academy Pvt Ltd. All Rights Reserved
+            &copy; 2026 Amigo Academy Pvt Ltd. All Rights Reserved | Designed by Ace360Degree
           </p>
         </div>
 

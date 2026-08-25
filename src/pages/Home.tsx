@@ -178,9 +178,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           return (
             <div
               key={slide.id}
-              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${
-                isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
-              }`}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+                }`}
             >
               {/* Desktop Background: right-0, w-3/5, object-center */}
               <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
@@ -245,9 +244,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               <button
                 key={idx}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  idx === currentSlide ? "w-8 bg-[#e31e24]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                }`}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlide ? "w-8 bg-[#e31e24]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -1163,7 +1161,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Bottom Callout Section */}
         <div className="mt-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-center px-4">
           <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight">
-            Trusted by 10,000+ Students on Google
+            Trusted by 10,000+ Students
           </h2>
           <p className="text-[#556987] text-xs sm:text-sm font-semibold font-sans leading-relaxed max-w-2xl mt-3 mb-8">
             Choosing the right academy can decide your entire career. Join thousands who trusted Amigo and got placed.
@@ -1279,8 +1277,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                 {/* Dark overlay mask */}
                 <div className="absolute inset-0 bg-slate-900/20 rounded-t-3xl" />
 
-                {/* Play Button Overlay */}
-                <button
+                {/* Play Button Overlay - Disabled */}
+                {/* <button
                   onClick={() => setIsVideoModalOpen(true)}
                   className="relative z-10 w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer focus:outline-none"
                   aria-label="Play video"
@@ -1288,7 +1286,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   <svg className="w-5 h-5 text-[#e31e24] fill-current ml-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </button>
+                </button> */}
 
                 {/* Badge Overlay */}
                 {story.badge && (

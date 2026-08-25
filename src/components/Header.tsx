@@ -64,7 +64,7 @@ export default function Header() {
               className="flex items-center focus:outline-none"
               aria-label="Amigo Academy Home"
             >
-              <img src={logo} alt="Amigo Academy Logo" className="h-16 sm:h-16 lg:h-[72px] w-auto object-contain py-1" />
+              <img src={logo} alt="Amigo Academy Logo" className="h-20 sm:h-24 lg:h-[88px] w-auto object-contain py-1" />
             </button>
 
             {/* Desktop Links */}

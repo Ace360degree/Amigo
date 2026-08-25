@@ -110,7 +110,7 @@ export default function GhatkoparBranch() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-[580px] lg:max-w-[650px] text-left flex flex-col space-y-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.2] mb-2">
+            <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.3] lg:leading-[1.6] mb-2">
               Amigo Academy<br />Ghatkopar Branch
             </h1>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed max-w-xl">
@@ -141,7 +141,7 @@ export default function GhatkoparBranch() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
-            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
+            <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.3] tracking-tight mb-4 font-outfit">
               Amigo Academy<br />
               Ghatkopar Branch
             </h1>
@@ -167,8 +167,8 @@ export default function GhatkoparBranch() {
       <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-[920px] mx-auto text-center">
-            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-8 leading-tight tracking-tight">
-              Welcome to Ghatkopar Branch
+            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-8 leading-snug lg:leading-[1.5] tracking-tight">
+              Visit Our Ghatkopar Branch
             </h2>
             <div className="space-y-5 text-slate-600 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed">
               <p>
@@ -186,8 +186,8 @@ export default function GhatkoparBranch() {
       <section className="bg-white py-16 sm:py-20 border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-[38px] font-extrabold text-[#1C3E8A] font-outfit mb-4 leading-tight tracking-tight">
-              Courses Offered at the Ghatkopar Branch
+            <h2 className="text-3xl sm:text-[38px] font-extrabold text-[#1C3E8A] font-outfit mb-4 leading-snug lg:leading-[1.5] tracking-tight">
+              Available Courses at Ghatkopar
             </h2>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[15px] max-w-[640px] mx-auto leading-relaxed">
               Students at our Ghatkopar branch can enrol in the same industry-focused programmes offered across all Amigo Academy locations.
@@ -272,8 +272,8 @@ export default function GhatkoparBranch() {
       <section className="bg-white py-20 sm:py-24 border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit leading-tight tracking-tight">
-              Visit a Branch Before You Decide
+            <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-8 leading-snug lg:leading-[1.5] tracking-tight">
+              Facilities & Campus Infrastructure
             </h2>
           </div>
 
@@ -314,8 +314,8 @@ export default function GhatkoparBranch() {
       {/* Branch Information section */}
       <section className="bg-[#f4f7fa] py-20 sm:py-24 border-t border-slate-100/60">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-12 text-center leading-tight tracking-tight">
-            Branch Information
+          <h2 className="text-3xl sm:text-[40px] font-extrabold text-[#1C3E8A] font-outfit mb-12 text-center leading-snug lg:leading-[1.5] tracking-tight">
+            Frequently Asked Questions — Ghatkopar Branch
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -384,8 +384,8 @@ export default function GhatkoparBranch() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl sm:text-[44px] lg:text-[48px] font-extrabold text-white font-outfit max-w-3xl leading-tight tracking-tight mb-4">
-            Start Your Journey from the Branch That's Closest to You
+          <h2 className="text-3xl sm:text-[44px] lg:text-[48px] font-extrabold text-white font-outfit max-w-3xl leading-snug lg:leading-[1.5] tracking-tight mb-4">
+            Start Your Journey from Ghatkopar
           </h2>
 
           {/* Subtitle */}

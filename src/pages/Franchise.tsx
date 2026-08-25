@@ -518,7 +518,7 @@ export default function Franchise() {
                                 sublabel: "VERIFIED STUDENT REVIEWS"
                             },
                             {
-                                stat: "790+",
+                                stat: "850+",
                                 label: "Reviews",
                                 sublabel: "REAL STUDENT FEEDBACK"
                             },
@@ -1136,103 +1136,6 @@ export default function Franchise() {
                             <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
                                 If you have anymore question, please contact us
                             </span>
-                        </button>
-                    </div>
-
-                </div>
-            </section>
-            {/* Final Urgent CTA Section */}
-            <section className="text-white py-20 px-6 relative overflow-hidden z-20 text-center" style={{ background: "linear-gradient(180deg, rgba(28, 57, 142, 0.2) 0%, rgba(28, 57, 142, 0) 100%), #0e264a" }}>
-
-                {/* Subtle background light glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-
-                <div className="max-w-5xl mx-auto relative z-10">
-
-                    {/* Limited Seats Banner */}
-                    <div className="inline-flex items-center gap-1.5 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-full tracking-wider uppercase">
-                        <span>⚡</span>
-                        <span>LIMITED SEATS PER BATCH — APPLY EARLY TO SECURE YOUR SPOT</span>
-                    </div>
-
-                    {/* Heading */}
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
-                        2026 Batches Are Filling Fast — Secure Your Spot Now!
-                    </h2>
-
-                    {/* Subtitle */}
-                    {/* <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
-                        Admissions Open — Secure Your Seat Early. One free call is all it takes.
-                    </p> */}
-
-                    {/* Government Certification Badge */}
-                    <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
-                        <span>🏛️</span>
-                        <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
-                    </div>
-
-                    {/* Buttons Row */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 max-w-4xl mx-auto">
-                        {/* Check Eligibility Red Button */}
-                        <button
-                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-                            className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 uppercase tracking-wide cursor-pointer focus:outline-none"
-                        >
-                            <span>⚡</span> CHECK MY ELIGIBILITY NOW
-                        </button>
-
-                        {/* Start My Career Red Button */}
-                        <button
-                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-                            className="w-full sm:w-auto bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer focus:outline-none"
-                        >
-                            Start My Career
-                        </button>
-
-                        {/* WhatsApp Green Button */}
-                        <a
-                            href="https://wa.me/919987588932"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
-                        >
-                            <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />
-                            </svg>
-                            Chat on WhatsApp
-                        </a>
-                    </div>
-
-                    {/* Trust Markers */}
-                    <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-12 text-slate-300 text-xs sm:text-sm font-bold font-sans">
-                        <div className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">✓</span>
-                            <span>4.6 Google Rating</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">✓</span>
-                            <span>10,000+ Students Trained</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">✓</span>
-                            <span>Certified Courses</span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                            <span className="text-emerald-400">✓</span>
-                            <span>200+ Hiring Partners</span>
-                        </div>
-                    </div>
-
-                    {/* Download Brochure (PDF) Pill Button */}
-                    <div className="mt-8 flex justify-center">
-                        <button
-                            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-                            className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full border border-white/40 text-white hover:bg-white/10 hover:border-white/80 transition-all text-sm font-semibold cursor-pointer shadow-md active:scale-95 focus:outline-none"
-                        >
-                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12l4.5 4.5m0 0l4.5-4.5M12 16.5V3" />
-                            </svg>
-                            <span>Download Brochure (PDF)</span>
                         </button>
                     </div>
 

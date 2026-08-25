@@ -314,7 +314,7 @@ export default function Blog() {
 
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full sm:w-auto">
                                 {/* Primary Button */}
-                                <button className="w-full sm:w-auto bg-white text-[#122e5a] font-bold text-[14px] sm:text-[15px] py-4 px-8 rounded-lg shadow-md hover:bg-slate-50 transition-colors inline-flex justify-center items-center gap-2 group">
+                                <button onClick={() => window.location.href = "tel:+919987588932"} className="w-full sm:w-auto bg-white text-[#122e5a] font-bold text-[14px] sm:text-[15px] py-4 px-8 rounded-lg shadow-md hover:bg-slate-50 transition-colors inline-flex justify-center items-center gap-2 group cursor-pointer">
                                     Talk to Counselor Now
                                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
