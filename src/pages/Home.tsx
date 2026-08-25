@@ -1527,8 +1527,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               a: "Amigo Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
             },
             {
-              q: "Best AI and Data Science course in Mumbai after 12th.",
-              a: "Our 12-month AI & Data Science course is ideal for 12th graduates looking to enter tech. It features practical training in Python, Machine Learning, Generative AI, and databases, backed by placement support and flexible EMI options."
+              q: "Best AI and Data Science course in Mumbai after 10th.",
+              a: "Our 12-month AI & Data Science course is ideal for 10th Pass looking to enter tech. It features practical training in Machine Learning, Generative AI, and databases, backed by placement support and flexible EMI options."
             },
             {
               q: "Do you provide placement for airport ground staff course.",

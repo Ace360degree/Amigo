@@ -421,7 +421,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                 Trusted partner with leading airlines & hotels
               </li>
               <li>
-                1,500+ workshop sessions conducted
+                10,000+ Students Trained
               </li>
             </ul>
           </div>

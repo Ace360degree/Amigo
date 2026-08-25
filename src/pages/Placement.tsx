@@ -369,16 +369,13 @@ export default function Placement() {
               {/* <span className="block mt-2 leading-[1.2]">&amp; Success Stories</span> */}
             </h1>
             {/* Desktop list of courses */}
-            {/* <p className="hidden lg:block text-neutral-500 font-sans font-semibold text-xs sm:text-[13px] leading-relaxed">
-              Air Hostess &amp; Cabin Crew * Airport Ground Staff &amp; Hospitality *<br />
-              Ai &amp; Data Science
-            </p> */}
+            <p className="hidden lg:block text-neutral-500 font-sans font-semibold text-xs sm:text-[15px] leading-relaxed">
+              Our students are building successful careers across aviation, hospitality, AI and data science. With industry-focused training and dedicated placement support, we help turn skills into real career opportunities.
+            </p>
             {/* Mobile list of courses stacked vertically */}
-            {/* <div className="block lg:hidden text-neutral-500 font-sans font-semibold text-[10px] leading-relaxed space-y-0.5">
-              <p>Air Hostess &amp; Cabin Crew *</p>
-              <p>Airport Ground Staff &amp; Hospitality *</p>
-              <p>Ai &amp; Data Science</p>
-            </div> */}
+            <div className="block lg:hidden text-neutral-500 font-sans font-semibold text-[10px] leading-relaxed space-y-0.5">
+              Our students are building successful careers across aviation, hospitality, AI and data science. With industry-focused training and dedicated placement support, we help turn skills into real career opportunities.
+            </div>
             <div className="pt-1">
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
