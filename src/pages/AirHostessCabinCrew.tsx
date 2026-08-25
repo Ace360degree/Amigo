@@ -164,7 +164,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What is the duration of the air hostess / cabin crew course at Amigo Academy?",
     answer:
-      "The air hostess / cabin crew course is a 12-month program with 6 days a week, 2 hours a day. Morning, afternoon and evening batches are available at our Ghatkopar, Andheri, Thane and Pune branches.",
+      "The air hostess / cabin crew course is a 12-month program with 6 days a week, 2 hours a day. Morning, afternoon and evening batches are available at our Ghatkopar, Andheri & Thane branches.",
   },
   {
     question: "What is the eligibility for the air hostess / cabin crew course?",
@@ -319,12 +319,12 @@ export default function AirHostessCabinCrew() {
               <span className="text-[#53657d]">Home</span>
               <span className="text-[#9ca3af]">›</span>
               <span className="text-[#e31e24] font-semibold">
-                Air Hostess / Cabin Crew &amp; Hospitality Management
+                Cabin Crew (Air Hostess &amp; Hospitality Management)
               </span>
             </div>
 
             <h1 className="text-[40px] sm:text-[42px] lg:text-[45px] font-outfit font-extrabold text-[#17365d] leading-[1.08] tracking-tight">
-              Air Hostess / Cabin Crew
+              Cabin Crew (Air Hostess &amp; Hospitality Management)
             </h1>
 
             <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] font-semibold">
@@ -841,7 +841,7 @@ export default function AirHostessCabinCrew() {
             {[
               { value: "1,200+", label: "Students Enrolled" },
               { value: "200+", label: "Hiring Partners" },
-              { value: "120+", label: "Students Placed" },
+              { value: "120+", label: "Students Trained" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#11223f]">

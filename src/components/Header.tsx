@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.png";
-import phoneIcon from "../assets/img/phone-icon.png";
 import EligibilityModal from "./EligibilityModal";
 
 export default function Header() {
@@ -25,7 +24,7 @@ export default function Header() {
   };
 
   const courses = [
-    { name: "Air Hostess / Cabin Crew", desc: "Cabin crew training & placement", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
+    { name: "Cabin Crew (Air Hostess & Hospitality Management)", desc: "Cabin crew training & placement", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
     { name: "Airport Ground Staff & Hospitality Management", desc: "Ground operations diploma", path: "/courses/airport-ground-staff-hospitality-management" },
     { name: "AI & Data Science", desc: "State certified analytics course", path: "/courses/ai-data-science-with-generative-ai-machine-learning" }
   ];
@@ -44,10 +43,10 @@ export default function Header() {
         <div className="relative w-full flex items-center">
           <div className="animate-marquee whitespace-nowrap flex items-center text-xs sm:text-sm font-bold tracking-wide gap-8">
             <span>
-              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
             <span>
-              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Placed with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
           </div>
         </div>
@@ -151,15 +150,6 @@ export default function Header() {
 
           {/* Right Side Buttons */}
           <div className="flex items-center space-x-3.5">
-            {/* Phone Button */}
-            <a
-              href="tel:+919876543210"
-              className="hover:scale-105 transition-all focus:outline-none"
-              aria-label="Call Amigo Academy"
-            >
-              <img src={phoneIcon} alt="Call Icon" className="w-9 h-9 sm:w-11 sm:h-11 object-contain" />
-            </a>
-
             {/* CTA Eligibility Button */}
             <button
               onClick={() => setIsEligibilityModalOpen(true)}

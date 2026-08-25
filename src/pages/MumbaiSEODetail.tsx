@@ -284,8 +284,8 @@ export default function MumbaiSEODetail() {
                   className="w-full bg-slate-800/80 border border-slate-700 focus:border-[#DF1818] rounded-xl px-4 py-3 text-sm font-semibold text-white outline-none transition-all cursor-pointer text-slate-300 appearance-none"
                 >
                   <option value="" disabled>Select course</option>
-                  <option value="Air Hostess / Cabin Crew">Air Hostess / Cabin Crew</option>
-                  <option value="Airport Ground Staff & Hospitality Management">Airport Ground Staff & Hospitality</option>
+                  <option value="Cabin Crew (Air Hostess & Hospitality Management)">Cabin Crew (Air Hostess & Hospitality Management)</option>
+                  <option value="Airport Ground Staff & Hospitality Management">Airport Ground Staff & Hospitality Management</option>
                   <option value="AI & Data Science">AI & Data Science</option>
                 </select>
               </div>
@@ -368,7 +368,7 @@ export default function MumbaiSEODetail() {
                   <img src={course1Img} alt="Air Hostess / Cabin Crew" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 text-left space-y-4">
-                  <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">Air Hostess / Cabin Crew</h3>
+                  <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">Cabin Crew (Air Hostess & Hospitality Management)</h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
                     If you dream of working with leading domestic or international airlines, this programme prepares you with the professional skills, confidence, communication, grooming, and industry knowledge required to begin your aviation career.
                   </p>

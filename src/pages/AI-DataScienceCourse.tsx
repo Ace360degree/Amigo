@@ -683,10 +683,10 @@ export default function AIDataScienceCourse() {
                     <span className="text-xl">🎓</span>
                     <span
                       className={`text-[10px] font-extrabold px-2.5 py-1 rounded-md uppercase tracking-wider ${c.badgeType === "REQUIRED"
-                          ? "bg-rose-50 text-rose-600 border border-rose-100"
-                          : c.badgeType === "ESSENTIAL"
-                            ? "bg-amber-50 text-amber-600 border border-amber-100"
-                            : "bg-indigo-50 text-indigo-600 border border-indigo-100"
+                        ? "bg-rose-50 text-rose-600 border border-rose-100"
+                        : c.badgeType === "ESSENTIAL"
+                          ? "bg-amber-50 text-amber-600 border border-amber-100"
+                          : "bg-indigo-50 text-indigo-600 border border-indigo-100"
                         }`}
                     >
                       {c.tag}
@@ -789,7 +789,7 @@ export default function AIDataScienceCourse() {
             </div>
             <div>
               <div className="text-3xl sm:text-4xl font-extrabold text-[#0b2f61]">120+</div>
-              <div className="mt-1.5 text-xs font-medium text-slate-500">Students Placed</div>
+              <div className="mt-1.5 text-xs font-medium text-slate-500">Students Trained</div>
             </div>
           </div>
         </div>

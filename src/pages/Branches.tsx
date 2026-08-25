@@ -452,9 +452,9 @@ export default function Branches() {
           </h2>
 
           {/* Subtitle */}
-          <p className="mx-auto max-w-2xl text-sm sm:text-base leading-relaxed text-[#a3b8db] font-medium mb-8">
+          {/* <p className="mx-auto max-w-2xl text-sm sm:text-base leading-relaxed text-[#a3b8db] font-medium mb-8">
             Admissions Open — Secure Your Seat Early. One free call is all it takes.
-          </p>
+          </p> */}
 
           {/* Middle Pill Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/30 bg-[#0a2c63]/80 px-5 py-2 text-xs sm:text-[13px] font-extrabold text-[#f5b74a] shadow-sm mb-10">
@@ -496,10 +496,10 @@ export default function Branches() {
               <span className="text-[#22c55e] font-extrabold">✓</span> 4.6 Google Rating
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#22c55e] font-extrabold">✓</span> 10,000+ Students
+              <span className="text-[#22c55e] font-extrabold">✓</span> 10,000+ Students Trained
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-[#22c55e] font-extrabold">✓</span> Govt Certified
+              <span className="text-[#22c55e] font-extrabold">✓</span> Certified Courses
             </div>
             <div className="flex items-center gap-2">
               <span className="text-[#22c55e] font-extrabold">✓</span> 200+ Hiring Partners

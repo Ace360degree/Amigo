@@ -638,13 +638,13 @@ export default function AirportGroundStaff() {
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-[44px] lg:text-[48px] font-extrabold text-white font-outfit max-w-4xl leading-tight tracking-tight mb-4">
-            2026 Batches Are Filling Fast — Don't Get Left Behind
+            2026 Batches Are Filling Fast — Secure Your Spot Now!
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-300 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed mb-6">
+          {/* <p className="text-slate-300 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed mb-6">
             Admissions Open — Secure Your Seat Early. One free call is all it takes.
-          </p>
+          </p> */}
 
           {/* Second Badge */}
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-10">
@@ -684,10 +684,10 @@ export default function AirportGroundStaff() {
               <span className="text-[#25D366]">✓</span> 4.6 Google Rating
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#25D366]">✓</span> 10,000+ Students
+              <span className="text-[#25D366]">✓</span> 10,000+ Students Trained
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-[#25D366]">✓</span> Govt Certified
+              <span className="text-[#25D366]">✓</span> Certified Courses
             </span>
             <span className="flex items-center gap-1.5">
               <span className="text-[#25D366]">✓</span> 200+ Hiring Partners

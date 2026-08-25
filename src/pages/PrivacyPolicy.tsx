@@ -145,7 +145,7 @@ export default function PrivacyPolicy() {
                                 <li>Request information about data we hold about you</li>
                             </ul>
                             <p>
-                                To exercise these rights, please contact us at <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:underline">info@amigoacademy.in</a>.
+                                To exercise these rights, please contact us at <a href="mailto:care@amigoacademy.in" className="text-[#e31e24] hover:underline">care@amigoacademy.in</a>.
                             </p>
                         </div>
 
@@ -188,8 +188,8 @@ export default function PrivacyPolicy() {
                                 If you have questions about this Privacy Policy or our privacy practices, please contact us:
                             </p>
                             <div className="space-y-3 font-medium text-slate-700">
-                                <p className="font-bold text-[#1c355e]">Amigo Academy</p>
-                                <p>Email: <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:underline font-normal">info@amigoacademy.in</a></p>
+                                <p className="font-bold text-[#1c355e]">Amigo Academy Pvt Ltd</p>
+                                <p>Email: <a href="mailto:care@amigoacademy.in" className="text-[#e31e24] hover:underline font-normal">care@amigoacademy.in</a></p>
                                 <p>Phone: <span className="text-[#e31e24] font-normal">+919987588932</span></p>
                             </div>
                         </div>

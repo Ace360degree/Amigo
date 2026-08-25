@@ -120,7 +120,7 @@ export default function Franchise() {
                                 category: "TRACK RECORD",
                                 title: "Established Brand",
                                 desc: "A career academy built and proven in Mumbai since 2017.",
-                                points: ["Founded in 2017", "10,000+ students trained", "4.6★ rating • 790+ reviews"]
+                                points: ["Founded in 2017", "10,000+ students trained", "4.6★ rating • 850+ reviews"]
                             },
                             {
                                 icon: (
@@ -131,7 +131,7 @@ export default function Franchise() {
                                 category: "PROGRAMS",
                                 title: "High-Demand Courses",
                                 desc: "Three job-focused courses with real hiring demand in every city.",
-                                points: ["Air Hostess / Cabin Crew", "Airport Ground Staff & Hospitality Management", "AI & Data Science"]
+                                points: ["Cabin Crew (Air Hostess & Hospitality Management)", "Airport Ground Staff & Hospitality Management", "AI & Data Science"]
                             },
                             {
                                 icon: (
@@ -683,7 +683,7 @@ export default function Franchise() {
                                 <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
                                 <span className="relative z-10">FRANCHISE PROGRAM</span>
                             </div>
-                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Air Hostess / Cabin Crew</h3>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Cabin Crew (Air Hostess & Hospitality Management)</h3>
                             <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
                                 In-flight service, safety, grooming and communication training for airline roles.
                             </p>
@@ -933,7 +933,7 @@ export default function Franchise() {
                                     {/* City */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">City</label>
-                                        <input type="text" placeholder="e.g. Pune" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" placeholder="e.g. Mumbai" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Preferred Location */}
                                     <div className="space-y-2">
@@ -1057,7 +1057,7 @@ export default function Franchise() {
                             {
                                 id: 3,
                                 question: "Which courses can a franchise offer?",
-                                answer: "Our franchises offer three core programs: Air Hostess/Cabin Crew, Airport Ground Staff & Hospitality Management, and AI & Data Science, all designed with industry-relevant curriculum."
+                                answer: "Our franchises offer three core programs: Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science, all designed with industry-relevant curriculum."
                             },
                             {
                                 id: 4,
@@ -1155,13 +1155,13 @@ export default function Franchise() {
 
                     {/* Heading */}
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
-                        2026 Batches Are Filling Fast — Don't Get Left Behind
+                        2026 Batches Are Filling Fast — Secure Your Spot Now!
                     </h2>
 
                     {/* Subtitle */}
-                    <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
+                    {/* <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
                         Admissions Open — Secure Your Seat Early. One free call is all it takes.
-                    </p>
+                    </p> */}
 
                     {/* Government Certification Badge */}
                     <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
@@ -1209,11 +1209,11 @@ export default function Franchise() {
                         </div>
                         <div className="flex items-center gap-1.5">
                             <span className="text-emerald-400">✓</span>
-                            <span>10,000+ Students</span>
+                            <span>10,000+ Students Trained</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                             <span className="text-emerald-400">✓</span>
-                            <span>Govt Certified</span>
+                            <span>Certified Courses</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                             <span className="text-emerald-400">✓</span>

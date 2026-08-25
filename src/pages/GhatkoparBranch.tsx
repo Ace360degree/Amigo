@@ -17,14 +17,14 @@ export default function GhatkoparBranch() {
   const courses = [
     {
       image: course1,
-      title: "Air Hostess / Cabin Crew",
+      title: "Cabin Crew (Air Hostess & Hospitality Management)",
       desc: "Prepare for a professional career with domestic and international airlines through practical training, personality development, and interview preparation.",
-      btn: "Explore Air Hostess / Cabin Crew Course",
+      btn: "Explore Cabin Crew (Air Hostess & Hospitality Management) Course",
       link: "/career-guide/cabin-crew"
     },
     {
       image: course2,
-      title: "Airport Ground Staff",
+      title: "Airport Ground Staff & Hospitality Management",
       desc: "Build the knowledge and practical skills required for customer service and operational roles within airports and the aviation industry.",
       btn: "Explore Airport Ground Staff Course",
       link: "/career-guide/airport-ground-staff"
@@ -364,8 +364,8 @@ export default function GhatkoparBranch() {
               <div>
                 <p className="text-[14px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">Courses Available</p>
                 <ul className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed space-y-1">
-                  <li>&#8226; Air Hostess / Cabin Crew</li>
-                  <li>&#8226; Airport Ground Staff</li>
+                  <li>&#8226; Cabin Crew (Air Hostess &amp; Hospitality Management)</li>
+                  <li>&#8226; Airport Ground Staff &amp; Hospitality Management</li>
                   <li>&#8226; AI &amp; Data Science</li>
                 </ul>
               </div>
@@ -428,8 +428,8 @@ export default function GhatkoparBranch() {
           {/* Features Row */}
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs sm:text-[13px] text-slate-300 font-bold font-sans">
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 4.6 Google Rating</span>
-            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students</span>
-            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Govt Certified</span>
+            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students Trained</span>
+            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Certified Courses</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 200+ Hiring Partners</span>
           </div>
 

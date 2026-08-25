@@ -9,7 +9,7 @@ import student4 from "../assets/img/placementstudent4.png";
 const students = [
     {
         name: "Reema Mascarenhas",
-        course: "Air Hostess / Cabin Crew",
+        course: "Cabin Crew (Air Hostess & Hospitality Management)",
         branch: "Thane",
         placedAt: "Air India",
         quote: "Grooming sessions changed how I carried myself in the interview.",
@@ -17,7 +17,7 @@ const students = [
     },
     {
         name: "Waqas Shaikh",
-        course: "Airport Ground Staff",
+        course: "Airport Ground Staff & Hospitality Management",
         branch: "Andheri",
         placedAt: "Air India",
         quote: "My trainer pushed my profile until I got the offer letter.",
@@ -25,7 +25,7 @@ const students = [
     },
     {
         name: "Bhumika Jadhav",
-        course: "Cabin Crew",
+        course: "Cabin Crew (Air Hostess & Hospitality Management)",
         branch: "Thane",
         placedAt: "Quess",
         quote: "The mock interviews made the real airline round feel familiar.",
@@ -33,7 +33,7 @@ const students = [
     },
     {
         name: "Mehwish Sayyed",
-        course: "Airport Ground Staff",
+        course: "Airport Ground Staff & Hospitality Management",
         branch: "Ghatkopar",
         placedAt: "Vistara Air",
         quote: "The mock interviews made the real airline round feel familiar.",

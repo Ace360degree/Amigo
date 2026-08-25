@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { submitCounsellorForm } from "../services/api";
@@ -8,6 +8,14 @@ import courseCabin from "../assets/img/course-cabiny1.png";
 import courseGround from "../assets/img/course-groundy1.png";
 import courseAi from "../assets/img/course-aiy1.png";
 import differentClassroom from "../assets/img/different-classroom.png";
+
+// Hero Banner Carousel images
+import cabinCrewBanner from "../assets/img/home-hero/cabincrew.png";
+import cabinCrewMobileBanner from "../assets/img/home-hero/cabincrew-mobile.png";
+import groundStaffBanner from "../assets/img/home-hero/airportgroundstaff.png";
+import groundStaffMobileBanner from "../assets/img/home-hero/airportgroundstaff-mobile.png";
+import aidsBanner from "../assets/img/home-hero/aids.png";
+import aidsMobileBanner from "../assets/img/home-hero/aids-mobile.png";
 
 // Student Success Stories images
 import Student1 from "../assets/img/Student1.png";
@@ -28,6 +36,16 @@ import profileimgmainy3 from "../assets/img/profileimgmainy3.png";
 import profileimgmainy4 from "../assets/img/profileimgmainy4.png";
 import profileimgmainy5 from "../assets/img/profileimgmainy5.png";
 import profileimgmainy6 from "../assets/img/profileimgmainy6.png";
+
+// Google Reviews profile images
+import gReview1 from "../assets/img/googlereviews/1.png";
+import gReview2 from "../assets/img/googlereviews/2.png";
+import gReview3 from "../assets/img/googlereviews/3.png";
+import gReview4 from "../assets/img/googlereviews/4.png";
+import gReview5 from "../assets/img/googlereviews/5.png";
+import gReview6 from "../assets/img/googlereviews/6.png";
+import gReview7 from "../assets/img/googlereviews/7.png";
+import gReview8 from "../assets/img/googlereviews/8.png";
 
 // Airline brand logo images
 import brandAirIndia from "../assets/img/brandAirIndia.png";
@@ -65,8 +83,41 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
   const [activeGuide, setActiveGuide] = useState("");
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
+  const heroSlides = [
+    {
+      id: "cabin-crew",
+      tagline: "Your Aviation Dream",
+      highlightTagline: "Starts Here",
+      courseName: "Cabin Crew (Air Hostess & Hospitality Management)",
+      desktopImg: cabinCrewBanner,
+      mobileImg: cabinCrewMobileBanner
+    },
+    {
+      id: "ground-staff",
+      tagline: "Your Airport Career",
+      highlightTagline: "Starts Here",
+      courseName: "Airport Ground Staff & Hospitality Management",
+      desktopImg: groundStaffBanner,
+      mobileImg: groundStaffMobileBanner
+    },
+    {
+      id: "ai-data-science",
+      tagline: "Your Tech & AI Career",
+      highlightTagline: "Starts Here",
+      courseName: "AI & Data Science",
+      desktopImg: aidsBanner,
+      mobileImg: aidsMobileBanner
+    }
+  ];
 
+  useEffect(() => {
+    const slideTimer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(slideTimer);
+  }, []);
 
   const [loading, setLoading] = useState(false);
 
@@ -106,83 +157,122 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
   };
 
   const coursesList = [
-    "Air Hostess / Cabin Crew",
+    "Cabin Crew (Air Hostess & Hospitality Management)",
     "Airport Ground Staff & Hospitality Management",
     "AI & Data Science"
   ];
 
   const branchesList = [
-    "Mumbai Ghatkopar",
-    "Mumbai Andheri",
+    "Ghatkopar",
+    "Andheri",
     "Thane"
   ];
 
   return (
     <div className="relative bg-neutral-50">
 
-      {/* Hero Section Container */}
-      <section className="relative w-full min-h-[380px] sm:min-h-[450px] lg:min-h-[600px] bg-white overflow-hidden flex items-center">
-
-        {/* Desktop Background: right-0, w-3/5, object-center */}
-        <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
-          <img
-            src={heroCrew}
-            alt="Amigo Academy Aviation Classroom"
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-
-        {/* Mobile Background: w-full, height is 100%, with linear gradient overlay */}
-        <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
-          <img
-            src={mobileHeroMain}
-            alt="Amigo Academy Aviation Classroom Mobile"
-            className="w-full h-full object-cover object-right"
-          />
-          {/* Gradient overlay to fade left side into white */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 via-35% to-transparent z-10" />
-        </div>
-
-        {/* Content Area */}
-        <div className="max-w-7xl mx-auto w-full px-6 pt-8 pb-20 sm:pb-28 lg:py-24 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-          {/* Left Column: Heading and Text */}
-          <div className="lg:col-span-6 flex flex-col space-y-4 sm:space-y-6 text-left items-start justify-center">
-
-            <h1 className="text-[22px] sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.12]">
-              Your Aviation Dream
-              <br />
-              <span className="block mt-2 lg:mt-3 text-[#e9ad36]">Starts Here</span>
-            </h1>
-
-            {/* Desktop list of courses */}
-            <p className="hidden lg:block text-slate-600 text-sm sm:text-base leading-relaxed font-sans max-w-xl">
-              Air Hostess & Cabin Crew <span className="text-slate-400 font-bold mx-2">*</span>
-              Airport Ground Staff & Hospitality <span className="text-slate-400 font-bold mx-2">*</span>
-              <br />
-              AI & Data Science
-            </p>
-
-            {/* Mobile list of courses stacked vertically */}
-            <div className="block lg:hidden text-slate-600 text-[9px] sm:text-xs font-bold leading-relaxed font-sans max-w-[200px] sm:max-w-xs space-y-0.5">
-              <p>Air Hostess & Cabin Crew*</p>
-              <p>Airport Ground Staff & Hospitality*</p>
-              <p>AI & Data Science</p>
-            </div>
-
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
-              className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-xs lg:text-sm px-5 py-3 lg:px-6 lg:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none"
+      {/* Hero Section Container with Course Carousel */}
+      <section className="relative w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[620px] bg-white overflow-hidden flex items-center">
+        {heroSlides.map((slide, idx) => {
+          const isActive = idx === currentSlide;
+          return (
+            <div
+              key={slide.id}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out flex items-center ${
+                isActive ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"
+              }`}
             >
-              Enroll Now To Avail Scholarship
-              <svg className="w-3.5 h-3.5 lg:w-4 lg:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              {/* Desktop Background: right-0, w-3/5, object-center */}
+              <div className="hidden lg:block absolute right-0 top-0 bottom-0 w-3/5 h-full z-0">
+                <img
+                  src={slide.desktopImg}
+                  alt={slide.courseName}
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+
+              {/* Mobile Background: w-full, height is 100%, with linear gradient overlay */}
+              <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
+                <img
+                  src={slide.mobileImg}
+                  alt={`${slide.courseName} Mobile`}
+                  className="w-full h-full object-cover object-right"
+                />
+                {/* Gradient overlay to fade left side into white */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-45% to-transparent z-10" />
+              </div>
+
+              {/* Content Area */}
+              <div className="max-w-7xl mx-auto w-full px-6 pt-6 pb-20 sm:pb-24 lg:py-20 relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                {/* Left Column: Tagline, Course Name & CTA */}
+                <div className="lg:col-span-7 flex flex-col space-y-4 sm:space-y-6 text-left items-start justify-center">
+
+                  {/* Tagline */}
+                  <h1 className="text-[22px] sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.3] sm:leading-[1.3] lg:leading-[1.25]">
+                    {slide.tagline}
+                    <br />
+                    <span className="block mt-2 lg:mt-3 text-[#e9ad36]">{slide.highlightTagline}</span>
+                  </h1>
+
+                  {/* Course Name */}
+                  <div className="text-[#0f2a4a] font-sans font-extrabold text-xs sm:text-base lg:text-xl max-w-xl border-l-4 border-[#e31e24] pl-3 py-1 bg-slate-50/60 rounded-r-lg">
+                    {slide.courseName}
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+                    className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-[10px] sm:text-xs lg:text-sm px-5 py-3 lg:px-7 lg:py-3.5 rounded-full shadow-md hover:shadow-lg transition-all active:scale-95 flex items-center gap-2 group focus:outline-none cursor-pointer mt-2"
+                  >
+                    Enroll Now To Avail Scholarship
+                    <svg className="w-3.5 h-3.5 lg:w-4 lg:h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Carousel Navigation Arrows & Indicators */}
+        <div className="absolute bottom-5 left-6 lg:left-12 z-30 flex items-center gap-4">
+          {/* Indicator Dots */}
+          <div className="flex items-center gap-2">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === currentSlide ? "w-8 bg-[#e31e24]" : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Prev / Next Arrows */}
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length)}
+              className="w-8 h-8 rounded-full bg-white/90 border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#e31e24] transition-all cursor-pointer"
+              aria-label="Previous Slide"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
+            </button>
+            <button
+              onClick={() => setCurrentSlide((prev) => (prev + 1) % heroSlides.length)}
+              className="w-8 h-8 rounded-full bg-white/90 border border-slate-200 shadow-sm flex items-center justify-center text-slate-700 hover:bg-white hover:text-[#e31e24] transition-all cursor-pointer"
+              aria-label="Next Slide"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
               </svg>
             </button>
           </div>
-
         </div>
-
       </section>
 
       {/* Floating Eligibility Form Card Section */}
@@ -402,10 +492,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             {/* Stat 4: Govt Certified */}
             <div className="flex flex-col items-center justify-center pt-6 md:pt-0">
               <span className="text-3xl sm:text-4xl font-extrabold text-[#DDAB30] tracking-tight">
-                Govt
+                Certified
               </span>
               <span className="text-[10px] sm:text-xs font-bold tracking-widest text-slate-200 mt-2 uppercase">
-                Certified
+                Courses
               </span>
             </div>
 
@@ -441,10 +531,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="p-6 sm:p-7 flex flex-col space-y-4">
                 <h3 className="text-lg font-bold text-[#0f2a4a] leading-snug font-sans">
-                  Air Hostess / Cabin Crew & Hospitality Management
+                  Cabin Crew (Air Hostess & Hospitality Management)
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-                  12-month air hostess & cabin crew training across Ghatkopar, Andheri, Thane & Pune. Professional grooming, aviation training, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
+                  12-month cabin crew training across Ghatkopar, Andheri & Thane. Professional grooming, aviation training, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
                 </p>
               </div>
             </div>
@@ -453,7 +543,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Badges Grid */}
               <div className="grid grid-cols-2 gap-2 text-white">
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
                     <line x1="8" y1="2" x2="8" y2="6" />
@@ -462,20 +552,20 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   12 Months
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
-                  5 Days a week
+                  5 Days a Week
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
                   2 Hours
                 </div>
-                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans truncate">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="5" />
                     <line x1="12" y1="1" x2="12" y2="3" />
                     <line x1="12" y1="21" x2="12" y2="23" />
@@ -486,7 +576,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
-                  Morning / Afternoon...
+                  <span>Morn / Aft / Eve</span>
                 </div>
               </div>
 
@@ -518,7 +608,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   Airport Ground Staff & Hospitality Management
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-                  12-month Govt-certified airport ground staff training in Mumbai & Pune — check-in, boarding, baggage & customer service, with placement support and easy EMI.
+                  12-month airport ground staff training across Ghatkopar, Andheri & Thane. Ground operations, passenger handling, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
                 </p>
               </div>
             </div>
@@ -527,7 +617,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Badges Grid */}
               <div className="grid grid-cols-2 gap-2 text-white">
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
                     <line x1="8" y1="2" x2="8" y2="6" />
@@ -536,20 +626,20 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   12 Months
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
                   5 Days a Week
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
                   2 Hours
                 </div>
-                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans truncate">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="5" />
                     <line x1="12" y1="1" x2="12" y2="3" />
                     <line x1="12" y1="21" x2="12" y2="23" />
@@ -560,7 +650,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
-                  Morning / Afternoon...
+                  <span>Morn / Aft / Eve</span>
                 </div>
               </div>
 
@@ -592,7 +682,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   AI & Data Science with Generative AI & Machine Learning
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-                  12-month AI & Data Science course in Ghatkopar, Andheri, Thane & Pune — Python, Generative AI, machine learning, real projects & placement support. Easy EMI and scholarships up to ₹50,000. Apply now.
+                  12-month AI & Data Science training across Ghatkopar, Andheri & Thane. Coding, Generative AI, machine learning, real projects & dedicated placement support with easy EMI and scholarships up to ₹50,000.
                 </p>
               </div>
             </div>
@@ -601,7 +691,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               {/* Badges Grid */}
               <div className="grid grid-cols-2 gap-2 text-white">
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />
                     <line x1="8" y1="2" x2="8" y2="6" />
@@ -610,20 +700,20 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   12 Months
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
                   </svg>
-                  5 Days a Week
+                  <span>Flexible Schedule</span>
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  2 hours/Day
+                  2 Hours
                 </div>
-                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans truncate">
-                  <svg className="w-3.5 h-3.5 min-w-[14px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
+                  <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="5" />
                     <line x1="12" y1="1" x2="12" y2="3" />
                     <line x1="12" y1="21" x2="12" y2="23" />
@@ -634,7 +724,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
                   </svg>
-                  Morning / Afternoon...
+                  <span>Morn / Aft / Eve</span>
                 </div>
               </div>
 
@@ -705,7 +795,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   Strong Placement Support
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
-                  Active hiring connections across aviation and tech — including IndiGo, Air India, Emirates, Mumbai Airport and IT & AI companies. We push your profile until selected.
+                  Active hiring connections across aviation and tech — including IndiGo, Air India, Emirates, Mumbai Airport and IT & AI companies. We push your profile for better visibility and stronger placement opportunities.
                 </p>
               </div>
             </div>
@@ -777,7 +867,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                 />
               </div>
 
-              {/* Video Play Button Overlay */}
+              {/* Video Play Button Overlay (Disabled for now) */}
+              {/*
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
                   onClick={() => setIsVideoModalOpen(true)}
@@ -789,6 +880,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   </svg>
                 </button>
               </div>
+              */}
 
               {/* Floating CTA Eligibility Button */}
               <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 md:left-10 md:translate-x-0 z-20 whitespace-nowrap">
@@ -951,207 +1043,137 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       </section>
 
       {/* Google Reviews & Testimonials Section */}
-      <section className="max-w-7xl mx-auto w-full px-6 pt-10 pb-16 relative z-20">
+      <section className="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-10 pb-16 relative z-20">
 
-        {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f2a4a] leading-tight">
-            Trusted by 820+ Students on Google
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0f2a4a] leading-tight font-sans">
+            4.6 Stars on Google!
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
+          <div className="flex justify-center gap-1.5 text-[#0f2a4a] my-3">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <p className="text-[#556987] font-semibold text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+            Based on 850+ verified student reviews, students consistently praise our placement support, practical training, and career guidance.
+          </p>
+          <p className="text-[#556987] font-semibold text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mt-2">
             Real reviews from trainees who built their careers with Amigo Academy
           </p>
         </div>
 
-        {/* Reviews Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto items-stretch">
-
-          {/* Column 1: Google Rating Info Card */}
-          <div className="lg:row-span-2 bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] p-8 flex flex-col justify-between items-start">
-            <div>
-              {/* Google Logo */}
-              <div className="flex items-center gap-1">
-                <svg className="w-24 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l3.66-2.85z" fill="#FBBC05" />
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.85c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
-                </svg>
-              </div>
-
-              {/* Search Box Style Pill */}
-              <div className="relative w-full flex items-center bg-slate-50 border border-slate-100 rounded-full py-2 px-4 mt-6">
-                <svg className="w-4 h-4 text-blue-500 mr-2.5 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <span className="text-[#0f2a4a] text-xs font-bold font-sans">
-                  Amigo Academy Courses
-                </span>
-              </div>
-
-              {/* Star Text & Stars */}
-              <h3 className="text-xl font-extrabold text-[#0f2a4a] mt-8 font-sans">
-                4.6 Stars on google!
-              </h3>
-
-              <div className="flex gap-1 mt-2 text-[#0f2a4a]">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-
-              {/* Review Info Text */}
-              <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mt-6 font-semibold font-sans">
-                Based on 1,200+ verified student reviews. Students consistently praise our placement support, practical training, and career guidance. See why students who trained with us are now flying with Emirates, IndiGo, Air India & major airports worldwide.
-              </p>
-            </div>
-
-            <button
-              onClick={() => window.open("https://www.google.com/search?q=Amigo+Academy", "_blank")}
-              className="w-full bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm py-3.5 rounded-full mt-8 flex items-center justify-center gap-2 group transition-all shadow-sm hover:shadow active:scale-95"
-            >
-              View all reviews on Google
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-            </button>
-          </div>
-
-          {/* 6 Review Cards */}
+        {/* 8 Review Cards (4 cols x 2 rows) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 max-w-7xl mx-auto items-stretch">
           {[
             {
-              name: "Sakshi Pate",
-              stars: 4,
-              text: "I joined with zero aviation experience. Within 5 months I cleared interviews and got placed as Ground Staff at Mumbai Airport. The mock interviews helped a lot.",
-              role: "Cabin Crew",
-              airline: "Emirates",
-              batch: "Batch 2024",
-              date: "12 Jan 2026",
-              initials: "SP",
-              gradient: "from-[#1E417A] to-[#12284C]",
-              img: profileimgmainy1
+              name: "Nadim Shaikh",
+              timeAgo: "5 months ago",
+              text: "I had a wonderful experience with Amigo Academy. The team is very professional, supportive, and dedicated to providing quality training and guidance. The environment is positive, and they truly focus on students' growth and confidence. I highly recommend Amigo Academy to anyone looking for the right learning platform.",
+              img: gReview1
             },
             {
-              name: "Sohail Shaikh",
-              stars: 5,
-              text: "Every class felt like real airline training. The placement team kept following up until I got selected. Totally worth the fees.",
-              role: "Ground Staff Executive",
-              airline: "Mumbai Airport",
-              batch: "Batch 2025",
-              date: "8 Jan 2026",
-              initials: "SS",
-              gradient: "from-[#e31e24] to-[#c2141a]",
-              img: profileimgmainy2
+              name: "Kajal Gupta",
+              timeAgo: "6 months ago",
+              text: "Amigo academy provides reliable placement assistance along with excellent training. The support continues even after course completion.",
+              img: gReview2
             },
             {
-              name: "Aasif Bate",
-              stars: 5,
-              text: "My parents trusted Amigo after seeing Google reviews and government recognition. I got my first job within 2 months of completing the course.",
-              role: "Cabin Crew",
-              airline: "SpiceJet",
-              batch: "Batch 2024",
-              date: "5 Jan 2026",
-              initials: "AB",
-              gradient: "from-[#DDAB30] to-[#b3861b]",
-              img: profileimgmainy3
+              name: "Kashif Qureshi",
+              timeAgo: "6 months ago",
+              text: "Had a great experience at Amigo Academy Ghatkopar! The trainers are knowledgeable and supportive, with practical sessions that build real confidence for aviation careers. Infrastructure is modern with AC classrooms, and placement assistance helped a lot. Highly recommend for hospitality training—5 stars!",
+              img: gReview3
             },
             {
-              name: "Sahil Ghag",
-              stars: 5,
-              text: "The faculty here is amazing. They really invest their time in your growth. Highly recommended for anyone wanting to join the aviation industry.",
-              role: "Customer Service",
-              airline: "Indigo",
-              batch: "Batch 2025",
-              date: "15 Jan 2026",
-              initials: "SG",
-              gradient: "from-teal-600 to-teal-800",
-              img: profileimgmainy4
+              name: "Nikita Thorat",
+              timeAgo: "1 year ago",
+              text: "Amigo Academy in Ghatkopar is an outstanding institution that truly sets the benchmark in aviation and hospitality training. The faculty members are exceptionally knowledgeable, supportive, and passionate about student success. Their teaching methods are practical, engaging, and designed to prepare students thoroughly for real-world.",
+              img: gReview4
             },
             {
-              name: "Kiran Tripathi",
-              stars: 5,
-              text: "Best academy in Mumbai for aviation courses. Their placement support is 100% genuine.",
-              role: "Ticketing Executive",
-              airline: "Air India",
-              batch: "Batch 2024",
-              date: "20 Jan 2026",
-              initials: "KT",
-              gradient: "from-purple-600 to-purple-800",
-              img: profileimgmainy5
+              name: "Aaliya Bhat",
+              timeAgo: "2 months ago",
+              text: "Amazing institute, skilled professionals and placements!! Def recommend to do a course from here. The faculty is v sweet and helpful\uD83D\uDC97",
+              img: gReview5
             },
             {
-              name: "Swati Patil",
-              stars: 5,
-              text: "I am really thankful to Amigo Academy for reshaping my career. Their communication classes really boosted my confidence.",
-              role: "Ground Staff",
-              airline: "Akasa Air",
-              batch: "Batch 2024",
-              date: "25 Jan 2026",
-              initials: "SP",
-              gradient: "from-[#1e417a] to-[#DDAB30]",
-              img: profileimgmainy6
+              name: "Jorison Konjengbam",
+              timeAgo: "1 year ago",
+              text: "I am so grateful and thankful to the trainer and management of the Academy, this training helps me to understand more about my dream career and getting ready for the future, I am truly appreciate with the class plan and the lecture. Best Academy for Aviation and Hospitality in Mumbai",
+              img: gReview6
+            },
+            {
+              name: "Kartik Salve",
+              timeAgo: "1 year ago",
+              text: "Amigo Academy is a good place to learn and sharpen your skills. I had a good experience and beautiful memories at Amigo Academy. The trainers were helpful and explain the concept in detail. I learned many new things and the classes were easy to understand. I'm happy, I joined Amigo and would tell others to enrol too.",
+              img: gReview7
+            },
+            {
+              name: "Dhanashri Patil",
+              timeAgo: "1 year ago",
+              text: "I am so glad to share the review for Mumbai's best aviation and my favourite Amigo Academy. Initially I used to get nervous easily due to lack of confidence but gradually with the help of modules taught in Amigo Academy, it helped me to improve my communication skills, grooming, personality and I started gaining confidence too! Thank you so much Amigo Academy.",
+              img: gReview8
             }
           ].map((rev, idx) => (
-            <div key={idx} className="bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] p-6 sm:p-7 flex flex-col justify-between items-start space-y-6">
-
-              <div className="w-full flex flex-col space-y-4">
-                {/* Review Stars */}
-                <div className="flex gap-0.5 text-amber-400">
+            <div
+              key={idx}
+              onClick={() => window.open("https://www.google.com/search?q=Amigo+Academy", "_blank", "noopener,noreferrer")}
+              className="bg-white rounded-[24px] border border-neutral-100 shadow-[0_8px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_14px_35px_rgba(0,0,0,0.08)] hover:-translate-y-1 p-6 sm:p-7 flex flex-col justify-between items-start text-left h-full transition-all duration-300 cursor-pointer group"
+            >
+              <div className="w-full flex flex-col space-y-3">
+                {/* 5 Yellow Stars */}
+                <div className="flex gap-0.5 text-[#f59e0b]">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className={`w-4 h-4 ${i < rev.stars ? "fill-current" : "text-slate-200"}`} viewBox="0 0 20 20">
+                    <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
 
-                {/* Review Quote Text */}
-                <p className="text-[#0f2a4a] text-xs sm:text-sm font-bold font-sans leading-relaxed text-left">
-                  "{rev.text}"
+                {/* Review Text */}
+                <p className="text-[#0f2a4a] text-xs sm:text-[13px] font-bold font-sans leading-relaxed">
+                  {rev.text}
                 </p>
               </div>
 
               {/* Reviewer Details Row */}
-              <div className="w-full flex flex-col space-y-2 border-t border-slate-50 pt-4">
-                <div className="flex items-center gap-3">
-                  {/* Profile Image Avatar */}
-                  <img
-                    src={rev.img}
-                    alt={rev.name}
-                    className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
-                  />
-                  <div className="flex flex-col text-left">
-                    <h4 className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight">
-                      {rev.name}
-                    </h4>
-                    <p className="text-slate-400 text-[10px] sm:text-xs font-semibold mt-0.5 leading-snug">
-                      {rev.role} | {rev.airline} | {rev.batch}
-                    </p>
-                  </div>
-                </div>
-                <div className="text-left">
-                  <span className="text-slate-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider pl-13">
-                    Google Review &bull; {rev.date}
-                  </span>
+              <div className="w-full flex items-center gap-3 pt-6 mt-6 border-t border-slate-50">
+                <img
+                  src={rev.img}
+                  alt={rev.name}
+                  className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
+                />
+                <div className="flex flex-col text-left">
+                  <h4 className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight font-sans">
+                    {rev.name}
+                  </h4>
+                  <p className="text-slate-400 text-[10.5px] sm:text-xs font-semibold mt-0.5 font-sans">
+                    Google Review &bull; {rev.timeAgo}
+                  </p>
                 </div>
               </div>
-
             </div>
           ))}
-
         </div>
 
-      </section>
-      <section className="w-full pb-16 relative z-20">
-        <div className="mt-20 max-w-4xl mx-auto flex flex-col items-center justify-center gap-6 text-center px-6">
-          <p className="text-[#556987] text-sm sm:text-base md:text-lg font-bold font-sans leading-normal max-w-3xl">
+        {/* Bottom Callout Section */}
+        <div className="mt-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-center px-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0f2a4a] leading-tight font-sans tracking-tight">
+            Trusted by 10,000+ Students on Google
+          </h2>
+          <p className="text-[#556987] text-xs sm:text-sm font-semibold font-sans leading-relaxed max-w-2xl mt-3 mb-8">
             Choosing the right academy can decide your entire career. Join thousands who trusted Amigo and got placed.
           </p>
+
           {/* Pills Container */}
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {["Verified Google Reviews", "Placement Support", "Govt Recognised", "10,000+ Students Trained"].map((pill, idx) => (
-              <span key={idx} className="bg-[#f0f4fa]/40 border border-[#d3e4f6] text-[#1e3e66] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm transition-all hover:bg-slate-50">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            {["Verified Google Reviews", "Placement Support", "Certified Courses", "10,000+ Students Trained"].map((pill, idx) => (
+              <span
+                key={idx}
+                className="bg-[#f0f4fa]/70 border border-[#d3e4f6] text-[#1e3e66] text-xs font-bold px-5 py-2.5 rounded-full font-sans shadow-sm"
+              >
                 {pill}
               </span>
             ))}
@@ -1159,20 +1181,16 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
           {/* CTA Button */}
           <button
-            onClick={() => {
-              const element = document.getElementById("eligibilityForm");
-              element?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 group mt-2 shrink-0"
+            onClick={() => window.dispatchEvent(new CustomEvent("openEligibilityModal"))}
+            className="bg-[#e31e24] hover:bg-[#c2141a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-full shadow-[0_8px_25px_rgba(227,30,36,0.25)] hover:shadow-[0_12px_30px_rgba(227,30,36,0.35)] transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
           >
-            Check My Batch & Placement Options
-            <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+            Check Upcoming Batch & Placement Options
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </button>
-
-
         </div>
+
       </section>
 
 
@@ -1350,11 +1368,20 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {[
             {
               id: "cabin-crew",
-              title: "✈️ AIR HOSTESS / CABIN CREW",
+              title: "✈️ CABIN CREW (AIR HOSTESS & HOSPITALITY MANAGEMENT)",
               articles: [
                 { title: "How to prepare for Cabin Crew interview in 2026", duration: "5 min read" },
                 { title: "Essential grooming tips for airline recruitment", duration: "4 min read" },
                 { title: "Cabin crew salary guide & career paths", duration: "6 min read" }
+              ]
+            },
+            {
+              id: "ground-staff",
+              title: "🛂 AIRPORT GROUND STAFF & HOSPITALITY MANAGEMENT",
+              articles: [
+                { title: "Introduction to airport operations & customer services", duration: "4 min read" },
+                { title: "What to expect as a Passenger Service Executive", duration: "5 min read" },
+                { title: "Aviation security & check-in agent checklist", duration: "6 min read" }
               ]
             },
             {
@@ -1364,15 +1391,6 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                 { title: "Top 10 Generative AI skills demanded by employers", duration: "5 min read" },
                 { title: "Building a standout portfolio as a Data Scientist", duration: "7 min read" },
                 { title: "AI & Machine Learning certification roadmap", duration: "6 min read" }
-              ]
-            },
-            {
-              id: "ground-staff",
-              title: "🛄 AIRPORT GROUND STAFF",
-              articles: [
-                { title: "Introduction to airport operations & customer services", duration: "4 min read" },
-                { title: "What to expect as a Passenger Service Executive", duration: "5 min read" },
-                { title: "Aviation security & check-in agent checklist", duration: "6 min read" }
               ]
             }
           ].map((cat) => {
@@ -1448,7 +1466,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             Our Students Work With
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-3 leading-relaxed font-sans font-semibold">
-            Elite global brands that trust Amigo graduates for their workforce needs.
+            Elite global brands that trust Amigo graduates.
           </p>
         </div>
 
@@ -1498,7 +1516,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {[
             {
               q: "What salary can I expect after air hostess training?",
-              a: "After Air Hostess training, freshers can typically expect around ₹25,000–₹40,000 per month, depending on the airline, role, and location. With experience, earnings can increase significantly."
+              a: "After Air Hostess training, freshers can typically expect upto 9 LPA, depending on the airline, role, and location. With experience, earnings can increase significantly."
             },
             {
               q: "What is the eligibility for air hostess course after 12th.",
@@ -1755,13 +1773,13 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           style={{ color: "#ffffff" }}
           className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
         >
-          2026 batches are filling fast — don&rsquo;t get left behind
+          2026 batches are filling fast — Secure Your Spot Now!
         </h1>
 
         {/* Subheading */}
-        <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
+        {/* <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
           Admissions open — secure your seat early. One free call is all it takes.
-        </p>
+        </p> */}
 
         {/* Certification badge */}
         <div className="flex justify-center mb-8">
@@ -1820,7 +1838,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           style={{ color: "#ffffff" }}
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
         >
-          {["4.6 Google rating", "10,000+ students", "Govt certified", "200+ hiring partners"].map(
+          {["4.6 Google rating", "10,000+ students Trained", "Certified Courses", "200+ hiring partners"].map(
             (item, i) => (
               <span key={i} className="inline-flex items-center gap-1.5 font-bold">
                 <svg className="w-3.5 h-3.5 text-[#25d366]" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">

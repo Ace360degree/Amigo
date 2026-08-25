@@ -152,7 +152,7 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                   <input
                     type="text"
                     required
-                    placeholder="WhatsApp Number *"
+                    placeholder="Mobile Number *"
                     minLength={10}
                     maxLength={10}
                     value={formData.phone}
@@ -350,8 +350,8 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                       <option disabled value="">
                         Course *
                       </option>
-                      <option value="Air Hostess / Cabin Crew">
-                        Air Hostess / Cabin Crew
+                      <option value="Cabin Crew (Air Hostess & Hospitality Management)">
+                        Cabin Crew (Air Hostess & Hospitality Management)
                       </option>
                       <option value="Airport Ground Staff & Hospitality Management">
                         Airport Ground Staff & Hospitality Management

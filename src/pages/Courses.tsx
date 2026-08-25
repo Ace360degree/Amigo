@@ -173,7 +173,7 @@ const whyCards: WhyCard[] = [
     description:
       "Three job-focused courses with real hiring demand in every track.",
     bullets: [
-      "Air Hostess / Cabin Crew",
+      "Cabin Crew (Air Hostess & Hospitality Management)",
       "Airport Ground Staff & Hospitality Management",
       "AI & Data Science",
     ],
@@ -254,7 +254,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What courses does Amigo Academy offer?",
     answer:
-      "We currently offer three main courses: Air Hostess / Cabin Crew, Airport Ground Staff, and AI & Data Science.",
+      "We currently offer three main courses: Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science.",
   },
   {
     question: "Are all courses government certified?",
@@ -344,7 +344,7 @@ const storyCards: StoryCard[] = [
 const courses: CourseCard[] = [
   {
     id: "air-hostess",
-    title: "Air Hostess / Cabin Crew",
+    title: "Cabin Crew (Air Hostess & Hospitality Management)",
     description:
       "If you dream of working with leading domestic or international airlines, this program prepares you with the grooming, communication, confidence, and in-flight knowledge required for airline careers.",
     image: coursesCard1,
@@ -613,7 +613,7 @@ export default function Courses() {
                 <thead>
                   <tr className="bg-[#234a8a] text-white">
                     <th className="px-5 py-4 text-[10px] font-bold uppercase tracking-[0.2em]">Compare</th>
-                    <th className="px-5 py-4 text-sm font-bold">Air Hostess / Cabin Crew</th>
+                    <th className="px-5 py-4 text-sm font-bold">Cabin Crew (Air Hostess &amp; Hospitality Management)</th>
                     <th className="px-5 py-4 text-sm font-bold">Airport Ground Staff &amp; Hospitality Management</th>
                     <th className="px-5 py-4 text-sm font-bold">AI &amp; Data Science</th>
                   </tr>
@@ -642,9 +642,9 @@ export default function Courses() {
               </table>
             </div>
           </div>
-            <p className="px-6 pt-4 text-[10px] leading-5 text-slate-400">
-              Salary ranges are approximate and may vary by employer, city and performance. We will share the latest, verified range during counselling.
-            </p>
+          <p className="px-6 pt-4 text-[10px] leading-5 text-slate-400">
+            Salary ranges are approximate and may vary by employer, city and performance. We will share the latest, verified range during counselling.
+          </p>
           <button
             onClick={() => {
               navigate("/contact");
@@ -974,13 +974,13 @@ export default function Courses() {
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-4xl mx-auto mt-8 font-sans leading-tight text-white">
-            2026 Batches Are Filling Fast — Don't Get Left Behind
+            2026 Batches Are Filling Fast — Secure Your Spot Now!
           </h2>
 
           {/* Subtitle */}
-          <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
+          {/* <p className="text-slate-300 text-sm sm:text-lg max-w-2xl mx-auto mt-4 font-sans font-medium">
             Admissions Open — Secure Your Seat Early. One free call is all it takes.
-          </p>
+          </p> */}
 
           {/* Government Certification Badge */}
           <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
@@ -1028,11 +1028,11 @@ export default function Courses() {
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400">✓</span>
-              <span>10,000+ Students</span>
+              <span>10,000+ Students Trained</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400">✓</span>
-              <span>Govt Certified</span>
+              <span>Certified Courses</span>
             </div>
             <div className="flex items-center gap-1.5">
               <span className="text-emerald-400">✓</span>

@@ -33,7 +33,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
 
   const accordionData = [
     {
-      title: "AIR HOSTESS / CABIN CREW",
+      title: "CABIN CREW (AIR HOSTESS & HOSPITALITY MANAGEMENT)",
       emoji: "✈️",
       content: (
         <div className="space-y-3 font-sans text-xs sm:text-sm">
@@ -49,23 +49,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
       ),
     },
     {
-      title: "AI & DATA SCIENCE",
-      emoji: "🚢",
-      content: (
-        <div className="space-y-3 font-sans text-xs sm:text-sm">
-          <p className="text-slate-600 font-medium leading-relaxed">
-            Data Science and AI are shaping the future of industries. To build a robust career in this domain, focus on these critical areas:
-          </p>
-          <ul className="list-disc pl-5 space-y-1.5 text-slate-500 font-medium">
-            <li><strong className="text-slate-700">Programming Foundations:</strong> Master Python, SQL, and libraries like Pandas, NumPy, and Scikit-Learn.</li>
-            <li><strong className="text-slate-700">Core Concepts:</strong> Understand probability, statistics, regression models, classification techniques, and deep learning basics.</li>
-            <li><strong className="text-slate-700">Practical Projects:</strong> Build real-world applications, clean messy datasets, and document your projects on GitHub and Kaggle.</li>
-          </ul>
-        </div>
-      ),
-    },
-    {
-      title: "AIRPORT GROUND STAFF",
+      title: "AIRPORT GROUND STAFF & HOSPITALITY MANAGEMENT",
       emoji: "🛂",
       content: (
         <div className="space-y-3 font-sans text-xs sm:text-sm">
@@ -80,6 +64,22 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         </div>
       ),
     },
+    {
+      title: "AI & DATA SCIENCE",
+      emoji: "💻",
+      content: (
+        <div className="space-y-3 font-sans text-xs sm:text-sm">
+          <p className="text-slate-600 font-medium leading-relaxed">
+            Data Science and AI are shaping the future of industries. To build a robust career in this domain, focus on these critical areas:
+          </p>
+          <ul className="list-disc pl-5 space-y-1.5 text-slate-500 font-medium">
+            <li><strong className="text-slate-700">Programming Foundations:</strong> Master Python, SQL, and libraries like Pandas, NumPy, and Scikit-Learn.</li>
+            <li><strong className="text-slate-700">Core Concepts:</strong> Understand probability, statistics, regression models, classification techniques, and deep learning basics.</li>
+            <li><strong className="text-slate-700">Practical Projects:</strong> Build real-world applications, clean messy datasets, and document your projects on GitHub and Kaggle.</li>
+          </ul>
+        </div>
+      ),
+    },
   ];
 
   const toggleAccordion = (index: number) => {
@@ -87,7 +87,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
   };
 
   const statistics = [
-    { number: "10,000+", label: "Students Placed Successfully" },
+    { number: "10,000+", label: "Students Trained Successfully" },
     { number: "100%", label: "Placement Assistance Guarantee" },
     { number: "150+", label: "Global Airlines & Tech Recruiters" },
     { number: "₹4.5L - ₹9.2L", label: "Average Starting Salary Range" },
@@ -179,7 +179,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             {/* Copy Paragraphs */}
             <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-neutral-600 text-[15px] sm:text-[15px] leading-relaxed">
               <p>
-                Amigo Academy is a leading career-focused professional training institute, committed to transforming ambition into achievement.
+                Amigo Academy Pvt Ltd is a leading career-focused professional training institute, committed to transforming ambition into achievement.
               </p>
               <p>
                 Founded in 2017, the academy was built with a single vision — to bridge the gap between education and employability through industry-aligned, placement-driven training programs.
@@ -283,7 +283,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             <div className="flex items-start gap-3 w-full lg:w-auto pb-4 lg:pb-0">
               <span className="text-[#dfaa29] text-xl mt-1">📍</span>
               <div className="space-y-1 max-w-[320px]">
-                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Amigo Academy</span>
+                <span className="text-[10px] text-neutral-300 font-bold block uppercase tracking-wider">Amigo Academy Pvt Ltd</span>
                 <p className="text-neutral-200 text-xs leading-relaxed font-semibold">
                   107 & 108, Sai Infotech, Patel Chowk, opp Railway Station, Pant Nagar - Ghatkopar East, Mumbai - MH 400077
                 </p>
@@ -308,7 +308,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
                 <span className="text-[#dfaa29] text-lg">✉️</span>
                 <div className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-neutral-200">
                   <span className="text-neutral-300">Email:</span>
-                  <a href="mailto:info@amigoacademy.in" className="hover:underline font-bold text-white">info@amigoacademy.in</a>
+                  <a href="mailto:care@amigoacademy.in" className="hover:underline font-bold text-white">care@amigoacademy.in</a>
                 </div>
               </div>
             </div>
@@ -415,7 +415,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             <h3 className="text-3xl text-white font-outfit font-extrabold tracking-tight">Key Focus Areas</h3>
             <ul className="space-y-4 font-sans text-xs sm:text-[13px] leading-relaxed text-neutral-300 font-semibold list-disc pl-4">
               <li>
-                Founded in 2014 by industry veterans
+                Founded in 2017 by industry veterans
               </li>
               <li>
                 Trusted partner with leading airlines & hotels

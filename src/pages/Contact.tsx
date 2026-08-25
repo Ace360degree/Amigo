@@ -123,10 +123,10 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               </div>
               <div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Email</h4>
-                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">info@amigoacademy.in</p>
+                <p className="text-neutral-500 text-xs mt-1 font-semibold font-sans">care@amigoacademy.in</p>
               </div>
             </div>
-            <a href="mailto:info@amigoacademy.in" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
+            <a href="mailto:care@amigoacademy.in" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
               Send Email
             </a>
           </div>
@@ -563,13 +563,13 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
           style={{ color: "#ffffff" }}
           className="font-extrabold text-3xl sm:text-5xl leading-tight max-w-4xl mx-auto mb-5"
         >
-          2026 batches are filling fast — don&rsquo;t get left behind
+          2026 batches are filling fast — Secure Your Spot Now!
         </h1>
 
         {/* Subheading */}
-        <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
+        {/* <p style={{ color: "#a8b3cc" }} className="text-sm sm:text-base mb-7">
           Admissions open — secure your seat early. One free call is all it takes.
-        </p>
+        </p> */}
 
         {/* Certification badge */}
         <div className="flex justify-center mb-8">
@@ -628,7 +628,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
           style={{ color: "#8fdca0" }}
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium"
         >
-          {["4.6 Google rating", "10,000+ students", "Govt certified", "200+ hiring partners"].map(
+          {["4.6 Google rating", "10,000+ students Trained", "Certified Courses", "200+ hiring partners"].map(
             (item, i) => (
               <span key={i} className="inline-flex items-center gap-1.5 font-bold">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">

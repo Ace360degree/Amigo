@@ -41,19 +41,19 @@ export default function Footer() {
                 <span className="font-semibold group-hover:text-white transition-colors">+919987588932</span>
               </a>
 
-              <a href="mailto:info@amigoacademy.in" className="flex items-center space-x-3 group w-fit">
-                <span className="w-8 h-8 rounded-full border border-slate-700/60 flex items-center justify-center text-slate-300 group-hover:text-white group-hover:border-white transition-all">
+              <a href="mailto:care@amigoacademy.in" className="flex items-center space-x-3 group w-fit">
+                <div className="w-8 h-8 rounded-full bg-[#112340] flex items-center justify-center text-[#e31e24] group-hover:scale-110 transition-transform">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                </span>
-                <span className="font-semibold group-hover:text-white transition-colors text-xs sm:text-sm">info@amigoacademy.in</span>
+                </div>
+                <span className="font-semibold group-hover:text-white transition-colors text-xs sm:text-sm">care@amigoacademy.in</span>
               </a>
             </div>
 
             {/* Paragraph Text */}
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-xs pt-1">
-              Founded in 2017, Amigo Academy has been envisaged as an academy steadily committed to delivering holistic training co...
+              Founded in 2017, Amigo Academy Pvt Ltd has been envisaged as an academy steadily committed to delivering holistic training concepts across aviation, hospitality, and technology sectors.
             </p>
             <button
               onClick={() => handleNavClick("/about-us")}
@@ -106,7 +106,7 @@ export default function Footer() {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Air Hostess / Cabin Crew</button>
+              <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew (Air Hostess & Hospitality Management)</button>
               <button onClick={() => handleNavClick("/courses/airport-ground-staff-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff & Hospitality Management</button>
               <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
               <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
@@ -254,7 +254,7 @@ export default function Footer() {
 
           {/* Copyright text */}
           <p className="text-slate-500">
-            &copy; 2026 Amigo Academy. All Rights Reserved
+            &copy; 2026 Amigo Academy Pvt Ltd. All Rights Reserved
           </p>
         </div>
 

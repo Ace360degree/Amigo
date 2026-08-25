@@ -418,7 +418,7 @@ export default function TermsConditions() {
                                     If you have questions regarding these Terms & Conditions, course information, admissions, or other website-related matters, you can contact us.
                                 </p>
                                 <div className="text-slate-600 mb-8 space-y-2">
-                                    <p>Amigo Academy</p>
+                                    <p>Amigo Academy Pvt Ltd</p>
                                     <p>Phone / WhatsApp: +91 99875 88932</p>
                                     <p>Branches: Ghatkopar | Andheri | Thane</p>
                                     <p>Website: Amigo Academy</p>

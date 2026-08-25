@@ -496,7 +496,7 @@ export default function AiDataScience() {
             <span>&#9889;</span> LIMITED SEATS PER BATCH &#8212; APPLY EARLY TO SECURE YOUR SPOT
           </div>
           <h2 className="text-3xl sm:text-[44px] lg:text-[48px] font-extrabold text-white font-outfit max-w-4xl leading-tight tracking-tight mb-4">
-            2026 Batches Are Filling Fast &#8212; Don't Get Left Behind
+            2026 Batches Are Filling Fast &#8212; Secure Your Spot Now!
           </h2>
           <p className="text-slate-300 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed mb-6">
             Admissions Open &#8212; Secure Your Seat Early. One free call is all it takes.
@@ -531,8 +531,8 @@ export default function AiDataScience() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs sm:text-[13px] text-slate-300 font-bold font-sans">
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 4.6 Google Rating</span>
-            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students</span>
-            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Govt Certified</span>
+            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 10,000+ Students Trained</span>
+            <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> Certified Courses</span>
             <span className="flex items-center gap-1.5"><span className="text-[#25D366]">&#10003;</span> 200+ Hiring Partners</span>
           </div>
 

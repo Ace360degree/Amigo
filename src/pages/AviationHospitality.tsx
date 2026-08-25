@@ -891,7 +891,7 @@ export default function AviationHospitality() {
             {[
               { value: "1,200+", label: "Students Enrolled" },
               { value: "200+", label: "Hiring Partners" },
-              { value: "120+", label: "Students Placed" },
+              { value: "120+", label: "Students Trained" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl sm:text-4xl font-extrabold text-[#0b2f61]">
