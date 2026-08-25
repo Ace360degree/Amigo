@@ -60,15 +60,15 @@ type StoryCard = {
 const overview: OverviewItem[] = [
   { label: "Timing", value: "Morning / Afternoon / Evening" },
   { label: "Our Branches", value: "Ghatkopar, Andheri & Thane" },
-  { label: "Duration", value: "12 Months (5 Days/Week, 2 Hours/Day)" },
-  { label: "Eligibility", value: "12th Pass" },
-  { label: "Age", value: "17 to 25 Years" },
+  { label: "Duration", value: "12 Months (Weekdays and Weekend batches available, 2 Hours/Day)" },
+  { label: "Eligibility", value: "10th Pass" },
+  { label: "Age", value: "15 Years & Above" },
 ];
 
 const highlights: HighlightCard[] = [
   {
     title: "Practical Curriculum",
-    description: "Python, Generative AI, Machine Learning & 9+ Real Projects",
+    description: "Coding, Generative AI, Machine Learning & 9+ Real Projects",
     iconType: "badge",
   },
   {
@@ -115,7 +115,7 @@ const learnCards: LearnCard[] = [
   },
   {
     image: course17,
-    title: "Python Programming for Data Science",
+    title: "Programming for Data Science",
   },
   {
     image: course18,
@@ -159,7 +159,7 @@ const criteriaCards: CriteriaCard[] = [
   {
     title: "Educational Qualification",
     tag: "REQUIRED",
-    details: "12th Pass (any stream)",
+    details: "10th Pass",
     note: "Science, IT, and Commerce backgrounds welcome — open to beginners interested in data and AI",
     badgeType: "REQUIRED",
   },
@@ -174,7 +174,7 @@ const criteriaCards: CriteriaCard[] = [
     title: "Basic Computer Knowledge",
     tag: "ESSENTIAL",
     details: "Comfortable with computers and internet",
-    note: "No prior coding experience needed — we teach Python from scratch",
+    note: "No prior coding experience needed",
     badgeType: "ESSENTIAL",
   },
   {
@@ -209,12 +209,12 @@ const faqItems: FaqItem[] = [
   {
     question: "What is the eligibility for the AI & Data Science course?",
     answer:
-      "The basic eligibility is 12th pass from any recognized board in any stream. Candidates aged 17 to 25 years can apply.",
+      "The basic eligibility is 10th pass from any recognized board. Candidates aged 15 years & above can apply.",
   },
   {
     question: "What will I learn in the AI & Data Science course?",
     answer:
-      "You will learn Python programming, Data Analysis with Pandas & NumPy, Data Visualization, Machine Learning, Deep Learning, Generative AI, Statistics, and Real-World Industry Projects.",
+      "You will learn programming, Data Analysis with Pandas & NumPy, Data Visualization, Machine Learning, Deep Learning, Generative AI, Statistics, and Real-World Industry Projects.",
   },
   {
     question: "What is the salary after a data science course in India?",
@@ -229,7 +229,7 @@ const faqItems: FaqItem[] = [
   {
     question: "Do I need coding experience to join the AI & Data Science course?",
     answer:
-      "No prior coding experience is required. We teach Python and programming fundamentals from scratch step-by-step.",
+      "No prior coding experience is required. We teach programming fundamentals from scratch step-by-step.",
   },
   {
     question: "What makes a good AI & Data Science course for beginners?",
@@ -237,9 +237,9 @@ const faqItems: FaqItem[] = [
       "A good course offers structured offline classroom training, hands-on real-world projects, expert mentorship, and dedicated placement support.",
   },
   {
-    question: "Can I do the AI & Data Science course after 12th?",
+    question: "Can I do the AI & Data Science course after 10th?",
     answer:
-      "Yes! 12th pass students from Science, Commerce, or Arts streams can enroll and build a career in technology.",
+      "Yes! 10th pass students can enroll and build a career in technology.",
   },
   {
     question: "Does Amigo Academy provide placement support for data science students?",
@@ -408,7 +408,7 @@ export default function AIDataScienceCourse() {
                   <span className="text-[#0b2f61] font-bold">▧</span>
                   <p>
                     <span className="font-semibold text-slate-700">Eligibility:</span>
-                    <span className="ml-2 font-medium text-[#0b2f61]">12th Pass</span>
+                    <span className="ml-2 font-medium text-[#0b2f61]">10th Pass</span>
                   </p>
                 </div>
 
@@ -416,7 +416,7 @@ export default function AIDataScienceCourse() {
                   <span className="text-[#0b2f61] font-bold">♙</span>
                   <p>
                     <span className="font-semibold text-slate-700">Age:</span>
-                    <span className="ml-2 font-medium text-[#0b2f61]">17 to 25 Years</span>
+                    <span className="ml-2 font-medium text-[#0b2f61]">15 Years & Above</span>
                   </p>
                 </div>
               </div>
@@ -478,11 +478,11 @@ export default function AIDataScienceCourse() {
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Eligibility:</span>
-              <span className="text-[#0b2f61] font-medium">12th Pass</span>
+              <span className="text-[#0b2f61] font-medium">10th Pass</span>
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Age:</span>
-              <span className="text-[#0b2f61] font-medium">17 to 25 Years</span>
+              <span className="text-[#0b2f61] font-medium">15 Years & Above</span>
             </div>
           </div>
         </div>
@@ -574,7 +574,7 @@ export default function AIDataScienceCourse() {
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Qualification</option>
-                  <option value="12th">12th Pass</option>
+                  <option value="10th">10th Pass</option>
                   <option value="undergraduate">Undergraduate</option>
                   <option value="graduate">Graduate</option>
                 </select>
@@ -825,8 +825,8 @@ export default function AIDataScienceCourse() {
         </div>
       </section>
 
-      {/* Student Success Stories Section (Moved below Still Have Questions) */}
-      <section className="py-20 px-4 sm:px-6 md:px-8 bg-white border-t border-slate-100">
+      {/* Student Success Stories Section (Hidden) */}
+      {/* <section className="py-20 px-4 sm:px-6 md:px-8 bg-white border-t border-slate-100">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0b2f61] mb-3 font-outfit">
             Student Success Stories
@@ -835,7 +835,6 @@ export default function AIDataScienceCourse() {
             Hear from our successful graduates who are now thriving in their dream careers
           </p>
 
-          {/* Video Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 text-left">
             {storyCards.slice(storyIndex, storyIndex + 3).concat(
               storyCards.slice(0, Math.max(0, storyIndex + 3 - storyCards.length))
@@ -852,20 +851,6 @@ export default function AIDataScienceCourse() {
                     alt={story.title}
                     className="w-full h-full object-cover opacity-90 transition-transform duration-500"
                   />
-                  {/* Play Button Overlay - Disabled */}
-                  {/* <div className="absolute inset-0 flex items-center justify-center">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setIsVideoModalOpen(true);
-                      }}
-                      className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform cursor-pointer"
-                    >
-                      <svg className="w-5 h-5 text-[#e31e24] fill-current ml-0.5" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </button>
-                  </div> */}
                 </div>
 
                 <div className="p-6 flex flex-col justify-between flex-1 space-y-4">
@@ -882,7 +867,6 @@ export default function AIDataScienceCourse() {
             ))}
           </div>
 
-          {/* Navigation Controls */}
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={handlePrevStory}
@@ -898,7 +882,7 @@ export default function AIDataScienceCourse() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* YouTube Video Modal Popup */}
       {isVideoModalOpen &&

@@ -754,7 +754,7 @@ export default function Franchise() {
                             <ul className="space-y-3 mb-8 flex-1">
                                 {[
                                     "Artificial Intelligence",
-                                    "Python",
+                                    "Programming",
                                     "Machine Learning",
                                     "Industry Projects"
                                 ].map((feature, idx) => (

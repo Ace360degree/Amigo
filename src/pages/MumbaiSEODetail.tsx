@@ -448,7 +448,7 @@ export default function MumbaiSEODetail() {
                 <div className="p-6 text-left space-y-4">
                   <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">AI & Data Science</h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
-                    Technology is shaping the future of every industry. Our AI & Data Science programme helps students build practical knowledge in Artificial Intelligence, Machine Learning, Python, and Data Science through industry-oriented learning.
+                    Technology is shaping the future of every industry. Our AI & Data Science programme helps students build practical knowledge in Artificial Intelligence, Machine Learning, Programming, and Data Science through industry-oriented learning.
                   </p>
                   <div>
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-2">Course Highlights</h4>
@@ -674,7 +674,7 @@ export default function MumbaiSEODetail() {
             <FAQAccordionItem
               index={4}
               question="Best AI and Data Science course in Mumbai after 12th."
-              answer="Amigo Academy offers a comprehensive 12-month AI & Data Science training program covering Python, machine learning, and generative AI tools, complete with industry projects and placement assistance."
+              answer="Amigo Academy offers a comprehensive 12-month AI & Data Science training program covering Programming, machine learning, and generative AI tools, complete with industry projects and placement assistance."
             />
             <FAQAccordionItem
               index={5}

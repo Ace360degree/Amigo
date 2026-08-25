@@ -253,7 +253,7 @@ export default function CareerGuides() {
                         "Data Science Jobs",
                         "Career Opportunities",
                         "Eligibility & Syllabus",
-                        "Python for Beginners"
+                        "Programming for Beginners"
                       ].map((item, idx) => (
                         <li key={idx} className="flex items-start text-xs sm:text-[13px] text-slate-600 font-bold">
                           <span className="text-slate-400 mr-2.5 font-normal">•</span>

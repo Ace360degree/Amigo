@@ -378,11 +378,11 @@ const courses: CourseCard[] = [
     id: "ai-data-science",
     title: "AI & Data Science",
     description:
-      "Technology is shaping the future of every industry. This track helps students learn Python, machine learning, analytics, and practical data skills for modern entry-level tech roles.",
+      "Technology is shaping the future of every industry. This track helps students learn Programming, machine learning, analytics, and practical data skills for modern entry-level tech roles.",
     image: coursesCard3,
     accent: "#0b2f61",
     highlights: [
-      "Core Python and analytics",
+      "Core Programming and analytics",
       "Machine learning introduction",
       "Data handling and visualization",
       "Project-based practical learning",

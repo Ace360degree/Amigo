@@ -106,7 +106,7 @@ const categories = [
   {
     title: "Skills & Interview Preparation",
     cards: [
-      { image: cc10, title: "Python for Data Science: A Beginner's Guide", meta: "July 10, 2026 • 6 min read" },
+      { image: cc10, title: "Data Science: A Beginner's Guide", meta: "July 10, 2026 • 6 min read" },
       { image: cc11, title: "AI & Data Science Skills", meta: "Aug 5, 2026 • 7 min read" },
       { image: cc12, title: "How to Become Job-Ready for a Data Science Career", meta: "Aug 20, 2026 • 12 min read" }
     ]
@@ -131,12 +131,12 @@ const faqs = [
     answer: "Yes, AI & Data Science is one of the fastest-growing career fields globally. Students who build a strong foundation in programming, data analysis, and machine learning can access high-demand opportunities across industries."
   },
   {
-    question: "Where can I learn about AI & Data Science eligibility, jobs, and Python?",
-    answer: "You can explore our detailed career guides on this page covering eligibility, Python fundamentals, job opportunities, learning paths, and career growth in AI & Data Science."
+    question: "Where can I learn about AI & Data Science eligibility and jobs?",
+    answer: "You can explore our detailed career guides on this page covering eligibility, programming fundamentals, job opportunities, learning paths, and career growth in AI & Data Science."
   },
   {
     question: "How do I start preparing for a career in AI & Data Science?",
-    answer: "Start by building foundational skills in mathematics, programming (Python), and data analysis. Enrolling in a structured AI & Data Science course will help you develop practical skills with industry-relevant projects."
+    answer: "Start by building foundational skills in mathematics, programming, and data analysis. Enrolling in a structured AI & Data Science course will help you develop practical skills with industry-relevant projects."
   },
   {
     question: "What kind of placement support does Amigo Academy provide for AI & DS students?",
@@ -182,7 +182,7 @@ export default function AiDataScience() {
               Thinking about building a career in Artificial Intelligence or Data Science? This Career Guide brings together everything you need to know before choosing this fast-growing profession.
             </p>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[18px] leading-relaxed max-w-lg sm:max-w-xl">
-              Learn about career opportunities, industry demand, required skills, and explore detailed guides covering eligibility, jobs, Python, and much more.
+              Learn about career opportunities, industry demand, required skills, and explore detailed guides covering eligibility, jobs, Programming, and much more.
             </p>
             <div className="pt-2">
               <button
@@ -220,7 +220,7 @@ export default function AiDataScience() {
                 This Career Guide brings together everything you need to know before choosing this fast-growing profession.
               </p>
               <p>
-                Learn about career opportunities, industry demand, required skills, and explore detailed guides covering eligibility, jobs, Python, and much more.
+                Learn about career opportunities, industry demand, required skills, and explore detailed guides covering eligibility, jobs, Programming, and much more.
               </p>
             </div>
 
@@ -250,7 +250,7 @@ export default function AiDataScience() {
                   Before choosing this career, it's important to understand what AI & Data Science professionals do, what skills the industry demands, and how you can prepare yourself for opportunities in this fast-growing technology field.
                 </p>
                 <p>
-                  This Career Guide brings together everything you need to know before choosing this profession. Learn about the role, responsibilities, career opportunities, and explore detailed guides covering eligibility, skills, Python, job opportunities, learning paths, and much more.
+                  This Career Guide brings together everything you need to know before choosing this profession. Learn about the role, responsibilities, career opportunities, and explore detailed guides covering eligibility, skills, Programming, job opportunities, learning paths, and much more.
                 </p>
               </div>
             </div>
