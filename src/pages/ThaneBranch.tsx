@@ -5,7 +5,7 @@ import thaneHeroMobile from "../assets/img/branches/Thane-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
 import course2 from "../assets/img/branches/2.png";
 import course3 from "../assets/img/branches/3.png";
-import visitImg from "../assets/img/branches/4.png";
+import visitImg from "../assets/img/branches/6.png";
 
 export default function ThaneBranch() {
   const navigate = useNavigate();

@@ -596,7 +596,18 @@ export default function Courses() {
             The quickest way to see how the three courses actually differ - duration, eligibility, salary, work environment and long-term growth.
           </p>
 
-          <div className="mt-10 overflow-hidden rounded-[22px] bg-white shadow-[0_16px_40px_rgba(15,42,74,0.08)] border border-neutral-100">
+          {/* Mobile Scroll Cues & Indicator Banner */}
+          <div className="mt-6 inline-flex items-center justify-center gap-2 text-xs font-bold text-[#1c3e8a] bg-[#eef4ff] border border-[#d0e0fb] rounded-full px-4 py-1.5 shadow-sm md:hidden">
+            <svg className="w-4 h-4 text-[#e31e24] animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            <span>Scroll horizontally to view full table</span>
+            <svg className="w-4 h-4 text-[#e31e24] animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+
+          <div className="mt-4 md:mt-10 overflow-hidden rounded-[22px] bg-white shadow-[0_16px_40px_rgba(15,42,74,0.08)] border border-neutral-100 relative">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[900px] border-collapse text-left">
                 <thead>
@@ -630,8 +641,6 @@ export default function Courses() {
                 </tbody>
               </table>
             </div>
-
-
           </div>
             <p className="px-6 pt-4 text-[10px] leading-5 text-slate-400">
               Salary ranges are approximate and may vary by employer, city and performance. We will share the latest, verified range during counselling.

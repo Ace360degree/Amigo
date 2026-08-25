@@ -5,7 +5,7 @@ import andheriHeroMobile from "../assets/img/branches/Andheri-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
 import course2 from "../assets/img/branches/2.png";
 import course3 from "../assets/img/branches/3.png";
-import visitImg from "../assets/img/branches/4.png";
+import visitImg from "../assets/img/branches/5.png";
 
 export default function AndheriBranch() {
   const navigate = useNavigate();
