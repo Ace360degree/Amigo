@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Bloghero from "../assets/img/blogheroimgy.png";
 
 import imgAviation1 from "../assets/img/BlogInsights1.png";
@@ -214,6 +214,12 @@ export default function Blog() {
 
                     {/* Left Column: Heading and Text */}
                     <div className="w-[50%] sm:w-[50%] lg:w-full lg:col-span-6 flex flex-col space-y-3 sm:space-y-6 text-left items-start justify-center">
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+                          <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+                          <span className="text-slate-400 mx-1 select-none">&gt;</span>
+                          <span className="font-bold text-[#DF1818] tracking-tight">Blog</span>
+                        </div>
 
                         <h1 className="text-xl sm:text-3xl lg:text-[54px] font-sans font-extrabold tracking-tight text-[#0f2a4a] leading-[1.2] lg:leading-[1.12]">
                             Insights, Stories <br />& Resources

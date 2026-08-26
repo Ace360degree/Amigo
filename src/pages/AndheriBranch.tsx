@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import andheriHero from "../assets/img/branches/Andheri-hero.png";
 import andheriHeroMobile from "../assets/img/branches/Andheri-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
@@ -110,11 +110,20 @@ export default function AndheriBranch() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-[580px] lg:max-w-[650px] text-left flex flex-col space-y-8">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/branches" className="hover:text-[#DF1818] transition-colors focus:outline-none">Branches</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Andheri Branch</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.3] lg:leading-[1.6] mb-2">
               Amigo Academy<br />Andheri Branch
             </h1>
             <p className="text-slate-600 font-sans font-semibold text-xs sm:text-[16px] leading-relaxed max-w-xl">
-              Located in the prime educational hub of Andheri, our branch is dedicated to helping students build successful careers in Aviation and Technology. With Maharashtra Government Certified aviation training, industry-oriented programmes, practical learning sessions, placement assistance, and personalised career guidance, the Andheri branch provides aspiring students with the skills and confidence needed to achieve their career goals.
+              Located in the prime educational hub of Andheri, our branch is dedicated to helping students build successful careers in Aviation and Technology. With Certified courses aviation training, industry-oriented programmes, practical learning sessions, placement assistance, and personalised career guidance, the Andheri branch provides aspiring students with the skills and confidence needed to achieve their career goals.
             </p>
             <div className="pt-2">
               <button
@@ -141,13 +150,22 @@ export default function AndheriBranch() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs font-sans font-medium text-slate-400 mb-3">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/branches" className="hover:text-[#DF1818] transition-colors focus:outline-none">Branches</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Andheri Branch</span>
+            </div>
+
             <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.3] tracking-tight mb-4 font-outfit">
               Amigo Academy<br />
               Andheri Branch
             </h1>
 
             <p className="text-[#475569] text-[12.5px] leading-relaxed mb-6 font-medium">
-              Located in Andheri, our branch helps students build careers in Aviation and Technology through Maharashtra Government Certified training, practical learning, placement support, and personalised career guidance.
+              Located in Andheri, our branch helps students build careers in Aviation and Technology through Certified courses training, practical learning, placement support, and personalised career guidance.
             </p>
 
             <div>
@@ -394,7 +412,7 @@ export default function AndheriBranch() {
 
           {/* Second Badge */}
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-10">
-            <span>&#127963;</span> Maharashtra Govt Certified &#8212; Only aviation institute in Maharashtra
+            <span>Certified course</span>
           </div>
 
           {/* CTA Buttons */}

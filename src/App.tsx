@@ -29,7 +29,7 @@ import AviationHospitality from "./pages/AviationHospitality";
 import AIDataScienceCourse from "./pages/AI-DataScienceCourse";
 import Branches from "./pages/Branches";
 import ThankYou from "./pages/ThankYou";
-import Mumbai from "./pages/Mumbai";
+import Location from "./pages/Location";
 import MumbaiSEODetail from "./pages/MumbaiSEODetail";
 import DynamicSlugRoute from "./pages/DynamicSlugRoute";
 
@@ -76,7 +76,7 @@ function App() {
           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AIDataScienceCourse />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/mumbai" element={<Mumbai />} />
+          <Route path="/location" element={<Location />} />
           <Route path="/seminar" element={<Home />} />
           <Route path="/seminar-form" element={<Home />} />
           <Route path="/:slug" element={<DynamicSlugRoute />} />

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 // Student Success Stories images
 import Student1 from "../assets/img/Student1.png";
@@ -123,7 +123,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
       name: "Anjali Patil",
       role: "Airport Manager, Vistara",
       batch: "Airport Management 2024 Batch",
-      quote: "A government-certified course combined with expert training gave me an edge in the interviews. The branches and training mockups are highly professional.",
+      quote: "A certified course combined with expert training gave me an edge in the interviews. The branches and training mockups are highly professional.",
       initial: "A"
     }
   ];
@@ -165,10 +165,10 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           <div className="w-[50%] sm:w-[50%] lg:w-full max-w-[480px] space-y-4 sm:space-y-6 text-left">
 
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-1.5 text-[9px] sm:text-xs font-bold font-sans tracking-wide">
-              <span className="text-neutral-400">Home</span>
-              <span className="text-neutral-300">/</span>
-              <span className="text-[#e31e24] uppercase tracking-wider">About Us</span>
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">About Us</span>
             </div>
 
             {/* Title */}

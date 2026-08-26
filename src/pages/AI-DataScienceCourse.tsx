@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
@@ -349,12 +349,12 @@ export default function AIDataScienceCourse() {
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
           <div className="max-w-[650px] text-left">
-            <div className="flex items-center flex-wrap gap-2 text-[11px] mb-6">
-              <button onClick={() => navigate("/")} className="text-[#53657d] hover:text-[#0b2f61] transition-colors cursor-pointer">
-                Home
-              </button>
-              <span className="text-[#9ca3af]">›</span>
-              <span className="text-[#e31e24] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400 mb-6">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/courses" className="hover:text-[#DF1818] transition-colors focus:outline-none">Courses</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">
                 AI &amp; Data Science with Generative AI &amp; Machine Learning
               </span>
             </div>

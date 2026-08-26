@@ -209,7 +209,7 @@ export default function MumbaiSEODetail() {
             <span>&gt;</span>
             <span className="text-slate-500">India</span>
             <span>&gt;</span>
-            <Link to="/mumbai" className="hover:text-[#DF1818] transition-colors">Mumbai</Link>
+            <Link to="/location" className="hover:text-[#DF1818] transition-colors">Location</Link>
             <span>&gt;</span>
             <span className="text-[#DF1818] font-bold">{locationText}</span>
           </nav>
@@ -376,7 +376,7 @@ export default function MumbaiSEODetail() {
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-2">Course Highlights</h4>
                     <ul className="text-slate-500 font-sans text-xs font-semibold space-y-1.5 list-disc pl-4">
                       <li>12-Month Programme</li>
-                      <li>Maharashtra Government Certified</li>
+                      <li>Certified course</li>
                       <li>Practical Training</li>
                       <li>Interview Preparation</li>
                       <li>Placement Support</li>
@@ -496,7 +496,7 @@ export default function MumbaiSEODetail() {
             {/* Checklist Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               {[
-                { title: "Maharashtra Govt Certified", desc: "Maharashtra Govt-certified — a recognized qualification trusted by employers across India." },
+                { title: "Certified course", desc: "Certified course — a recognized qualification trusted by employers across India." },
                 { title: "Strong Placement Support", desc: "Active hiring connections across aviation and tech. We push your profile until selected." },
                 { title: "Easy EMI Options", desc: "Scholarship up to ₹50,000 plus flexible zero-interest EMI on all courses." },
                 { title: "Lifetime Career Support", desc: "Support doesn't stop at graduation. Ongoing career counselling and job connections." },
@@ -669,7 +669,7 @@ export default function MumbaiSEODetail() {
             <FAQAccordionItem
               index={3}
               question="Which is the best air hostess course in Mumbai with placement support?"
-              answer="Amigo Academy offers the leading Govt-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support."
+              answer="Amigo Academy offers the leading Certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support."
             />
             <FAQAccordionItem
               index={4}
@@ -684,7 +684,7 @@ export default function MumbaiSEODetail() {
             <FAQAccordionItem
               index={6}
               question="Are your courses government recognised with EMI options?"
-              answer="Yes, our courses are Maharashtra Government Certified, and we offer flexible zero-interest EMI options to ensure quality training remains affordable."
+              answer="Yes, our courses are Certified courses, and we offer flexible zero-interest EMI options to ensure quality training remains affordable."
             />
           </div>
 

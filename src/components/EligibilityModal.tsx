@@ -7,9 +7,10 @@ import { submitEligibilityForm } from "../services/api";
 interface EligibilityModalProps {
   isOpen: boolean;
   onClose: () => void;
+  source?: string;
 }
 
-export default function EligibilityModal({ isOpen, onClose }: EligibilityModalProps) {
+export default function EligibilityModal({ isOpen, onClose, source = "automatic popup" }: EligibilityModalProps) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -48,7 +49,7 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
         course: formData.course,
         qualification: formData.qualif,
         branch: formData.branch,
-        source_page: window.location.pathname
+        source_page: `${window.location.pathname} (${source})`
       });
 
       // Reset form

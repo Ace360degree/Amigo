@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/img/logo.png";
 import EligibilityModal from "./EligibilityModal";
@@ -7,12 +7,60 @@ export default function Header() {
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isEligibilityModalOpen, setIsEligibilityModalOpen] = useState(true);
+  const [modalSource, setModalSource] = useState("automatic popup");
+  const lastClickedElRef = useRef<HTMLElement | null>(null);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    const handleOpenModal = () => setIsEligibilityModalOpen(true);
+    const handleGlobalClick = (e: MouseEvent) => {
+      lastClickedElRef.current = e.target as HTMLElement;
+    };
+    window.addEventListener("click", handleGlobalClick, true);
+    return () => window.removeEventListener("click", handleGlobalClick, true);
+  }, []);
+
+  useEffect(() => {
+    const handleOpenModal = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      let source = customEvent.detail?.source;
+      if (!source) {
+        const clickedEl = lastClickedElRef.current || document.activeElement;
+        if (clickedEl) {
+          if (clickedEl.closest("header") || clickedEl.closest("[role='navigation']")) {
+            source = "header-menu";
+          } else if (clickedEl.closest("footer")) {
+            source = "footer-cta";
+          } else {
+            const parentSection = clickedEl.closest("section");
+            const parentDiv = clickedEl.closest("div[id]");
+            const pageName = window.location.pathname === "/" ? "home" : window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
+            
+            let sectionName = "cta";
+            if (parentSection && parentSection.id) {
+              sectionName = parentSection.id;
+            } else if (parentDiv && parentDiv.id) {
+              sectionName = parentDiv.id;
+            } else if (parentSection) {
+              const className = parentSection.className || "";
+              if (className.includes("hero") || className.includes("banner")) {
+                sectionName = "hero";
+              } else {
+                const allSections = Array.from(document.querySelectorAll("section"));
+                const index = allSections.indexOf(parentSection);
+                sectionName = index === 0 ? "hero" : `section-${index}`;
+              }
+            }
+            source = `${pageName}-${sectionName}`;
+          }
+        } else {
+          source = "automatic popup";
+        }
+      }
+      setModalSource(source);
+      setIsEligibilityModalOpen(true);
+    };
     window.addEventListener("openEligibilityModal", handleOpenModal);
     return () => window.removeEventListener("openEligibilityModal", handleOpenModal);
   }, []);
@@ -24,9 +72,9 @@ export default function Header() {
   };
 
   const courses = [
-    { name: "Cabin Crew (Air Hostess & Hospitality Management)", desc: "Cabin crew training & placement", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
-    { name: "Airport Ground Staff & Hospitality Management", desc: "Ground operations diploma", path: "/courses/airport-ground-staff-hospitality-management" },
-    { name: "AI & Data Science", desc: "State certified analytics course", path: "/courses/ai-data-science-with-generative-ai-machine-learning" }
+    { name: "Cabin Crew (Air Hostess & Hospitality Management)", desc: "Cabin crew training & placement assistance", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
+    { name: "Airport Ground Staff & Hospitality Management", desc: "Ground operations & placement assistance", path: "/courses/airport-ground-staff-hospitality-management" },
+    { name: "AI & Data Science", desc: "Certified course & placement assistance", path: "/courses/ai-data-science-with-generative-ai-machine-learning" }
   ];
 
   return (
@@ -232,6 +280,7 @@ export default function Header() {
       <EligibilityModal
         isOpen={isEligibilityModalOpen}
         onClose={() => setIsEligibilityModalOpen(false)}
+        source={modalSource}
       />
     </header>
   );

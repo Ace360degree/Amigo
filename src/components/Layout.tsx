@@ -117,9 +117,6 @@ export default function Layout({ children }: LayoutProps) {
       {/* Header Navigation */}
       <Header />
 
-      {/* Breadcrumb Navigation for all pages except Home */}
-      <Breadcrumbs />
-
       {/* Main page content wrapper */}
       <main className="flex-grow z-10 relative">
         {children}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { createPortal } from "react-dom";
 import placementStudent1 from "../assets/img/placementstudent1.png";
 import placementStudent2 from "../assets/img/placementstudent2.png";
@@ -364,6 +365,13 @@ export default function Placement() {
         {/* Content Container */}
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center min-h-[450px] sm:min-h-[500px] lg:h-[650px] py-12 lg:py-0">
           <div className="w-[48%] sm:w-[50%] lg:w-full max-w-[520px] space-y-4 sm:space-y-6 text-left">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Placements</span>
+            </div>
+
             <h1 className="text-xl sm:text-3xl lg:text-[48px] font-outfit font-extrabold text-[#0b2f61] tracking-tight">
               <span className="block leading-[1.2]">Our Student Placements</span>
               {/* <span className="block mt-2 leading-[1.2]">&amp; Success Stories</span> */}

@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 // ... existing code ...
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import heroImage from "../assets/img/aircourseh111a.png";
 import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
 import courseIcon121 from "../assets/img/courseicon121.png";
@@ -69,8 +69,8 @@ const overview: OverviewItem[] = [
 
 const highlights: HighlightCard[] = [
   {
-    title: "Maharashtra Government-Certified Program",
-    description: "Govt. Approved Official Certification for Aviation & Hospitality",
+    title: "Certified course",
+    description: "Official Certification for Aviation & Hospitality",
     iconType: "badge",
   },
   {
@@ -179,7 +179,7 @@ const faqItems: FaqItem[] = [
   {
     question: "Is the cabin crew course government certified?",
     answer:
-      "Yes, our aviation training is Maharashtra Government certified and built around practical classroom learning.",
+      "Yes, our aviation training is a Certified course and built around practical classroom learning.",
   },
   {
     question: "Does Amigo Academy provide placement support for cabin crew?",
@@ -239,7 +239,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What makes Amigo Academy's cabin crew course different?",
     answer:
-      "Our course combines government certification, practical classroom training, placement support and career guidance in one structured program.",
+      "Our course combines Certified training, practical classroom training, placement support and career guidance in one structured program.",
   },
   {
     question: "How do I enrol or check my eligibility?",
@@ -315,10 +315,12 @@ export default function AirHostessCabinCrew() {
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 relative z-20 flex items-center h-full">
           <div className="max-w-[650px] text-left">
-            <div className="flex items-center flex-wrap gap-2 text-[11px] mb-7">
-              <span className="text-[#53657d]">Home</span>
-              <span className="text-[#9ca3af]">›</span>
-              <span className="text-[#e31e24] font-semibold">
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400 mb-7">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/courses" className="hover:text-[#DF1818] transition-colors focus:outline-none">Courses</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">
                 Cabin Crew (Air Hostess &amp; Hospitality Management)
               </span>
             </div>

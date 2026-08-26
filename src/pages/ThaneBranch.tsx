@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import thaneHero from "../assets/img/branches/Thane-hero.png";
 import thaneHeroMobile from "../assets/img/branches/Thane-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
@@ -110,6 +110,15 @@ export default function ThaneBranch() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-[580px] lg:max-w-[650px] text-left flex flex-col space-y-8">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/branches" className="hover:text-[#DF1818] transition-colors focus:outline-none">Branches</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Thane Branch</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-[1.3] lg:leading-[1.6] mb-2">
               Amigo Academy<br />Thane Branch
             </h1>
@@ -141,6 +150,15 @@ export default function ThaneBranch() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs font-sans font-medium text-slate-400 mb-3">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <Link to="/branches" className="hover:text-[#DF1818] transition-colors focus:outline-none">Branches</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Thane Branch</span>
+            </div>
+
             <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.3] tracking-tight mb-4 font-outfit">
               Amigo Academy<br />
               Thane Branch

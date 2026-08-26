@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { submitCounsellorForm } from "../services/api";
+import Swal from "sweetalert2";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
 import courseCabin from "../assets/img/course-cabiny1.png";
@@ -124,7 +125,12 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
   const handleApply = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!mobileNumber || !fullName || !selectedCourse || !selectedBranch || !selectedAge || !selectedGender || loading) {
-      alert("Please fill in all required fields.");
+      Swal.fire({
+        title: "Incomplete Form",
+        text: "Please fill in all required fields.",
+        icon: "warning",
+        confirmButtonColor: "#DF1818"
+      });
       return;
     }
 
@@ -147,10 +153,25 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       setSelectedAge("");
       setSelectedGender("");
 
-      navigate("/thank-you");
+      Swal.fire({
+        title: "Application Submitted!",
+        text: "Thank you for contacting us. Redirecting to confirmation page...",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
     } catch (error) {
       console.error("Home form submit error:", error);
-      alert("Failed to submit form. Please try again.");
+      Swal.fire({
+        title: "Submission Failed",
+        text: "Failed to submit enquiry. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#DF1818"
+      });
     } finally {
       setLoading(false);
     }
@@ -775,10 +796,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  Maharashtra Govt Certified
+                  Certified course
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
-                  Maharashtra Govt-certified — a recognized qualification trusted by employers across India.
+                  Certified course — a recognized qualification trusted by employers across India.
                 </p>
               </div>
             </div>
@@ -1024,8 +1045,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Under-button Notice */}
           <div className="mt-8 flex items-center justify-center gap-1.5 text-[10px] sm:text-xs font-bold text-slate-300 uppercase tracking-wider font-sans">
             <span>✨</span>
-            <span>🏛️</span>
-            <span>Maharashtra Govt Certified &bull; Only aviation institute in maharashtra with govt certification</span>
+            <span>Certified course</span>
           </div>
 
           {/* Link */}
@@ -1537,8 +1557,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               a: "Yes, we have robust recruitment partnerships with major airlines and airport operators. Our dedicated placement cell arranges direct campus interviews with IndiGo, Air India, Emirates, SpiceJet, and Akasa Air to ensure rapid placements."
             },
             {
-              q: "Are your courses government recognised with EMI options.",
-              a: "Yes, our aviation and hospitality programs are Maharashtra Government certified. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
+              q: "Are your courses certified with EMI options.",
+              a: "Yes, our aviation and hospitality programs are Certified courses. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
             }
           ].map((faq, idx) => {
             const isOpen = activeFaq === idx;
@@ -1796,7 +1816,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path d="M10 1L2 5v2h16V5l-8-4zM4 9v7H2v2h16v-2h-2V9h-2v7h-2V9h-2v7H8V9H6v7H4V9H4z" />
             </svg>
-            Maharashtra govt certified — only aviation institute in Maharashtra
+            Certified course
           </span>
         </div>
 

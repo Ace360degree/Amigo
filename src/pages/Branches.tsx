@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import heroImage from "../assets/img/branches/branches-main.png";
 import branchesMobileHero from "../assets/img/branches/branches-main-mobile.png";
 import branchesIllustration from "../assets/img/branches2a.png";
@@ -158,6 +158,13 @@ export default function Branches() {
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
           <div className="max-w-xl lg:max-w-[580px] text-left flex flex-col space-y-6">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Branches</span>
+            </div>
+
             <h1 className="text-3xl sm:text-4xl lg:text-[48px] font-outfit font-extrabold tracking-tight text-[#17365d] leading-snug sm:leading-[1.28] lg:leading-[1.32]">
               Find an Amigo Academy<br />
               Branch Near You
@@ -192,6 +199,13 @@ export default function Branches() {
 
           {/* Text Content overlay matching screenshot */}
           <div className="absolute inset-y-0 left-0 z-10 px-5 flex flex-col justify-center max-w-[280px]">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs font-sans font-medium text-slate-400 mb-3">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Branches</span>
+            </div>
+
             <h1 className="text-[28px] font-extrabold text-[#17365d] leading-[1.15] tracking-tight mb-4 font-outfit">
               Find an Amigo<br />
               Academy Branch<br />

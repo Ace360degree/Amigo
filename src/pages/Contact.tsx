@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import heroContact from "../assets/img/herocontact.png";
+import Swal from "sweetalert2";
 
 interface ContactProps {
   setCurrentPage?: (page: string) => void;
@@ -45,6 +46,13 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
         {/* Content Container aligned exactly over the fade mask */}
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 z-25 py-12 lg:py-0">
           <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl md:max-w-2xl text-left flex flex-col space-y-4 md:space-y-7">
+
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Contact Us</span>
+            </div>
 
             {/* Main Headline */}
             <h1 className="text-xl sm:text-3xl lg:text-[52px] font-outfit font-extrabold tracking-tight text-[#11243e] leading-[1.2] lg:leading-[1.12] drop-shadow-sm">
@@ -689,10 +697,26 @@ function EnquiryForm() {
 
       setSubmitted(true);
       setFormData({ name: "", mobile: "", email: "", type: "Admission", message: "" });
-      navigate("/thank-you");
+      
+      Swal.fire({
+        title: "Enquiry Submitted!",
+        text: "Thank you for contacting us. Redirecting to confirmation page...",
+        icon: "success",
+        confirmButtonColor: "#1C3E8A",
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      }).then(() => {
+        navigate("/thank-you");
+      });
     } catch (error) {
       console.error("Contact submission error:", error);
-      alert("Failed to submit enquiry. Please try again.");
+      Swal.fire({
+        title: "Submission Failed",
+        text: "Failed to submit enquiry. Please try again.",
+        icon: "error",
+        confirmButtonColor: "#DF1818"
+      });
     } finally {
       setLoading(false);
     }

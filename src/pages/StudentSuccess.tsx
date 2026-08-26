@@ -1,5 +1,6 @@
 import React from "react";
 import heroImg from "../assets/img/StudentSuccesshero.png";
+import { Link } from "react-router-dom";
 import decisionImg from "../assets/img/StudentSuccess1.png";
 import student1 from "../assets/img/placementstudent3.png";
 import student2 from "../assets/img/placementstudent2.png";
@@ -72,6 +73,13 @@ export default function StudentSuccess() {
 
                 <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-20">
                     <div className="w-[55%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400 mb-3">
+                          <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+                          <span className="text-slate-400 mx-1 select-none">&gt;</span>
+                          <span className="font-bold text-[#DF1818] tracking-tight">Student Success</span>
+                        </div>
+
                         <h1 className="text-[26px] sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-3 sm:mb-4 lg:mb-6 font-sans">
                             Student Success Stories
                         </h1>

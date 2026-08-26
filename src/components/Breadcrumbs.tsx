@@ -48,17 +48,17 @@ const routeMap: Record<string, BreadcrumbItem[]> = {
   "/courses": [{ label: "Courses" }],
   "/courses/air-hostess-cabin-crew-hospitality-management": [
     { label: "Courses", path: "/courses" },
-    { label: "Air Hostess & Cabin Crew" },
+    { label: "Cabin Crew (Air Hostess & Hospitality Management)" },
   ],
   "/courses/airport-ground-staff-hospitality-management": [
     { label: "Courses", path: "/courses" },
-    { label: "Airport Ground Staff & Hospitality" },
+    { label: "Airport Ground Staff & Hospitality Management" },
   ],
   "/courses/ai-data-science-with-generative-ai-machine-learning": [
     { label: "Courses", path: "/courses" },
     { label: "AI & Data Science" },
   ],
-  "/mumbai": [{ label: "Mumbai Branches" }],
+  "/location": [{ label: "Location" }],
 };
 
 export default function Breadcrumbs() {
@@ -97,33 +97,30 @@ export default function Breadcrumbs() {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="bg-[#f8fafc] border-b border-slate-200/70 py-2.5 px-4 sm:px-6 lg:px-8 relative z-20"
+      className="bg-transparent pt-6 pb-2 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-20"
     >
-      <div className="max-w-7xl mx-auto flex items-center flex-wrap gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-500">
+      <div className="flex items-center flex-wrap gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
         {/* Home Link */}
         <Link
           to="/"
-          className="flex items-center gap-1 hover:text-[#0b2f61] transition-colors focus:outline-none"
+          className="hover:text-[#DF1818] transition-colors focus:outline-none"
         >
-          <svg className="w-3.5 h-3.5 text-slate-400 fill-current" viewBox="0 0 24 24">
-            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-          </svg>
-          <span>Home</span>
+          Home
         </Link>
 
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
             <React.Fragment key={index}>
-              <span className="text-slate-300 mx-0.5 select-none">/</span>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
               {isLast || !item.path ? (
-                <span className="font-bold text-[#0b2f61] font-outfit tracking-tight">
+                <span className="font-bold text-[#DF1818] tracking-tight">
                   {item.label}
                 </span>
               ) : (
                 <Link
                   to={item.path}
-                  className="hover:text-[#0b2f61] transition-colors focus:outline-none"
+                  className="hover:text-[#DF1818] transition-colors focus:outline-none"
                 >
                   {item.label}
                 </Link>

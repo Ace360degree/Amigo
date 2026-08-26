@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import coursesHero from "../assets/img/courses1121.png";
 import coursesMobileHero from "../assets/img/coursesmain-mobile.png";
 import coursesCard1 from "../assets/img/courses2.png";
@@ -101,8 +101,8 @@ const comparisonRows: ComparisonRow[] = [
   },
   {
     label: "Certification",
-    cabinCrew: "Maharashtra Govt. Certified",
-    groundStaff: "Maharashtra Govt. Certified",
+    cabinCrew: "Certified course",
+    groundStaff: "Certified course",
     aiDataScience: "Industry-Oriented Professional Training",
   },
   {
@@ -146,11 +146,11 @@ const comparisonRows: ComparisonRow[] = [
 const whyCards: WhyCard[] = [
   {
     eyebrow: "Certification",
-    title: "Maharashtra Government Certified",
+    title: "Certified course",
     description:
-      "Your training meets industry standards and government-certified learning requirements.",
+      "Your training meets industry standards and certified learning requirements.",
     bullets: [
-      "Government-certified programme",
+      "Certified course",
       "Credible, recognised brand",
     ],
     icon: coursesIcon1,
@@ -257,9 +257,9 @@ const faqItems: FaqItem[] = [
       "We currently offer three main courses: Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science.",
   },
   {
-    question: "Are all courses government certified?",
+    question: "Are all courses certified?",
     answer:
-      "Yes, the aviation programs are Maharashtra Government Certified and the AI & Data Science track is industry-oriented professional training.",
+      "Yes, the aviation programs are Certified courses and the AI & Data Science track is industry-oriented professional training.",
   },
   {
     question: "How long are the courses?",
@@ -425,6 +425,12 @@ export default function Courses() {
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8 md:px-12 py-4 sm:py-6 lg:py-10 w-full">
           <div className="max-w-[600px] space-y-4 sm:space-y-6">
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Courses</span>
+            </div>
             {/* Heading for Mobile */}
             <h1 className="sm:hidden text-[32px] font-extrabold tracking-tight text-[#112a46] leading-[1.12]">
               Find the Right<br />
@@ -980,7 +986,7 @@ export default function Courses() {
           {/* Government Certification Badge */}
           <div className="inline-flex items-center gap-2 bg-white/5 border border-[#DDAB30]/30 text-[#DDAB30] text-[10px] sm:text-xs font-bold px-5 py-2.5 rounded-xl tracking-wide mt-8 font-sans">
             <span>🏛️</span>
-            <span>Maharashtra Govt Certified — Only aviation institute in Maharashtra</span>
+            <span>Certified course</span>
           </div>
 
           {/* Buttons Row */}

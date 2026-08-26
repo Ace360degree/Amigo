@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import heroScholarship from "../assets/img/heroscholarship.png";
 
 function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {
@@ -90,6 +91,13 @@ export default function Scholarship() {
         {/* Content Box */}
         <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 md:px-8 z-20 py-12 lg:py-0">
           <div className="w-[50%] sm:w-[50%] lg:w-full max-w-xl md:max-w-2xl text-left flex flex-col space-y-4 md:space-y-7 pl-1 md:pl-2">
+
+            {/* Breadcrumbs */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+              <span className="text-slate-400 mx-1 select-none">&gt;</span>
+              <span className="font-bold text-[#DF1818] tracking-tight">Scholarship</span>
+            </div>
 
             {/* Header Text matching the mockup colors and style */}
             <h1 className="text-xl sm:text-3xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1a2d42] leading-[1.2] lg:leading-[1.12]">
@@ -197,10 +205,10 @@ export default function Scholarship() {
                     CERTIFICATION
                   </span>
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-[15px] sm:text-base leading-tight">
-                    Maharashtra Government Certified
+                    Certified course
                   </h4>
                   <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                    Government-certified aviation training programs.
+                    Certified aviation training programs.
                   </p>
                 </div>
               </div>

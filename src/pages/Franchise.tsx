@@ -1,9 +1,71 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { submitContactForm } from "../services/api";
+import Swal from "sweetalert2";
 
 export default function Franchise() {
     const navigate = useNavigate();
     const [openFaq, setOpenFaq] = React.useState<number | null>(1);
+
+    const [name, setName] = React.useState("");
+    const [mobile, setMobile] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [city, setCity] = React.useState("");
+    const [prefLocation, setPrefLocation] = React.useState("");
+    const [businessExp, setBusinessExp] = React.useState("");
+    const [investment, setInvestment] = React.useState("");
+    const [message, setMessage] = React.useState("");
+    const [loading, setLoading] = React.useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (loading) return;
+        setLoading(true);
+        try {
+            await submitContactForm({
+                enquiry_type: "Franchise",
+                name: name,
+                phone: mobile,
+                email: email,
+                city: city,
+                preferred_location: prefLocation,
+                business_experience: businessExp,
+                investment_range: investment,
+                message: message
+            });
+
+            setName("");
+            setMobile("");
+            setEmail("");
+            setCity("");
+            setPrefLocation("");
+            setBusinessExp("");
+            setInvestment("");
+            setMessage("");
+
+            Swal.fire({
+                title: "Enquiry Submitted!",
+                text: "Thank you for your interest in Amigo Academy Franchise. Redirecting to confirmation page...",
+                icon: "success",
+                confirmButtonColor: "#1C3E8A",
+                timer: 2000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+            }).then(() => {
+                navigate("/thank-you");
+            });
+        } catch (error) {
+            console.error("Franchise submit error:", error);
+            Swal.fire({
+                title: "Submission Failed",
+                text: "Failed to submit enquiry. Please try again.",
+                icon: "error",
+                confirmButtonColor: "#DF1818"
+            });
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleCTA = () => {
         const el = document.getElementById("franchise-enquiry");
@@ -51,6 +113,13 @@ export default function Franchise() {
                 <div className="max-w-7xl mx-auto w-full px-6 sm:px-8 relative z-20 flex items-center h-full py-16 lg:py-0">
                     <div className="w-[60%] sm:w-[55%] lg:w-full max-w-[540px] space-y-4 sm:space-y-6 text-left">
 
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+                          <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+                          <span className="text-slate-400 mx-1 select-none">&gt;</span>
+                          <span className="font-bold text-[#DF1818] tracking-tight">Franchise</span>
+                        </div>
+
                         {/* Title */}
                         <h1 className="text-xl sm:text-3xl lg:text-[44px] font-outfit font-extrabold text-[#0b2f61] leading-[1.25] tracking-tight">
                             Partner With Amigo Academy – <br />
@@ -60,7 +129,7 @@ export default function Franchise() {
                         {/* Paragraphs */}
                         <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-slate-600 text-[10px] sm:text-[13.5px] leading-relaxed">
                             <p>
-                                Aviation and technology education is one of India's fastest-growing industries. Amigo Academy offers entrepreneurs the opportunity to build a successful education business using a trusted, Maharashtra Government Certified brand.
+                                Aviation and technology education is one of India's fastest-growing industries. Amigo Academy offers entrepreneurs the opportunity to build a successful education business using a trusted, Certified brand.
                             </p>
                             <p>
                                 Founded in 2017, with over 10,000+ students trained, a 4.6★ reputation and three established Mumbai branches, we provide the support, systems and expertise to help our franchise partners succeed.
@@ -109,9 +178,9 @@ export default function Franchise() {
                                     </svg>
                                 ),
                                 category: "CERTIFICATION",
-                                title: "Maharashtra Government Certified",
+                                title: "Certified course",
                                 desc: "Trusted and recognised aviation training that parents and students believe in.",
-                                points: ["Government-certified programs", "Credible, recognised brand"]
+                                points: ["Certified programs", "Credible, recognised brand"]
                             },
                             {
                                 icon: (
@@ -915,37 +984,37 @@ export default function Franchise() {
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                         <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100">
-                            <form onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }} className="space-y-6">
+                            <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Name */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Name</label>
-                                        <input type="text" required placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" required value={name} onChange={(e) => setName(e.target.value)} placeholder="Your full name" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Mobile */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Mobile</label>
-                                        <input type="text" required placeholder="10-digit mobile number" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="tel" required pattern="[0-9]{10}" maxLength={10} value={mobile} onChange={(e) => setMobile(e.target.value.replace(/\D/g, ""))} placeholder="10-digit mobile number" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Email */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Email</label>
-                                        <input type="email" placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* City */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">City</label>
-                                        <input type="text" placeholder="e.g. Mumbai" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" required value={city} onChange={(e) => setCity(e.target.value)} placeholder="e.g. Mumbai" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Preferred Location */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Preferred Location</label>
-                                        <input type="text" placeholder="Area or locality for the centre" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
+                                        <input type="text" required value={prefLocation} onChange={(e) => setPrefLocation(e.target.value)} placeholder="Area or locality for the centre" className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white" />
                                     </div>
                                     {/* Business Experience */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Business Experience</label>
-                                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
+                                        <select value={businessExp} onChange={(e) => setBusinessExp(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
                                             <option value="">No business experience</option>
                                             <option value="1-3">1-3 Years</option>
                                             <option value="3-5">3-5 Years</option>
@@ -955,7 +1024,7 @@ export default function Franchise() {
                                     {/* Investment Range */}
                                     <div className="space-y-2">
                                         <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Investment Range</label>
-                                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
+                                        <select value={investment} onChange={(e) => setInvestment(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 bg-white">
                                             <option value="">Below ₹10 Lakh</option>
                                             <option value="10-20">₹10 Lakh - ₹20 Lakh</option>
                                             <option value="20+">Above ₹20 Lakh</option>
@@ -966,12 +1035,12 @@ export default function Franchise() {
                                 {/* Message */}
                                 <div className="space-y-2 mt-2">
                                     <label className="text-[11px] font-bold text-[#0f2a4a] uppercase tracking-wider">Message</label>
-                                    <textarea rows={4} placeholder="Tell us about your background and why you want to partner with Amigo Academy." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white resize-none"></textarea>
+                                    <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Tell us about your background and why you want to partner with Amigo Academy." className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-amber-400 focus:ring-4 focus:ring-amber-500/10 transition-all outline-none text-[13px] text-slate-700 placeholder:text-slate-400 bg-white resize-none"></textarea>
                                 </div>
 
                                 {/* Submit Button */}
                                 <div className="pt-4">
-                                    <button type="submit" className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[15px] py-4 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 cursor-pointer">
+                                    <button type="submit" disabled={loading} className="w-full bg-[#e31e24] hover:bg-[#c9181d] text-white font-bold text-[15px] py-4 px-6 rounded-full transition-colors duration-200 shadow-[0_4px_14px_rgba(227,30,36,0.25)] hover:shadow-[0_6px_20px_rgba(227,30,36,0.35)] flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50">
                                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                         </svg>
