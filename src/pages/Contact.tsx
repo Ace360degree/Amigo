@@ -882,7 +882,7 @@ function FaqAccordion() {
     },
     {
       question: "Which courses are available?",
-      answer: "We offer comprehensive courses in Aviation and Hospitality Management, Air Hostess Training, AI and Data Science Certification, and Global Airport Operations."
+      answer: "We offer comprehensive courses in Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management and AI & Data Science."
     },
     {
       question: "How quickly will someone contact me?",

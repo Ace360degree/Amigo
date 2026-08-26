@@ -166,7 +166,7 @@ const criteriaCards: CriteriaCard[] = [
   {
     title: "Age Criteria",
     tag: "REQUIRED",
-    details: "17 to 25 Years",
+    details: "15 Years & Above",
     note: "Ideal for students, job seekers, and career switchers",
     badgeType: "REQUIRED",
   },
@@ -558,6 +558,8 @@ export default function AIDataScienceCourse() {
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
                   <option value="" disabled selected hidden>Age</option>
+                  <option value="15">15 Years</option>
+                  <option value="16">16 Years</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
                   <option value="19">19 Years</option>

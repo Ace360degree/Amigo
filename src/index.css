@@ -140,3 +140,5 @@ img[loading="lazy"] {
 .animate-fade-in-scale {
   animation: fadeInScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+

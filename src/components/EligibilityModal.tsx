@@ -233,7 +233,8 @@ export default function EligibilityModal({ isOpen, onClose }: EligibilityModalPr
                       <option disabled value="">
                         Age *
                       </option>
-                      <option value="Below 17">Below 17</option>
+                      <option value="Below 15">Below 15</option>
+                      <option value="15–17">15–17</option>
                       <option value="17–20">17–20</option>
                       <option value="21–24">21–24</option>
                       <option value="25 and above">25 and above</option>

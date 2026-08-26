@@ -179,10 +179,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             {/* Copy Paragraphs */}
             <div className="space-y-3 sm:space-y-4 font-sans font-semibold text-neutral-600 text-[15px] sm:text-[15px] leading-relaxed">
               <p>
-                Amigo Academy Pvt Ltd is a leading career-focused professional training institute, committed to transforming ambition into achievement.
-              </p>
-              <p>
-                Founded in 2017, the academy was built with a single vision — to bridge the gap between education and employability through industry-aligned, placement-driven training programs.
+                Amigo Academy pvt Ltd is a career-focused training institute, founded in 2017, helping students build industry-ready skills and achieve successful careers in aviation.
               </p>
             </div>
 

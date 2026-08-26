@@ -325,7 +325,7 @@ export default function StudentSuccess() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 10.5v10.125c0 1.035-.84 1.875-1.875 1.875H5.625a1.875 1.875 0 0 1-1.875-1.875V10.5m16.5 0v-4.125c0-1.035-.84-1.875-1.875-1.875h-3.75a1.875 1.875 0 0 0-1.875-1.875h-3.75a1.875 1.875 0 0 0-1.875 1.875h-3.75c-1.035 0-1.875.84-1.875 1.875V10.5m16.5 0-8.25 4.5-8.25-4.5" />
                                 </svg>
                                 <div>
-                                    <h4 className="text-[22px] lg:text-2xl font-extrabold text-[#0f2a4a] font-sans">500+</h4>
+                                    <h4 className="text-[22px] lg:text-2xl font-extrabold text-[#0f2a4a] font-sans">200+</h4>
                                     <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">Placement Partners</p>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@ export default function StudentSuccess() {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                                 </svg>
                                 <div>
-                                    <h4 className="text-[22px] lg:text-2xl font-extrabold text-[#0f2a4a] font-sans">95%</h4>
+                                    <h4 className="text-[22px] lg:text-2xl font-extrabold text-[#0f2a4a] font-sans">100%</h4>
                                     <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">Placement Assistance</p>
                                 </div>
                             </div>

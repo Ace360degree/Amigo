@@ -263,13 +263,26 @@ export default function Footer() {
       {/* Floating Scroll-to-Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-20 right-5 md:bottom-6 md:right-6 z-40 bg-[#e31e24] hover:bg-[#c2141a] text-white p-3 sm:p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
+        className="fixed bottom-20 right-5 md:bottom-6 md:right-6 z-[9999] bg-[#e31e24] hover:bg-[#c2141a] text-white w-11 h-11 md:w-12 md:h-12 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 flex items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
         aria-label="Scroll back to top"
       >
         <svg className="w-5 h-5 transition-transform duration-200 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
         </svg>
       </button>
+
+      {/* Floating WhatsApp Button for Desktop/Tablet */}
+      <a
+        href="https://wa.me/919987588932"
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-[162px] right-6 z-[9999] hidden md:flex bg-[#25d366] hover:bg-[#20ba5a] text-white w-[60px] h-[60px] rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
+        aria-label="Chat on WhatsApp"
+      >
+        <svg className="w-8 h-8 transition-transform duration-200 group-hover:scale-110 fill-current" viewBox="0 0 24 24">
+          <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.764.459 3.486 1.332 5.001l-1.416 5.17 5.293-1.388c1.46.797 3.109 1.217 4.781 1.218h.004c5.505 0 9.987-4.479 9.988-9.986 0-2.667-1.037-5.175-2.923-7.062a9.923 9.923 0 0 0-7.069-2.937zm5.882 14.398c-.247.694-1.228 1.288-1.996 1.455-.525.114-1.211.205-3.518-.75-2.954-1.222-4.857-4.223-5.004-4.419-.147-.196-1.199-1.597-1.199-3.045 0-1.448.756-2.161 1.026-2.455.27-.294.589-.368.785-.368.196 0 .392.001.564.01.182.009.428-.069.67.511.247.592.834 2.036.907 2.183.074.147.123.319.025.515-.098.196-.147.319-.294.49-.147.172-.309.384-.442.516-.147.147-.301.308-.13.602.172.294.764 1.261 1.639 2.04 1.127 1.002 2.077 1.312 2.371 1.459.294.147.466.123.638-.074.172-.196.736-.858.932-1.152.196-.294.392-.245.662-.147.27.098 1.716.81 2.01 1.006.294.196.49.294.564.417.074.123.074.717-.173 1.411z" />
+        </svg>
+      </a>
     </footer>
   );
 }

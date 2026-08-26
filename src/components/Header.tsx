@@ -6,7 +6,7 @@ import EligibilityModal from "./EligibilityModal";
 export default function Header() {
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isEligibilityModalOpen, setIsEligibilityModalOpen] = useState(false);
+  const [isEligibilityModalOpen, setIsEligibilityModalOpen] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();

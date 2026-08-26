@@ -442,11 +442,9 @@ export default function Courses() {
             </h1>
 
             {/* Description Paragraph */}
-            <p className="max-w-[270px] sm:max-w-[400px] text-xs sm:text-[15px] leading-[1.65] sm:leading-[1.7] text-slate-600 font-normal">
-              Every successful career begins with the right training. At
-              Amigo Academy, our industry-focused programmes in Cabin Crew,
-              Airport Operations, and AI &amp; Data Science equip students with
-              practical skills, confidence, and career-ready expertise.
+            <p className="max-w-[200px] sm:max-w-[400px] text-xs sm:text-[15px] leading-[1.65] sm:leading-[1.7] text-slate-600 font-normal">
+              Choose the right course. Build the right skills. Shape your future.
+              Explore industry-focused programs designed to prepare you for real career opportunities.
             </p>
 
             {/* CTA Button */}

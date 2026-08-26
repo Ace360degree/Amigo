@@ -392,6 +392,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Age</option>
+                  <option value="15">15 Years</option>
+                  <option value="16">16 Years</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
                   <option value="19">19 Years</option>

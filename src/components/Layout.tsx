@@ -41,6 +41,38 @@ export default function Layout({ children }: LayoutProps) {
     return () => window.removeEventListener("openSeminarModal", handleOpenSeminar);
   }, []);
 
+  // Load Tawk.to Script with native customStyle offsets
+  useEffect(() => {
+    const Tawk_API = (window as any).Tawk_API || {};
+    Tawk_API.customStyle = {
+      visibility: {
+        desktop: {
+          position: "br",
+          xOffset: 24,
+          yOffset: 90,
+        },
+        mobile: {
+          position: "br",
+          xOffset: 20,
+          yOffset: 145,
+        },
+      },
+    };
+    (window as any).Tawk_API = Tawk_API;
+    (window as any).Tawk_LoadStart = new Date();
+    const s1 = document.createElement("script");
+    const s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = "https://embed.tawk.to/5f2e9e94ed9d9d262709321f/default";
+    s1.charset = "UTF-8";
+    s1.setAttribute("crossorigin", "*");
+    if (s0 && s0.parentNode) {
+      s0.parentNode.insertBefore(s1, s0);
+    } else {
+      document.head.appendChild(s1);
+    }
+  }, []);
+
   useEffect(() => {
     // Automatically attach IntersectionObserver to sections for lazy load scroll animation
     const observer = new IntersectionObserver(
