@@ -45,14 +45,14 @@ export default function CareerGuides() {
         </div>
 
         <div className="relative max-w-7xl mx-auto w-full px-6 sm:px-8 md:px-12 z-20 py-16 lg:py-0">
-            {/* Breadcrumbs */}
-            <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
-              <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
-              <span className="text-slate-400 mx-1 select-none">&gt;</span>
-              <span className="font-bold text-[#DF1818] tracking-tight">Career Guides</span>
-            </div>
+          {/* Breadcrumbs */}
+          <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
+            <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+            <span className="text-slate-400 mx-1 select-none">&gt;</span>
+            <span className="font-bold text-[#DF1818] tracking-tight">Career Guides</span>
+          </div>
 
-            <div className="max-w-xl lg:max-w-[680px] text-left flex flex-col space-y-6">
+          <div className="max-w-xl lg:max-w-[680px] text-left flex flex-col space-y-6">
             <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-outfit font-extrabold tracking-tight text-[#1C3E8A] leading-snug sm:leading-[1.28] lg:leading-[1.32]">
               Career Guides to Help You Make the Right Career Choice
             </h1>
@@ -147,7 +147,7 @@ export default function CareerGuides() {
                 </div>
                 <div className="p-6 sm:p-7 flex flex-col space-y-4">
                   <h3 className="text-[19px] sm:text-[21px] font-bold text-[#1C3E8A] font-outfit leading-snug">
-                    Cabin Crew (Air Hostess & Hospitality Management) Career
+                    Cabin Crew (Air Hostess) & Hospitality Management Career
                   </h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-semibold leading-relaxed">
                     Thinking about becoming Cabin Crew? Explore everything you need to know about the profession—from responsibilities and eligibility to salary, career growth, interview preparation, and industry insights.

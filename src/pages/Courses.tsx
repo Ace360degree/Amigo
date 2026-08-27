@@ -76,28 +76,28 @@ type StoryCard = {
 const stats: Stat[] = [
   { value: "10,000+", label: "Students Trained" },
   { value: "3", label: "Specialised Career Paths" },
-  { value: "12 Months", label: "Programme Duration" },
+  { value: "200+", label: "Hiring Partners" },
   { value: "9+", label: "Years of Excellence" },
 ];
 
 const comparisonRows: ComparisonRow[] = [
   {
     label: "Duration",
-    cabinCrew: "12 Months",
-    groundStaff: "12 Months",
+    cabinCrew: "6 Months",
+    groundStaff: "6 Months",
     aiDataScience: "12 Months",
   },
   {
     label: "Eligibility",
     cabinCrew: "12th Pass",
     groundStaff: "12th Pass",
-    aiDataScience: "10th Pass",
+    aiDataScience: "12th / HSC Pass",
   },
   {
     label: "Age",
-    cabinCrew: "Typically 18+",
-    groundStaff: "Typically 18+",
-    aiDataScience: "Typically 15+",
+    cabinCrew: "17 to 24",
+    groundStaff: "17 to 27",
+    aiDataScience: "17 to 25",
   },
   {
     label: "Certification",
@@ -173,7 +173,7 @@ const whyCards: WhyCard[] = [
     description:
       "Three job-focused courses with real hiring demand in every track.",
     bullets: [
-      "Cabin Crew (Air Hostess & Hospitality Management)",
+      "Cabin Crew (Air Hostess) & Hospitality Management",
       "Airport Ground Staff & Hospitality Management",
       "AI & Data Science",
     ],
@@ -254,7 +254,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What courses does Amigo Academy offer?",
     answer:
-      "We currently offer three main courses: Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science.",
+      "We currently offer three main courses: Cabin Crew (Air Hostess) & Hospitality Management, Airport Ground Staff & Hospitality Management, and AI & Data Science.",
   },
   {
     question: "Are all courses certified?",
@@ -264,7 +264,7 @@ const faqItems: FaqItem[] = [
   {
     question: "How long are the courses?",
     answer:
-      "Each programme is designed as a 12-month course structure with practical training, classroom learning, and placement support.",
+      "Each programme is designed as a 6 to 12 months course structure with practical training, classroom learning, and placement support.",
   },
   {
     question: "What is the minimum eligibility?",
@@ -328,7 +328,7 @@ const storyCards: StoryCard[] = [
     role: "Passenger Service Executive",
     company: "Airport 2025",
     quote:
-      "\"The 12-month course and placement support gave me the right start. The training made me ready for a full-time airport role from day one.\"",
+      "\"The 6-month course and placement support gave me the right start. The training made me ready for a full-time airport role from day one.\"",
     image: coursesVideo4a,
   },
   {
@@ -344,50 +344,53 @@ const storyCards: StoryCard[] = [
 const courses: CourseCard[] = [
   {
     id: "air-hostess",
-    title: "Cabin Crew (Air Hostess & Hospitality Management)",
+    title: "Cabin Crew (Air Hostess) & Hospitality Management",
     description:
-      "If you dream of working with leading domestic or international airlines, this program prepares you with the grooming, communication, confidence, and in-flight knowledge required for airline careers.",
+      "If you dream of working with leading domestic or international airlines, this programme prepares you with the professional skills, confidence, communication, grooming and industry knowledge required to begin your aviation career.",
     image: coursesCard1,
     accent: "#e31e24",
     highlights: [
-      "Cabin crew training",
-      "Aviation grooming and etiquette",
-      "Communication and interview prep",
-      "Passenger handling basics",
+      "6 Month Programme",
+      "Maharashtra Government Certified",
+      "Practical Training",
+      "Interview Preparation",
+      "Placement Support",
     ],
-    outcomes: ["Cabin Crew", "Air Hostess", "Flight Attendant", "Customer Service"],
+    outcomes: ["Cabin Crew", "Air Hostess", "Flight Steward", "In-flight Customer Service"],
     cta: "Explore Course",
   },
   {
     id: "ground-staff",
     title: "Airport Ground Staff & Hospitality Management",
     description:
-      "Airports depend on skilled professionals to ensure smooth passenger and aircraft operations. This course builds the service, safety, and coordination skills required for ground support roles.",
+      "Airports depend on skilled professionals to ensure smooth passenger experiences and efficient daily operations. This programme prepares students for customer service, check-in, passenger handling, baggage services and airport operations.",
     image: coursesCard2,
     accent: "#1e417a",
     highlights: [
-      "Airport operations fundamentals",
-      "Passenger service training",
-      "Security and ramp awareness",
-      "Hospitality and workflow management",
+      "6 Month Programme",
+      "Maharashtra Government Certified",
+      "Practical Training",
+      "Interview Preparation",
+      "Placement Support",
     ],
-    outcomes: ["Airport Ground Staff", "Passenger Service Executive", "Check-in Executive", "Customer Service"],
+    outcomes: ["Airport Ground Staff", "Passenger Service Executive", "Check-in Executive", "Customer Service Executive"],
     cta: "Explore Course",
   },
   {
     id: "ai-data-science",
     title: "AI & Data Science",
     description:
-      "Technology is shaping the future of every industry. This track helps students learn Programming, machine learning, analytics, and practical data skills for modern entry-level tech roles.",
+      "Technology is shaping the future of every industry. Our AI & Data Science programme helps students build practical knowledge in Artificial Intelligence, Machine Learning, Python and Data Science through industry-oriented learning and real-world projects.",
     image: coursesCard3,
     accent: "#0b2f61",
     highlights: [
-      "Core Programming and analytics",
-      "Machine learning introduction",
-      "Data handling and visualization",
-      "Project-based practical learning",
+      "12 Month Programme",
+      "Industry-Oriented Professional Training",
+      "Practical Projects",
+      "Career Guidance",
+      "Placement Support",
     ],
-    outcomes: ["AI Associate", "Data Analyst", "Junior Data Scientist", "Machine Learning Assistant"],
+    outcomes: ["AI Associate", "Data Analyst", "Junior Data Scientist", "Machine Learning Associate"],
     cta: "Explore Course",
   },
 ];
@@ -617,7 +620,7 @@ export default function Courses() {
                 <thead>
                   <tr className="bg-[#234a8a] text-white">
                     <th className="px-5 py-4 text-[10px] font-bold uppercase tracking-[0.2em]">Compare</th>
-                    <th className="px-5 py-4 text-sm font-bold">Cabin Crew (Air Hostess &amp; Hospitality Management)</th>
+                    <th className="px-5 py-4 text-sm font-bold">Cabin Crew (Air Hostess) &amp; Hospitality Management</th>
                     <th className="px-5 py-4 text-sm font-bold">Airport Ground Staff &amp; Hospitality Management</th>
                     <th className="px-5 py-4 text-sm font-bold">AI &amp; Data Science</th>
                   </tr>

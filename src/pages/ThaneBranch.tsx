@@ -17,9 +17,9 @@ export default function ThaneBranch() {
   const courses = [
     {
       image: course1,
-      title: "Cabin Crew (Air Hostess & Hospitality Management)",
+      title: "Cabin Crew (Air Hostess) & Hospitality Management",
       desc: "Prepare for a professional career with domestic and international airlines through practical training, personality development, and interview preparation.",
-      btn: "Explore Cabin Crew (Air Hostess & Hospitality Management) Course",
+      btn: "Explore Cabin Crew (Air Hostess) & Hospitality Management Course",
       link: "/career-guide/cabin-crew"
     },
     {
@@ -365,8 +365,7 @@ export default function ThaneBranch() {
               <div>
                 <p className="text-[14px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">Contact Number</p>
                 <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">
-                  +91-86557-68544<br />
-                  +91-96194-23797
+                  +919987588932
                 </p>
               </div>
             </div>
@@ -381,7 +380,7 @@ export default function ThaneBranch() {
               <div>
                 <p className="text-[14px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">Courses Available</p>
                 <ul className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed space-y-1">
-                  <li>&#8226; Cabin Crew (Air Hostess &amp; Hospitality Management)</li>
+                  <li>&#8226; Cabin Crew (Air Hostess) &amp; Hospitality Management</li>
                   <li>&#8226; Airport Ground Staff &amp; Hospitality Management</li>
                   <li>&#8226; AI &amp; Data Science</li>
                 </ul>

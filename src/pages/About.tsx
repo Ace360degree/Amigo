@@ -33,7 +33,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
 
   const accordionData = [
     {
-      title: "CABIN CREW (AIR HOSTESS & HOSPITALITY MANAGEMENT)",
+      title: "CABIN CREW (AIR HOSTESS) & HOSPITALITY MANAGEMENT",
       emoji: "✈️",
       content: (
         <div className="space-y-3 font-sans text-xs sm:text-sm">
@@ -97,7 +97,6 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
     { name: "Indigo Airlines", logo: "✈️" },
     { name: "Air India", logo: "🇮🇳" },
     { name: "SpiceJet", logo: "🌶️" },
-    { name: "Vistara", logo: "👑" },
     { name: "Qatar Airways", logo: "🇶🇦" },
     { name: "Emirates", logo: "🇦🇪" },
     { name: "Etihad Airways", logo: "✨" },
@@ -195,7 +194,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               { value: "10,000+", label: "Students Trained" },
               { value: "9+", label: "Years of Excellence" },
               { value: "3", label: "Specialized Career Paths" },
-              { value: "12 Months", label: "Programme Duration" }
+              { value: "200+", label: "Hiring Partners" }
             ].map((stat, idx) => (
               <div
                 key={idx}
@@ -549,7 +548,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               name: "Isaac Edward",
               role: "Passenger Service Excusive",
               batch: "Batch 2025",
-              quote: "ROHAN S. \"12-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.\"",
+              quote: "ROHAN S. \"6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.\"",
               videoImg: Student4,
               avatarImg: Studentpf4,
               badge: "",

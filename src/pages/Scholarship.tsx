@@ -534,7 +534,7 @@ export default function Scholarship() {
                 {/* Info */}
                 <div className="space-y-2">
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-lg sm:text-xl">
-                    Cabin Crew (Air Hostess & Hospitality Management)
+                    Cabin Crew (Air Hostess) & Hospitality Management
                   </h4>
                   <p className="text-neutral-500 text-[13px] leading-relaxed font-semibold">
                     In-flight service, safety, grooming and communication training for airline cabin crew roles.
@@ -850,7 +850,7 @@ export default function Scholarship() {
                     Sneha Kulkarni
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess & Hospitality Management)
+                    Cabin Crew (Air Hostess) & Hospitality Management
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Andheri branch
@@ -916,7 +916,7 @@ export default function Scholarship() {
                     Aishwarya Nair
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess & Hospitality Management)
+                    Cabin Crew (Air Hostess) & Hospitality Management
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Thane branch
@@ -1015,7 +1015,7 @@ export default function Scholarship() {
                     Fatima Shaikh
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess & Hospitality Management)
+                    Cabin Crew (Air Hostess) & Hospitality Management
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Ghatkopar branch
@@ -1060,7 +1060,7 @@ export default function Scholarship() {
             <FAQItem
               index={3}
               question="Which courses are covered by the scholarship?"
-              answer="All three of our major training courses—Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science—have scholarship seats allocated."
+              answer="All three of our major training courses—Cabin Crew (Air Hostess) & Hospitality Management, Airport Ground Staff & Hospitality Management, and AI & Data Science—have scholarship seats allocated."
             />
             <FAQItem
               index={4}

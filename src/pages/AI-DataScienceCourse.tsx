@@ -303,7 +303,7 @@ const storyCards: StoryCard[] = [
     role: "Passenger Service Executive",
     company: "Batch 2025",
     quote:
-      '"ROHAN S. 12-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months."',
+      '"ROHAN S. 6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months."',
     image: coursesVideo4a,
   },
   {

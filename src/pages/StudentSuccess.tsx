@@ -10,7 +10,7 @@ import student4 from "../assets/img/placementstudent4.png";
 const students = [
     {
         name: "Reema Mascarenhas",
-        course: "Cabin Crew (Air Hostess & Hospitality Management)",
+        course: "Cabin Crew (Air Hostess) & Hospitality Management",
         branch: "Thane",
         placedAt: "Air India",
         quote: "Grooming sessions changed how I carried myself in the interview.",
@@ -26,7 +26,7 @@ const students = [
     },
     {
         name: "Bhumika Jadhav",
-        course: "Cabin Crew (Air Hostess & Hospitality Management)",
+        course: "Cabin Crew (Air Hostess) & Hospitality Management",
         branch: "Thane",
         placedAt: "Quess",
         quote: "The mock interviews made the real airline round feel familiar.",
@@ -75,9 +75,9 @@ export default function StudentSuccess() {
                     <div className="w-[55%] sm:w-[50%] lg:w-full max-w-xl lg:max-w-lg xl:max-w-xl py-12 lg:py-24 text-left">
                         {/* Breadcrumbs */}
                         <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400 mb-3">
-                          <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
-                          <span className="text-slate-400 mx-1 select-none">&gt;</span>
-                          <span className="font-bold text-[#DF1818] tracking-tight">Student Success</span>
+                            <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+                            <span className="text-slate-400 mx-1 select-none">&gt;</span>
+                            <span className="font-bold text-[#DF1818] tracking-tight">Student Success</span>
                         </div>
 
                         <h1 className="text-[26px] sm:text-3xl lg:text-[54px] font-extrabold text-[#0f2a4a] leading-[1.2] lg:leading-[1.15] tracking-tight mb-3 sm:mb-4 lg:mb-6 font-sans">
@@ -323,7 +323,7 @@ export default function StudentSuccess() {
                                 </svg>
                                 <div>
                                     <h4 className="text-[22px] lg:text-2xl font-extrabold text-[#0f2a4a] font-sans">3</h4>
-                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">Mumbai Branches</p>
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-0.5">Branches</p>
                                 </div>
                             </div>
 

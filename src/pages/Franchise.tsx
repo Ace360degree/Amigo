@@ -115,9 +115,9 @@ export default function Franchise() {
 
                         {/* Breadcrumbs */}
                         <div className="flex items-center gap-1.5 text-xs sm:text-[13px] font-sans font-medium text-slate-400">
-                          <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
-                          <span className="text-slate-400 mx-1 select-none">&gt;</span>
-                          <span className="font-bold text-[#DF1818] tracking-tight">Franchise</span>
+                            <Link to="/" className="hover:text-[#DF1818] transition-colors focus:outline-none">Home</Link>
+                            <span className="text-slate-400 mx-1 select-none">&gt;</span>
+                            <span className="font-bold text-[#DF1818] tracking-tight">Franchise</span>
                         </div>
 
                         {/* Title */}
@@ -132,7 +132,7 @@ export default function Franchise() {
                                 Aviation and technology education is one of India's fastest-growing industries. Amigo Academy offers entrepreneurs the opportunity to build a successful education business using a trusted, Certified brand.
                             </p>
                             <p>
-                                Founded in 2017, with over 10,000+ students trained, a 4.6★ reputation and three established Mumbai branches, we provide the support, systems and expertise to help our franchise partners succeed.
+                                Founded in 2017, with over 10,000+ students trained, a 4.6★ reputation and three established Branches, we provide the support, systems and expertise to help our franchise partners succeed.
                             </p>
                         </div>
 
@@ -191,7 +191,7 @@ export default function Franchise() {
                                 category: "TRACK RECORD",
                                 title: "Established Brand",
                                 desc: "A career academy built and proven in Mumbai since 2017.",
-                                points: ["Founded in 2017", "10,000+ students trained", "4.6★ rating • 850+ reviews"]
+                                points: ["Founded in 2017", "10,000+ students trained", "4.6 across 740+ Google reviews"]
                             },
                             {
                                 icon: (
@@ -202,7 +202,7 @@ export default function Franchise() {
                                 category: "PROGRAMS",
                                 title: "High-Demand Courses",
                                 desc: "Three job-focused courses with real hiring demand in every city.",
-                                points: ["Cabin Crew (Air Hostess & Hospitality Management)", "Airport Ground Staff & Hospitality Management", "AI & Data Science"]
+                                points: ["Cabin Crew (Air Hostess) & Hospitality Management", "Airport Ground Staff & Hospitality Management", "AI & Data Science"]
                             },
                             {
                                 icon: (
@@ -579,7 +579,7 @@ export default function Franchise() {
                             {
                                 stat: "10,000+",
                                 label: "Students Trained",
-                                sublabel: "ACROSS MUMBAI BRANCHES"
+                                sublabel: "ACROSS BRANCHES"
                             },
                             {
                                 stat: "4.6★",
@@ -587,13 +587,13 @@ export default function Franchise() {
                                 sublabel: "VERIFIED STUDENT REVIEWS"
                             },
                             {
-                                stat: "850+",
+                                stat: "740+",
                                 label: "Reviews",
                                 sublabel: "REAL STUDENT FEEDBACK"
                             },
                             {
                                 stat: "3",
-                                label: "Mumbai Branches",
+                                label: "Branches",
                                 sublabel: "GHATKOPAR • ANDHERI • THANE"
                             },
                             {
@@ -754,7 +754,7 @@ export default function Franchise() {
                                 <div className="absolute inset-0 bg-gradient-to-r from-amber-100/50 to-transparent"></div>
                                 <span className="relative z-10">FRANCHISE PROGRAM</span>
                             </div>
-                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Cabin Crew (Air Hostess & Hospitality Management)</h3>
+                            <h3 className="text-xl font-bold text-[#0f2a4a] font-sans mb-3">Cabin Crew (Air Hostess) & Hospitality Management</h3>
                             <p className="text-slate-500 text-[13px] leading-relaxed mb-6 font-medium">
                                 In-flight service, safety, grooming and communication training for airline roles.
                             </p>
@@ -964,7 +964,7 @@ export default function Franchise() {
             )}
 
             {/* Enquire About a Franchise Section */}
-            <section id="franchise-enquiry" className="py-20 lg:py-28 bg-[#f4f7f9] relative">
+            <section id="franchise-enquiry" className="py-20 lg:py-28 bg-[#F1F4F9] relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Section Header */}
@@ -981,9 +981,9 @@ export default function Franchise() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
 
-                        <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100">
+                        <div className="lg:col-span-7 bg-white rounded-3xl p-6 md:p-10 shadow-[0_10px_40px_rgba(15,42,74,0.05)] border border-slate-100 flex flex-col justify-between">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Name */}
@@ -1060,38 +1060,41 @@ export default function Franchise() {
                         </div>
 
                         {/* How to Apply Card */}
-                        <div className="lg:col-span-5 bg-[#183b66] rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden">
-                            {/* Decorative background circle */}
-                            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-white/5 blur-3xl pointer-events-none"></div>
+                        <div className="lg:col-span-5 bg-gradient-to-b from-[#0e3c88] via-[#0b357b] to-[#072d6b] rounded-[36px] p-8 md:p-10 shadow-2xl relative overflow-hidden text-white border border-blue-400/20 flex flex-col justify-between h-full">
+                            {/* Inner subtle glow / highlight */}
+                            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-50 pointer-events-none"></div>
 
-                            <h3 className="text-2xl font-bold text-white mb-4 relative z-10">How to apply</h3>
-                            <p className="text-blue-100/80 text-[14px] leading-relaxed mb-8 relative z-10">
-                                Prefer to talk first? Call or WhatsApp +91 99875 88932 and select "Franchise" as your enquiry type.
-                            </p>
+                            <div>
+                                <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight relative z-10">How to apply</h3>
+                                <p className="text-blue-100/90 text-base leading-relaxed mb-8 relative z-10 max-w-md">
+                                    Prefer to talk first? <br /> Call or WhatsApp +919987588932 and select “Franchise” as your enquiry type.
+                                </p>
 
-                            <ul className="space-y-4 relative z-10">
-                                {[
-                                    "Submit the franchise enquiry form with your details and preferred location",
-                                    "Our franchise team reaches out to discuss the opportunity and answer questions",
-                                    "We share the details and — if it's a fit — the next steps to get started",
-                                    "What information do I need to submit with my franchise enquiry?",
-                                    "Can I apply for a franchise in my preferred location?",
-                                    "How can I contact the Amigo Academy franchise team?",
-                                    "Can I apply for a franchise in my preferred location?",
-                                    "What happens after I submit the franchise enquiry form?",
-                                    "Can I discuss the franchise opportunity before submitting the form?",
-                                    "How do I know if the franchise opportunity is right for me?"
-                                ].map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-3">
-                                        <div className="mt-0.5 flex-shrink-0">
-                                            <svg className="w-[18px] h-[18px] text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </div>
-                                        <span className="text-blue-50/90 text-[13px] leading-snug">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                                <ul className="space-y-4.5 relative z-10">
+                                    {[
+                                        "Submit the franchise enquiry form with your details and preferred location",
+                                        "Our franchise team reaches out to discuss the opportunity and answer questions",
+                                        "We share the details and — if it's a fit — the next steps to get started",
+                                        "We review the location and basic requirements to see if the opportunity is a good fit",
+                                        "We discuss the franchise model, investment, setup and support in detail",
+                                        "Once everything is agreed, we complete the documentation and franchise agreement",
+                                        "We help you set up the academy, including branding, infrastructure and operations",
+                                        "Our team provides training and guidance to help your staff get ready",
+                                        "Your Amigo Academy branch is launched with continued support from our team"
+                                    ].map((item, idx) => (
+                                        <li key={idx} className="flex items-start gap-4">
+                                            <div className="mt-1 flex-shrink-0">
+                                                <div className="w-5 h-5 rounded-full border border-amber-400/90 flex items-center justify-center bg-amber-400/10">
+                                                    <svg className="w-3.5 h-3.5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <span className="text-blue-50/95 text-[15px] font-normal leading-relaxed">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
 
                     </div>
@@ -1122,21 +1125,16 @@ export default function Franchise() {
                             },
                             {
                                 id: 2,
-                                question: "What kind of partner is Amigo Academy looking for?",
-                                answer: "We are seeking partners with a strong background in education or business, local market knowledge, and the capability to invest in a premium learning center."
+                                question: "Which courses can a franchise offer?",
+                                answer: "Our franchises offer three core programs: Cabin Crew (Air Hostess) & Hospitality Management, Airport Ground Staff & Hospitality Management, and AI & Data Science, all designed with industry-relevant curriculum."
                             },
                             {
                                 id: 3,
-                                question: "Which courses can a franchise offer?",
-                                answer: "Our franchises offer three core programs: Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management, and AI & Data Science, all designed with industry-relevant curriculum."
-                            },
-                            {
-                                id: 4,
                                 question: "How do I start a franchise enquiry?",
                                 answer: "Simply fill out the enquiry form above, and our franchise development team will get in touch with you within one business day to discuss the opportunity."
                             },
                             {
-                                id: 5,
+                                id: 4,
                                 question: "Is Amigo Academy certified?",
                                 answer: "Yes, our programs and curriculum meet industry standards and we hold relevant accreditations that validate the quality of our training."
                             }

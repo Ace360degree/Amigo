@@ -36,7 +36,7 @@ export default function Header() {
             const parentSection = clickedEl.closest("section");
             const parentDiv = clickedEl.closest("div[id]");
             const pageName = window.location.pathname === "/" ? "home" : window.location.pathname.replace(/^\//, "").replace(/\/$/, "");
-            
+
             let sectionName = "cta";
             if (parentSection && parentSection.id) {
               sectionName = parentSection.id;
@@ -72,7 +72,7 @@ export default function Header() {
   };
 
   const courses = [
-    { name: "Cabin Crew (Air Hostess & Hospitality Management)", desc: "Cabin crew training & placement assistance", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
+    { name: "Cabin Crew (Air Hostess) & Hospitality Management", desc: "Cabin crew training & placement assistance", path: "/courses/air-hostess-cabin-crew-hospitality-management" },
     { name: "Airport Ground Staff & Hospitality Management", desc: "Ground operations & placement assistance", path: "/courses/airport-ground-staff-hospitality-management" },
     { name: "AI & Data Science", desc: "Certified course & placement assistance", path: "/courses/ai-data-science-with-generative-ai-machine-learning" }
   ];
@@ -91,10 +91,10 @@ export default function Header() {
         <div className="relative w-full flex items-center">
           <div className="animate-marquee whitespace-nowrap flex items-center text-xs sm:text-sm font-bold tracking-wide gap-8">
             <span>
-              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
             <span>
-              🚀 Become an Air Hostess in Just 12 Months | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained with Top Airlines | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
+              🚀 Become an Air Hostess | 🎓 Up to ₹50,000 Scholarship Available | ✈️ 10,000+ Students Trained | ⏳ Limited seats — apply now to secure your spot! &nbsp;&nbsp;|
             </span>
           </div>
         </div>

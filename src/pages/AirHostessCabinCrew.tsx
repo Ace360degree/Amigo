@@ -62,7 +62,7 @@ type StoryCard = {
 const overview: OverviewItem[] = [
   { label: "Timing", value: "Morning / Afternoon / Evening" },
   { label: "Our Branches", value: "Ghatkopar, Andheri & Thane" },
-  { label: "Duration", value: "12 Months (6 Days/Week, 2 Hours/Day)" },
+  { label: "Duration", value: "6 Months (6 Days/Week, 2 Hours/Day)" },
   { label: "Eligibility", value: "12th Pass" },
   { label: "Age", value: "17 to 24 Years" },
 ];
@@ -164,7 +164,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What is the duration of the air hostess / cabin crew course at Amigo Academy?",
     answer:
-      "The air hostess / cabin crew course is a 12-month program with 6 days a week, 2 hours a day. Morning, afternoon and evening batches are available at our Ghatkopar, Andheri & Thane branches.",
+      "The air hostess / cabin crew course is a 6-month program with 6 days a week, 2 hours a day. Morning, afternoon and evening batches are available at our Ghatkopar, Andheri & Thane branches.",
   },
   {
     question: "What is the eligibility for the air hostess / cabin crew course?",
@@ -278,7 +278,7 @@ const storyCards: StoryCard[] = [
     role: "Passenger Service Executive",
     company: "Airport 2025",
     quote:
-      '"The 12-month course and placement support gave me the right start. The training made me ready for a full-time airport role from day one."',
+      '"The 6-month course and placement support gave me the right start. The training made me ready for a full-time airport role from day one."',
     image: coursesVideo4a,
   },
   {
@@ -321,16 +321,16 @@ export default function AirHostessCabinCrew() {
               <Link to="/courses" className="hover:text-[#DF1818] transition-colors focus:outline-none">Courses</Link>
               <span className="text-slate-400 mx-1 select-none">&gt;</span>
               <span className="font-bold text-[#DF1818] tracking-tight">
-                Cabin Crew (Air Hostess &amp; Hospitality Management)
+                Cabin Crew (Air Hostess) &amp; Hospitality Management
               </span>
             </div>
 
             <h1 className="text-[40px] sm:text-[42px] lg:text-[45px] font-outfit font-extrabold text-[#17365d] leading-[1.08] tracking-tight">
-              Cabin Crew (Air Hostess &amp; Hospitality Management)
+              Cabin Crew (Air Hostess) &amp; Hospitality Management
             </h1>
 
             <div className="flex flex-wrap items-center gap-2 mt-3 text-[16px] font-semibold">
-              <span className="text-[#17365d]">12 Months</span>
+              <span className="text-[#17365d]">6 Months</span>
               <span className="text-[#6b7280]">-</span>
               <span className="text-[#17365d]">Certificate Program</span>
               <span className="text-[#6b7280]">-</span>
@@ -366,7 +366,7 @@ export default function AirHostessCabinCrew() {
                   <span className="w-5 shrink-0 text-center text-[18px] text-[#17365d]">▤</span>
                   <p>
                     <span className="font-semibold">Duration:</span>
-                    <span className="ml-3">12 Months (5 Days/Week, 2 Hours/Day)</span>
+                    <span className="ml-3">6 Months (5 Days/Week, 2 Hours/Day)</span>
                   </p>
                 </div>
 
@@ -412,7 +412,7 @@ export default function AirHostessCabinCrew() {
 
             <ul className="mt-5 space-y-2.5 text-[13px] font-bold">
               <li className="flex items-center gap-2 text-[#17365d]">
-                <span className="text-[#17365d] font-extrabold">•</span> 12 Months
+                <span className="text-[#17365d] font-extrabold">•</span> 6 Months
               </li>
               <li className="flex items-center gap-2 text-[#17365d]">
                 <span className="text-[#17365d] font-extrabold">•</span> Certificate Program
@@ -463,7 +463,7 @@ export default function AirHostessCabinCrew() {
                 </svg>
                 <span className="font-semibold text-slate-700">Duration:</span>
               </div>
-              <span className="text-[#17365d] font-medium text-right">12 Months (5 Days/Week, 2 Hours/Day)</span>
+              <span className="text-[#17365d] font-medium text-right">6 Months (5 Days/Week, 2 Hours/Day)</span>
             </div>
 
             {/* Eligibility */}
@@ -544,13 +544,13 @@ export default function AirHostessCabinCrew() {
         </div>
       </section>
 
-      {/* Form Container: Kickstart Your Career In 12 Months */}
+      {/* Form Container: Kickstart Your Career In 6 Months */}
       <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-12 shadow-[0_20px_50px_rgba(24,58,125,0.18)] text-white">
             <div className="text-left">
               <h2 className="text-2xl sm:text-[34px] font-extrabold leading-tight tracking-tight text-white">
-                Kickstart Your Career In 12 Months
+                Kickstart Your Career In 6 Months
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-slate-200/90 font-normal">
                 Get Batch timings and Seat availability
@@ -698,7 +698,7 @@ export default function AirHostessCabinCrew() {
             Do You Meet the Eligibility Criteria?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-500 text-center">
-            Check if you qualify for our 12-month Air Hostess / Cabin Crew &amp; Hospitality Management program.
+            Check if you qualify for our 6-month Air Hostess / Cabin Crew &amp; Hospitality Management program.
           </p>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">

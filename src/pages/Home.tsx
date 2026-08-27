@@ -53,7 +53,6 @@ import brandAirIndia from "../assets/img/brandAirIndia.png";
 import brandQatar from "../assets/img/brandQatar.png";
 import brandEmirates from "../assets/img/brandEmirates.png";
 import brandSpiceJet from "../assets/img/brandSpiceJet.png";
-import brandVistara from "../assets/img/brandVistara.png";
 
 // News and Updates images
 import newsImage1 from "../assets/img/newsImage1.png";
@@ -91,7 +90,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
       id: "cabin-crew",
       tagline: "Your Aviation Dream",
       highlightTagline: "Starts Here",
-      courseName: "Cabin Crew (Air Hostess & Hospitality Management)",
+      courseName: "Cabin Crew (Air Hostess) & Hospitality Management",
       desktopImg: cabinCrewBanner,
       mobileImg: cabinCrewMobileBanner
     },
@@ -178,7 +177,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
   };
 
   const coursesList = [
-    "Cabin Crew (Air Hostess & Hospitality Management)",
+    "Cabin Crew (Air Hostess) & Hospitality Management",
     "Airport Ground Staff & Hospitality Management",
     "AI & Data Science"
   ];
@@ -554,10 +553,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="p-6 sm:p-7 flex flex-col space-y-4">
                 <h3 className="text-lg font-bold text-[#0f2a4a] leading-snug font-sans">
-                  Cabin Crew (Air Hostess & Hospitality Management)
+                  Cabin Crew (Air Hostess) & Hospitality Management
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-                  12-month cabin crew training across Ghatkopar, Andheri & Thane. Professional grooming, aviation training, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
+                  6-month cabin crew training across Ghatkopar, Andheri & Thane. Professional grooming, aviation training, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
                 </p>
               </div>
             </div>
@@ -572,7 +571,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <line x1="8" y1="2" x2="8" y2="6" />
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
-                  12 Months
+                  6 Months
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
                   <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -631,7 +630,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   Airport Ground Staff & Hospitality Management
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans">
-                  12-month airport ground staff training across Ghatkopar, Andheri & Thane. Ground operations, passenger handling, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
+                  6-month airport ground staff training across Ghatkopar, Andheri & Thane. Ground operations, passenger handling, interview preparation & dedicated placement support with easy EMI and scholarships up to ₹50,000.
                 </p>
               </div>
             </div>
@@ -646,7 +645,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <line x1="8" y1="2" x2="8" y2="6" />
                     <line x1="3" y1="10" x2="21" y2="10" />
                   </svg>
-                  12 Months
+                  6 Months
                 </div>
                 <div className="bg-[#1e417a] py-2 px-3 rounded-lg flex items-center gap-1.5 text-[10px] sm:text-xs font-semibold font-sans">
                   <svg className="w-3.5 h-3.5 min-w-[14px] shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -1080,7 +1079,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             ))}
           </div>
           <p className="text-[#556987] font-semibold text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
-            Based on 850+ verified student reviews, students consistently praise our placement support, practical training, and career guidance.
+            Based on 4.6 across 740+ Google reviews, students consistently praise our placement support, practical training, and career guidance.
           </p>
           <p className="text-[#556987] font-semibold text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed mt-2">
             Real reviews from trainees who built their careers with Amigo Academy
@@ -1267,7 +1266,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               name: "Isaac Edward",
               role: "Passenger Service Excusive",
               batch: "Batch 2025",
-              quote: "ROHAN S. \"12-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.\"",
+              quote: "ROHAN S. \"6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.\"",
               videoImg: Student4,
               avatarImg: Studentpf4,
               badge: "",
@@ -1390,7 +1389,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {[
             {
               id: "cabin-crew",
-              title: "✈️ CABIN CREW (AIR HOSTESS & HOSPITALITY MANAGEMENT)",
+              title: "✈️ CABIN CREW (AIR HOSTESS) & HOSPITALITY MANAGEMENT",
               articles: [
                 { title: "How to prepare for Cabin Crew interview in 2026", duration: "5 min read" },
                 { title: "Essential grooming tips for airline recruitment", duration: "4 min read" },
@@ -1500,12 +1499,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               { img: brandQatar, name: "Qatar Airways" },
               { img: brandEmirates, name: "Emirates" },
               { img: brandSpiceJet, name: "SpiceJet" },
-              { img: brandVistara, name: "Vistara" },
               { img: brandAirIndia, name: "Air India" },
               { img: brandQatar, name: "Qatar Airways" },
               { img: brandEmirates, name: "Emirates" },
               { img: brandSpiceJet, name: "SpiceJet" },
-              { img: brandVistara, name: "Vistara" },
             ].map((brand, idx) => (
               <div key={idx} className="w-32 sm:w-40 h-16 inline-flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
                 <img

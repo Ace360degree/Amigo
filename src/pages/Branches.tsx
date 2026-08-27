@@ -50,7 +50,7 @@ const branches: BranchCard[] = [
       "Opposite Ghatkopar Station, Saibaba Nagar",
       "Pant Nagar, Ghatkopar East, Mumbai, Maharashtra 400077",
     ],
-    phone: "+91 99875 88932",
+    phone: "+919987588932",
     mapHref: "https://maps.google.com/?q=Sai+Infotech+Ghatkopar+East+Mumbai",
     link: "/ghatkopar-branch"
   },
@@ -61,7 +61,7 @@ const branches: BranchCard[] = [
       "902, 9th, Time Chambers, Swami Vivekanand Rd",
       "Andheri West, Mumbai, Maharashtra 400058",
     ],
-    phone: "+91 99875 88932",
+    phone: "+919987588932",
     mapHref: "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai",
     link: "/andheri-branch"
   },
@@ -73,7 +73,7 @@ const branches: BranchCard[] = [
       "Above Tip Top Mithaiwala, Jambli Naka",
       "Thane West, Thane, Maharashtra 400602",
     ],
-    phone: "+91 99875 88932",
+    phone: "+919987588932",
     mapHref: "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra",
     link: "/thane-branch"
   },

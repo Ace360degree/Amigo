@@ -48,7 +48,7 @@ const routeMap: Record<string, BreadcrumbItem[]> = {
   "/courses": [{ label: "Courses" }],
   "/courses/air-hostess-cabin-crew-hospitality-management": [
     { label: "Courses", path: "/courses" },
-    { label: "Cabin Crew (Air Hostess & Hospitality Management)" },
+    { label: "Cabin Crew (Air Hostess) & Hospitality Management" },
   ],
   "/courses/airport-ground-staff-hospitality-management": [
     { label: "Courses", path: "/courses" },

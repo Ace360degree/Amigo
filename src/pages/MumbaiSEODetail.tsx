@@ -284,7 +284,7 @@ export default function MumbaiSEODetail() {
                   className="w-full bg-slate-800/80 border border-slate-700 focus:border-[#DF1818] rounded-xl px-4 py-3 text-sm font-semibold text-white outline-none transition-all cursor-pointer text-slate-300 appearance-none"
                 >
                   <option value="" disabled>Select course</option>
-                  <option value="Cabin Crew (Air Hostess & Hospitality Management)">Cabin Crew (Air Hostess & Hospitality Management)</option>
+                  <option value="Cabin Crew (Air Hostess) & Hospitality Management">Cabin Crew (Air Hostess) & Hospitality Management</option>
                   <option value="Airport Ground Staff & Hospitality Management">Airport Ground Staff & Hospitality Management</option>
                   <option value="AI & Data Science">AI & Data Science</option>
                 </select>
@@ -315,7 +315,7 @@ export default function MumbaiSEODetail() {
 
           <div className="bg-white border border-neutral-200/60 rounded-[20px] p-6 text-center shadow-sm">
             <p className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#1C3E8A] mb-1">4.6/5</p>
-            <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-bold">Google Rating (850+ Reviews)</p>
+            <p className="text-slate-500 font-sans text-xs sm:text-[13px] font-bold">4.6 across 740+ Google reviews</p>
           </div>
 
           <div className="bg-white border border-neutral-200/60 rounded-[20px] p-6 text-center shadow-sm">
@@ -368,15 +368,15 @@ export default function MumbaiSEODetail() {
                   <img src={course1Img} alt="Air Hostess / Cabin Crew" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 text-left space-y-4">
-                  <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">Cabin Crew (Air Hostess & Hospitality Management)</h3>
+                  <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">Cabin Crew (Air Hostess) & Hospitality Management</h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
-                    If you dream of working with leading domestic or international airlines, this programme prepares you with the professional skills, confidence, communication, grooming, and industry knowledge required to begin your aviation career.
+                    If you dream of working with leading domestic or international airlines, this programme prepares you with the professional skills, confidence, communication, grooming and industry knowledge required to begin your aviation career.
                   </p>
                   <div>
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-2">Course Highlights</h4>
                     <ul className="text-slate-500 font-sans text-xs font-semibold space-y-1.5 list-disc pl-4">
-                      <li>12-Month Programme</li>
-                      <li>Certified course</li>
+                      <li>6 Month Programme</li>
+                      <li>Maharashtra Government Certified</li>
                       <li>Practical Training</li>
                       <li>Interview Preparation</li>
                       <li>Placement Support</li>
@@ -386,6 +386,12 @@ export default function MumbaiSEODetail() {
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Career Opportunities</h4>
                     <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
                       Cabin Crew • Air Hostess • Flight Steward • In-flight Customer Service
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Eligibility</h4>
+                    <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
+                      12th pass, age 17 to 24
                     </p>
                   </div>
                 </div>
@@ -409,15 +415,15 @@ export default function MumbaiSEODetail() {
                 <div className="p-6 text-left space-y-4">
                   <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">Airport Ground Staff</h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
-                    Airports depend on skilled professionals to ensure smooth passenger experiences and efficient daily operations. This programme prepares students for customer service, check-in, passenger handling, baggage services, and airport operations.
+                    Airports depend on skilled professionals to ensure smooth passenger experiences and efficient daily operations. This programme prepares students for customer service, check-in, passenger handling, baggage services and airport operations.
                   </p>
                   <div>
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-2">Course Highlights</h4>
                     <ul className="text-slate-500 font-sans text-xs font-semibold space-y-1.5 list-disc pl-4">
-                      <li>12-Month Programme</li>
-                      <li>Industry-Oriented Curriculum</li>
-                      <li>Practical Projects</li>
-                      <li>Career Guidance</li>
+                      <li>6 Month Programme</li>
+                      <li>Maharashtra Government Certified</li>
+                      <li>Practical Training</li>
+                      <li>Interview Preparation</li>
                       <li>Placement Support</li>
                     </ul>
                   </div>
@@ -425,6 +431,12 @@ export default function MumbaiSEODetail() {
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Career Opportunities</h4>
                     <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
                       Airport Ground Staff • Passenger Service Executive • Check-in Executive • Customer Service Executive
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Eligibility</h4>
+                    <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
+                      12th pass, age 17 to 27
                     </p>
                   </div>
                 </div>
@@ -448,13 +460,13 @@ export default function MumbaiSEODetail() {
                 <div className="p-6 text-left space-y-4">
                   <h3 className="text-lg sm:text-xl font-outfit font-extrabold text-[#1C3E8A]">AI & Data Science</h3>
                   <p className="text-slate-500 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
-                    Technology is shaping the future of every industry. Our AI & Data Science programme helps students build practical knowledge in Artificial Intelligence, Machine Learning, Programming, and Data Science through industry-oriented learning.
+                    Technology is shaping the future of every industry. Our AI & Data Science programme helps students build practical knowledge in Artificial Intelligence, Machine Learning, Python and Data Science through industry-oriented learning and real-world projects.
                   </p>
                   <div>
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-2">Course Highlights</h4>
                     <ul className="text-slate-500 font-sans text-xs font-semibold space-y-1.5 list-disc pl-4">
-                      <li>12-Month Programme</li>
-                      <li>Industry-Oriented Curriculum</li>
+                      <li>12 Month Programme</li>
+                      <li>Industry-Oriented Professional Training</li>
                       <li>Practical Projects</li>
                       <li>Career Guidance</li>
                       <li>Placement Support</li>
@@ -464,6 +476,12 @@ export default function MumbaiSEODetail() {
                     <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Career Opportunities</h4>
                     <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
                       AI Associate • Data Analyst • Junior Data Scientist • Machine Learning Associate
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-[#112A46] uppercase tracking-wider mb-1">Eligibility</h4>
+                    <p className="text-slate-500 font-sans text-xs font-semibold leading-normal">
+                      12th / HSC pass, age 17 to 25
                     </p>
                   </div>
                 </div>

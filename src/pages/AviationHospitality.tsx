@@ -56,7 +56,7 @@ const overview: OverviewItem[] = [
   { label: "Timing", value: "Morning / Afternoon / Evening" },
   { label: "Our Branches", value: "Ghatkopar, Andheri & Thane" },
   { label: "Age", value: "17 to 27 Years" },
-  { label: "Duration", value: "12 Months (5 Days/Week, 2 Hours/Day)" },
+  { label: "Duration", value: "6 Months (5 Days/Week, 2 Hours/Day)" },
   { label: "Eligibility", value: "12th Pass" },
 ];
 
@@ -177,7 +177,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What is the duration of the airport ground staff course at Amigo Academy?",
     answer:
-      "The airport ground staff course is a 12-month (1 year) program, held 5 days a week for 2 hours a day. Morning, afternoon, and evening batches are available at our Ghatkopar, Andheri & Thane branches.",
+      "The airport ground staff course is a 6-month program, held 5 days a week for 2 hours a day. Morning, afternoon, and evening batches are available at our Ghatkopar, Andheri & Thane branches.",
   },
   {
     question: "What is the eligibility for the airport ground staff course?",
@@ -197,7 +197,7 @@ const faqItems: FaqItem[] = [
   {
     question: "What kind of placement support does Amigo Academy provide for ground staff?",
     answer:
-      "We provide placement support including resume building, mock interviews, grooming sessions, and direct interview scheduling with top airlines and ground handling companies.",
+      "We provide placement support including resume building, mock interviews, grooming sessions, and direct interview scheduling.",
   },
   {
     question: "Is there a height requirement for airport ground staff?",
@@ -242,7 +242,7 @@ const faqItems: FaqItem[] = [
   {
     question: "Does the airport ground staff course include interview preparation?",
     answer:
-      "Yes, comprehensive interview preparation, mock interviews, spoken English training, and personality development are core parts of the 12-month program.",
+      "Yes, comprehensive interview preparation, mock interviews, spoken English training, and personality development are core parts of the 6-month program.",
   },
 ];
 
@@ -276,7 +276,7 @@ const storyCards: StoryCard[] = [
     role: "Passenger Service Executive",
     company: "Batch 2026",
     quote:
-      '"ROHAN S. 12-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months."',
+      '"ROHAN S. 6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months."',
     image: coursesVideo4a,
   },
   {
@@ -360,7 +360,7 @@ export default function AviationHospitality() {
                   <span className="text-[#0b2f61] font-bold">▤</span>
                   <p>
                     <span className="font-semibold text-slate-700">Duration:</span>
-                    <span className="ml-2 font-medium text-[#0b2f61]">12 Months (5 Days/Week, 2 Hours/Day)</span>
+                    <span className="ml-2 font-medium text-[#0b2f61]">6 Months (5 Days/Week, 2 Hours/Day)</span>
                   </p>
                 </div>
 
@@ -405,7 +405,7 @@ export default function AviationHospitality() {
 
             <ul className="mt-5 space-y-2.5 text-[13px] font-bold">
               <li className="flex items-center gap-2 text-[#0b2f61]">
-                <span className="text-[#0b2f61] font-extrabold">•</span> 12 Month
+                <span className="text-[#0b2f61] font-extrabold">•</span> 6 Months
               </li>
               <li className="flex items-center gap-2 text-[#0b2f61]">
                 <span className="text-[#0b2f61] font-extrabold">•</span> Certificate Program
@@ -434,7 +434,7 @@ export default function AviationHospitality() {
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Duration:</span>
-              <span className="text-[#0b2f61] font-medium text-right">12 Months (5 Days/Week, 2 Hours/Day)</span>
+              <span className="text-[#0b2f61] font-medium text-right">6 Months (5 Days/Week, 2 Hours/Day)</span>
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Eligibility:</span>
@@ -482,13 +482,13 @@ export default function AviationHospitality() {
         </div>
       </section>
 
-      {/* Form Container: Kickstart Your Career In 12 Months */}
+      {/* Form Container: Kickstart Your Career In 6 Months */}
       <section className="bg-[#f4f6fb] py-12 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
         <div className="mx-auto max-w-7xl">
           <div className="rounded-[28px] sm:rounded-[36px] bg-[#183a7d] px-6 sm:px-12 py-10 sm:py-12 shadow-[0_20px_50px_rgba(24,58,125,0.18)] text-white">
             <div className="text-left">
               <h2 className="text-2xl sm:text-[34px] font-extrabold leading-tight tracking-tight text-white">
-                Kickstart Your Career In 12 Months
+                Kickstart Your Career In 6 Months
               </h2>
               <p className="mt-2 text-xs sm:text-sm text-slate-200/90 font-normal">
                 Get Batch timings and Seat availability
@@ -636,7 +636,7 @@ export default function AviationHospitality() {
             Do You Meet the Eligibility Criteria?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-xs sm:text-sm leading-relaxed text-slate-500 text-center">
-            Check if you qualify for our 12-month Airport Ground Staff &amp; Hospitality Management program.
+            Check if you qualify for our 6-month Airport Ground Staff &amp; Hospitality Management program.
           </p>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">

@@ -352,8 +352,8 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                       <option disabled value="">
                         Course *
                       </option>
-                      <option value="Cabin Crew (Air Hostess & Hospitality Management)">
-                        Cabin Crew (Air Hostess & Hospitality Management)
+                      <option value="Cabin Crew (Air Hostess) & Hospitality Management">
+                        Cabin Crew (Air Hostess) & Hospitality Management
                       </option>
                       <option value="Airport Ground Staff & Hospitality Management">
                         Airport Ground Staff & Hospitality Management

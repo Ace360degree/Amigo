@@ -520,7 +520,7 @@ export default function AiDataScience() {
             Admissions Open &#8212; Secure Your Seat Early. One free call is all it takes.
           </p>
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-10">
-            <span>&#127963;</span> Maharashtra Govt Certified &#8212; Only aviation institute in Maharashtra
+            <span>🎓</span> Industry-Oriented Professional Training
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-4xl mb-8">
             <button

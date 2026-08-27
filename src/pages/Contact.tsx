@@ -61,7 +61,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
 
             {/* Description Text */}
             <p className="text-neutral-700 text-[10px] sm:text-[14px] leading-relaxed lg:leading-[1.65] font-medium max-w-md md:max-w-lg">
-              Have a question about courses, admissions, placements, or a franchise? Reach us directly by phone, WhatsApp, enquiry form, or visit any of our three Mumbai branches. We believe in honest guidance, without any pressure.
+              Have a question about courses, admissions, placements, or a franchise? Reach us directly by phone, WhatsApp, enquiry form, or visit any of our three Branches. We believe in honest guidance, without any pressure.
             </p>
 
             {/* Red Button with Shadow and Arrow Icon */}
@@ -95,7 +95,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               </div>
               <div>
                 <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Call Us</h4>
-                <p className="text-neutral-500 text-xs mt-1 font-semibold">+91 99875 88932</p>
+                <p className="text-neutral-500 text-xs mt-1 font-semibold">+919987588932</p>
               </div>
             </div>
             <a href="tel:+919987588932" className="text-[#e31e24] hover:text-[#c2141a] font-sans font-bold text-xs uppercase tracking-wider mt-4">
@@ -166,7 +166,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
         </div>
       </section>
 
-      {/* Visit Our Mumbai Branches Section - Matched UI Colors */}
+      {/* Visit Our Branches Section - Matched UI Colors */}
       <section className="w-full bg-[#f1f5f9] py-16 px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto space-y-12 text-center">
 
@@ -176,7 +176,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               Our Mumbai Campuses
             </span>
             <h2 className="text-3xl sm:text-4xl font-outfit font-extrabold text-[#0b2f61]">
-              Visit Our Mumbai Branches
+              Visit Our Branches
             </h2>
             <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed">
               Choose the branch nearest to you — the same programs, faculty standards and placement support at all three.
@@ -210,7 +210,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
                 <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+91 99875 88932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -256,7 +256,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
                 <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+91 99875 88932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -303,7 +303,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
                 <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+91 99875 88932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -381,7 +381,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                   Prefer to talk instead?
                 </h3>
                 <p className="text-blue-100/80 text-xs sm:text-sm leading-relaxed">
-                  Call or WhatsApp <a href="tel:+919987588932" className="text-white underline font-bold">+91 99875 88932</a> during office hours and speak to an admission counsellor straight away — no forms, no waiting.
+                  Call or WhatsApp <a href="tel:+919987588932" className="text-white underline font-bold">+919987588932</a> during office hours and speak to an admission counsellor straight away — no forms, no waiting.
                 </p>
 
                 <div className="space-y-4 pt-4 border-t border-white/10">
@@ -697,7 +697,7 @@ function EnquiryForm() {
 
       setSubmitted(true);
       setFormData({ name: "", mobile: "", email: "", type: "Admission", message: "" });
-      
+
       Swal.fire({
         title: "Enquiry Submitted!",
         text: "Thank you for contacting us. Redirecting to confirmation page...",
@@ -894,7 +894,7 @@ function FaqAccordion() {
     },
     {
       question: "Can I enquire through WhatsApp?",
-      answer: "Yes, absolutely! You can send us a message or request a call back directly on our official WhatsApp number +91 99875 88932. Our counselors are online from 10:00 AM to 7:00 PM."
+      answer: "Yes, absolutely! You can send us a message or request a call back directly on our official WhatsApp number +919987588932. Our counselors are online from 10:00 AM to 7:00 PM."
     },
     {
       question: "Can I book a counselling session?",
@@ -906,7 +906,7 @@ function FaqAccordion() {
     },
     {
       question: "Which courses are available?",
-      answer: "We offer comprehensive courses in Cabin Crew (Air Hostess & Hospitality Management), Airport Ground Staff & Hospitality Management and AI & Data Science."
+      answer: "We offer comprehensive courses in Cabin Crew (Air Hostess) & Hospitality Management, Airport Ground Staff & Hospitality Management and AI & Data Science."
     },
     {
       question: "How quickly will someone contact me?",
