@@ -157,6 +157,17 @@ export default function Blog() {
                     fallbackImage = imgStory1;
                 }
 
+                // Extract featured image from WP media or first inline <img> in HTML
+                let firstInlineImg = "";
+                if (post.content?.rendered) {
+                    const match = post.content.rendered.match(/<img[^>]+src=["']([^"']+)["']/i);
+                    if (match && match[1]) {
+                        firstInlineImg = match[1].replace(/&amp;/g, "&");
+                    }
+                }
+
+                const postImage = (featuredMedia ? featuredMedia.replace(/&amp;/g, "&") : "") || firstInlineImg || fallbackImage;
+
                 if (!groups[catName]) {
                     groups[catName] = [];
                 }
@@ -165,7 +176,7 @@ export default function Blog() {
                     slug: post.slug,
                     date: formattedDate,
                     readTime: readTimeVal,
-                    image: featuredMedia || fallbackImage
+                    image: postImage
                 });
             });
 
