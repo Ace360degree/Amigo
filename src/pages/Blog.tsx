@@ -133,7 +133,11 @@ export default function Blog() {
             const groups: { [key: string]: GroupedPosts["posts"] } = {};
             posts.forEach((post) => {
                 const catName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Aviation Insights";
-                const featuredMedia = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
+                const featuredMedia = 
+                    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
+                    post.featured_media_src_url || 
+                    post.jetpack_featured_media_url || 
+                    "";
                 
                 // Calculate read time
                 const words = post.content.rendered ? post.content.rendered.replace(/<[^>]+>/g, "").split(/\s+/).length : 200;

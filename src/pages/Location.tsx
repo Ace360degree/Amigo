@@ -2,6 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchSEOPages, WPPost } from "../services/wordpress";
 
+// Helper to decode HTML entities (like &#038; to &)
+const decodeHTMLEntities = (text: string) => {
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  return textArea.value;
+};
+
 export default function Location() {
   const [seoPages, setSeoPages] = useState<WPPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -26,13 +33,13 @@ export default function Location() {
           <span>&gt;</span>
           <span className="text-slate-500">India</span>
           <span>&gt;</span>
-          <span className="text-[#DF1818] font-bold">Location</span>
+          <span className="text-[#DF1818] font-bold">Locations</span>
         </nav>
 
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-outfit font-extrabold text-[#1C3E8A] leading-tight mb-6">
-            Location
+            Locations
           </h1>
           <p className="text-slate-600 font-sans font-medium text-sm sm:text-base md:text-lg leading-relaxed">
             Explore Amigo Academy aviation and technology training across locations.
@@ -55,7 +62,7 @@ export default function Location() {
                 to={`/${page.slug}`}
                 className="w-full text-center py-4 px-6 bg-white border border-[#E1E5ED] rounded-xl text-slate-600 hover:text-[#1C3E8A] hover:border-[#1C3E8A] font-sans font-semibold text-xs sm:text-sm transition-all duration-300 hover:shadow-md active:scale-[0.99] block"
               >
-                {page.title.rendered}
+                {decodeHTMLEntities(page.title.rendered)}
               </Link>
             ))}
           </div>

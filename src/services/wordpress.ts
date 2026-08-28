@@ -3,6 +3,10 @@ import axios from "axios";
 const BLOG_API_URL = "https://blog.amigoacademy.in/wp-json/wp/v2";
 const CONTENT_API_URL = "https://content.amigoacademy.in/wp-json/wp/v2";
 
+// In-memory cache for SEO pages
+const seoPageCache: Record<string, WPPost> = {};
+let seoPagesCache: WPPost[] | null = null;
+
 export interface WPPost {
   id: number;
   date: string;
@@ -22,6 +26,8 @@ export interface WPPost {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
     "wp:term"?: Array<Array<{ name: string; slug: string }>>;
   };
+  featured_media_src_url?: string;
+  jetpack_featured_media_url?: string;
 }
 
 // Fallback mock data for blogs to keep page working if server is down or not yet configured
@@ -167,12 +173,20 @@ export async function fetchBlogPostBySlug(slug: string): Promise<WPPost | null> 
 }
 
 export async function fetchSEOPages(): Promise<WPPost[]> {
+  if (seoPagesCache) {
+    return seoPagesCache;
+  }
   try {
     const response = await axios.get<WPPost[]>(`${CONTENT_API_URL}/posts?_embed&per_page=100`);
+    seoPagesCache = response.data;
+    // Populate individual slug cache too
+    response.data.forEach(post => {
+      seoPageCache[post.slug] = post;
+    });
     return response.data;
   } catch (error) {
     console.warn("Failed to fetch SEO pages from WordPress, using fallback mock data:", error);
-    return mockSeoLinks.map((title, index) => ({
+    const mockData = mockSeoLinks.map((title, index) => ({
       id: index + 100,
       date: new Date().toISOString(),
       slug: toSlug(title),
@@ -181,13 +195,19 @@ export async function fetchSEOPages(): Promise<WPPost[]> {
       content: { rendered: "" },
       excerpt: { rendered: "" }
     })) as WPPost[];
+    seoPagesCache = mockData;
+    return mockData;
   }
 }
 
 export async function fetchSEOPageBySlug(slug: string): Promise<WPPost | null> {
+  if (seoPageCache[slug]) {
+    return seoPageCache[slug];
+  }
   try {
     const response = await axios.get<WPPost[]>(`${CONTENT_API_URL}/posts?slug=${slug}&_embed`);
     if (response.data && response.data.length > 0) {
+      seoPageCache[slug] = response.data[0];
       return response.data[0];
     }
     return null;
@@ -195,7 +215,7 @@ export async function fetchSEOPageBySlug(slug: string): Promise<WPPost | null> {
     console.warn(`Failed to fetch SEO page for slug ${slug} from WordPress:`, error);
     const mockTitle = mockSeoLinks.find(title => toSlug(title) === slug);
     if (mockTitle) {
-      return {
+      const mockPost = {
         id: 999,
         date: new Date().toISOString(),
         slug: slug,
@@ -204,6 +224,8 @@ export async function fetchSEOPageBySlug(slug: string): Promise<WPPost | null> {
         content: { rendered: "" },
         excerpt: { rendered: "" }
       } as WPPost;
+      seoPageCache[slug] = mockPost;
+      return mockPost;
     }
     return null;
   }

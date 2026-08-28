@@ -326,3 +326,15 @@ img[loading="lazy"] {
 .wp-content .quick-answer-card p:last-child {
   margin-bottom: 0;
 }
+
+/* Hide Tawk.to chat widget only from mobile responsive viewports */
+@media (max-width: 1023px) {
+  #tawkchat-container,
+  .tawk-min-container,
+  #tawk-bubble-container,
+  iframe[title="chat widget"],
+  [id^="tawk"] {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

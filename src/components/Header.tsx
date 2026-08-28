@@ -125,8 +125,12 @@ export default function Header() {
               >
                 <button
                   onClick={() => {
-                    handleNavClick("/courses");
-                    setIsCoursesDropdownOpen(false);
+                    if (isCoursesDropdownOpen) {
+                      handleNavClick("/courses");
+                      setIsCoursesDropdownOpen(false);
+                    } else {
+                      setIsCoursesDropdownOpen(true);
+                    }
                   }}
                   className={`flex items-center gap-1 hover:text-[#e31e24] transition-colors py-2 focus:outline-none ${location.pathname.startsWith("/courses") ? "text-[#e31e24]" : ""}`}
                 >

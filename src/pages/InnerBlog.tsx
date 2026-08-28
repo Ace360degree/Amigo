@@ -70,7 +70,7 @@ export default function InnerBlog() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    course: "Cabin Crew (Air Hostess) & Hospitality Management"
+    course: ""
   });
 
   useEffect(() => {
@@ -107,6 +107,9 @@ export default function InnerBlog() {
           { id: "salary", text: "6. Cabin Crew Salary Structure", level: 2 },
           { id: "steps", text: "7. Step-by-Step Career Roadmap", level: 2 }
         ],
+        quickAnswerHtml: "",
+        bodyHtml: "",
+        imgs: [],
         faqs: [
           {
             question: "What is the age limit for Air Hostess / Cabin Crew?",
@@ -192,6 +195,7 @@ export default function InnerBlog() {
     // Detect and format "Quick answer" paragraph and any subsequent paragraphs before the first H2 into a styled callout box matching design image
     const allParagraphs = Array.from(doc.querySelectorAll("p"));
     const quickAnswerEl = allParagraphs.find(p => p.textContent?.trim().toLowerCase().startsWith("quick answer"));
+    let quickAnswerHtml = "";
 
     if (quickAnswerEl) {
       const card = doc.createElement("div");
@@ -212,21 +216,16 @@ export default function InnerBlog() {
         curr = next;
       }
 
-      const firstEl = elementsToMove[0];
-      const parentNode = firstEl?.parentNode;
-
-      if (firstEl && parentNode) {
-        parentNode.insertBefore(card, firstEl);
-        elementsToMove.forEach((el, idx) => {
-          if (idx === 0) {
-            el.innerHTML = el.innerHTML
-              .replace(/<strong>\s*quick answer\s*:?\s*<\/strong>/i, "")
-              .replace(/^quick answer\s*[:.-]?\s*/i, "")
-              .trim();
-          }
-          card.appendChild(el);
-        });
-      }
+      elementsToMove.forEach((el, idx) => {
+        if (idx === 0) {
+          el.innerHTML = el.innerHTML
+            .replace(/<strong>\s*quick answer\s*:?\s*<\/strong>/i, "")
+            .replace(/^quick answer\s*[:.-]?\s*/i, "")
+            .trim();
+        }
+        card.appendChild(el);
+      });
+      quickAnswerHtml = card.outerHTML;
     }
 
     const imgs = Array.from(doc.querySelectorAll("img")).map(img => img.src);
@@ -235,7 +234,8 @@ export default function InnerBlog() {
     return {
       isFallback: false,
       toc: tocList,
-      html: contentHtml,
+      quickAnswerHtml,
+      bodyHtml: contentHtml,
       imgs,
       faqs: extractedFaqs.length > 0 ? extractedFaqs : [
         {
@@ -287,8 +287,105 @@ export default function InnerBlog() {
   const authorName = post?._embedded?.author?.[0]?.name || "Amigo Academy";
   const words = post?.content?.rendered ? post.content.rendered.replace(/<[^>]+>/g, "").split(/\s+/).length : 600;
   const readTime = post ? `${Math.max(1, Math.ceil(words / 200))} min read` : "8 min read";
-  const featuredImage = post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || (parsedBlog.imgs && parsedBlog.imgs[0]) || innerBlogImg;
+  const featuredImage = 
+    post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
+    post?.featured_media_src_url || 
+    post?.jetpack_featured_media_url || 
+    (parsedBlog.imgs && parsedBlog.imgs[0]) || 
+    innerBlogImg;
   const relatedPosts = allPosts.filter(p => p.slug !== slug).slice(0, 5);
+
+  const renderCounsellorForm = () => (
+    <div className="bg-white border-4 border-[#0b192c] rounded-[24px] p-6 shadow-md text-center">
+      <h3 className="text-xl sm:text-2xl font-extrabold text-[#0b2f61] font-sans leading-tight mb-1">
+        Talk to Our Career<br />Counsellor
+      </h3>
+      <p className="text-slate-400 text-xs font-medium font-sans mb-6">
+        Get free guidance &amp; course details.
+      </p>
+
+      {formSubmitted ? (
+        <div className="bg-emerald-50 border border-emerald-300 p-4 rounded-xl text-center text-xs font-bold text-emerald-800">
+          ✓ Thank you! Our expert will call you shortly.
+        </div>
+      ) : (
+        <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
+          <div>
+            <label className="block text-[11px] font-bold text-slate-700 mb-1">Full Name</label>
+            <input
+              type="text"
+              required
+              placeholder="Enter your full name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] placeholder-slate-400 font-medium"
+            />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-slate-700 mb-1">Mobile Number</label>
+            <input
+              type="tel"
+              required
+              placeholder="Enter your mobile number"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] placeholder-slate-400 font-medium"
+            />
+          </div>
+          <div>
+            <label className="block text-[11px] font-bold text-slate-700 mb-1">Select Course</label>
+            <select
+              required
+              value={formData.course}
+              onChange={(e) => setFormData({ ...formData, course: e.target.value })}
+              className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] font-medium cursor-pointer"
+            >
+              <option value="" disabled>Choose a course</option>
+              <option value="Cabin Crew (Air Hostess) & Hospitality Management">Cabin Crew (Air Hostess) &amp; Hospitality Management</option>
+              <option value="Airport Ground Staff & Hospitality Management">Airport Ground Staff &amp; Hospitality Management</option>
+              <option value="AI & Data Science">AI &amp; Data Science</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            disabled={!formData.name.trim() || formData.phone.length !== 10 || !formData.course}
+            className="w-full bg-[#DF1818] hover:bg-[#c41212] disabled:bg-slate-300 disabled:text-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-xs py-3.5 rounded-full shadow-md transition-all active:scale-[0.95] cursor-pointer mt-4 flex items-center justify-center gap-2"
+          >
+            <span>Secure Your Spot Now</span>
+            <span>➔</span>
+          </button>
+
+          <p className="text-[10px] text-slate-400 text-center font-medium mt-3">
+            Our expert will call you shortly.
+          </p>
+        </form>
+      )}
+    </div>
+  );
+
+  const renderTableOfContents = () => {
+    if (parsedBlog.toc.length === 0) return null;
+    return (
+      <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-sm text-left">
+        <h3 className="text-lg sm:text-xl font-extrabold text-[#0b2f61] font-outfit mb-4">
+          Table of Contents
+        </h3>
+        <ul className="space-y-3 text-sm sm:text-[15px] font-semibold text-[#1e3a8a]">
+          {parsedBlog.toc.map((item) => (
+            <li key={item.id} className={item.level === 3 ? "pl-3" : ""}>
+              <button
+                onClick={() => scrollToHeading(item.id)}
+                className={`text-left hover:underline transition-colors cursor-pointer leading-snug ${activeTocId === item.id ? "text-[#DF1818] font-bold" : ""}`}
+              >
+                {item.text}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
 
   return (
     <div className="flex flex-col bg-white text-slate-800 font-sans">
@@ -531,10 +628,25 @@ export default function InnerBlog() {
                     </div>
                   </>
                 ) : (
-                  <div
-                    className="wp-content max-w-none"
-                    dangerouslySetInnerHTML={{ __html: parsedBlog.html || "" }}
-                  />
+                  <>
+                    {parsedBlog.quickAnswerHtml && (
+                      <div
+                        className="wp-content max-w-none mb-6"
+                        dangerouslySetInnerHTML={{ __html: parsedBlog.quickAnswerHtml }}
+                      />
+                    )}
+
+                    {/* Mobile-only Counsellor Form and TOC */}
+                    <div className="block lg:hidden my-8 space-y-6">
+                      {renderCounsellorForm()}
+                      {renderTableOfContents()}
+                    </div>
+
+                    <div
+                      className="wp-content max-w-none"
+                      dangerouslySetInnerHTML={{ __html: parsedBlog.bodyHtml || "" }}
+                    />
+                  </>
                 )}
               </div>
             </div>
@@ -543,91 +655,14 @@ export default function InnerBlog() {
             <div className="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
 
               {/* Widget 1: Talk to Our Career Counsellor (Form matching exact design image) */}
-              <div className="bg-white border-4 border-[#0b192c] rounded-[24px] p-6 shadow-md text-center">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#0b2f61] font-sans leading-tight mb-1">
-                  Talk to Our Career<br />Counsellor
-                </h3>
-                <p className="text-slate-400 text-xs font-medium font-sans mb-6">
-                  Get free guidance & course details.
-                </p>
-
-                {formSubmitted ? (
-                  <div className="bg-emerald-50 border border-emerald-300 p-4 rounded-xl text-center text-xs font-bold text-emerald-800">
-                    ✓ Thank you! Our expert will call you shortly.
-                  </div>
-                ) : (
-                  <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
-                    <div>
-                      <label className="block text-[11px] font-bold text-slate-700 mb-1">Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="Enter your full name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] placeholder-slate-400 font-medium"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-slate-700 mb-1">Mobile Number</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="Enter your mobile number"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] placeholder-slate-400 font-medium"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-bold text-slate-700 mb-1">Select Course</label>
-                      <select
-                        value={formData.course}
-                        onChange={(e) => setFormData({ ...formData, course: e.target.value })}
-                        className="w-full bg-white border border-slate-200 text-slate-800 text-xs px-3.5 py-3 rounded-lg focus:outline-none focus:border-[#0b2f61] font-medium cursor-pointer"
-                      >
-                        <option value="Cabin Crew (Air Hostess) & Hospitality Management">Choose a course</option>
-                        <option value="Cabin Crew (Air Hostess) & Hospitality Management">Cabin Crew (Air Hostess) & Hospitality Management</option>
-                        <option value="Airport Ground Staff & Hospitality Management">Airport Ground Staff & Hospitality Management</option>
-                        <option value="AI & Data Science">AI & Data Science</option>
-                      </select>
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full bg-[#DF1818] hover:bg-[#c41212] text-white font-extrabold text-xs py-3.5 rounded-full shadow-md transition-all active:scale-95 cursor-pointer mt-4 flex items-center justify-center gap-2"
-                    >
-                      <span>Secure Your Spot Now</span>
-                      <span>➔</span>
-                    </button>
-
-                    <p className="text-[10px] text-slate-400 text-center font-medium mt-3">
-                      Our expert will call you shortly.
-                    </p>
-                  </form>
-                )}
+              <div className="hidden lg:block">
+                {renderCounsellorForm()}
               </div>
 
               {/* Widget 2: Table of Contents (Positioned ABOVE Related Guides) */}
-              {parsedBlog.toc.length > 0 && (
-                <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-sm text-left">
-                  <h3 className="text-lg sm:text-xl font-extrabold text-[#0b2f61] font-outfit mb-4">
-                    Table of Contents
-                  </h3>
-                  <ul className="space-y-3 text-sm sm:text-[15px] font-semibold text-[#1e3a8a]">
-                    {parsedBlog.toc.map((item) => (
-                      <li key={item.id} className={item.level === 3 ? "pl-3" : ""}>
-                        <button
-                          onClick={() => scrollToHeading(item.id)}
-                          className={`text-left hover:underline transition-colors cursor-pointer leading-snug ${activeTocId === item.id ? "text-[#DF1818] font-bold" : ""}`}
-                        >
-                          {item.text}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <div className="hidden lg:block">
+                {renderTableOfContents()}
+              </div>
 
               {/* Widget 3: Related Guides */}
               <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-sm text-left space-y-5">
@@ -675,10 +710,13 @@ export default function InnerBlog() {
                       slug: "how-to-become-a-cabin-crew-after-12th",
                       date: "2026-07-10",
                       readTime: "6 min read",
-                      _embedded: { "wp:featuredmedia": [{ source_url: innerBlogImg }] }
                     }
                   ]).map((item: any) => {
-                    const thumb = item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || imgAviation3;
+                    const thumb = 
+                      item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
+                      item.featured_media_src_url || 
+                      item.jetpack_featured_media_url || 
+                      imgAviation3;
                     return (
                       <div
                         key={item.id}

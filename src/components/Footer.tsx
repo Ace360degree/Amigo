@@ -78,6 +78,7 @@ export default function Footer() {
               <button onClick={() => handleNavClick("/gallery")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
               <button onClick={() => handleNavClick("/student-success")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
               <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Contact Us</button>
+              <button onClick={() => handleNavClick("/locations")} className="text-left hover:text-white transition-colors w-fit">Locations</button>
 
               {/* Online Payment Collapsible Menu */}
               <div className="flex flex-col space-y-1.5 pt-1">
@@ -252,9 +253,16 @@ export default function Footer() {
             <button onClick={() => handleNavClick("/refund-policy")} className="hover:text-white transition-colors">Refund Policy</button>
           </div>
 
-          {/* Copyright text */}
           <p className="text-slate-500">
-            &copy; 2026 Amigo Academy Pvt Ltd. All Rights Reserved | Designed by Ace360Degree
+            &copy; 2026 Amigo Academy Pvt Ltd. All Rights Reserved | Designed and Managed by{" "}
+            <a
+              href="https://www.ace360degree.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white underline transition-colors"
+            >
+              Ace 360⁰ Digital Marketing Agency
+            </a>
           </p>
         </div>
 

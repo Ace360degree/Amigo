@@ -76,7 +76,8 @@ function App() {
           <Route path="/courses/ai-data-science-with-generative-ai-machine-learning" element={<AIDataScienceCourse />} />
           <Route path="/branches" element={<Branches />} />
           <Route path="/thank-you" element={<ThankYou />} />
-          <Route path="/location" element={<Location />} />
+          <Route path="/locations" element={<Location />} />
+          <Route path="/locations/:slug" element={<MumbaiSEODetail />} />
           <Route path="/seminar" element={<Home />} />
           <Route path="/seminar-form" element={<Home />} />
           <Route path="/:slug" element={<DynamicSlugRoute />} />
