@@ -126,10 +126,12 @@ interface GroupedPosts {
 export default function Blog() {
     const navigate = useNavigate();
     const [categories, setCategories] = React.useState<GroupedPosts[]>([]);
+    const [allPostsList, setAllPostsList] = React.useState<Array<{ title: string; slug: string; date: string; readTime: string; image: string }>>([]);
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(() => {
         fetchBlogPosts().then((posts) => {
+            const formattedPosts: Array<{ title: string; slug: string; date: string; readTime: string; image: string }> = [];
             const groups: { [key: string]: GroupedPosts["posts"] } = {};
             posts.forEach((post) => {
                 const catName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Aviation Insights";
@@ -172,16 +174,20 @@ export default function Blog() {
 
                 const postImage = (featuredMedia ? featuredMedia.replace(/&amp;/g, "&") : "") || firstInlineImg || fallbackImage;
 
-                if (!groups[catName]) {
-                    groups[catName] = [];
-                }
-                groups[catName].push({
+                const item = {
                     title: post.title.rendered,
                     slug: post.slug,
                     date: formattedDate,
                     readTime: readTimeVal,
                     image: postImage
-                });
+                };
+
+                formattedPosts.push(item);
+
+                if (!groups[catName]) {
+                    groups[catName] = [];
+                }
+                groups[catName].push(item);
             });
 
             const groupedList = Object.keys(groups).map((catTitle) => ({
@@ -190,6 +196,7 @@ export default function Blog() {
             }));
 
             setCategories(groupedList);
+            setAllPostsList(formattedPosts);
             setLoading(false);
         }).catch((err) => {
             console.error(err);
@@ -364,58 +371,56 @@ export default function Blog() {
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-
-                        {/* Card 1 */}
-                        <div className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                            <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
-                                <img src={imgAviation3} alt="Airport Ground Staff" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
-                                    Airport Ground Staff Career Guide: Roles, Salary & Growth
-                                </h3>
-                                <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
-                                    <span>July 16, 2025</span>
-                                    <span className="mx-2">•</span>
-                                    <span>5 min read</span>
+                        {(allPostsList.length > 0 ? allPostsList.slice(0, 3) : [
+                            {
+                                title: "Airport Ground Staff Career Guide: Roles, Salary & Growth",
+                                slug: "airport-ground-staff-career-guide-roles-salary-growth",
+                                date: "May 16, 2026",
+                                readTime: "5 min read",
+                                image: imgAviation3
+                            },
+                            {
+                                title: "Top AI Skills to Learn in 2026 for a Future-Ready Career",
+                                slug: "top-ai-skills-to-learn-in-2026",
+                                date: "Aug 12, 2026",
+                                readTime: "5 min read",
+                                image: imgAi1
+                            },
+                            {
+                                title: "Cabin Crew Eligibility, Skills & Requirements Explained",
+                                slug: "cabin-crew-eligibility-skills-requirements-explained",
+                                date: "May 20, 2026",
+                                readTime: "5 min read",
+                                image: imgAviation2
+                            }
+                        ]).map((post, idx) => (
+                            <div
+                                key={idx}
+                                onClick={() => {
+                                    navigate(`/${post.slug}`);
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                                className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300 cursor-pointer"
+                            >
+                                <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
+                                    <img
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+                                <div className="p-6 flex flex-col flex-1">
+                                    <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
+                                        {post.title}
+                                    </h3>
+                                    <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
+                                        <span>{post.date}</span>
+                                        <span className="mx-2">•</span>
+                                        <span>{post.readTime}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Card 2 */}
-                        <div className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                            <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
-                                <img src={imgAi1} alt="Top AI Skills" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
-                                    Top AI Skills to Learn in 2025 for a Future-Ready Career
-                                </h3>
-                                <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
-                                    <span>Aug 12, 2025</span>
-                                    <span className="mx-2">•</span>
-                                    <span>5 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Card 3 */}
-                        <div className="bg-white rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.06)] border border-slate-100/60 overflow-hidden flex flex-col group hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-shadow duration-300">
-                            <div className="h-[180px] sm:h-[200px] w-full overflow-hidden">
-                                <img src={imgAviation2} alt="Cabin Crew Eligibility" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                            </div>
-                            <div className="p-6 flex flex-col flex-1">
-                                <h3 className="text-[15px] sm:text-[16px] font-bold text-[#0f2a4a] mb-4 leading-[1.4] line-clamp-2">
-                                    Cabin Crew Eligibility, Skills & Requirements Explained
-                                </h3>
-                                <div className="mt-auto text-[12px] text-slate-500 font-medium flex items-center">
-                                    <span>June 20, 2025</span>
-                                    <span className="mx-2">•</span>
-                                    <span>5 min read</span>
-                                </div>
-                            </div>
-                        </div>
-
+                        ))}
                     </div>
                 </div>
             </section>

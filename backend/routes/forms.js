@@ -19,9 +19,13 @@ const getClientIp = (req) => {
 router.post(
   '/contact',
   [
-    body('name').trim().notEmpty().withMessage('Name is required'),
-    body('phone').trim().notEmpty().withMessage('Phone number is required'),
-    body('email').optional({ checkFalsy: true }).isEmail().withMessage('Invalid email address')
+    body('name').trim().notEmpty().withMessage('Name is required').isLength({ min: 2 }).withMessage('Name must be at least 2 characters'),
+    body('phone').trim().notEmpty().withMessage('Phone number is required').matches(/^[0-9+\-\s()]{7,15}$/).withMessage('Invalid phone number'),
+    body('email').optional({ checkFalsy: true }).isEmail().withMessage('Invalid email address'),
+    body('website_url').custom((value) => {
+      if (value) throw new Error('Bot submission detected');
+      return true;
+    })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -90,8 +94,15 @@ router.post(
 router.post(
   '/counsellor',
   [
-    body('name').trim().notEmpty().withMessage('Name is required'),
-    body('phone').trim().notEmpty().withMessage('Phone number is required')
+    body('name').trim().notEmpty().withMessage('Name is required').isLength({ min: 2 }).withMessage('Name must be at least 2 characters'),
+    body('phone').trim().notEmpty().withMessage('Phone number is required').matches(/^[0-9+\-\s()]{7,15}$/).withMessage('Invalid phone number'),
+    // Honeypot bot protection check (should remain empty for real users)
+    body('website_url').custom((value) => {
+      if (value) {
+        throw new Error('Bot submission detected');
+      }
+      return true;
+    })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -158,8 +169,12 @@ router.post(
 router.post(
   '/eligibility',
   [
-    body('full_name').trim().notEmpty().withMessage('Full name is required'),
-    body('phone').trim().notEmpty().withMessage('Phone number is required')
+    body('full_name').trim().notEmpty().withMessage('Full name is required').isLength({ min: 2 }).withMessage('Full name must be at least 2 characters'),
+    body('phone').trim().notEmpty().withMessage('Phone number is required').matches(/^[0-9+\-\s()]{7,15}$/).withMessage('Invalid phone number'),
+    body('website_url').custom((value) => {
+      if (value) throw new Error('Bot submission detected');
+      return true;
+    })
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -226,9 +241,13 @@ router.post(
 router.post(
   '/seminar',
   [
-    body('first_name').trim().notEmpty().withMessage('First name is required'),
-    body('surname').trim().notEmpty().withMessage('Surname is required'),
-    body('whatsapp').trim().notEmpty().withMessage('WhatsApp number is required')
+    body('first_name').trim().notEmpty().withMessage('First name is required').isLength({ min: 2 }).withMessage('First name must be at least 2 characters'),
+    body('surname').trim().notEmpty().withMessage('Surname is required').isLength({ min: 1 }),
+    body('whatsapp').trim().notEmpty().withMessage('WhatsApp number is required').matches(/^[0-9+\-\s()]{7,15}$/).withMessage('Invalid WhatsApp number'),
+    body('website_url').custom((value) => {
+      if (value) throw new Error('Bot submission detected');
+      return true;
+    })
   ],
   async (req, res) => {
     const errors = validationResult(req);

@@ -7,6 +7,7 @@ import imgAviation2 from "../assets/img/BlogInsights2.png";
 import imgAviation3 from "../assets/img/BlogInsights3.png";
 import imgAi1 from "../assets/img/BlogInsights4.png";
 import { fetchBlogPostBySlug, fetchBlogPosts, WPPost } from "../services/wordpress";
+import { submitCounsellorForm } from "../services/api";
 
 interface TOCItem {
   id: string;
@@ -65,6 +66,7 @@ export default function InnerBlog() {
   const [allPosts, setAllPosts] = useState<WPPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTocId, setActiveTocId] = useState<string>("");
 
   const [formData, setFormData] = useState({
@@ -264,9 +266,25 @@ export default function InnerBlog() {
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormSubmitted(true);
+    if (!formData.name.trim() || formData.phone.length !== 10 || !formData.course) return;
+
+    setIsSubmitting(true);
+    try {
+      await submitCounsellorForm({
+        name: formData.name,
+        phone: formData.phone,
+        course: formData.course,
+        form_location: `Blog Inner Page: ${post?.title?.rendered || slug || 'General Blog'}`
+      });
+      setFormSubmitted(true);
+    } catch (err) {
+      console.error("Failed to submit blog counsellor form:", err);
+      alert("Failed to submit enquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (loading) {
@@ -349,10 +367,10 @@ export default function InnerBlog() {
 
           <button
             type="submit"
-            disabled={!formData.name.trim() || formData.phone.length !== 10 || !formData.course}
+            disabled={isSubmitting || !formData.name.trim() || formData.phone.length !== 10 || !formData.course}
             className="w-full bg-[#DF1818] hover:bg-[#c41212] disabled:bg-slate-300 disabled:text-slate-400 disabled:cursor-not-allowed text-white font-extrabold text-xs py-3.5 rounded-full shadow-md transition-all active:scale-[0.95] cursor-pointer mt-4 flex items-center justify-center gap-2"
           >
-            <span>Secure Your Spot Now</span>
+            <span>{isSubmitting ? "Submitting..." : "Secure Your Spot Now"}</span>
             <span>➔</span>
           </button>
 

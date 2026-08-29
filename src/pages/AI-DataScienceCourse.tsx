@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate, Link } from "react-router-dom";
+import { submitCounsellorForm } from "../services/api";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
@@ -322,6 +323,41 @@ export default function AIDataScienceCourse() {
   const [storyIndex, setStoryIndex] = useState<number>(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
+  const [formState, setFormState] = useState({
+    name: "",
+    phone: "",
+    age: "",
+    qualification: "",
+    branch: "",
+    gender: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formState.name.trim() || formState.phone.trim().length < 7) return;
+
+    setIsSubmitting(true);
+    try {
+      await submitCounsellorForm({
+        name: formState.name,
+        phone: formState.phone,
+        age: formState.age || undefined,
+        qualification: formState.qualification || undefined,
+        branch: formState.branch || undefined,
+        gender: formState.gender || undefined,
+        course: "AI & Data Science",
+        form_location: "AI & Data Science Course Page"
+      });
+      navigate("/thank-you");
+    } catch (err) {
+      console.error("AIDataScienceCourse form submit error:", err);
+      alert("Failed to submit enquiry. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleCTA = () => {
     window.dispatchEvent(new CustomEvent("openEligibilityModal"));
   };
@@ -533,13 +569,15 @@ export default function AIDataScienceCourse() {
               </p>
             </div>
 
-            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={(e) => { e.preventDefault(); navigate("/thank-you"); }}>
+            <form className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5" onSubmit={handleFormSubmit}>
               {/* Mobile Number */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
                 <input
                   type="tel"
                   required
                   placeholder="Mobile Number *"
+                  value={formState.phone}
+                  onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
               </div>
@@ -550,14 +588,20 @@ export default function AIDataScienceCourse() {
                   type="text"
                   required
                   placeholder="Full Name *"
+                  value={formState.name}
+                  onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-800 placeholder-slate-400 font-semibold focus:outline-none bg-transparent"
                 />
               </div>
 
               {/* Age */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
-                  <option value="" disabled selected hidden>Age</option>
+                <select
+                  value={formState.age}
+                  onChange={(e) => setFormState({ ...formState, age: e.target.value })}
+                  className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
+                >
+                  <option value="" disabled hidden>Age</option>
                   <option value="15">15 Years</option>
                   <option value="16">16 Years</option>
                   <option value="17">17 Years</option>
@@ -574,8 +618,12 @@ export default function AIDataScienceCourse() {
 
               {/* Qualification */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
-                  <option value="" disabled selected hidden>Qualification</option>
+                <select
+                  value={formState.qualification}
+                  onChange={(e) => setFormState({ ...formState, qualification: e.target.value })}
+                  className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
+                >
+                  <option value="" disabled hidden>Qualification</option>
                   <option value="10th">10th Pass</option>
                   <option value="undergraduate">Undergraduate</option>
                   <option value="graduate">Graduate</option>
@@ -584,18 +632,26 @@ export default function AIDataScienceCourse() {
 
               {/* Preferred Branch */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
-                  <option value="" disabled selected hidden>Preferred Branch</option>
-                  <option value="ghatkopar">Ghatkopar</option>
-                  <option value="andheri">Andheri</option>
-                  <option value="thane">Thane</option>
+                <select
+                  value={formState.branch}
+                  onChange={(e) => setFormState({ ...formState, branch: e.target.value })}
+                  className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
+                >
+                  <option value="" disabled hidden>Preferred Branch</option>
+                  <option value="Ghatkopar">Ghatkopar</option>
+                  <option value="Andheri">Andheri</option>
+                  <option value="Thane">Thane</option>
                 </select>
               </div>
 
               {/* Gender */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
-                <select className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer">
-                  <option value="" disabled selected hidden>Gender</option>
+                <select
+                  value={formState.gender}
+                  onChange={(e) => setFormState({ ...formState, gender: e.target.value })}
+                  className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
+                >
+                  <option value="" disabled hidden>Gender</option>
                   <option value="female">Female</option>
                   <option value="male">Male</option>
                   <option value="other">Other</option>
@@ -606,9 +662,10 @@ export default function AIDataScienceCourse() {
               <div className="md:col-span-3 flex justify-center pt-2">
                 <button
                   type="submit"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] text-white font-bold text-sm px-10 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#e31e24] hover:bg-[#c2141a] disabled:bg-slate-400 text-white font-bold text-sm px-10 py-3.5 rounded-full shadow-lg transition-all active:scale-95 cursor-pointer"
                 >
-                  <span>Enrol Now</span>
+                  <span>{isSubmitting ? "Submitting..." : "Enrol Now"}</span>
                   <span className="text-base font-extrabold">➔</span>
                 </button>
               </div>
