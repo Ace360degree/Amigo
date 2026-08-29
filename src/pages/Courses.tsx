@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate, Link } from "react-router-dom";
+import SEO from "../components/SEO";
 import coursesHero from "../assets/img/courses1121.png";
 import coursesMobileHero from "../assets/img/coursesmain-mobile.png";
 import coursesCard1 from "../assets/img/courses2.png";
@@ -400,6 +401,36 @@ export default function Courses() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   return (
     <div className="bg-white text-neutral-900">
+      <SEO
+        title="Professional Aviation, Cabin Crew & AI Courses"
+        description="Explore certified courses in Air Hostess, Cabin Crew Training, Airport Ground Staff, Aviation Hospitality, and AI & Data Science with 100% placement support at Amigo Academy."
+        keywords="Aviation Courses Mumbai, Cabin Crew Course, Airport Ground Staff Course, AI Data Science Training"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Amigo Academy Courses",
+          "itemListElement": [
+            {
+              "@type": "Course",
+              "position": 1,
+              "name": "Cabin Crew (Air Hostess) & Hospitality Management",
+              "provider": { "@type": "Organization", "name": "Amigo Academy" }
+            },
+            {
+              "@type": "Course",
+              "position": 2,
+              "name": "Airport Ground Staff & Hospitality Management",
+              "provider": { "@type": "Organization", "name": "Amigo Academy" }
+            },
+            {
+              "@type": "Course",
+              "position": 3,
+              "name": "AI & Data Science with Generative AI and Machine Learning",
+              "provider": { "@type": "Organization", "name": "Amigo Academy" }
+            }
+          ]
+        }}
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-white border-b border-neutral-100 py-10 sm:py-12 lg:py-20 min-h-[500px] sm:min-h-[auto] flex items-center">
         <div className="absolute inset-0">

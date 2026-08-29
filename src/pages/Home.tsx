@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import { submitCounsellorForm } from "../services/api";
 import Swal from "sweetalert2";
 import heroCrew from "../assets/img/hero-crew.png";
@@ -190,6 +191,29 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
   return (
     <div className="relative bg-neutral-50">
+      <SEO
+        title="Amigo Academy - Aviation, Cabin Crew & AI Training Institute"
+        description="Amigo Academy is Mumbai's premier institute for Air Hostess, Cabin Crew Training, Airport Ground Staff, Aviation Hospitality, and AI & Data Science courses with 100% placement assistance."
+        keywords="Amigo Academy, Cabin Crew Training, Air Hostess Course Mumbai, Airport Ground Staff Training, Aviation Academy Mumbai, AI Data Science Course"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          "name": "Amigo Academy",
+          "url": "https://amigoacademy.in",
+          "logo": "https://amigoacademy.in/assets/img/hero-crew.png",
+          "description": "Premier aviation, cabin crew, ground staff, and AI training institute in Mumbai.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          },
+          "sameAs": [
+            "https://www.facebook.com/amigoacademy",
+            "https://www.instagram.com/amigoacademy"
+          ]
+        }}
+      />
 
       {/* Hero Section Container with Course Carousel */}
       <section className="relative w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[620px] bg-white overflow-hidden flex items-center">

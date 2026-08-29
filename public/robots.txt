@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow administrative or private endpoints if any
+Disallow: /backend/
+
+# Sitemap location
+Sitemap: https://amigoacademy.in/sitemap.xml

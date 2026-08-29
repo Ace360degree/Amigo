@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SEO from "../components/SEO";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
 
@@ -458,6 +459,23 @@ export default function MumbaiSEODetail() {
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans antialiased">
+      <SEO
+        title={seoPage?.title?.rendered ? decodeHTMLEntities(seoPage.title.rendered) : `Air Hostess & Aviation Training near ${locationInfo.area}`}
+        description={locationInfo.heroText}
+        keywords={`Aviation Course ${locationInfo.area}, Cabin Crew Training ${locationInfo.area}, Airport Ground Staff ${locationInfo.area}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": `Amigo Academy - ${locationInfo.area} Hub`,
+          "description": locationInfo.heroText,
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": locationInfo.area,
+            "addressRegion": "Mumbai, Maharashtra",
+            "addressCountry": "IN"
+          }
+        }}
+      />
 
       {/* Block 3: Breadcrumb */}
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 pt-8 pb-2 flex items-center space-x-2 text-xs sm:text-sm font-sans font-semibold text-slate-400 text-left">
