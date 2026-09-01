@@ -1,7 +1,9 @@
 import React from "react";
-import logo from "../assets/img/logo.png";
+import { useNavigate } from "react-router-dom";
+import logoFooter from "../assets/img/logofooter.png";
 
 export default function ThankYou() {
+  const navigate = useNavigate();
   return (
     <div className="min-h-screen bg-[#001D4A] flex flex-col items-center justify-center p-6 text-center relative overflow-hidden">
       {/* Glow Effects */}
@@ -90,15 +92,39 @@ export default function ThankYou() {
           </a>
         </div>
 
+        {/* Footer Logo Above Text */}
+        <div className="mt-12 flex justify-center">
+          <img src={logoFooter} alt="Amigo Academy Logo" className="h-12 md:h-16 w-auto object-contain" />
+        </div>
+
         {/* Footer text */}
-        <p className="mt-12 text-white/30 text-[11px] font-black uppercase tracking-[0.3em]">
+        <p className="mt-4 text-white/50 text-[11px] font-black uppercase tracking-[0.3em]">
           Amigo Academy • Empowering Futures
         </p>
-      </div>
 
-      {/* Logo */}
-      <div className="mt-20 opacity-20 hover:opacity-40 transition-all duration-500">
-        <img src={logo} alt="Amigo Academy" className="h-10 grayscale brightness-200" />
+        {/* Back Button Below Text */}
+        <div className="mt-6 flex justify-center">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full border border-white/30 text-white/90 hover:text-white hover:bg-white/10 hover:border-white/60 transition-all font-semibold text-sm cursor-pointer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m12 19-7-7 7-7"/>
+              <path d="M19 12H5"/>
+            </svg>
+            Back
+          </button>
+        </div>
       </div>
     </div>
   );
