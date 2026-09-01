@@ -3,6 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const db = require('../config/database');
 
+const { sendToGoogleSheet } = require('../services/googleSheet');
 // Helper to extract client IP address accurately
 const getClientIp = (req) => {
   const forwarded = req.headers['x-forwarded-for'];
@@ -70,6 +71,8 @@ router.post(
         message || null,
         ip_address
       ]);
+
+      sendToGoogleSheet('Contact', { id: result.insertId, enquiry_type, name, phone, email, city, preferred_location, business_experience, investment_range, message, ip_address });
 
       return res.status(201).json({
         status: 'success',
@@ -146,6 +149,8 @@ router.post(
         ip_address
       ]);
 
+      sendToGoogleSheet('Counsellor', { id: result.insertId, name, phone, course, branch, age, gender, qualification, form_location, ip_address });
+
       return res.status(201).json({
         status: 'success',
         message: 'Counsellor enquiry submitted successfully',
@@ -217,6 +222,8 @@ router.post(
         source_page || 'Eligibility Modal',
         ip_address
       ]);
+
+      sendToGoogleSheet('Eligibility', { id: result.insertId, full_name, phone, age, gender, course, qualification, branch, source_page, ip_address });
 
       return res.status(201).json({
         status: 'success',
@@ -323,6 +330,8 @@ router.post(
         refString,
         ip_address
       ]);
+
+      sendToGoogleSheet('Seminar', { id: result.insertId, first_name, middle_name, surname, gender, height, weight, age, marital_status, whatsapp, mobile2, mobile3, father_name, father_occupation, father_mobile, mother_name, mother_occupation, mother_mobile, education_level, school_college, stream, year, medium, percentage, references_json: refString, ip_address });
 
       return res.status(201).json({
         status: 'success',
