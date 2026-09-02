@@ -41,7 +41,7 @@ export default function Layout({ children }: LayoutProps) {
     return () => window.removeEventListener("openSeminarModal", handleOpenSeminar);
   }, []);
 
-  // Load Tawk.to Script with native customStyle offsets
+  // Load Tawk.to Script with native customStyle offsets & mobile hiding
   useEffect(() => {
     const Tawk_API = (window as any).Tawk_API || {};
     Tawk_API.customStyle = {
@@ -58,8 +58,54 @@ export default function Layout({ children }: LayoutProps) {
         },
       },
     };
+
+    const updateTawkVisibility = () => {
+      const isMobile = window.innerWidth < 1024;
+      try {
+        const api = (window as any).Tawk_API;
+        if (api && typeof api.hideWidget === "function" && typeof api.showWidget === "function") {
+          if (isMobile) {
+            api.hideWidget();
+          } else {
+            api.showWidget();
+          }
+        }
+      } catch (err) {}
+
+      // Direct DOM manipulation fallback for guaranteed mobile suppression
+      const elements = document.querySelectorAll(
+        'iframe[src*="tawk.to"], iframe[title*="chat"], iframe[title*="tawk"], iframe[title*="Tawk"], #tawkchat-container, .tawk-min-container, [id^="tawk"], [class*="tawk"]'
+      );
+      elements.forEach((el: any) => {
+        if (isMobile) {
+          el.style.setProperty("display", "none", "important");
+          el.style.setProperty("visibility", "hidden", "important");
+          el.style.setProperty("opacity", "0", "important");
+          el.style.setProperty("pointer-events", "none", "important");
+          if (el.parentElement && el.parentElement !== document.body) {
+            el.parentElement.style.setProperty("display", "none", "important");
+          }
+        } else {
+          el.style.removeProperty("display");
+          el.style.removeProperty("visibility");
+          el.style.removeProperty("opacity");
+          el.style.removeProperty("pointer-events");
+          if (el.parentElement && el.parentElement !== document.body) {
+            el.parentElement.style.removeProperty("display");
+          }
+        }
+      });
+    };
+
+    Tawk_API.onLoad = updateTawkVisibility;
     (window as any).Tawk_API = Tawk_API;
     (window as any).Tawk_LoadStart = new Date();
+
+    window.addEventListener("resize", updateTawkVisibility);
+
+    // Periodic check to catch async iframe insertions
+    const interval = setInterval(updateTawkVisibility, 500);
+
     const s1 = document.createElement("script");
     const s0 = document.getElementsByTagName("script")[0];
     s1.async = true;
@@ -71,6 +117,11 @@ export default function Layout({ children }: LayoutProps) {
     } else {
       document.head.appendChild(s1);
     }
+
+    return () => {
+      window.removeEventListener("resize", updateTawkVisibility);
+      clearInterval(interval);
+    };
   }, []);
 
   useEffect(() => {

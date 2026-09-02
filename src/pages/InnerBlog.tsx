@@ -68,6 +68,7 @@ export default function InnerBlog() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTocId, setActiveTocId] = useState<string>("");
+  const [isTocMobileOpen, setIsTocMobileOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -382,8 +383,52 @@ export default function InnerBlog() {
     </div>
   );
 
-  const renderTableOfContents = () => {
+  const renderTableOfContents = (isMobile = false) => {
     if (parsedBlog.toc.length === 0) return null;
+
+    if (isMobile) {
+      return (
+        <div className="bg-white border border-slate-200/90 rounded-[20px] p-5 shadow-sm text-left transition-all">
+          <button
+            type="button"
+            onClick={() => setIsTocMobileOpen(!isTocMobileOpen)}
+            className="w-full flex items-center justify-between font-outfit text-left cursor-pointer group"
+          >
+            <h3 className="text-base sm:text-lg font-extrabold text-[#0b2f61] font-outfit">
+              Table of Contents
+            </h3>
+            <div className="flex items-center gap-1.5 text-xs text-[#1e3a8a] font-bold">
+              <span>{isTocMobileOpen ? "Hide" : "Show"}</span>
+              <svg
+                className={`w-4 h-4 text-[#1e3a8a] transition-transform duration-300 ${isTocMobileOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2.5}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+          </button>
+
+          {isTocMobileOpen && (
+            <ul className="space-y-3 text-sm font-semibold text-[#1e3a8a] mt-4 pt-4 border-t border-slate-100">
+              {parsedBlog.toc.map((item) => (
+                <li key={item.id} className={item.level === 3 ? "pl-3" : ""}>
+                  <button
+                    onClick={() => scrollToHeading(item.id)}
+                    className={`text-left hover:underline transition-colors cursor-pointer leading-snug ${activeTocId === item.id ? "text-[#DF1818] font-bold" : ""}`}
+                  >
+                    {item.text}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      );
+    }
+
     return (
       <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-sm text-left">
         <h3 className="text-lg sm:text-xl font-extrabold text-[#0b2f61] font-outfit mb-4">
@@ -525,6 +570,12 @@ export default function InnerBlog() {
               <div className="mt-6 font-sans text-slate-700 text-sm sm:text-base leading-relaxed space-y-8">
                 {parsedBlog.isFallback ? (
                   <>
+                    {/* Mobile-only Counsellor Form and TOC */}
+                    <div className="block lg:hidden my-8 space-y-6">
+                      {renderCounsellorForm()}
+                      {renderTableOfContents(true)}
+                    </div>
+
                     <div id="eligibility" className="scroll-mt-24">
                       <h2 className="text-xl sm:text-2xl font-bold text-[#0b2f61] mb-3 tracking-tight">
                         1. Cabin Crew Eligibility Criteria
@@ -657,7 +708,7 @@ export default function InnerBlog() {
                     {/* Mobile-only Counsellor Form and TOC */}
                     <div className="block lg:hidden my-8 space-y-6">
                       {renderCounsellorForm()}
-                      {renderTableOfContents()}
+                      {renderTableOfContents(true)}
                     </div>
 
                     <div
@@ -677,98 +728,9 @@ export default function InnerBlog() {
                 {renderCounsellorForm()}
               </div>
 
-              {/* Widget 2: Table of Contents (Positioned ABOVE Related Guides) */}
+              {/* Widget 2: Table of Contents */}
               <div className="hidden lg:block">
                 {renderTableOfContents()}
-              </div>
-
-              {/* Widget 3: Related Guides */}
-              <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-sm text-left space-y-5">
-                <h3 className="text-base font-extrabold text-[#0b2f61] font-outfit mb-2">
-                  Related Guides
-                </h3>
-
-                <div className="space-y-5">
-                  {(relatedPosts.length > 0 ? relatedPosts : [
-                    {
-                      id: 101,
-                      title: { rendered: "Cabin crew eligibility after 12th" },
-                      slug: "cabin-crew-eligibility-skills-requirements-explained",
-                      date: "2026-06-15",
-                      readTime: "5 min read",
-                      _embedded: { "wp:featuredmedia": [{ source_url: imgAviation2 }] }
-                    },
-                    {
-                      id: 102,
-                      title: { rendered: "Air Hostess Height Requirement in India" },
-                      slug: "air-hostess-height-requirement-in-india",
-                      date: "2026-08-01",
-                      readTime: "15 min read",
-                      _embedded: { "wp:featuredmedia": [{ source_url: imgAviation1 }] }
-                    },
-                    {
-                      id: 103,
-                      title: { rendered: "Cabin crew interview tips and common mistakes" },
-                      slug: "cabin-crew-interview-tips",
-                      date: "2026-08-05",
-                      readTime: "7 min read",
-                      _embedded: { "wp:featuredmedia": [{ source_url: imgAviation3 }] }
-                    },
-                    {
-                      id: 104,
-                      title: { rendered: "Air Hostess vs Airport Ground Staff" },
-                      slug: "airport-ground-staff-career-guide-roles-salary-growth",
-                      date: "2026-05-24",
-                      readTime: "8 min read",
-                      _embedded: { "wp:featuredmedia": [{ source_url: imgAi1 }] }
-                    },
-                    {
-                      id: 105,
-                      title: { rendered: "Air Hostess / Cabin Crew course" },
-                      slug: "how-to-become-a-cabin-crew-after-12th",
-                      date: "2026-07-10",
-                      readTime: "6 min read",
-                    }
-                  ]).map((item: any) => {
-                    const thumb = 
-                      item._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
-                      item.featured_media_src_url || 
-                      item.jetpack_featured_media_url || 
-                      imgAviation3;
-                    return (
-                      <div
-                        key={item.id}
-                        onClick={() => {
-                          navigate(`/${item.slug}`);
-                          window.scrollTo({ top: 0, behavior: "smooth" });
-                        }}
-                        className="bg-white rounded-xl border border-slate-100 overflow-hidden shadow-xs hover:shadow-md transition-all cursor-pointer group"
-                      >
-                        <div className="h-36 w-full overflow-hidden">
-                          <img src={thumb} alt={item.title.rendered} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                        </div>
-                        <div className="p-3.5 flex flex-col">
-                          <h4 className="text-xs font-bold text-[#0b2f61] group-hover:text-[#DF1818] transition-colors leading-snug line-clamp-2">
-                            {item.title.rendered}
-                          </h4>
-                          <span className="text-[10px] text-slate-400 font-semibold mt-2">
-                            {new Date(item.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })} • {item.readTime || "5 min read"}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  <button
-                    onClick={() => {
-                      navigate("/career-guides");
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="w-full bg-[#DF1818] hover:bg-[#c41212] text-white font-extrabold text-xs uppercase py-3 rounded-xl transition-all cursor-pointer mt-2"
-                  >
-                    View all Blogs
-                  </button>
-                </div>
               </div>
 
             </div>
