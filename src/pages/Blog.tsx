@@ -123,6 +123,14 @@ interface GroupedPosts {
     }>;
 }
 
+// Helper to decode HTML entities (like &#038; or &amp; to &)
+const decodeHTMLEntities = (text: string) => {
+    if (!text) return "";
+    const textArea = document.createElement("textarea");
+    textArea.innerHTML = text;
+    return textArea.value;
+};
+
 export default function Blog() {
     const navigate = useNavigate();
     const [categories, setCategories] = React.useState<GroupedPosts[]>([]);
@@ -134,7 +142,8 @@ export default function Blog() {
             const formattedPosts: Array<{ title: string; slug: string; date: string; readTime: string; image: string }> = [];
             const groups: { [key: string]: GroupedPosts["posts"] } = {};
             posts.forEach((post) => {
-                const catName = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Aviation Insights";
+                const catNameRaw = post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Aviation Insights";
+                const catName = decodeHTMLEntities(catNameRaw);
                 const featuredMedia = 
                     post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || 
                     post.featured_media_src_url || 
@@ -175,7 +184,7 @@ export default function Blog() {
                 const postImage = (featuredMedia ? featuredMedia.replace(/&amp;/g, "&") : "") || firstInlineImg || fallbackImage;
 
                 const item = {
-                    title: post.title.rendered,
+                    title: decodeHTMLEntities(post.title.rendered),
                     slug: post.slug,
                     date: formattedDate,
                     readTime: readTimeVal,

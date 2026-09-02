@@ -15,6 +15,14 @@ interface TOCItem {
   level: number;
 }
 
+// Helper to decode HTML entities (like &#038; or &amp; to &)
+const decodeHTMLEntities = (text: string) => {
+  if (!text) return "";
+  const textArea = document.createElement("textarea");
+  textArea.innerHTML = text;
+  return textArea.value;
+};
+
 function FAQAccordionItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(index === 0);
 
@@ -185,7 +193,7 @@ export default function InnerBlog() {
     const tocList: TOCItem[] = [];
 
     headings.forEach((heading, idx) => {
-      const text = heading.textContent || `Section ${idx + 1}`;
+      const text = decodeHTMLEntities(heading.textContent || `Section ${idx + 1}`);
       const id = heading.id || `heading-${idx}`;
       heading.id = id;
       tocList.push({
@@ -463,7 +471,7 @@ export default function InnerBlog() {
             <Link to="/blog" className="hover:text-[#e31e24] transition-colors">Blog</Link>
             <span>&gt;</span>
             <span className="font-bold text-[#e31e24] truncate max-w-[200px] sm:max-w-md">
-              {post ? post.title.rendered : "How to Become an Air Hostess After 12th"}
+              {post ? decodeHTMLEntities(post.title.rendered) : "How to Become an Air Hostess After 12th"}
             </span>
           </div>
 
@@ -473,7 +481,7 @@ export default function InnerBlog() {
             <div className="lg:col-span-8 flex flex-col text-left">
               <h1 className="max-w-[680px] text-[32px] sm:text-[36px] lg:text-[40px] font-extrabold text-[#0b2f61] font-outfit leading-[1.03] tracking-[-0.025em] mb-5">
                 {post ? (
-                  post.title.rendered
+                  decodeHTMLEntities(post.title.rendered)
                 ) : (
                   <>
                     How to Become an <br className="hidden sm:inline" />
@@ -561,7 +569,7 @@ export default function InnerBlog() {
               <div className="w-full rounded-[12px] overflow-hidden shadow-sm mt-3 mb-5">
                 <img
                   src={featuredImage}
-                  alt={post ? post.title.rendered : "Air Hostess Training"}
+                  alt={post ? decodeHTMLEntities(post.title.rendered) : "Air Hostess Training"}
                   className="w-full h-[280px] sm:h-[400px] object-cover"
                 />
               </div>
