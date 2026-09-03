@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@tanstack/react-router";
 import Header from "./Header";
 import Footer from "./Footer";
 import SeminarModal from "./SeminarModal";

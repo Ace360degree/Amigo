@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import SEO from "../components/SEO";
 import coursesHero from "../assets/img/courses1121.png";
 import coursesMobileHero from "../assets/img/coursesmain-mobile.png";
@@ -607,7 +607,7 @@ export default function Courses() {
                         : course.id === "ground-staff"
                           ? "/courses/airport-ground-staff-hospitality-management"
                           : "/courses/ai-data-science-with-generative-ai-machine-learning";
-                    navigate(path);
+                    navigate({ to: path as any });
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#e31e24] px-5 py-3 text-xs font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.15)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
@@ -685,7 +685,7 @@ export default function Courses() {
           </p>
           <button
             onClick={() => {
-              navigate("/contact");
+              navigate({ to: "/contact" as any });
               setTimeout(() => {
                 const el = document.getElementById("tell-us-how-we-can-help");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -751,7 +751,7 @@ export default function Courses() {
 
           <button
             onClick={() => {
-              navigate("/about-us");
+              navigate({ to: "/about-us" as any });
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="mt-12 inline-flex items-center justify-center rounded-full bg-[#e31e24] px-7 py-3 text-[10px] font-bold text-white shadow-[0_12px_25px_rgba(227,30,36,0.16)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"
@@ -856,7 +856,7 @@ export default function Courses() {
           <div className="mt-12 text-center">
             <button
               onClick={() => {
-                navigate("/scholarship");
+                navigate({ to: "/scholarship" as any });
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="inline-flex items-center gap-2 rounded-full bg-[#e31e24] px-7 py-3.5 text-[11px] font-bold text-white shadow-[0_10px_20px_rgba(227,30,36,0.22)] transition-all hover:bg-[#c8191f] active:scale-95 cursor-pointer"

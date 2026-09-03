@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 
 function FAQItem({ number, question, answer }: { number: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -522,7 +522,7 @@ export default function CabinCrew() {
                     <div
                       key={cardIdx}
                       onClick={() => {
-                        navigate("/how-to-become-a-cabin-crew-after-12th");
+                        navigate({ to: "/how-to-become-a-cabin-crew-after-12th" as any });
                         window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
                       className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between text-left group cursor-pointer hover:-translate-y-1"
@@ -632,7 +632,7 @@ export default function CabinCrew() {
           <div className="mt-10 text-center">
             <button
               onClick={() => {
-                navigate("/contact");
+                navigate({ to: "/contact" as any });
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"

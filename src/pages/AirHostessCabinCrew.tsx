@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 // ... existing code ...
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
 import heroImage from "../assets/img/aircourseh111a.png";
 import airHostessMobileHero from "../assets/img/airhostesshero-mobile.png";
@@ -321,7 +321,7 @@ export default function AirHostessCabinCrew() {
         course: "Cabin Crew (Air Hostess) & Hospitality Management",
         form_location: "Air Hostess Cabin Crew Course Page"
       });
-      navigate("/thank-you");
+      navigate({ to: "/thank-you" as any });
     } catch (err) {
       console.error("AirHostessCabinCrew form submit error:", err);
       alert("Failed to submit enquiry. Please try again.");

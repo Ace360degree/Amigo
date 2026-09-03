@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import Swal from "sweetalert2";
 import logo from "../assets/img/logo.png";
 import { submitSeminarForm } from "../services/api";
@@ -133,7 +133,7 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
         timerProgressBar: true,
         showConfirmButton: false,
       }).then(() => {
-        navigate("/thank-you");
+        navigate({ to: "/thank-you" as any });
       });
     } catch (error: any) {
       console.error("Seminar registration error:", error);

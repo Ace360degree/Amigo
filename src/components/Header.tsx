@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import logo from "../assets/img/logo.png";
 import EligibilityModal from "./EligibilityModal";
 
@@ -66,7 +66,7 @@ export default function Header() {
   }, []);
 
   const handleNavClick = (path: string) => {
-    navigate(path);
+    navigate({ to: path as any });
     setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

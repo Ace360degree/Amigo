@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { fetchSEOPages, WPPost } from "../services/wordpress";
 
 // Helper to decode HTML entities (like &#038; to &)
@@ -59,7 +59,7 @@ export default function Location() {
             {seoPages.map((page) => (
               <Link
                 key={page.id}
-                to={`/${page.slug}`}
+                to={`/${page.slug}` as any}
                 className="w-full text-center py-4 px-6 bg-white border border-[#E1E5ED] rounded-xl text-slate-600 hover:text-[#1C3E8A] hover:border-[#1C3E8A] font-sans font-semibold text-xs sm:text-sm transition-all duration-300 hover:shadow-md active:scale-[0.99] block"
               >
                 {decodeHTMLEntities(page.title.rendered)}

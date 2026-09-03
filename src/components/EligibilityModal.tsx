@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import Swal from "sweetalert2";
 
 import { submitEligibilityForm } from "../services/api";
@@ -74,7 +74,7 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
         timerProgressBar: true,
         showConfirmButton: false,
       }).then(() => {
-        navigate("/thank-you");
+        navigate({ to: "/thank-you" as any });
       });
     } catch (error: any) {
       console.error("Eligibility form submit error:", error);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
 import aviationHero from "../assets/img/aviation-hero.png";
 import aviationHeroMobile from "../assets/img/aviation-hero-mobile.png";
@@ -318,7 +318,7 @@ export default function AviationHospitality() {
         course: "Airport Ground Staff & Hospitality Management",
         form_location: "Airport Ground Staff Course Page"
       });
-      navigate("/thank-you");
+      navigate({ to: "/thank-you" as any });
     } catch (err) {
       console.error("AviationHospitality form submit error:", err);
       alert("Failed to submit enquiry. Please try again.");

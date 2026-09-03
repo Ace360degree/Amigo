@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import heroContact from "../assets/img/herocontact.png";
 import Swal from "sweetalert2";
 
@@ -707,7 +707,7 @@ function EnquiryForm() {
         timerProgressBar: true,
         showConfirmButton: false,
       }).then(() => {
-        navigate("/thank-you");
+        navigate({ to: "/thank-you" as any });
       });
     } catch (error) {
       console.error("Contact submission error:", error);

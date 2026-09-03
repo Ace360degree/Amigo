@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@tanstack/react-router";
 
 interface BreadcrumbItem {
   label: string;
@@ -119,7 +119,7 @@ export default function Breadcrumbs() {
                 </span>
               ) : (
                 <Link
-                  to={item.path}
+                  to={item.path as any}
                   className="hover:text-[#DF1818] transition-colors focus:outline-none"
                 >
                   {item.label}

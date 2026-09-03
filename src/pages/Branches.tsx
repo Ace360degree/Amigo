@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import heroImage from "../assets/img/branches/branches-main.png";
 import branchesMobileHero from "../assets/img/branches/branches-main-mobile.png";
 import branchesIllustration from "../assets/img/branches2a.png";
@@ -137,7 +137,7 @@ export default function Branches() {
   const navigate = useNavigate();
 
   const handleBranchClick = (path: string) => {
-    navigate(path);
+    navigate({ to: path as any });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

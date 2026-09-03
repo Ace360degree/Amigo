@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "@tanstack/react-router";
 import { fetchBlogPostBySlug, fetchSEOPageBySlug } from "../services/wordpress";
 import InnerBlog from "./InnerBlog";
 import MumbaiSEODetail from "./MumbaiSEODetail";
 
 export default function DynamicSlugRoute() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const [routeType, setRouteType] = useState<"blog" | "seo" | "loading" | "404">("loading");
 
   useEffect(() => {

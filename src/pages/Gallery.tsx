@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import heroImg from "../assets/img/Galleryheroimg1.png";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import cardImg1 from "../assets/img/Galleryclassroomy1.png";
 import cardImg2 from "../assets/img/Galleryclassroomy2.png";
 import cardImg3 from "../assets/img/Galleryclassroomy3.png";

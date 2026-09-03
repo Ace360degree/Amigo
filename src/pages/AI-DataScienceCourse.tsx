@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
 import aiCourse from "../assets/img/aicourse.png";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
@@ -349,7 +349,7 @@ export default function AIDataScienceCourse() {
         course: "AI & Data Science",
         form_location: "AI & Data Science Course Page"
       });
-      navigate("/thank-you");
+      navigate({ to: "/thank-you" as any });
     } catch (err) {
       console.error("AIDataScienceCourse form submit error:", err);
       alert("Failed to submit enquiry. Please try again.");

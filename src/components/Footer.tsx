@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "@tanstack/react-router";
 import logofooter from "../assets/img/logofooter.png";
 import FooterQR from "../assets/img/FooterQR.png";
 
@@ -8,7 +8,7 @@ export default function Footer() {
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   const handleNavClick = (path: string) => {
-    navigate(path);
+    navigate({ to: path as any });
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 

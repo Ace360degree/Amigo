@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
 import placementStudent1 from "../assets/img/placementstudent1.png";
 import placementStudent2 from "../assets/img/placementstudent2.png";

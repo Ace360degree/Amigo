@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import heroScholarship from "../assets/img/heroscholarship.png";
 
 function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation } from "@tanstack/react-router";
 
 export interface SEOProps {
   title?: string;
@@ -14,7 +14,7 @@ export interface SEOProps {
 const DEFAULT_TITLE = "Amigo Academy - Premier Aviation, Cabin Crew & AI Training Institute";
 const DEFAULT_DESCRIPTION = "Join Amigo Academy for top-rated courses in Air Hostess, Cabin Crew Training, Airport Ground Staff, Aviation Hospitality, and AI & Data Science in Mumbai.";
 const DEFAULT_KEYWORDS = "Amigo Academy, Cabin Crew Training, Air Hostess Course Mumbai, Airport Ground Staff Training, Aviation Academy Mumbai, AI Data Science Course";
-const DEFAULT_OG_IMAGE = "https://amigoacademy.in/assets/img/hero-crew.png";
+const DEFAULT_OG_IMAGE = "https://staging.amigoacademy.in/assets/img/hero-crew.png";
 const SITE_NAME = "Amigo Academy";
 
 export const SEO: React.FC<SEOProps> = ({

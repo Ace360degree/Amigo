@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate } from "@tanstack/react-router";
 import Swal from "sweetalert2";
 import SEO from "../components/SEO";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
@@ -68,7 +68,7 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 }
 
 export default function MumbaiSEODetail() {
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const navigate = useNavigate();
   const [seoPage, setSeoPage] = useState<WPPost | null>(null);
   const [loading, setLoading] = useState(true);
@@ -488,7 +488,7 @@ export default function MumbaiSEODetail() {
         timerProgressBar: true,
         showConfirmButton: false,
       }).then(() => {
-        navigate("/thank-you");
+        navigate({ to: "/thank-you" as any });
       });
     } catch (error) {
       console.error("SEO form submit error:", error);
@@ -953,7 +953,7 @@ export default function MumbaiSEODetail() {
               </div>
               <div className="pt-2">
                 <button
-                  onClick={() => { navigate("/career-guide/cabin-crew"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/cabin-crew" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="bg-[#112A46] hover:bg-[#0b1d31] text-white font-sans font-bold text-xs sm:text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
                 >
                   View Syllabus
@@ -1004,7 +1004,7 @@ export default function MumbaiSEODetail() {
               </div>
               <div className="pt-2">
                 <button
-                  onClick={() => { navigate("/career-guide/airport-ground-staff"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/airport-ground-staff" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="bg-[#112A46] hover:bg-[#0b1d31] text-white font-sans font-bold text-xs sm:text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
                 >
                   View Syllabus
@@ -1055,7 +1055,7 @@ export default function MumbaiSEODetail() {
               </div>
               <div className="pt-2">
                 <button
-                  onClick={() => { navigate("/career-guide/ai-data-science"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/ai-data-science" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="bg-[#112A46] hover:bg-[#0b1d31] text-white font-sans font-bold text-xs sm:text-sm px-6 py-3 rounded-lg transition-all cursor-pointer"
                 >
                   View Syllabus

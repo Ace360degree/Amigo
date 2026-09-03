@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import logoFooter from "../assets/img/logofooter.png";
 
 export default function ThankYou() {
@@ -105,7 +105,7 @@ export default function ThankYou() {
         {/* Back Button Below Text */}
         <div className="mt-6 flex justify-center">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => window.history.back()}
             className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full border border-white/30 text-white/90 hover:text-white hover:bg-white/10 hover:border-white/60 transition-all font-semibold text-sm cursor-pointer"
           >
             <svg

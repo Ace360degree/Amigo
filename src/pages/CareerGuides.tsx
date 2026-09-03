@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import careerHero from "../assets/img/careerguides-hero.png";
 import careermainMobile from "../assets/img/careermain-mobile.png";
 import cardImg1 from "../assets/img/career guides/1.png";
@@ -179,7 +179,7 @@ export default function CareerGuides() {
 
               <div className="px-6 pb-7">
                 <button
-                  onClick={() => { navigate("/career-guide/cabin-crew"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/cabin-crew" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="w-full bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[13px] py-3.5 px-5 rounded-full shadow-[0_6px_16px_rgba(223,24,24,0.15)] hover:shadow-[0_8px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 flex items-center justify-center gap-1.5 focus:outline-none cursor-pointer"
                 >
                   Explore Air Hostess / Cabin Crew Guides
@@ -230,7 +230,7 @@ export default function CareerGuides() {
 
               <div className="px-6 pb-7">
                 <button
-                  onClick={() => { navigate("/career-guide/airport-ground-staff"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/airport-ground-staff" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="w-full bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[13px] py-3.5 px-5 rounded-full shadow-[0_6px_16px_rgba(223,24,24,0.15)] hover:shadow-[0_8px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 flex items-center justify-center gap-1.5 focus:outline-none cursor-pointer"
                 >
                   Explore Airport Ground Staff Course
@@ -281,7 +281,7 @@ export default function CareerGuides() {
 
               <div className="px-6 pb-7">
                 <button
-                  onClick={() => { navigate("/career-guide/ai-data-science"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                  onClick={() => { navigate({ to: "/career-guide/ai-data-science" as any }); window.scrollTo({ top: 0, behavior: "smooth" }); }}
                   className="w-full bg-[#DF1818] hover:bg-[#c41212] text-white font-sans font-bold text-xs sm:text-[13px] py-3.5 px-5 rounded-full shadow-[0_6px_16px_rgba(223,24,24,0.15)] hover:shadow-[0_8px_24px_rgba(223,24,24,0.25)] transition-all duration-300 active:scale-95 flex items-center justify-center gap-1.5 focus:outline-none cursor-pointer"
                 >
                   Explore AI & Data Science Course
@@ -345,7 +345,7 @@ export default function CareerGuides() {
               <div
                 key={idx}
                 onClick={() => {
-                  navigate("/how-to-become-a-cabin-crew-after-12th");
+                  navigate({ to: "/how-to-become-a-cabin-crew-after-12th" as any });
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group hover:-translate-y-1"
@@ -425,7 +425,7 @@ export default function CareerGuides() {
               <div
                 key={idx}
                 onClick={() => {
-                  navigate("/how-to-become-a-cabin-crew-after-12th");
+                  navigate({ to: "/how-to-become-a-cabin-crew-after-12th" as any });
                   window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 className="bg-white rounded-[24px] overflow-hidden border border-[#E1E5ED] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_12px_40px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col justify-between text-left cursor-pointer group hover:-translate-y-1"

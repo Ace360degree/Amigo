@@ -5,4 +5,4 @@ Allow: /
 Disallow: /backend/
 
 # Sitemap location
-Sitemap: https://amigoacademy.in/sitemap.xml
+Sitemap: https://staging.amigoacademy.in/sitemap.xml

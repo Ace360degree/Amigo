@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "@tanstack/react-router";
 import { submitContactForm } from "../services/api";
 import Swal from "sweetalert2";
 
@@ -52,7 +52,7 @@ export default function Franchise() {
                 timerProgressBar: true,
                 showConfirmButton: false,
             }).then(() => {
-                navigate("/thank-you");
+                navigate({ to: "/thank-you" as any });
             });
         } catch (error) {
             console.error("Franchise submit error:", error);
@@ -1194,7 +1194,7 @@ export default function Franchise() {
                     <div className="mt-10 text-center">
                         <button
                             onClick={() => {
-                                navigate("/contact");
+                                navigate({ to: "/contact" as any });
                                 window.scrollTo({ top: 0, behavior: "smooth" });
                             }}
                             className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"

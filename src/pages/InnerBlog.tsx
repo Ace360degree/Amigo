@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "@tanstack/react-router";
 import innerBlogImg from "../assets/img/innerblogimg.png";
 import innerBlogImg1 from "../assets/img/innerblogimg2.png";
 import imgAviation1 from "../assets/img/BlogInsights1.png";
@@ -69,7 +69,7 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 
 export default function InnerBlog() {
   const navigate = useNavigate();
-  const { slug } = useParams<{ slug: string }>();
+  const { slug } = useParams({ strict: false }) as { slug?: string };
   const [post, setPost] = useState<WPPost | null>(null);
   const [allPosts, setAllPosts] = useState<WPPost[]>([]);
   const [loading, setLoading] = useState(true);

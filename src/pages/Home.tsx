@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import SEO from "../components/SEO";
 import { submitCounsellorForm } from "../services/api";
 import Swal from "sweetalert2";
@@ -162,7 +162,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         timerProgressBar: true,
         showConfirmButton: false,
       }).then(() => {
-        navigate("/thank-you");
+        navigate({ to: "/thank-you" as any });
       });
     } catch (error) {
       console.error("Home form submit error:", error);
@@ -199,8 +199,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
           "name": "Amigo Academy",
-          "url": "https://amigoacademy.in",
-          "logo": "https://amigoacademy.in/assets/img/hero-crew.png",
+          "url": "https://staging.amigoacademy.in",
+          "logo": "https://staging.amigoacademy.in/assets/img/hero-crew.png",
           "description": "Premier aviation, cabin crew, ground staff, and AI training institute in Mumbai.",
           "address": {
             "@type": "PostalAddress",
@@ -628,7 +628,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/air-hostess-cabin-crew-hospitality-management")}
+                onClick={() => navigate({ to: "/courses/air-hostess-cabin-crew-hospitality-management" as any })}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -702,7 +702,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/airport-ground-staff-hospitality-management")}
+                onClick={() => navigate({ to: "/courses/airport-ground-staff-hospitality-management" as any })}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -776,7 +776,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
 
               {/* Action Link */}
               <button
-                onClick={() => navigate("/courses/ai-data-science-with-generative-ai-machine-learning")}
+                onClick={() => navigate({ to: "/courses/ai-data-science-with-generative-ai-machine-learning" as any })}
                 className="text-[#1e417a] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1 w-fit group/btn focus:outline-none transition-colors"
               >
                 Explore Now
@@ -1074,7 +1074,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {/* Link */}
           <div className="mt-4">
             <button
-              onClick={() => navigate("/scholarship")}
+              onClick={() => navigate({ to: "/scholarship" as any })}
               className="text-white hover:text-[#DDAB30] text-xs sm:text-sm font-bold underline transition-colors focus:outline-none"
             >
               View full scholarship details
@@ -1468,7 +1468,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                       <div
                         key={aIdx}
                         onClick={() => {
-                          navigate("/how-to-become-a-cabin-crew-after-12th");
+                          navigate({ to: "/how-to-become-a-cabin-crew-after-12th" as any });
                           window.scrollTo({ top: 0, behavior: "smooth" });
                         }}
                         className="flex items-center justify-between p-3 bg-white border border-neutral-100 rounded-xl hover:border-blue-100 hover:shadow-sm transition-all cursor-pointer group"
@@ -1491,7 +1491,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         {/* Footer Link */}
         <div className="text-center mt-10">
           <button
-            onClick={() => navigate("/career-guides")}
+            onClick={() => navigate({ to: "/career-guides" as any })}
             className="text-[#1E417A] hover:text-[#0b2f61] font-bold text-xs sm:text-sm flex items-center gap-1.5 mx-auto group transition-colors focus:outline-none"
           >
             Explore All Industry Advice
@@ -1622,7 +1622,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
         <div className="mt-12 text-center">
           <button
             onClick={() => {
-              navigate("/contact");
+              navigate({ to: "/contact" as any });
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"

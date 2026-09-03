@@ -1,6 +1,6 @@
 import React from "react";
 import heroImg from "../assets/img/StudentSuccesshero.png";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-router";
 import decisionImg from "../assets/img/StudentSuccess1.png";
 import student1 from "../assets/img/placementstudent3.png";
 import student2 from "../assets/img/placementstudent2.png";
