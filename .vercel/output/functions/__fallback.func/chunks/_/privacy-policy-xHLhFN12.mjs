@@ -1,0 +1,127 @@
+import { jsx, jsxs } from 'react/jsx-runtime';
+
+function PrivacyPolicy() {
+  return /* @__PURE__ */ jsx("div", { className: "flex flex-col bg-white", children: /* @__PURE__ */ jsx("section", { className: "pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white lazy-section-visible", children: /* @__PURE__ */ jsxs("div", { className: "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8", children: [
+    /* @__PURE__ */ jsxs("div", { className: "mb-12 lg:mb-16", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center text-sm font-bold text-slate-400 mb-6 font-sans", children: [
+        /* @__PURE__ */ jsx("span", { className: "hover:text-[#e31e24] cursor-pointer transition-colors", children: "Home" }),
+        /* @__PURE__ */ jsx("svg", { className: "w-4 h-4 mx-2", fill: "none", viewBox: "0 0 24 24", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M9 5l7 7-7 7" }) }),
+        /* @__PURE__ */ jsx("span", { className: "text-[#e31e24]", children: "Privacy Policy" })
+      ] }),
+      /* @__PURE__ */ jsx("h1", { className: "text-4xl sm:text-5xl lg:text-[56px] font-extrabold text-[#1c355e] mb-6 font-sans tracking-tight", children: "Privacy Policy" }),
+      /* @__PURE__ */ jsx("p", { className: "text-slate-500 text-[15px] sm:text-base font-medium", children: "Last updated: February 28, 2026" })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "font-sans text-slate-600 text-[15px] sm:text-base leading-[1.8] space-y-12 lg:space-y-16", children: [
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "1. Introduction" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-4", children: 'Amigo Academy ("we", "us", "our" or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.' }),
+        /* @__PURE__ */ jsx("p", { children: "Please read this Privacy Policy carefully. If you do not agree with our policies and practices, please do not use our Services." })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-6 tracking-tight", children: "2. Information We Collect" }),
+        /* @__PURE__ */ jsxs("div", { className: "mb-8", children: [
+          /* @__PURE__ */ jsx("h3", { className: "text-[20px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "2.1 Personal Information You Provide" }),
+          /* @__PURE__ */ jsx("p", { className: "mb-4", children: "We collect information you voluntarily provide, including:" }),
+          /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+            /* @__PURE__ */ jsx("li", { children: "Full name, email address, and phone number" }),
+            /* @__PURE__ */ jsx("li", { children: "Educational background and qualifications" }),
+            /* @__PURE__ */ jsx("li", { children: "Course preferences and enrollment information" }),
+            /* @__PURE__ */ jsx("li", { children: "Payment and billing information" }),
+            /* @__PURE__ */ jsx("li", { children: "Communications and feedback you send us" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { children: [
+          /* @__PURE__ */ jsx("h3", { className: "text-[20px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "2.2 Automatically Collected Information" }),
+          /* @__PURE__ */ jsx("p", { className: "mb-4", children: "When you visit our website, we may automatically collect:" }),
+          /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+            /* @__PURE__ */ jsx("li", { children: "Device information (IP address, browser type, operating system)" }),
+            /* @__PURE__ */ jsx("li", { children: "Usage data (pages visited, time spent, click patterns)" }),
+            /* @__PURE__ */ jsx("li", { children: "Location information (approximate geographic location)" }),
+            /* @__PURE__ */ jsx("li", { children: "Cookies and similar tracking technologies" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "3. How We Use Your Information" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-4", children: "We use the information we collect for various purposes:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+          /* @__PURE__ */ jsx("li", { children: "To process course enrollments and manage your account" }),
+          /* @__PURE__ */ jsx("li", { children: "To provide customer support and respond to inquiries" }),
+          /* @__PURE__ */ jsx("li", { children: "To send you educational content and course updates" }),
+          /* @__PURE__ */ jsx("li", { children: "To process payments and prevent fraud" }),
+          /* @__PURE__ */ jsx("li", { children: "To improve our website and services" }),
+          /* @__PURE__ */ jsx("li", { children: "To send marketing communications (with your consent)" }),
+          /* @__PURE__ */ jsx("li", { children: "To comply with legal obligations" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "4. Data Protection & Security" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-4", children: "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+          /* @__PURE__ */ jsx("li", { children: "SSL encryption for data transmission" }),
+          /* @__PURE__ */ jsx("li", { children: "Secure password protection" }),
+          /* @__PURE__ */ jsx("li", { children: "Limited access to personal information" }),
+          /* @__PURE__ */ jsx("li", { children: "Regular security audits and updates" })
+        ] }),
+        /* @__PURE__ */ jsx("p", { children: "However, no internet transmission is completely secure. We cannot guarantee absolute security of your information." })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "5. Sharing Your Information" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-4", children: "We do not sell, trade, or rent your personal information to third parties. We may share your information only:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+          /* @__PURE__ */ jsx("li", { children: "With service providers who assist us in operating our website and conducting business" }),
+          /* @__PURE__ */ jsx("li", { children: "For course placement with partner companies (with your consent)" }),
+          /* @__PURE__ */ jsx("li", { children: "When required by law or to protect our legal rights" }),
+          /* @__PURE__ */ jsx("li", { children: "With your explicit consent for specific purposes" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "6. Your Rights" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-4", children: "You have the right to:" }),
+        /* @__PURE__ */ jsxs("ul", { className: "list-disc pl-5 space-y-3 mb-6 text-slate-500", children: [
+          /* @__PURE__ */ jsx("li", { children: "Access your personal information" }),
+          /* @__PURE__ */ jsx("li", { children: "Correct inaccurate data" }),
+          /* @__PURE__ */ jsx("li", { children: "Request deletion of your information" }),
+          /* @__PURE__ */ jsx("li", { children: "Opt-out of marketing communications" }),
+          /* @__PURE__ */ jsx("li", { children: "Request information about data we hold about you" })
+        ] }),
+        /* @__PURE__ */ jsxs("p", { children: [
+          "To exercise these rights, please contact us at ",
+          /* @__PURE__ */ jsx("a", { href: "mailto:care@amigoacademy.in", className: "text-[#e31e24] hover:underline", children: "care@amigoacademy.in" }),
+          "."
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "7. Cookies & Tracking" }),
+        /* @__PURE__ */ jsx("p", { children: "Our website uses cookies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences and understand how you use our site. You can control cookie settings through your browser preferences." })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "8. Data Retention" }),
+        /* @__PURE__ */ jsx("p", { children: "We retain your personal information for as long as necessary to provide our services and fulfill the purposes outlined in this Privacy Policy. You may request deletion of your data at any time, subject to legal and business requirements." })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "9. Changes to This Privacy Policy" }),
+        /* @__PURE__ */ jsx("p", { children: 'We may update this Privacy Policy periodically to reflect changes in our practices or for other operational, legal, or regulatory reasons. The "Last updated" date above indicates when this policy was last revised. Your continued use of our Services constitutes your acceptance of the updated Privacy Policy.' })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "bg-slate-50 rounded-2xl p-8 sm:p-10 border border-slate-100", children: [
+        /* @__PURE__ */ jsx("h2", { className: "text-2xl sm:text-[28px] font-bold text-[#1c355e] mb-4 tracking-tight", children: "10. Contact Us" }),
+        /* @__PURE__ */ jsx("p", { className: "mb-6", children: "If you have questions about this Privacy Policy or our privacy practices, please contact us:" }),
+        /* @__PURE__ */ jsxs("div", { className: "space-y-3 font-medium text-slate-700", children: [
+          /* @__PURE__ */ jsx("p", { className: "font-bold text-[#1c355e]", children: "Amigo Academy Pvt Ltd" }),
+          /* @__PURE__ */ jsxs("p", { children: [
+            "Email: ",
+            /* @__PURE__ */ jsx("a", { href: "mailto:care@amigoacademy.in", className: "text-[#e31e24] hover:underline font-normal", children: "care@amigoacademy.in" })
+          ] }),
+          /* @__PURE__ */ jsxs("p", { children: [
+            "Phone: ",
+            /* @__PURE__ */ jsx("span", { className: "text-[#e31e24] font-normal", children: "+919987588932" })
+          ] })
+        ] })
+      ] })
+    ] })
+  ] }) }) });
+}
+const SplitComponent = PrivacyPolicy;
+
+export { SplitComponent as component };
+//# sourceMappingURL=privacy-policy-xHLhFN12.mjs.map
