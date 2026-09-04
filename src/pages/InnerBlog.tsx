@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams, Link } from "@tanstack/react-router";
+import { useNavigate, useParams, Link, useMatch } from "@tanstack/react-router";
 import innerBlogImg from "../assets/img/innerblogimg.png";
 import innerBlogImg1 from "../assets/img/innerblogimg2.png";
 import imgAviation1 from "../assets/img/BlogInsights1.png";
@@ -18,6 +18,15 @@ interface TOCItem {
 // Helper to decode HTML entities (like &#038; or &amp; to &)
 const decodeHTMLEntities = (text: string) => {
   if (!text) return "";
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    return text
+      .replace(/&#038;/g, "&")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'");
+  }
   const textArea = document.createElement("textarea");
   textArea.innerHTML = text;
   return textArea.value;
@@ -70,9 +79,12 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 export default function InnerBlog() {
   const navigate = useNavigate();
   const { slug } = useParams({ strict: false }) as { slug?: string };
-  const [post, setPost] = useState<WPPost | null>(null);
+  const match = useMatch({ strict: false }) as { loaderData?: { post?: WPPost } } | undefined;
+  const initialPost = match?.loaderData?.post || null;
+
+  const [post, setPost] = useState<WPPost | null>(initialPost);
   const [allPosts, setAllPosts] = useState<WPPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(!initialPost);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [activeTocId, setActiveTocId] = useState<string>("");
@@ -90,6 +102,11 @@ export default function InnerBlog() {
 
   useEffect(() => {
     if (slug) {
+      if (initialPost && initialPost.slug === slug) {
+        setPost(initialPost);
+        setLoading(false);
+        return;
+      }
       setLoading(true);
       fetchBlogPostBySlug(slug)
         .then((data) => {
@@ -143,6 +160,24 @@ export default function InnerBlog() {
             answer: "Yes! Amigo Academy's Aviation courses are Maharashtra Government Certified."
           }
         ]
+      };
+    }
+
+    if (typeof DOMParser === "undefined") {
+      const headings: TOCItem[] = [];
+      const matches = post.content.rendered.matchAll(/<(h[23])(?:[^>]*id=["']([^"']+)["'])?[^>]*>(.*?)<\/h[23]>/gi);
+      let idx = 0;
+      for (const m of matches) {
+        const tag = m[1].toUpperCase();
+        const id = m[2] || `heading-${idx}`;
+        const text = decodeHTMLEntities(m[3].replace(/<[^>]+>/g, ""));
+        headings.push({ id, text, level: tag === "H2" ? 2 : 3 });
+        idx++;
+      }
+      return {
+        cleanedHtml: post.content.rendered,
+        toc: headings,
+        faqs: []
       };
     }
 
@@ -510,7 +545,7 @@ export default function InnerBlog() {
                   </span>
                   {/* Facebook */}
                   <a
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-[#0b2f61] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
@@ -523,7 +558,7 @@ export default function InnerBlog() {
 
                   {/* X */}
                   <a
-                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}`}
+                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center hover:opacity-90 transition-opacity"
@@ -536,7 +571,7 @@ export default function InnerBlog() {
 
                   {/* LinkedIn */}
                   <a
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:opacity-90 transition-opacity"

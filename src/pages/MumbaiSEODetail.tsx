@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useParams, Link, useNavigate } from "@tanstack/react-router";
+import { useNavigate, useParams, Link, useMatch } from "@tanstack/react-router";
 import Swal from "sweetalert2";
-import SEO from "../components/SEO";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
 
@@ -10,15 +9,18 @@ import course1Img from "../assets/img/location/cabin-crew.png";
 import course2Img from "../assets/img/location/airport.png";
 import course3Img from "../assets/img/location/ai.png";
 
-// Import mock aircraft images
-import train1Img from "../assets/img/location/train1.png";
-import train2Img from "../assets/img/location/train2.png";
-import train3Img from "../assets/img/location/train3.png";
-import train4Img from "../assets/img/location/train4.png";
-import train5Img from "../assets/img/location/train5.png";
-
 // Helper to decode HTML entities (like &#038; to &)
 const decodeHTMLEntities = (text: string) => {
+  if (!text) return "";
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    return text
+      .replace(/&#038;/g, "&")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&quot;/g, '"')
+      .replace(/&#039;/g, "'");
+  }
   const textArea = document.createElement("textarea");
   textArea.innerHTML = text;
   return textArea.value;
@@ -70,8 +72,11 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 export default function MumbaiSEODetail() {
   const { slug } = useParams({ strict: false }) as { slug?: string };
   const navigate = useNavigate();
-  const [seoPage, setSeoPage] = useState<WPPost | null>(null);
-  const [loading, setLoading] = useState(true);
+  const match = useMatch({ strict: false }) as { loaderData?: { post?: WPPost } } | undefined;
+  const initialSeoPage = match?.loaderData?.post || null;
+
+  const [seoPage, setSeoPage] = useState<WPPost | null>(initialSeoPage);
+  const [loading, setLoading] = useState(!initialSeoPage);
 
   // Form states
   const [formData, setFormData] = useState({
@@ -84,6 +89,11 @@ export default function MumbaiSEODetail() {
   // Fetch SEO Page
   useEffect(() => {
     if (slug) {
+      if (initialSeoPage && initialSeoPage.slug === slug) {
+        setSeoPage(initialSeoPage);
+        setLoading(false);
+        return;
+      }
       setLoading(true);
       fetchSEOPageBySlug(slug).then((data) => {
         setSeoPage(data);
@@ -122,58 +132,13 @@ export default function MumbaiSEODetail() {
       }
     }
 
-    let branchName = "Ghatkopar";
-    let branchAddress = "107 & 108, Sai Infotech, Patel Chowk, Opposite Railway Station, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra – 400077";
-    let branchMapSrc = "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed";
-    let branchMapHref = "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai";
-    let branchLink = "/ghatkopar-branch";
-    let branchPhone = "+919987588932";
-
-    // Determine nearest branch based on area / slug
-    const lowerArea = area.toLowerCase();
-    const lowerSlug = cleanSlug;
-
-    if (
-      lowerArea.includes("thane") || lowerSlug.includes("thane") ||
-      lowerArea.includes("kalyan") || lowerSlug.includes("kalyan") ||
-      lowerArea.includes("dombivli") || lowerSlug.includes("dombivli") ||
-      lowerArea.includes("bhiwandi") || lowerSlug.includes("bhiwandi") ||
-      lowerArea.includes("kalwa") || lowerSlug.includes("kalwa") ||
-      lowerArea.includes("mumbra") || lowerSlug.includes("mumbra") ||
-      lowerArea.includes("diwa") || lowerSlug.includes("diva")
-    ) {
-      branchName = "Thane";
-      branchAddress = "A204, 2nd Floor, Thakor Niwas CHS, Above Tip Top Mithaiwala, Jambli Naka, Thane West, Thane, Maharashtra 400602";
-      branchMapSrc = "https://maps.google.com/maps?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra&t=&z=16&ie=UTF8&iwloc=&output=embed";
-      branchMapHref = "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra";
-      branchLink = "/thane-branch";
-    } else if (
-      lowerArea.includes("andheri") || lowerSlug.includes("andheri") ||
-      lowerArea.includes("bandra") || lowerSlug.includes("bandra") ||
-      lowerArea.includes("borivali") || lowerSlug.includes("borivali") ||
-      lowerArea.includes("kandivali") || lowerSlug.includes("kandivali") ||
-      lowerArea.includes("malad") || lowerSlug.includes("malad") ||
-      lowerArea.includes("goregaon") || lowerSlug.includes("goregaon") ||
-      lowerArea.includes("juhu") || lowerSlug.includes("juhu") ||
-      lowerArea.includes("vile parle") || lowerSlug.includes("vile-parle") ||
-      lowerArea.includes("santacruz") || lowerSlug.includes("santacruz") ||
-      lowerArea.includes("dahisar") || lowerSlug.includes("dahisar") ||
-      lowerArea.includes("jogeshwari") || lowerSlug.includes("jogeshwari")
-    ) {
-      branchName = "Andheri";
-      branchAddress = "902, 9th Floor, Time Chambers, Swami Vivekanand Rd, Andheri West, Mumbai, Maharashtra 400058";
-      branchMapSrc = "https://maps.google.com/maps?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed";
-      branchMapHref = "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai";
-      branchLink = "/andheri-branch";
-    }
-
-    let travelTimeText = `2 Stops / ~5 Mins from ${area} (Central Line)`;
+    let travelTimeText = "2 Stops / ~5 Mins from Kurla (Central Line)";
     let travelTimeShort = "About 5 Minutes";
     let areasCovered = "Kurla East, Kurla West, Nehru Nagar, Kamani, Kalina, Chunabhatti";
-    let reachTrain = `${area} to ${branchName} station is easily accessible via local train. Our centre is located close to the station for easy commuting.`;
-    let reachMetro = `${branchName} branch is conveniently connected via local metro and transport hubs.`;
-    let reachRoad = `BEST buses and auto-rickshaws connect ${area} to our ${branchName} branch throughout the day.`;
-    let reachExtra = `Students from ${area} can seamlessly reach our ${branchName} branch within minutes.`;
+    let reachTrain = "Kurla to Ghatkopar is two stops on the Central Line, via Vidyavihar. The journey takes roughly five minutes. Our centre is directly opposite Ghatkopar station, so the walk from the platform is under two minutes.";
+    let reachMetro = "Ghatkopar is the eastern terminus of Metro Line 1, so students coming from Saki Naka, Marol or Andheri side can reach us without changing to a train.";
+    let reachRoad = "BEST buses run along LBS Marg between Kurla and Ghatkopar throughout the day. By auto the trip is typically 10 to 15 minutes, depending on traffic at Kurla junction.";
+    let reachExtra = "Kurla is a major junction, so students arriving on the Harbour Line from Chembur, Govandi or Mankhurd can change at Kurla for the Central Line to Ghatkopar.";
 
     if (area === "Powai") {
       travelTimeText = "JVLR / LBS Marg connection (~15 Mins)";
@@ -203,12 +168,6 @@ export default function MumbaiSEODetail() {
 
     return {
       area,
-      branchName,
-      branchAddress,
-      branchMapSrc,
-      branchMapHref,
-      branchLink,
-      branchPhone,
       travelTimeText,
       travelTimeShort,
       areasCovered,
@@ -222,6 +181,10 @@ export default function MumbaiSEODetail() {
   // Parse WordPress HTML body content using DOMParser
   const parsedContent = useMemo(() => {
     if (!seoPage || !seoPage.content || !seoPage.content.rendered) {
+      return null;
+    }
+
+    if (typeof DOMParser === "undefined") {
       return null;
     }
 
@@ -407,22 +370,16 @@ export default function MumbaiSEODetail() {
   const locationInfo = useMemo(() => {
     return {
       area: locationDefaults.area,
-      branchName: locationDefaults.branchName,
-      branchAddress: locationDefaults.branchAddress,
-      branchMapSrc: locationDefaults.branchMapSrc,
-      branchMapHref: locationDefaults.branchMapHref,
-      branchLink: locationDefaults.branchLink,
-      branchPhone: locationDefaults.branchPhone,
-      heroText: parsedContent?.heroText || `Amigo Academy's ${locationDefaults.branchName} centre is easily accessible from ${locationDefaults.area}. Government certified aviation training and industry-oriented AI & Data Science courses with practical training and placement support.`,
-      quickAnswerText: parsedContent?.quickAnswerText || `The nearest Amigo Academy centre is our ${locationDefaults.branchName} branch, convenient for students from ${locationDefaults.area}.`,
+      heroText: parsedContent?.heroText || `Amigo Academy's Ghatkopar centre is just 2 stops from Kurla on the Central Line, about 5 minutes away. Government certified aviation training and industry-oriented AI & Data Science courses with practical training and placement support.`,
+      quickAnswerText: parsedContent?.quickAnswerText || `The nearest Amigo Academy centre is our Ghatkopar branch, just 2 stops away on the Central Line, taking about 5 minutes.`,
       travelTimeText: locationDefaults.travelTimeText,
       travelTimeShort: locationDefaults.travelTimeShort,
       areasCovered: locationDefaults.areasCovered,
-      cabinCrewTitle: parsedContent?.cabinCrewTitle || `Air Hostess Course in ${locationDefaults.area}`,
-      cabinCrewDesc: parsedContent?.cabinCrewDesc || `Students from ${locationDefaults.area} take our Air Hostess / Cabin Crew course at the ${locationDefaults.branchName} centre. It runs six months and is Maharashtra Government Certified, covering grooming, communication, in-flight service, safety procedures and interview preparation.`,
-      groundStaffTitle: parsedContent?.groundStaffTitle || `Airport Ground Staff Course in ${locationDefaults.area}`,
+      cabinCrewTitle: parsedContent?.cabinCrewTitle || `Cabin Crew (Air Hostess) & Hospitality Management Near ${locationDefaults.area}`,
+      cabinCrewDesc: parsedContent?.cabinCrewDesc || `Students from ${locationDefaults.area} take our Air Hostess / Cabin Crew course at the Ghatkopar centre, two stops up the Central Line. It runs six months and is Maharashtra Government Certified, covering grooming, communication, in-flight service, safety procedures and interview preparation.`,
+      groundStaffTitle: parsedContent?.groundStaffTitle || `Airport Ground Staff Course Near ${locationDefaults.area}`,
       groundStaffDesc: parsedContent?.groundStaffDesc || `The Airport Ground Staff course appeals to ${locationDefaults.area} students who want to start earning sooner. Six months, Maharashtra Government Certified, covering check-in, passenger handling, baggage services and airport operations.`,
-      aiTitle: parsedContent?.aiTitle || `AI & Data Science Course in ${locationDefaults.area}`,
+      aiTitle: parsedContent?.aiTitle || `AI & Data Science Course Near ${locationDefaults.area}`,
       aiDesc: parsedContent?.aiDesc || `Our AI & Data Science course is the longest of the three at twelve months, covering Python, machine learning, data visualisation and Generative AI with live projects. It is industry-oriented professional training, not a government-certified qualification.`,
       transitItems: parsedContent?.transitItems && parsedContent.transitItems.length > 0 ? parsedContent.transitItems : [
         { title: "By Train", desc: locationDefaults.reachTrain },
@@ -435,15 +392,15 @@ export default function MumbaiSEODetail() {
         ...(parsedContent?.faqData && parsedContent.faqData.length > 0 ? parsedContent.faqData : [
           {
             question: `Is there an Amigo Academy branch in ${locationDefaults.area}?`,
-            answer: `Amigo Academy does not have a centre directly in ${locationDefaults.area}. Our nearest branch is ${locationDefaults.branchName}, and that is where students from ${locationDefaults.area} attend.`
+            answer: `Amigo Academy does not have a centre in ${locationDefaults.area}. Our nearest branch is Ghatkopar, two stops away on the Central Line, and that is where students from ${locationDefaults.area} attend. We would rather tell you that plainly than list an address we do not have.`
           },
           {
-            question: `How long does it take to reach the ${locationDefaults.branchName} branch from ${locationDefaults.area}?`,
-            answer: `Our ${locationDefaults.branchName} centre is conveniently connected from ${locationDefaults.area} by train, bus, or road.`
+            question: `How long does it take to reach the Ghatkopar branch from ${locationDefaults.area}?`,
+            answer: "About five minutes by local train, or 10 to 15 minutes by auto along LBS Marg. Our centre is opposite Ghatkopar station."
           },
           {
             question: `Can I attend classes if I work in ${locationDefaults.area} during the day?`,
-            answer: `Yes. Our ${locationDefaults.branchName} branch runs morning, afternoon and evening batches. Classes are two hours a day, five days a week, so an evening batch works alongside a job or another course. Speak to a counsellor about which batch has seats.`
+            answer: "Yes. Our Ghatkopar branch runs morning, afternoon and evening batches. Classes are two hours a day, five days a week, so an evening batch works alongside a job or another course. Speak to a counsellor about which batch has seats."
           }
         ]),
         {
@@ -523,23 +480,6 @@ export default function MumbaiSEODetail() {
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans antialiased">
-      <SEO
-        title={seoPage?.title?.rendered ? decodeHTMLEntities(seoPage.title.rendered) : `Air Hostess & Aviation Training near ${locationInfo.area}`}
-        description={locationInfo.heroText}
-        keywords={`Aviation Course ${locationInfo.area}, Cabin Crew Training ${locationInfo.area}, Airport Ground Staff ${locationInfo.area}`}
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          "name": `Amigo Academy - ${locationInfo.area} Hub`,
-          "description": locationInfo.heroText,
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": locationInfo.area,
-            "addressRegion": "Mumbai, Maharashtra",
-            "addressCountry": "IN"
-          }
-        }}
-      />
 
       {/* Block 3: Breadcrumb */}
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 pt-8 pb-2 flex items-center space-x-2 text-xs sm:text-sm font-sans font-semibold text-slate-400 text-left">
@@ -668,83 +608,19 @@ export default function MumbaiSEODetail() {
 
       {/* Block 4b: Quick Answer callout */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 pb-10">
-        <div className="bg-[#DBEAFE]/70 border border-blue-200/60 rounded-[24px] p-6 sm:p-8 text-left space-y-6 shadow-sm">
-          <h2 className="text-xl sm:text-2xl font-outfit font-extrabold text-[#112A46]">
+        <div className="bg-[#EFF6FF] border border-blue-200 rounded-[20px] p-6 text-left">
+          <h4 className="font-outfit font-extrabold text-[#112A46] text-lg sm:text-xl mb-2">
             Quick Answer – For {locationInfo.area} Students
-          </h2>
-
+          </h4>
           <p className="text-slate-600 font-sans text-sm sm:text-base font-semibold leading-relaxed">
             {locationInfo.quickAnswerText}
           </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-6 pt-2 items-start">
-            {/* Nearest Branch */}
-            <div className="lg:col-span-2 flex items-start gap-3">
-              <div className="text-amber-500 shrink-0 pt-0.5">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <div className="space-y-0.5">
-                <p className="text-slate-500 font-sans text-xs font-semibold">Nearest Branch</p>
-                <p className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">{locationInfo.branchName}</p>
-              </div>
-            </div>
-
-            {/* Travel Time */}
-            <div className="lg:col-span-3 flex items-start gap-3">
-              <div className="text-amber-500 shrink-0 pt-0.5">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <div className="space-y-0.5">
-                <p className="text-slate-500 font-sans text-xs font-semibold">Travel Time</p>
-                <p className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">{locationInfo.travelTimeShort}</p>
-              </div>
-            </div>
-
-            {/* Courses Available */}
-            <div className="lg:col-span-4 flex items-start gap-3">
-              <div className="text-amber-500 shrink-0 pt-0.5">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
-              </div>
-              <div className="space-y-1">
-                <p className="text-slate-500 font-sans text-xs font-semibold">Courses Available</p>
-                <ul className="list-disc pl-4 space-y-1 font-outfit font-bold text-[#112A46] text-xs sm:text-sm">
-                  <li>Cabin Crew (Air Hostess) &amp; Hospitality Management</li>
-                  <li>Airport Ground Staff &amp; Hospitality Management</li>
-                  <li>AI &amp; Data Science</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Courses Duration */}
-            <div className="lg:col-span-3 flex items-start gap-3">
-              <div className="text-amber-500 shrink-0 pt-0.5">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="space-y-1">
-                <p className="text-slate-500 font-sans text-xs font-semibold">Courses Duration</p>
-                <ul className="list-disc pl-4 space-y-1 font-outfit font-bold text-[#112A46] text-xs sm:text-sm">
-                  <li>6 Months</li>
-                  <li>6 Months</li>
-                  <li>12 Months</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Block 4c: Quick Facts table & Block 4d: Nearest branch block */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 pb-16 grid grid-cols-1 lg:grid-cols-12 gap-8">
-
+        
         {/* Quick Facts Table (Left 7 Cols) */}
         <div className="lg:col-span-7 text-left space-y-4">
           <h3 className="text-2xl font-outfit font-extrabold text-[#112A46]">Quick Facts</h3>
@@ -762,7 +638,7 @@ export default function MumbaiSEODetail() {
                   <>
                     <tr className="hover:bg-slate-50">
                       <td className="p-3 bg-slate-50 font-bold text-[#112A46] w-1/3">Address</td>
-                      <td className="p-3">{locationInfo.branchAddress}</td>
+                      <td className="p-3">107 &amp; 108, Sai Infotech, Patel Chowk, Opposite Railway Station, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra – 400077</td>
                     </tr>
                     <tr className="hover:bg-slate-50">
                       <td className="p-3 bg-slate-50 font-bold text-[#112A46]">Travel Info</td>
@@ -819,33 +695,33 @@ export default function MumbaiSEODetail() {
 
         {/* Nearest Branch Block with Interactive Google Map (Right 5 Cols) */}
         <div className="lg:col-span-5 text-left space-y-4">
-          <h3 className="text-2xl font-outfit font-extrabold text-[#112A46]">{locationInfo.branchName} Branch (Nearest to {locationInfo.area})</h3>
+          <h3 className="text-2xl font-outfit font-extrabold text-[#112A46]">Ghatkopar Branch (Nearest to {locationInfo.area})</h3>
           <div className="bg-white border border-[#E1E5ED] rounded-[24px] p-6 shadow-md flex flex-col justify-between h-[calc(100%-2rem)]">
             <div className="space-y-4">
-
+              
               {/* Interactive Google Map iframe */}
               <div className="w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm aspect-[1.3] relative bg-neutral-100">
                 <iframe
-                  src={locationInfo.branchMapSrc}
+                  src="https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`${locationInfo.branchName} campus map location`}
+                  title="Ghatkopar campus map location"
                   className="absolute inset-0 w-full h-full"
                 ></iframe>
               </div>
 
               <p className="text-slate-600 font-sans text-xs sm:text-sm font-semibold leading-relaxed">
-                <strong>Address:</strong> {locationInfo.branchAddress}
+                <strong>Address:</strong> 107 &amp; 108, Sai Infotech, Patel Chowk, Opposite Railway Station, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra – 400077
               </p>
             </div>
 
             <div className="pt-6 space-y-3">
               <a
-                href={locationInfo.branchMapHref}
+                href="https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai"
                 target="_blank"
                 rel="noreferrer"
                 className="w-full py-4 bg-[#DF1818] hover:bg-[#c41212] text-white rounded-full text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md"
@@ -918,20 +794,15 @@ export default function MumbaiSEODetail() {
             </div>
             <div className="lg:col-span-8 flex flex-col justify-between text-left space-y-6">
               <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                <div className="flex justify-between items-start">
                   <h3 className="text-xl sm:text-2xl font-outfit font-extrabold text-[#112A46]">
                     {locationInfo.cabinCrewTitle}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-2 shrink-0">
-                    <span className="bg-[#DCE7FC] text-[#1C3E8A] text-[11px] font-bold px-3 py-1 rounded-full">
-                      6 Months
-                    </span>
-                    <span className="bg-[#DCE7FC] text-[#1C3E8A] text-[11px] font-bold px-3 py-1 rounded-full">
-                      Maharashtra Government Certified
-                    </span>
-                  </div>
+                  <span className="bg-blue-50 text-blue-600 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shrink-0">
+                    6 Months
+                  </span>
                 </div>
-
+                
                 <p className="text-slate-500 font-sans text-sm font-medium leading-relaxed">
                   {locationInfo.cabinCrewDesc}
                 </p>
@@ -969,18 +840,13 @@ export default function MumbaiSEODetail() {
             </div>
             <div className="lg:col-span-8 flex flex-col justify-between text-left space-y-6">
               <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                <div className="flex justify-between items-start">
                   <h3 className="text-xl sm:text-2xl font-outfit font-extrabold text-[#112A46]">
                     {locationInfo.groundStaffTitle}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-2 shrink-0">
-                    <span className="bg-[#DCE7FC] text-[#1C3E8A] text-[11px] font-bold px-3 py-1 rounded-full">
-                      6 Months
-                    </span>
-                    <span className="bg-[#DCE7FC] text-[#1C3E8A] text-[11px] font-bold px-3 py-1 rounded-full">
-                      Maharashtra Government Certified
-                    </span>
-                  </div>
+                  <span className="bg-blue-50 text-blue-600 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shrink-0">
+                    6 Months
+                  </span>
                 </div>
 
                 <p className="text-slate-500 font-sans text-sm font-medium leading-relaxed">
@@ -1020,18 +886,13 @@ export default function MumbaiSEODetail() {
             </div>
             <div className="lg:col-span-8 flex flex-col justify-between text-left space-y-6">
               <div className="space-y-4">
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                <div className="flex justify-between items-start">
                   <h3 className="text-xl sm:text-2xl font-outfit font-extrabold text-[#112A46]">
                     {locationInfo.aiTitle}
                   </h3>
-                  <div className="flex flex-wrap items-center gap-2 shrink-0">
-                    <span className="bg-[#FEF3C7] text-[#92400E] text-[11px] font-bold px-3 py-1 rounded-full">
-                      12 Months
-                    </span>
-                    <span className="bg-[#FEF3C7] text-[#92400E] text-[11px] font-bold px-3 py-1 rounded-full">
-                      Industry-Oriented Professional Training
-                    </span>
-                  </div>
+                  <span className="bg-amber-50 text-amber-600 text-[10px] font-extrabold uppercase px-3 py-1 rounded-full shrink-0">
+                    12 Months
+                  </span>
                 </div>
 
                 <p className="text-slate-500 font-sans text-sm font-medium leading-relaxed">
@@ -1067,92 +928,8 @@ export default function MumbaiSEODetail() {
         </div>
       </section>
 
-      {/* Train on a Real Mock Aircraft Section (Static for all area pages) */}
-      <section className="bg-white py-16 sm:py-24 px-6 border-b border-neutral-100 text-center">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <h2 className="text-3xl sm:text-[40px] font-outfit font-extrabold text-[#112A46] leading-tight">
-            Train on a Real Mock Aircraft
-          </h2>
-
-          <div className="max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-md">
-            <img
-              src={train1Img}
-              alt="Train on a Real Mock Aircraft Main Cabin"
-              className="w-full h-auto object-cover max-h-[500px]"
-            />
-          </div>
-
-          <p className="text-slate-600 font-sans text-sm sm:text-base font-semibold max-w-4xl mx-auto leading-relaxed">
-            Every Amigo Academy branch has a mock aircraft cabin. Students practise in-flight service, safety procedures, emergency drills and passenger handling inside it rather than only reading about them — so the aircraft environment is familiar before an interview, not new on the day.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
-            <div className="flex flex-col items-center space-y-3">
-              <div className="rounded-2xl overflow-hidden w-full h-44 border border-slate-100 shadow-sm">
-                <img src={train2Img} alt="In flight Service Practice" className="w-full h-full object-cover" />
-              </div>
-              <h4 className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">
-                In flight Service Practice
-              </h4>
-            </div>
-
-            <div className="flex flex-col items-center space-y-3">
-              <div className="rounded-2xl overflow-hidden w-full h-44 border border-slate-100 shadow-sm">
-                <img src={train3Img} alt="Safety Demonstrations" className="w-full h-full object-cover" />
-              </div>
-              <h4 className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">
-                Safety Demonstrations
-              </h4>
-            </div>
-
-            <div className="flex flex-col items-center space-y-3">
-              <div className="rounded-2xl overflow-hidden w-full h-44 border border-slate-100 shadow-sm">
-                <img src={train4Img} alt="Emergency Drill Training" className="w-full h-full object-cover" />
-              </div>
-              <h4 className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">
-                Emergency Drill Training
-              </h4>
-            </div>
-
-            <div className="flex flex-col items-center space-y-3">
-              <div className="rounded-2xl overflow-hidden w-full h-44 border border-slate-100 shadow-sm">
-                <img src={train5Img} alt="Passenger Handling and Communication" className="w-full h-full object-cover" />
-              </div>
-              <h4 className="font-outfit font-bold text-[#112A46] text-sm sm:text-base">
-                Passenger Handling and Communication
-              </h4>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Block 7: How to Reach Transit Block */}
+      {/* Block: What Makes Amigo Different (Static) */}
       <section className="bg-slate-50/50 py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <h2 className="text-3xl font-outfit font-extrabold text-[#112A46]">
-            How to Reach from {locationInfo.area}
-          </h2>
-
-          <div className="flex flex-wrap gap-6 justify-center">
-            {locationInfo.transitItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-sm border border-neutral-100 space-y-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm"
-              >
-                <h4 className="font-outfit font-bold text-[#112A46] text-base uppercase tracking-wider">
-                  {item.title}
-                </h4>
-                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Block: What Makes Amigo Different (Hidden) */}
-      <section className="hidden bg-slate-50/50 py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
         <div className="max-w-5xl mx-auto bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-sm">
           <h2 className="text-3xl font-outfit font-extrabold text-[#112A46] mb-12">
             What Makes Amigo Different
@@ -1230,8 +1007,8 @@ export default function MumbaiSEODetail() {
         </div>
       </section>
 
-      {/* Block: Career & Placement Support (Hidden) */}
-      <section className="hidden bg-white py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
+      {/* Block: Career & Placement Support (Static) */}
+      <section className="bg-white py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
         <div className="max-w-4xl mx-auto space-y-6">
           <h2 className="text-3xl font-outfit font-extrabold text-[#112A46]">
             Career &amp; Placement Support
@@ -1242,66 +1019,41 @@ export default function MumbaiSEODetail() {
         </div>
       </section>
 
+      {/* Block 7: How to Reach Transit Block */}
+      <section className="bg-slate-50/50 py-16 sm:py-24 px-6 border-t border-b border-slate-100 text-center">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <h2 className="text-3xl font-outfit font-extrabold text-[#112A46]">
+            How to Reach from {locationInfo.area}
+          </h2>
+
+          <div className="flex flex-wrap gap-6 justify-center">
+            {locationInfo.transitItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-3xl p-8 flex flex-col items-center text-center shadow-sm border border-neutral-100 space-y-4 w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] max-w-sm"
+              >
+                <h4 className="font-outfit font-bold text-[#112A46] text-base uppercase tracking-wider">
+                  {item.title}
+                </h4>
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-semibold">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Block 8: Why Consider Amigo Academy? */}
-      <section className="bg-slate-50/70 py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
-        <div className="max-w-6xl mx-auto space-y-12">
-          <h2 className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#112A46]">
+      <section className="bg-white py-16 sm:py-24 px-6 border-b border-slate-100 text-center">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <h2 className="text-3xl font-outfit font-extrabold text-[#112A46]">
             Why Consider Amigo Academy from {locationInfo.area}?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            {/* Card 1: Government Approved */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-4 flex flex-col justify-start">
-              <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                </svg>
-              </div>
-              <h3 className="font-outfit font-bold text-[#112A46] text-lg">
-                Government Approved
-              </h3>
-              <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">
-                Our Air Hostess / Cabin Crew and Airport Ground Staff programmes are Maharashtra Government Certified ensuring your qualification holds weight across the industry.
-              </p>
-            </div>
-
-            {/* Card 2: Placement Support */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-4 flex flex-col justify-start">
-              <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="font-outfit font-bold text-[#112A46] text-lg">
-                Placement Support
-              </h3>
-              <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">
-                Dedicated placement cell support you through applications and interviews. Final selection rests with the employer.
-              </p>
-            </div>
-
-            {/* Card 3: Practical Training */}
-            <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100 shadow-sm space-y-4 flex flex-col justify-start">
-              <div className="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </div>
-              <h3 className="font-outfit font-bold text-[#112A46] text-lg">
-                Practical Training
-              </h3>
-              <p className="text-slate-500 text-xs sm:text-sm font-medium leading-relaxed">
-                Mock cabins, grooming sessions, and live projects for hands-on experience.
-              </p>
-            </div>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-6 pt-4 text-center">
-            <p className="text-slate-600 font-sans font-medium text-sm sm:text-base leading-relaxed">
-              For a student still deciding between an aviation career and a technology career, being able to sit down with a counsellor and compare both honestly, in one visit, saves a lot of time. All three of our programmes run from the same {locationInfo.branchName} centre, so you are not travelling to two places to make one decision.
-            </p>
-            <p className="text-slate-600 font-sans font-medium text-sm sm:text-base leading-relaxed">
-              The short commute also matters more than students expect. Even a six-month course means well over a hundred trips to class, and the AI &amp; Data Science programme runs twice that. Two stops is sustainable. Ninety minutes each way usually is not.
+          <div className="max-w-3xl mx-auto bg-slate-50/50 rounded-2xl p-6 sm:p-8 border border-neutral-100 text-center">
+            <p className="text-slate-600 font-sans font-semibold text-sm sm:text-base leading-relaxed">
+              {locationInfo.whyConsiderText}
             </p>
           </div>
         </div>
@@ -1342,6 +1094,32 @@ export default function MumbaiSEODetail() {
         <p className="text-xs sm:text-sm text-slate-400 font-semibold font-sans">
           Reviewed by the Amigo Academy Academic Team · Last updated {currentMonthYear}
         </p>
+      </section>
+
+      {/* Block 15: Related pages */}
+      <section className="bg-slate-50/20 py-16 px-6 text-left">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <h4 className="text-lg font-outfit font-extrabold text-[#112A46]">Related Resources</h4>
+          <p className="text-slate-500 font-sans text-sm font-semibold leading-relaxed">
+            Interested in learning more? Read our guides on the{" "}
+            <Link to="/career-guide/cabin-crew" className="text-[#DF1818] hover:underline">Air Hostess / Cabin Crew course</Link>,{" "}
+            <Link to="/career-guide/airport-ground-staff" className="text-[#DF1818] hover:underline">Airport Ground Staff course</Link>, and the{" "}
+            <Link to="/career-guide/ai-data-science" className="text-[#DF1818] hover:underline">AI &amp; Data Science course</Link>. You can also review details on{" "}
+            <Link to="/career-guides" className="text-[#DF1818] hover:underline">Air hostess course fees in Mumbai</Link> and{" "}
+            <Link to="/career-guides" className="text-[#DF1818] hover:underline">Cabin crew eligibility after 12th</Link>.
+          </p>
+          <div className="flex flex-wrap gap-3 pt-4">
+            <Link to="/scholarship" className="px-4 py-2 bg-white border border-slate-200 text-slate-500 hover:text-[#DF1818] rounded-full text-xs font-semibold shadow-sm transition-all">
+              Amigo Academy Scholarship
+            </Link>
+            <Link to="/ghatkopar-branch" className="px-4 py-2 bg-white border border-slate-200 text-slate-500 hover:text-[#DF1818] rounded-full text-xs font-semibold shadow-sm transition-all">
+              Ghatkopar Branch
+            </Link>
+            <Link to="/locations" className="px-4 py-2 bg-white border border-slate-200 text-slate-500 hover:text-[#DF1818] rounded-full text-xs font-semibold shadow-sm transition-all">
+              All areas we serve
+            </Link>
+          </div>
+        </div>
       </section>
 
     </div>
