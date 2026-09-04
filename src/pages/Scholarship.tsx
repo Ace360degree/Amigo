@@ -651,6 +651,155 @@ export default function Scholarship() {
           </div>
         </div>
       </section>
+      {/* Financial Support Benefits Section */}
+      <section className="w-full bg-[#f1f5f9] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
+        <div className="max-w-7xl mx-auto space-y-16 text-center">
+
+          {/* Header */}
+          <div className="space-y-4 max-w-2xl mx-auto flex flex-col items-center">
+            <span className="bg-[#fdf3e7] text-[#7c5529] text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-500/10">
+              STUDENT BENEFITS
+            </span>
+            <h2 className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] leading-tight">
+              Financial Support Benefits
+            </h2>
+            <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed max-w-xl font-semibold">
+              Practical benefits that make premium aviation and technology training affordable for Mumbai families.
+            </p>
+          </div>
+
+          {/* 3x2 Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+
+            {/* Card 1 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons1.png", import.meta.url).href}
+                    alt="Reduced Course Fees Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Reduced Course Fees
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    Approved scholarships come straight off your total course fee.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons2.png", import.meta.url).href}
+                    alt="Flexible EMI Plans Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Flexible EMI Plans
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    Monthly installments planned around your family's cash flow.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons3.png", import.meta.url).href}
+                    alt="Affordable Career Training Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Affordable Career Training
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    Premium aviation and technology training at a reachable cost.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons4.png", import.meta.url).href}
+                    alt="Easy Application Process Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Easy Application Process
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    One short enquiry starts your free eligibility assessment.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons5.png", import.meta.url).href}
+                    alt="Dedicated Counselling Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Dedicated Counselling
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    A named counsellor stays with you from enquiry to admission.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <img
+                    src={new URL("../assets/img/icons6.png", import.meta.url).href}
+                    alt="Student-Focused Financial Support Icon"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Student-Focused Financial Support
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    Support designed so finances never decide your career.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* Student Success Testimonials Section */}
       <section className="w-full bg-[#f1f5f9] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
