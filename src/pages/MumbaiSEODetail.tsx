@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams, Link, useMatch } from "@tanstack/react-router";
+import { useNavigate, useParams, Link, useMatch, useLoaderData } from "@tanstack/react-router";
 import Swal from "sweetalert2";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
@@ -72,8 +72,9 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 export default function MumbaiSEODetail() {
   const { slug } = useParams({ strict: false }) as { slug?: string };
   const navigate = useNavigate();
+  const loaderData = useLoaderData({ strict: false }) as { post?: WPPost } | undefined;
   const match = useMatch({ strict: false }) as { loaderData?: { post?: WPPost } } | undefined;
-  const initialSeoPage = match?.loaderData?.post || null;
+  const initialSeoPage = loaderData?.post || match?.loaderData?.post || null;
 
   const [seoPage, setSeoPage] = useState<WPPost | null>(initialSeoPage);
   const [loading, setLoading] = useState(!initialSeoPage);

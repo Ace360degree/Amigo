@@ -1,23 +1,45 @@
 import { createFileRoute } from "@tanstack/react-router";
 import DynamicSlugRoute from "../pages/DynamicSlugRoute";
-import { fetchSEOPageBySlug } from "../services/wordpress";
+import { fetchBlogPostBySlug, fetchSEOPageBySlug } from "../services/wordpress";
 
 export const Route = createFileRoute("/$slug")({
   loader: async ({ params }) => {
-    const post = await fetchSEOPageBySlug(params.slug);
-    return { post, slug: params.slug };
+    const slug = params.slug;
+    try {
+      const blogPost = await fetchBlogPostBySlug(slug);
+      if (blogPost && blogPost.content && blogPost.content.rendered !== "") {
+        return { type: "blog" as const, post: blogPost, slug };
+      }
+    } catch { }
+
+    try {
+      const seoPage = await fetchSEOPageBySlug(slug);
+      return { type: "seo" as const, post: seoPage, slug };
+    } catch {
+      return { type: "seo" as const, post: null, slug };
+    }
   },
   head: ({ loaderData }) => {
-    const title = loaderData?.post?.title?.rendered
-      ? `${loaderData.post.title.rendered} | Amigo Academy`
-      : "Amigo Academy Mumbai";
+    const post = loaderData?.post;
+    const slug = loaderData?.slug || "";
+    const rawTitle = post?.title?.rendered || "";
+    const cleanTitle = rawTitle.replace(/<[^>]+>/g, "").trim();
+
+    const title = cleanTitle
+      ? `${cleanTitle} | Amigo Academy`
+      : `Air Hostess, Cabin Crew & Ground Staff Training near ${slug.replace(/-/g, " ")} | Amigo Academy`;
+
+    const rawExcerpt = post?.excerpt?.rendered || "";
+    const cleanExcerpt = rawExcerpt.replace(/<[^>]+>/g, "").trim();
+    const description = cleanExcerpt || `Join Amigo Academy for premier Aviation, Cabin Crew & Ground Staff training near ${slug.replace(/-/g, " ")}. Guaranteed placement assistance & scholarships available.`;
+
     return {
       meta: [
         { title },
-        { name: "description", content: `Aviation, Cabin Crew, and Airport Ground Staff training programs near ${loaderData?.slug || "Mumbai"}.` }
+        { name: "description", content: description }
       ],
       links: [
-        { rel: "canonical", href: `https://staging.amigoacademy.in/${loaderData?.slug || ""}` }
+        { rel: "canonical", href: `https://staging.amigoacademy.in/${slug}` }
       ]
     };
   },

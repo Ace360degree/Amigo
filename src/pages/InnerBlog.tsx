@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useNavigate, useParams, Link, useMatch } from "@tanstack/react-router";
+import { useNavigate, useParams, Link, useMatch, useLoaderData } from "@tanstack/react-router";
 import innerBlogImg from "../assets/img/innerblogimg.png";
 import innerBlogImg1 from "../assets/img/innerblogimg2.png";
 import imgAviation1 from "../assets/img/BlogInsights1.png";
@@ -79,8 +79,9 @@ function FAQAccordionItem({ index, question, answer }: { index: number; question
 export default function InnerBlog() {
   const navigate = useNavigate();
   const { slug } = useParams({ strict: false }) as { slug?: string };
+  const loaderData = useLoaderData({ strict: false }) as { post?: WPPost } | undefined;
   const match = useMatch({ strict: false }) as { loaderData?: { post?: WPPost } } | undefined;
-  const initialPost = match?.loaderData?.post || null;
+  const initialPost = loaderData?.post || match?.loaderData?.post || null;
 
   const [post, setPost] = useState<WPPost | null>(initialPost);
   const [allPosts, setAllPosts] = useState<WPPost[]>([]);
@@ -122,8 +123,10 @@ export default function InnerBlog() {
     }
   }, [slug]);
 
+  const currentPost = post || initialPost;
+
   const parsedBlog = useMemo(() => {
-    if (!post || !post.content || !post.content.rendered) {
+    if (!currentPost || !currentPost.content || !currentPost.content.rendered) {
       return {
         isFallback: true,
         toc: [
@@ -165,7 +168,7 @@ export default function InnerBlog() {
 
     if (typeof DOMParser === "undefined") {
       const headings: TOCItem[] = [];
-      const matches = post.content.rendered.matchAll(/<(h[23])(?:[^>]*id=["']([^"']+)["'])?[^>]*>(.*?)<\/h[23]>/gi);
+      const matches = currentPost.content.rendered.matchAll(/<(h[23])(?:[^>]*id=["']([^"']+)["'])?[^>]*>(.*?)<\/h[23]>/gi);
       let idx = 0;
       for (const m of matches) {
         const tag = m[1].toUpperCase();
@@ -175,14 +178,14 @@ export default function InnerBlog() {
         idx++;
       }
       return {
-        cleanedHtml: post.content.rendered,
+        cleanedHtml: currentPost.content.rendered,
         toc: headings,
         faqs: []
       };
     }
 
     const parser = new DOMParser();
-    const doc = parser.parseFromString(post.content.rendered, "text/html");
+    const doc = parser.parseFromString(currentPost.content.rendered, "text/html");
     
     // Extract FAQs if present in HTML body
     const extractedFaqs: { question: string; answer: string }[] = [];
