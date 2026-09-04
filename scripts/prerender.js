@@ -148,17 +148,23 @@ async function runPrerender() {
         pageHtml = fixAssetPaths(pageHtml);
 
         // Determine destination file path
-        let filePath;
         if (url === "/") {
-          filePath = path.resolve(distDir, "index.html");
+          const filePath = path.resolve(distDir, "index.html");
+          fs.mkdirSync(path.dirname(filePath), { recursive: true });
+          fs.writeFileSync(filePath, pageHtml, "utf-8");
         } else {
           const routePath = url.startsWith("/") ? url.slice(1) : url;
-          filePath = path.resolve(distDir, routePath, "index.html");
-        }
 
-        // Ensure directory exists
-        fs.mkdirSync(path.dirname(filePath), { recursive: true });
-        fs.writeFileSync(filePath, pageHtml, "utf-8");
+          // 1. Directory index file (e.g. dist/blog/some-slug/index.html)
+          const dirFilePath = path.resolve(distDir, routePath, "index.html");
+          fs.mkdirSync(path.dirname(dirFilePath), { recursive: true });
+          fs.writeFileSync(dirFilePath, pageHtml, "utf-8");
+
+          // 2. Clean .html file for Vercel cleanUrls (e.g. dist/blog/some-slug.html)
+          const cleanFilePath = path.resolve(distDir, `${routePath}.html`);
+          fs.mkdirSync(path.dirname(cleanFilePath), { recursive: true });
+          fs.writeFileSync(cleanFilePath, pageHtml, "utf-8");
+        }
 
         count++;
         if (count % 10 === 0 || count === routes.length) {
