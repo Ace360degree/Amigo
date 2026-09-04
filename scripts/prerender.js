@@ -36,8 +36,15 @@ async function runPrerender() {
     for (const [key, val] of Object.entries(manifest)) {
       if (val.file) {
         const bundledPath = "/" + val.file;
+        const decodedKey = decodeURIComponent(key);
+        const encodedKey = encodeURI(key);
+        
         manifestMap.set(key, bundledPath);
         manifestMap.set("/" + key, bundledPath);
+        manifestMap.set(decodedKey, bundledPath);
+        manifestMap.set("/" + decodedKey, bundledPath);
+        manifestMap.set(encodedKey, bundledPath);
+        manifestMap.set("/" + encodedKey, bundledPath);
       }
     }
   }
@@ -51,6 +58,7 @@ async function runPrerender() {
       if (match) {
         const originalName = match[1] + "." + match[2];
         fallbackMap.set(originalName, "/assets/" + file);
+        fallbackMap.set(decodeURIComponent(originalName), "/assets/" + file);
       }
     }
   }
@@ -64,7 +72,8 @@ async function runPrerender() {
       }
     }
     // Fallback replace any remaining /src/assets/... or /@fs/.../src/assets/... references
-    result = result.replace(/(?:src=|href=|url\(['"]?)(?:(?:\/@fs)?\/[^"'\(\)\s]+\/src\/assets\/|\/src\/assets\/)([^"'\(\)\s\?#]+)/g, (fullMatch, assetRelPath) => {
+    result = result.replace(/(?:src=|href=|url\(['"]?)(?:(?:\/@fs)?\/[^"'\(\)\s]+\/src\/assets\/|\/src\/assets\/)([^"'\(\)\s\?#]+)/g, (fullMatch, rawAssetRelPath) => {
+      const assetRelPath = decodeURIComponent(rawAssetRelPath);
       const filename = path.basename(assetRelPath);
       if (fallbackMap.has(filename)) {
         const fixed = fallbackMap.get(filename);

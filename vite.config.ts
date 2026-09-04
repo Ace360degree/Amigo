@@ -13,7 +13,9 @@ export default defineConfig({
   ],
   build: {
     manifest: true,
+    assetsInlineLimit: 0,
   },
 });
+
 
 
