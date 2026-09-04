@@ -336,7 +336,7 @@ export default function AirHostessCabinCrew() {
       <section className="hidden sm:flex w-full bg-[#f1f5f9] h-[650px] relative overflow-hidden items-center border-b border-neutral-200/50">
         <div className="absolute top-0 right-0 h-full w-full lg:w-[55%] z-0">
           <img
-            src={new URL("../assets/img/aircourseh111a.png", import.meta.url).href}
+            src={heroImage}
             alt="Air Hostess and Cabin Crew Training"
             className="h-full w-full object-cover object-center"
             onError={(e) => {

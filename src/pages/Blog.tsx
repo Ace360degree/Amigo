@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import Bloghero from "../assets/img/blogheroimgy.png";
+import mobileHeroBlog from "../assets/img/mobileheroblog.png";
 
 import imgAviation1 from "../assets/img/BlogInsights1.png";
 import imgAviation2 from "../assets/img/BlogInsights2.png";
@@ -240,7 +241,7 @@ export default function Blog() {
                 {/* Mobile Background Image Container */}
                 <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
                     <img
-                        src={new URL("../assets/img/mobileheroblog.png", import.meta.url).href}
+                        src={mobileHeroBlog}
                         alt="Amigo Academy Blog Mobile"
                         className="w-full h-full object-cover object-[right_center]"
                         onError={(e) => {

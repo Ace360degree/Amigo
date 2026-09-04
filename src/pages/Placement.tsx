@@ -38,6 +38,9 @@ import placementbrandy3 from "../assets/img/placementbrandy3.png";
 import placementbrandy4 from "../assets/img/placementbrandy4.png";
 import placementbrandy5 from "../assets/img/placementbrandy5.png";
 import placementbrandy6 from "../assets/img/placementbrandy6.png";
+
+import placementHero from "../assets/img/placementhero.png";
+import mobileHeroPlacement from "../assets/img/mobileheroplacement.png";
 import placementbrandy7 from "../assets/img/placementbrandy7.png";
 import placementbrandy8 from "../assets/img/placementbrandy8.png";
 import placementbrandy9 from "../assets/img/placementbrandy9.png";
@@ -340,12 +343,9 @@ export default function Placement() {
         {/* Desktop Background Image: right-0, lg:w-[42%], hidden on mobile */}
         <div className="hidden lg:block absolute top-0 right-0 h-full w-[42%] z-0">
           <img
-            src={new URL("../assets/img/placementhero.png", import.meta.url).href}
+            src={placementHero}
             alt="Student Placements Success"
             className="h-full w-full object-cover object-top lg:object-[35%_top]"
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
-            }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/30 via-[18%] to-transparent to-[38%] z-10" />
         </div>
@@ -353,12 +353,9 @@ export default function Placement() {
         {/* Mobile Background Image: w-full, height is 100% */}
         <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
           <img
-            src={new URL("../assets/img/mobileheroplacement.png", import.meta.url).href}
+            src={mobileHeroPlacement}
             alt="Student Placements Success Mobile"
             className="w-full h-full object-cover object-[right_center]"
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
-            }}
           />
         </div>
 

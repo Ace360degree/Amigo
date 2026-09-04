@@ -2,6 +2,14 @@ import React from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { submitContactForm } from "../services/api";
 import Swal from "sweetalert2";
+import franchiseHero from "../assets/img/Franchisehero.png";
+import mobileFranchise from "../assets/img/mobilefranchise.png";
+import franchiseIcons1 from "../assets/img/Franchiseicons1.png";
+import franchiseIcons2 from "../assets/img/Franchiseicons2.png";
+import franchiseIcons3 from "../assets/img/Franchiseicons3.png";
+import franchiseIcons4 from "../assets/img/Franchiseicons4.png";
+import franchiseIcons5 from "../assets/img/Franchiseicons5.png";
+import franchiseIcons6 from "../assets/img/Franchiseicons6.png";
 
 export default function Franchise() {
     const navigate = useNavigate();
@@ -83,13 +91,9 @@ export default function Franchise() {
                 {/* Desktop Background Image: right-0, w-[50%], object-center */}
                 <div className="hidden lg:block absolute top-0 right-0 h-full w-[50%] z-0">
                     <img
-                        src={new URL("../assets/img/Franchisehero.png", import.meta.url).href}
+                        src={franchiseHero}
                         alt="Partner With Amigo Academy - Franchise Opportunity"
                         className="h-full w-full object-cover object-center"
-                        onError={(e) => {
-                            // Fallback mockup image
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800";
-                        }}
                     />
                     {/* Gradient overlay to fade left edge into white without covering contents */}
                     <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
@@ -98,12 +102,9 @@ export default function Franchise() {
                 {/* Mobile Background Image: w-full, height is 100%, with linear gradient overlay */}
                 <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
                     <img
-                        src={new URL("../assets/img/mobilefranchise.png", import.meta.url).href}
+                        src={mobileFranchise}
                         alt="Partner With Amigo Academy - Franchise Opportunity Mobile"
                         className="w-full h-full object-cover object-right"
-                        onError={(e) => {
-                            e.currentTarget.src = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800";
-                        }}
                     />
                     {/* Gradient overlay to fade left side into white */}
                     <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-40% to-transparent z-10" />
@@ -661,37 +662,37 @@ export default function Franchise() {
                                     step: "STEP 1",
                                     title: "Submit Franchise Enquiry",
                                     desc: "Share your details, city and preferred location through the form below.",
-                                    iconImg: new URL("../assets/img/Franchiseicons1.png", import.meta.url).href
+                                    iconImg: franchiseIcons1
                                 },
                                 {
                                     step: "STEP 2",
                                     title: "Discussion With Franchise Team",
                                     desc: "We understand your goals and answer every question openly.",
-                                    iconImg: new URL("../assets/img/Franchiseicons2.png", import.meta.url).href
+                                    iconImg: franchiseIcons2
                                 },
                                 {
                                     step: "STEP 3",
                                     title: "Location Evaluation",
                                     desc: "We assess demand, competition and suitability of your proposed location.",
-                                    iconImg: new URL("../assets/img/Franchiseicons3.png", import.meta.url).href
+                                    iconImg: franchiseIcons3
                                 },
                                 {
                                     step: "STEP 4",
                                     title: "Business Proposal",
                                     desc: "You receive a clear proposal covering investment, model and returns.",
-                                    iconImg: new URL("../assets/img/Franchiseicons4.png", import.meta.url).href
+                                    iconImg: franchiseIcons4
                                 },
                                 {
                                     step: "STEP 5",
                                     title: "Training & Setup",
                                     desc: "Faculty training, curriculum handover and complete centre setup support.",
-                                    iconImg: new URL("../assets/img/Franchiseicons5.png", import.meta.url).href
+                                    iconImg: franchiseIcons5
                                 },
                                 {
                                     step: "STEP 6",
                                     title: "Launch Your Centre",
                                     desc: "Marketing launch, first admissions and ongoing head-office support.",
-                                    iconImg: new URL("../assets/img/Franchiseicons6.png", import.meta.url).href
+                                    iconImg: franchiseIcons6
                                 }
                             ].map((card, idx) => (
                                 <div key={idx} className="flex flex-col items-center">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import heroContact from "../assets/img/herocontact.png";
+import mobileHeroContact from "../assets/img/mobileherocontant.png";
 import Swal from "sweetalert2";
 
 interface ContactProps {
@@ -34,7 +35,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
         {/* Mobile Background Image Container */}
         <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
           <img
-            src={new URL("../assets/img/mobileherocontant.png", import.meta.url).href}
+            src={mobileHeroContact}
             alt="Contact Amigo Academy Mobile"
             className="w-full h-full object-cover object-[right_center]"
             onError={(e) => {

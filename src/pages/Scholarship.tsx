@@ -1,6 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import heroScholarship from "../assets/img/heroscholarship.png";
+import mobileHeroScholarship from "../assets/img/mobileheroScholarship.png";
+import icon1 from "../assets/img/icon1.png";
+import icon2 from "../assets/img/icon2.png";
+import icon3 from "../assets/img/icon3.png";
+import icon4 from "../assets/img/icon4.png";
+import icon5 from "../assets/img/icon5.png";
+import icons1 from "../assets/img/icons1.png";
+import icons2 from "../assets/img/icons2.png";
+import icons3 from "../assets/img/icons3.png";
+import icons4 from "../assets/img/icons4.png";
+import icons5 from "../assets/img/icons5.png";
+import icons6 from "../assets/img/icons6.png";
+import profileImg1 from "../assets/img/profileimg1.png";
+import profileImg2 from "../assets/img/profileimg2.png";
+import profileImg3 from "../assets/img/profileimg3.png";
+import profileImg4 from "../assets/img/profileimg4.png";
+import profileImg5 from "../assets/img/profileimg5.png";
+import profileImg6 from "../assets/img/profileimg6.png";
 
 function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,12 +97,9 @@ export default function Scholarship() {
         {/* Mobile Background Image: w-full, height is 100% */}
         <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
           <img
-            src={new URL("../assets/img/mobileheroScholarship.png", import.meta.url).href}
-            alt="Amigo Academy Scholarship counseling Mobile"
+            src={mobileHeroScholarship}
+            alt="Scholarship & Financial Assistance Mobile"
             className="w-full h-full object-cover object-[right_center]"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
           />
         </div>
 
@@ -238,115 +253,108 @@ export default function Scholarship() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
 
             {/* Card 1 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <path d="M22 10 12 5 2 10l10 5 10-5Z" />
-                    <path d="M6 12v5c0 1.5 2.5 3 6 3s6-1.5 6-3v-5" />
-                  </svg>
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start text-left min-h-[220px] shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+              <div className="space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icon1}
+                    alt="Scholarship Assistance"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Scholarships up to ₹50,000
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Eligible students receive a direct reduction on course fees, assessed transparently by our counsellors.
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Scholarship Assistance</h4>
+                <p className="text-neutral-500 text-xs mt-1 leading-relaxed">
+                  Financial support up to ₹50,000 for deserving candidates across all aviation & hospitality programs.
                 </p>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Z" />
-                    <path d="M20 7V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2" />
-                    <path d="M18 13h.01" />
-                  </svg>
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start text-left min-h-[220px] shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+              <div className="space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icon2}
+                    alt="Zero-Interest EMI"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Flexible Payment Options
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Choose a payment plan that fits your family's monthly budget instead of a single upfront fee.
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Zero-Interest EMI</h4>
+                <p className="text-neutral-500 text-xs mt-1 leading-relaxed">
+                  Flexible monthly payment options with zero-interest EMI to ease the fee structure burden.
                 </p>
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <rect x="2" y="5" width="20" height="14" rx="2" />
-                    <path d="M2 10h20" />
-                    <path d="M6 15h4" />
-                  </svg>
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start text-left min-h-[220px] shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+              <div className="space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icon3}
+                    alt="Merit & Need Based"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Zero–Interest EMI
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Spread your fees across convenient installments with absolutely no interest added.
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Merit & Need Based</h4>
+                <p className="text-neutral-500 text-xs mt-1 leading-relaxed">
+                  Evaluated fairly through our online/offline scholarship test and 12th pass academic scores.
                 </p>
               </div>
             </div>
 
             {/* Card 4 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
-                    <path d="M14 2v6h6" />
-                    <path d="m9 15 2 2 4-4" />
-                  </svg>
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start text-left min-h-[220px] shadow-sm border border-neutral-100 hover:shadow-md transition-shadow">
+              <div className="space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icon4}
+                    alt="Transparent Process"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Transparent Eligibility Process
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  You know exactly what you qualify for, and why, before you pay a single rupee.
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">Transparent Process</h4>
+                <p className="text-neutral-500 text-xs mt-1 leading-relaxed">
+                  Direct deduction from total course fees with zero hidden conditions or surprise charges.
                 </p>
               </div>
             </div>
 
             {/* Card 5 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <path d="M3 14v-3a9 9 0 0 1 18 0v3" />
-                    <path d="M21 14v3a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h3Z" />
-                    <path d="M3 14v3a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H3Z" />
-                  </svg>
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between items-start text-left min-h-[220px] shadow-sm border border-neutral-100 hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1">
+              <div className="space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icon5}
+                    alt="100% Equal Opportunity"
+                    className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
+                  />
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Expert Counselling
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Real counsellors walk you and your parents through fees, support and career outcomes.
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">100% Equal Opportunity</h4>
+                <p className="text-neutral-500 text-xs mt-1 leading-relaxed">
+                  Open to all eligible students applying for Ghatkopar, Andheri & Thane branches.
                 </p>
               </div>
             </div>
 
             {/* Card 6 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_10px_30px_rgba(11,47,97,0.05)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-3.5">
-                <div className="w-10 h-10 rounded-full bg-[#fdf3e7] text-[#7c5529] flex items-center justify-center p-2.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                    <rect x="2" y="7" width="20" height="14" rx="2" />
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                    <path d="M2 13h20" />
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
+              <div className="space-y-4">
+                <div className="w-10 h-10 flex items-center justify-center">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full text-[#7c5529]">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+                    <path d="M14 2v6h6" />
+                    <path d="m9 15 2 2 4-4" />
                   </svg>
                 </div>
-                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                  Career–Focused Education
-                </h4>
-                <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                  Every rupee goes into practical training, grooming, interview preparation and placement support.
-                </p>
+                <div className="space-y-2">
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
+                    Career–Focused Education
+                  </h4>
+                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
+                    Every rupee goes into practical training, grooming, interview preparation and placement support.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -366,139 +374,121 @@ export default function Scholarship() {
               Scholarship Eligibility Process
             </h2>
             <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed max-w-xl font-semibold">
-              Five clear steps from your first enquiry to a confirmed seat with your scholarship applied.
+              Six clear steps from your first enquiry to a confirmed seat with your scholarship applied.
             </p>
           </div>
 
           {/* Timeline Layout */}
-          <div className="relative pt-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
 
-            {/* Horizontal Timeline Connector Bar */}
-            <div className="absolute top-[47px] left-[10%] right-[10%] h-[3px] bg-[#1d4ed8] z-0 hidden lg:block" />
-
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 relative z-10">
-
-              {/* Step 1 */}
-              <div className="flex flex-col items-center space-y-6">
-                {/* Node Image */}
-                <div className="w-16 h-16 flex items-center justify-center">
+            {/* Process Card 1 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
                   <img
-                    src={new URL("../assets/img/icon1.png", import.meta.url).href}
-                    alt="Step 1 Icon"
-                    className="w-full h-full object-contain"
+                    src={icons1}
+                    alt="Step 1"
+                    className="w-8 h-8 object-contain"
                   />
                 </div>
-                {/* Content Card with visible shadow and border to look like a container */}
-                <div className="bg-white rounded-3xl p-6 border border-neutral-200/80 shadow-[0_10px_30px_rgba(11,47,97,0.05)] text-center w-full max-w-[240px] space-y-2">
-                  <span className="text-[10px] font-extrabold text-[#e31e24] uppercase tracking-widest block font-sans">
-                    STEP 1
-                  </span>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base leading-tight">
-                    Submit Enquiry
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Share your name, course interest and preferred branch — takes under a minute.
-                  </p>
-                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 1</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Online Registration</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Fill out the quick scholarship application form on this page with your basic academic details.
+                </p>
               </div>
-
-              {/* Step 2 */}
-              <div className="flex flex-col items-center space-y-6">
-                {/* Node Image */}
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icon2.png", import.meta.url).href}
-                    alt="Step 2 Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Content Card with visible shadow and border to look like a container */}
-                <div className="bg-white rounded-3xl p-6 border border-neutral-200/80 shadow-[0_10px_30px_rgba(11,47,97,0.05)] text-center w-full max-w-[240px] space-y-2">
-                  <span className="text-[10px] font-extrabold text-[#e31e24] uppercase tracking-widest block font-sans">
-                    STEP 2
-                  </span>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base leading-tight">
-                    Talk to Counsellor
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    A counsellor calls you to understand your background, goals and budget.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="flex flex-col items-center space-y-6">
-                {/* Node Image */}
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icon3.png", import.meta.url).href}
-                    alt="Step 3 Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Content Card with visible shadow and border to look like a container */}
-                <div className="bg-white rounded-3xl p-6 border border-neutral-200/80 shadow-[0_10px_30px_rgba(11,47,97,0.05)] text-center w-full max-w-[240px] space-y-2">
-                  <span className="text-[10px] font-extrabold text-[#e31e24] uppercase tracking-widest block font-sans">
-                    STEP 3
-                  </span>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base leading-tight">
-                    Eligibility Assessment
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    We review your profile against our scholarship criteria — free of cost.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 4 */}
-              <div className="flex flex-col items-center space-y-6">
-                {/* Node Image */}
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icon4.png", import.meta.url).href}
-                    alt="Step 4 Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Content Card with visible shadow and border to look like a container */}
-                <div className="bg-white rounded-3xl p-6 border border-neutral-200/80 shadow-[0_10px_30px_rgba(11,47,97,0.05)] text-center w-full max-w-[240px] space-y-2">
-                  <span className="text-[10px] font-extrabold text-[#e31e24] uppercase tracking-widest block font-sans">
-                    STEP 4
-                  </span>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base leading-tight">
-                    Scholarship Approval
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    You receive your approved scholarship amount and EMI plan in writing.
-                  </p>
-                </div>
-              </div>
-
-              {/* Step 5 */}
-              <div className="flex flex-col items-center space-y-6">
-                {/* Node Image */}
-                <div className="w-16 h-16 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icon5.png", import.meta.url).href}
-                    alt="Step 5 Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                {/* Content Card with visible shadow and border to look like a container */}
-                <div className="bg-white rounded-3xl p-6 border border-neutral-200/80 shadow-[0_10px_30px_rgba(11,47,97,0.05)] text-center w-full max-w-[240px] space-y-2">
-                  <span className="text-[10px] font-extrabold text-[#e31e24] uppercase tracking-widest block font-sans">
-                    STEP 5
-                  </span>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base leading-tight">
-                    Admission
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Confirm your seat, pick your batch and begin your career training.
-                  </p>
-                </div>
-              </div>
-
             </div>
+
+            {/* Process Card 2 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icons2}
+                    alt="Step 2"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 2</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Counseling Call</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Our academic team calls you to confirm eligibility and schedule your scholarship evaluation session.
+                </p>
+              </div>
+            </div>
+
+            {/* Process Card 3 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icons3}
+                    alt="Step 3"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 3</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Aptitude & Grooming Test</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Appear for a simple online or branch assessment evaluating basic communication, personality & aptitude.
+                </p>
+              </div>
+            </div>
+
+            {/* Process Card 4 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icons4}
+                    alt="Step 4"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 4</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Scholarship Grant</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Based on test performance and academic profile, receive a fee scholarship grant up to ₹50,000.
+                </p>
+              </div>
+            </div>
+
+            {/* Process Card 5 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icons5}
+                    alt="Step 5"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 5</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Flexible EMI Setup</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Choose customized monthly zero-interest EMI plans suited to your family's budget.
+                </p>
+              </div>
+            </div>
+
+            {/* Process Card 6 */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between text-left shadow-sm border border-neutral-100 min-h-[220px] relative overflow-hidden group">
+              <div className="space-y-3 relative z-10">
+                <div className="w-14 h-14 rounded-2xl bg-[#fdf3e7] flex items-center justify-center text-[#7c5529]">
+                  <img
+                    src={icons6}
+                    alt="Step 6"
+                    className="w-8 h-8 object-contain"
+                  />
+                </div>
+                <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#e31e24]">Step 6</span>
+                <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">Batch Confirmation</h4>
+                <p className="text-neutral-500 text-xs leading-relaxed">
+                  Lock your seat at Ghatkopar, Andheri or Thane branch and begin your transformation journey.
+                </p>
+              </div>
+            </div>
+
           </div>
 
         </div>
@@ -661,155 +651,6 @@ export default function Scholarship() {
           </div>
         </div>
       </section>
-      {/* Financial Support Benefits Section */}
-      <section className="w-full bg-[#f1f5f9] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
-        <div className="max-w-7xl mx-auto space-y-16 text-center">
-
-          {/* Header */}
-          <div className="space-y-4 max-w-2xl mx-auto flex flex-col items-center">
-            <span className="bg-[#fdf3e7] text-[#7c5529] text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full border border-amber-500/10">
-              STUDENT BENEFITS
-            </span>
-            <h2 className="text-3xl sm:text-[38px] font-outfit font-extrabold text-[#0b2f61] leading-tight">
-              Financial Support Benefits
-            </h2>
-            <p className="text-neutral-500 text-xs sm:text-sm leading-relaxed max-w-xl font-semibold">
-              Practical benefits that make premium aviation and technology training affordable for Mumbai families.
-            </p>
-          </div>
-
-          {/* 3x2 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-
-            {/* Card 1 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons1.png", import.meta.url).href}
-                    alt="Reduced Course Fees Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Reduced Course Fees
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Approved scholarships come straight off your total course fee.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons2.png", import.meta.url).href}
-                    alt="Flexible EMI Plans Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Flexible EMI Plans
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Monthly installments planned around your family's cash flow.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons3.png", import.meta.url).href}
-                    alt="Affordable Career Training Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Affordable Career Training
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Premium aviation and technology training at a reachable cost.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons4.png", import.meta.url).href}
-                    alt="Easy Application Process Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Easy Application Process
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    One short enquiry starts your free eligibility assessment.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons5.png", import.meta.url).href}
-                    alt="Dedicated Counselling Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Dedicated Counselling
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    A named counsellor stays with you from enquiry to admission.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 min-h-[170px]">
-              <div className="space-y-4">
-                <div className="w-10 h-10 flex items-center justify-center">
-                  <img
-                    src={new URL("../assets/img/icons6.png", import.meta.url).href}
-                    alt="Student-Focused Financial Support Icon"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-sm sm:text-base">
-                    Student-Focused Financial Support
-                  </h4>
-                  <p className="text-neutral-500 text-xs leading-relaxed font-semibold">
-                    Support designed so finances never decide your career.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* Student Success Testimonials Section */}
       <section className="w-full bg-[#f1f5f9] py-20 px-4 sm:px-6 md:px-8 border-t border-neutral-100">
@@ -836,7 +677,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg1.png", import.meta.url).href}
+                    src={profileImg1}
                     alt="Sneha Kulkarni"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -870,7 +711,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg2.png", import.meta.url).href}
+                    src={profileImg2}
                     alt="Rohit Sawant"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -903,7 +744,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg3.png", import.meta.url).href}
+                    src={profileImg3}
                     alt="Aishwarya Nair"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -936,7 +777,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg4.png", import.meta.url).href}
+                    src={profileImg4}
                     alt="Pooja Deshmukh"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -969,7 +810,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg5.png", import.meta.url).href}
+                    src={profileImg5}
                     alt="Aditya Menon"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -1002,7 +843,7 @@ export default function Scholarship() {
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={new URL("../assets/img/profileimg6.png", import.meta.url).href}
+                    src={profileImg6}
                     alt="Fatima Shaikh"
                     className="w-full h-full object-cover"
                     onError={(e) => {

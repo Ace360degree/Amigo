@@ -90,6 +90,15 @@ async function runPrerender() {
     // Sanitizer fail-safe: Convert any double slashes "//assets/" in src/href/url attributes to single slash "/assets/"
     result = result.replace(/(src=|href=|content=|url\(['"]?)\/{2,}(assets\/)/g, "$1/$2");
 
+    // Sanitizer fail-safe: Convert any file:/// local development paths to production asset URLs
+    result = result.replace(/(src=|href=|content=|url\(['"]?)["']?file:\/\/\/[^"'\)\s]+\/([^"'\)\s\?#]+)["']?/g, (fullMatch, attrPrefix, rawFilename) => {
+      const filename = path.basename(decodeURIComponent(rawFilename));
+      if (fallbackMap.has(filename)) {
+        return `${attrPrefix}"${fallbackMap.get(filename)}"`;
+      }
+      return fullMatch;
+    });
+
     return result;
   }
 

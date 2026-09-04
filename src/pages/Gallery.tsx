@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import heroImg from "../assets/img/Galleryheroimg1.png";
+import mobileHeroGallery from "../assets/img/mobileheroGallery.png";
 import { Link } from "@tanstack/react-router";
 import cardImg1 from "../assets/img/Galleryclassroomy1.png";
 import cardImg2 from "../assets/img/Galleryclassroomy2.png";
@@ -192,7 +193,7 @@ export default function Gallery() {
                 {/* Mobile Background Image Container */}
                 <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
                     <img
-                        src={new URL("../assets/img/mobileheroGallery.png", import.meta.url).href}
+                        src={mobileHeroGallery}
                         alt="Amigo Academy Aviation Classroom Mobile"
                         className="w-full h-full object-cover object-[right_center]"
                         onError={(e) => {

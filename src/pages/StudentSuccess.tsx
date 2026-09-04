@@ -1,5 +1,6 @@
 import React from "react";
 import heroImg from "../assets/img/StudentSuccesshero.png";
+import mobileHeroStudentSuccess from "../assets/img/mobileherostudentsuccess.png";
 import { Link } from "@tanstack/react-router";
 import decisionImg from "../assets/img/StudentSuccess1.png";
 import student1 from "../assets/img/placementstudent3.png";
@@ -62,7 +63,7 @@ export default function StudentSuccess() {
                 {/* Mobile Background Image Container */}
                 <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
                     <img
-                        src={new URL("../assets/img/mobileherostudentsuccess.png", import.meta.url).href}
+                        src={mobileHeroStudentSuccess}
                         alt="Student Success Stories Mobile"
                         className="w-full h-full object-cover object-[right_center]"
                         onError={(e) => {

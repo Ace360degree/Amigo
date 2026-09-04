@@ -23,6 +23,17 @@ import Awards6 from "../assets/img/Awards6.png";
 import Awards7 from "../assets/img/Awards7.png";
 import Awards8 from "../assets/img/Awards8.png";
 
+import aboutUsHero from "../assets/img/aboutushero.png";
+import mobileHeroAboutUs from "../assets/img/mobileheroaboutus.png";
+import brand1 from "../assets/img/brand1.png";
+import brand2 from "../assets/img/brand2.png";
+import brand3 from "../assets/img/brand3.png";
+import brand4 from "../assets/img/brand4.png";
+import brand5 from "../assets/img/brand5.png";
+import aboutUsBg from "../assets/img/aboutusbg.png";
+import director1 from "../assets/img/Director1.png";
+import director2 from "../assets/img/Director2.png";
+
 interface AboutProps {
   setCurrentPage?: (page: string) => void;
 }
@@ -135,13 +146,9 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         {/* Desktop Background Image: right-0, w-[50%], hidden on mobile */}
         <div className="hidden lg:block absolute top-0 right-0 h-full w-[50%] z-0">
           <img
-            src={new URL("../assets/img/aboutushero.png", import.meta.url).href}
+            src={aboutUsHero}
             alt="Cabin Crew Cabin Flight"
             className="h-full w-full object-cover lg:object-left-bottom"
-            onError={(e) => {
-              // Fallback mockup image
-              e.currentTarget.src = "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80&w=800";
-            }}
           />
           {/* Subtle gradient overlay to fade into the content container background */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] via-[#f1f5f9]/70 to-transparent z-10" />
@@ -150,12 +157,9 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         {/* Mobile Background Image: w-full, height is 100% */}
         <div className="block lg:hidden absolute inset-0 z-0 w-full h-full">
           <img
-            src={new URL("../assets/img/mobileheroaboutus.png", import.meta.url).href}
+            src={mobileHeroAboutUs}
             alt="Cabin Crew Cabin Flight Mobile"
             className="w-full h-full object-cover object-[right_center]"
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80&w=800";
-            }}
           />
         </div>
 
@@ -336,23 +340,22 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
           <div className="w-full overflow-hidden relative py-6">
             <div className="animate-marquee whitespace-nowrap flex items-center gap-12 sm:gap-16">
               {[
-                { img: new URL("../assets/img/brand1.png", import.meta.url).href, alt: "Air India" },
-                { img: new URL("../assets/img/brand2.png", import.meta.url).href, alt: "SpiceJet" },
-                { img: new URL("../assets/img/brand3.png", import.meta.url).href, alt: "AirAsia" },
-                { img: new URL("../assets/img/brand4.png", import.meta.url).href, alt: "Lufthansa" },
-                { img: new URL("../assets/img/brand5.png", import.meta.url).href, alt: "Etihad Airways" },
-                { img: new URL("../assets/img/brand1.png", import.meta.url).href, alt: "Air India" },
-                { img: new URL("../assets/img/brand2.png", import.meta.url).href, alt: "SpiceJet" },
-                { img: new URL("../assets/img/brand3.png", import.meta.url).href, alt: "AirAsia" },
-                { img: new URL("../assets/img/brand4.png", import.meta.url).href, alt: "Lufthansa" },
-                { img: new URL("../assets/img/brand5.png", import.meta.url).href, alt: "Etihad Airways" },
+                { img: brand1, alt: "Air India" },
+                { img: brand2, alt: "SpiceJet" },
+                { img: brand3, alt: "AirAsia" },
+                { img: brand4, alt: "Lufthansa" },
+                { img: brand5, alt: "Etihad Airways" },
+                { img: brand1, alt: "Air India" },
+                { img: brand2, alt: "SpiceJet" },
+                { img: brand3, alt: "AirAsia" },
+                { img: brand4, alt: "Lufthansa" },
+                { img: brand5, alt: "Etihad Airways" },
               ].map((brand, idx) => (
                 <div key={idx} className="h-14 sm:h-16 md:h-20 inline-flex items-center justify-center shrink-0 transition-transform hover:scale-105 duration-300">
                   <img
                     src={brand.img}
                     alt={brand.alt}
                     className="max-h-full w-auto object-contain shrink-0"
-                    onError={(e) => { e.currentTarget.style.display = "none"; }}
                   />
                 </div>
               ))}
@@ -367,13 +370,9 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src={new URL("../assets/img/aboutusbg.png", import.meta.url).href}
+            src={aboutUsBg}
             alt="Cabin Interior Background"
             className="w-full h-full object-cover filter brightness-[0.25] contrast-[0.9] grayscale"
-            onError={(e) => {
-              // Fallback dark placeholder
-              e.currentTarget.src = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&q=80&w=1200";
-            }}
           />
         </div>
 
@@ -686,13 +685,13 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               {
                 name: "Irfaan shaikh",
                 role: "Director",
-                img: new URL("../assets/img/Director1.png", import.meta.url).href,
+                img: director1,
                 linkedin: "https://www.linkedin.com/in/irfaan-i-shaikh-4ba267164/"
               },
               {
                 name: "Niraav joshi",
                 role: "Director",
-                img: new URL("../assets/img/Director2.png", import.meta.url).href,
+                img: director2,
                 linkedin: "https://linkedin.com"
               }
             ].map((member, idx) => (
