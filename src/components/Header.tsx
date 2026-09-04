@@ -79,13 +79,6 @@ export default function Header() {
 
   return (
     <header className="w-full sticky md:static top-0 z-50 bg-white max-md:shadow-sm">
-      {/* Top Bar 1: Certification Notice */}
-      <div className="hidden w-full bg-[#f6a619] py-2 px-4 text-center border-b border-amber-600/10">
-        <p className="text-neutral-900 font-sans font-bold text-[11px] sm:text-xs md:text-sm flex items-center justify-center gap-1.5 leading-none">
-          <span>🏛️</span> Maharashtra Govt Certified Aviation Institute
-        </p>
-      </div>
-
       {/* Top Bar 2: Scrolling Ticker Marquee */}
       <div className="w-full bg-[#0b2f61] text-[#ffd300] py-2 px-4 overflow-hidden relative border-b border-blue-950/20">
         <div className="relative w-full flex items-center">
