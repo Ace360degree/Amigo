@@ -34,5 +34,10 @@ dist-ssr/
 backend/.env
 
 
+# Build outputs & caches
+.vercel/
+.nitro/
+.output/
+
 # Vite cache
 .vite/

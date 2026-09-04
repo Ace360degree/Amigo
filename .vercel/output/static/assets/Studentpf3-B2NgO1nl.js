@@ -1,1 +1,0 @@
-const t="/assets/Student1-DLH96uYE.png",s="/assets/Studentpf1-BkYhk5ag.png",n="/assets/Student2-DEODRsrW.png",e="/assets/Studentpf2-CpCoch9j.png",a="/assets/Student3-1Wjku8iE.png",p="/assets/Studentpf3-BF2BP5wQ.png";export{s as S,t as a,e as b,n as c,p as d,a as e};

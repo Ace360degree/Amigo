@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Disallow administrative or private endpoints if any
-Disallow: /backend/
-
-# Sitemap location
-Sitemap: https://staging.amigoacademy.in/sitemap.xml
