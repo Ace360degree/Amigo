@@ -28,6 +28,53 @@ async function runPrerender() {
 
   const template = fs.readFileSync(templatePath, "utf-8");
 
+  // Build manifest and fallback asset maps for replacing /src/assets/... with /assets/...
+  const manifestPath = path.resolve(distDir, ".vite", "manifest.json");
+  const manifestMap = new Map();
+  if (fs.existsSync(manifestPath)) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
+    for (const [key, val] of Object.entries(manifest)) {
+      if (val.file) {
+        const bundledPath = "/" + val.file;
+        manifestMap.set(key, bundledPath);
+        manifestMap.set("/" + key, bundledPath);
+      }
+    }
+  }
+
+  const fallbackMap = new Map();
+  const assetsDir = path.resolve(distDir, "assets");
+  if (fs.existsSync(assetsDir)) {
+    const files = fs.readdirSync(assetsDir);
+    for (const file of files) {
+      const match = file.match(/^(.+)-[A-Za-z0-9_-]+\.([A-Za-z0-9]+)$/);
+      if (match) {
+        const originalName = match[1] + "." + match[2];
+        fallbackMap.set(originalName, "/assets/" + file);
+      }
+    }
+  }
+
+  function fixAssetPaths(htmlStr) {
+    let result = htmlStr;
+    // Replace exact manifest matches
+    for (const [srcPath, bundledPath] of manifestMap.entries()) {
+      if (result.includes(srcPath)) {
+        result = result.split(srcPath).join(bundledPath);
+      }
+    }
+    // Fallback replace any remaining /src/assets/... or /@fs/.../src/assets/... references
+    result = result.replace(/(?:src=|href=|url\(['"]?)(?:(?:\/@fs)?\/[^"'\(\)\s]+\/src\/assets\/|\/src\/assets\/)([^"'\(\)\s\?#]+)/g, (fullMatch, assetRelPath) => {
+      const filename = path.basename(assetRelPath);
+      if (fallbackMap.has(filename)) {
+        const fixed = fallbackMap.get(filename);
+        return fullMatch.replace(/(?:(?:\/@fs)?\/[^"'\(\)\s]+\/src\/assets\/|\/src\/assets\/)[^"'\(\)\s\?#]+/, fixed);
+      }
+      return fullMatch;
+    });
+    return result;
+  }
+
   // Create a Vite SSR server instance to evaluate src/entry-ssg.tsx
   const vite = await createServer({
     root: rootDir,
@@ -70,6 +117,9 @@ async function runPrerender() {
         // Replace Root Content
         pageHtml = pageHtml.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
 
+        // Fix all asset paths from dev (/src/assets/...) to production (/assets/...)
+        pageHtml = fixAssetPaths(pageHtml);
+
         // Determine destination file path
         let filePath;
         if (url === "/") {
@@ -102,3 +152,4 @@ runPrerender().catch((err) => {
   console.error("💥 Prerender failed:", err);
   process.exit(1);
 });
+

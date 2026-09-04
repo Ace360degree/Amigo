@@ -107,13 +107,17 @@ export default function Header() {
           {/* Left Group: Logo and Nav Links */}
           <div className="flex items-center space-x-10 lg:space-x-14">
             {/* Logo */}
-            <button
-              onClick={() => handleNavClick("/")}
+            <Link
+              to="/"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="flex items-center focus:outline-none"
               aria-label="Amigo Academy Home"
             >
               <img src={logo} alt="Amigo Academy Logo" className="h-20 sm:h-24 lg:h-[88px] w-auto object-contain py-1" />
-            </button>
+            </Link>
 
             {/* Desktop Links */}
             <nav className="hidden md:flex items-center space-x-5 text-[#1e293b] font-sans font-semibold text-sm">
@@ -123,14 +127,12 @@ export default function Header() {
                 onMouseEnter={() => setIsCoursesDropdownOpen(true)}
                 onMouseLeave={() => setIsCoursesDropdownOpen(false)}
               >
-                <button
+                <Link
+                  to="/courses"
                   onClick={() => {
-                    if (isCoursesDropdownOpen) {
-                      handleNavClick("/courses");
-                      setIsCoursesDropdownOpen(false);
-                    } else {
-                      setIsCoursesDropdownOpen(true);
-                    }
+                    setIsCoursesDropdownOpen(false);
+                    setIsMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
                   className={`flex items-center gap-1 hover:text-[#e31e24] transition-colors py-2 focus:outline-none ${location.pathname.startsWith("/courses") ? "text-[#e31e24]" : ""}`}
                 >
@@ -138,24 +140,26 @@ export default function Header() {
                   <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isCoursesDropdownOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                   </svg>
-                </button>
+                </Link>
 
                 {/* Dropdown Box with bridge padding to prevent hover flicker */}
                 {isCoursesDropdownOpen && (
                   <div className="absolute left-0 top-full pt-1 z-50 animate-fadeIn">
                     <div className="w-64 bg-white rounded-xl shadow-xl border border-neutral-100 py-3">
                       {courses.map((course, idx) => (
-                        <button
+                        <Link
                           key={idx}
+                          to={course.path as any}
                           onClick={() => {
-                            handleNavClick(course.path);
                             setIsCoursesDropdownOpen(false);
+                            setIsMobileMenuOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
                           }}
                           className="w-full text-left px-4 py-2 hover:bg-neutral-50 flex flex-col group/item transition-colors"
                         >
                           <span className="text-xs font-bold text-neutral-800 group-hover/item:text-[#e31e24]">{course.name}</span>
                           <span className="text-[10px] text-neutral-400">{course.desc}</span>
-                        </button>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -164,39 +168,55 @@ export default function Header() {
 
               <span className="text-neutral-300 font-normal">|</span>
 
-              <button
-                onClick={() => handleNavClick("/placement")}
+              <Link
+                to="/placement"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/placement" ? "text-[#e31e24]" : ""}`}
               >
                 Placements
-              </button>
+              </Link>
 
               <span className="text-neutral-300 font-normal">|</span>
 
-              <button
-                onClick={() => handleNavClick("/scholarship")}
+              <Link
+                to="/scholarship"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/scholarship" ? "text-[#e31e24]" : ""}`}
               >
                 Scholarships
-              </button>
+              </Link>
 
               <span className="text-neutral-300 font-normal">|</span>
 
-              <button
-                onClick={() => handleNavClick("/branches")}
+              <Link
+                to="/branches"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/branches" ? "text-[#e31e24]" : ""}`}
               >
                 Branches
-              </button>
+              </Link>
 
               <span className="text-neutral-300 font-normal">|</span>
 
-              <button
-                onClick={() => handleNavClick("/franchise")}
+              <Link
+                to="/franchise"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
                 className={`hover:text-[#e31e24] transition-colors py-2 ${location.pathname === "/franchise" ? "text-[#e31e24]" : ""}`}
               >
                 Franchise
-              </button>
+              </Link>
             </nav>
           </div>
 
@@ -234,38 +254,61 @@ export default function Header() {
         <div className="md:hidden w-full border-b border-neutral-100 bg-white animate-slideDown">
           <nav className="flex flex-col px-6 py-4 space-y-4 font-sans font-bold text-[#1e293b] text-base">
             <div className="border-b border-neutral-100 pb-2">
-              <button onClick={() => handleNavClick("/courses")} className="text-left w-full focus:outline-none">
+              <Link
+                to="/courses"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                className="text-left w-full focus:outline-none block"
+              >
                 <span className="text-neutral-400 text-xs uppercase tracking-wider block mb-2 hover:text-[#e31e24] cursor-pointer">Our Courses</span>
-              </button>
+              </Link>
               {courses.map((course, idx) => (
-                <button
+                <Link
                   key={idx}
-                  onClick={() => handleNavClick(course.path)}
+                  to={course.path as any}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
                   className="w-full text-left py-1.5 text-sm text-neutral-700 hover:text-[#e31e24] block"
                 >
                   • {course.name}
-                </button>
+                </Link>
               ))}
             </div>
 
-            <button
-              onClick={() => handleNavClick("/placement")}
+            <Link
+              to="/placement"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Placements
-            </button>
-            <button
-              onClick={() => handleNavClick("/scholarship")}
+            </Link>
+            <Link
+              to="/scholarship"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Scholarships
-            </button>
-            <button
-              onClick={() => handleNavClick("/branches")}
+            </Link>
+            <Link
+              to="/branches"
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
               className="text-left py-1 hover:text-[#e31e24] border-b border-neutral-100"
             >
               Branches
-            </button>
+            </Link>
 
             <button
               onClick={() => {

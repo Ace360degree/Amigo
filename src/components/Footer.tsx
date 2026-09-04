@@ -22,13 +22,14 @@ export default function Footer() {
           {/* Brand Col */}
           <div className="lg:col-span-4 flex flex-col space-y-5 text-left">
             {/* Logo */}
-            <button
-              onClick={() => handleNavClick("/")}
+            <Link
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="flex items-center focus:outline-none w-fit"
               aria-label="Amigo Academy Home"
             >
               <img src={logofooter} alt="Amigo Academy Logo" className="h-16 sm:h-20 w-auto object-contain" />
-            </button>
+            </Link>
 
             {/* Contacts */}
             <div className="flex flex-col space-y-3 pt-2 text-sm text-slate-200">
@@ -55,12 +56,13 @@ export default function Footer() {
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-xs pt-1">
               Founded in 2017, Amigo Academy Pvt Ltd has been envisaged as an academy steadily committed to delivering holistic training concepts across aviation, hospitality, and technology sectors.
             </p>
-            <button
-              onClick={() => handleNavClick("/about-us")}
+            <Link
+              to="/about-us"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-white hover:text-[#e31e24] font-bold text-xs w-fit text-left focus:outline-none"
             >
               Read More
-            </button>
+            </Link>
           </div>
 
           {/* Links Col 1: Home */}
@@ -69,16 +71,16 @@ export default function Footer() {
               Quick Links
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/about-us")} className="text-left hover:text-white transition-colors w-fit">About us</button>
-              <button onClick={() => handleNavClick("/placement")} className="text-left hover:text-white transition-colors w-fit">Placements</button>
-              <button onClick={() => handleNavClick("/scholarship")} className="text-left hover:text-white transition-colors w-fit">Scholarships</button>
-              <button onClick={() => handleNavClick("/branches")} className="text-left hover:text-white transition-colors w-fit">Branches</button>
-              <button onClick={() => handleNavClick("/franchise")} className="text-left hover:text-white transition-colors w-fit">Franchise</button>
-              <button onClick={() => handleNavClick("/blog")} className="text-left hover:text-white transition-colors w-fit">Blog</button>
-              <button onClick={() => handleNavClick("/gallery")} className="text-left hover:text-white transition-colors w-fit">Gallery</button>
-              <button onClick={() => handleNavClick("/student-success")} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</button>
-              <button onClick={() => handleNavClick("/contact")} className="text-left hover:text-white transition-colors w-fit">Contact Us</button>
-              <button onClick={() => handleNavClick("/locations")} className="text-left hover:text-white transition-colors w-fit">Locations</button>
+              <Link to="/about-us" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">About us</Link>
+              <Link to="/placement" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Placements</Link>
+              <Link to="/scholarship" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Scholarships</Link>
+              <Link to="/branches" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Branches</Link>
+              <Link to="/franchise" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Franchise</Link>
+              <Link to="/blog" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Blog</Link>
+              <Link to="/gallery" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Gallery</Link>
+              <Link to="/student-success" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Amigo Student Success</Link>
+              <Link to="/contact" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Contact Us</Link>
+              <Link to="/locations" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Locations</Link>
 
               {/* Online Payment Collapsible Menu */}
               <div className="flex flex-col space-y-1.5 pt-1">
@@ -107,10 +109,10 @@ export default function Footer() {
               Courses
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/courses/air-hostess-cabin-crew-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew (Air Hostess) & Hospitality Management</button>
-              <button onClick={() => handleNavClick("/courses/airport-ground-staff-hospitality-management")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff & Hospitality Management</button>
-              <button onClick={() => handleNavClick("/courses/ai-data-science-with-generative-ai-machine-learning")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</button>
-              <button onClick={() => handleNavClick("/courses")} className="text-left hover:text-white transition-colors w-fit">All Courses</button>
+              <Link to="/courses/air-hostess-cabin-crew-hospitality-management" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Cabin Crew (Air Hostess) & Hospitality Management</Link>
+              <Link to="/courses/airport-ground-staff-hospitality-management" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff & Hospitality Management</Link>
+              <Link to="/courses/ai-data-science-with-generative-ai-machine-learning" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">AI & Data Science</Link>
+              <Link to="/courses" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">All Courses</Link>
             </nav>
           </div>
 
@@ -120,10 +122,10 @@ export default function Footer() {
               Career Guides
             </h4>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
-              <button onClick={() => handleNavClick("/career-guide/cabin-crew")} className="text-left hover:text-white transition-colors w-fit">Cabin Crew Career Guide</button>
-              <button onClick={() => handleNavClick("/career-guide/airport-ground-staff")} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff Career Guide</button>
-              <button onClick={() => handleNavClick("/career-guide/ai-data-science")} className="text-left hover:text-white transition-colors w-fit">AI & Data Science Career Guide</button>
-              <button onClick={() => handleNavClick("/career-guides")} className="text-left hover:text-white transition-colors w-fit">All Career Guides</button>
+              <Link to="/career-guide/cabin-crew" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Cabin Crew Career Guide</Link>
+              <Link to="/career-guide/airport-ground-staff" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff Career Guide</Link>
+              <Link to="/career-guide/ai-data-science" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">AI & Data Science Career Guide</Link>
+              <Link to="/career-guides" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">All Career Guides</Link>
             </nav>
           </div>
 
@@ -153,8 +155,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-b border-slate-700/30 text-left text-xs sm:text-sm">
 
           {/* Branch 1 */}
-          <button
-            onClick={() => handleNavClick("/ghatkopar-branch")}
+          <Link
+            to="/ghatkopar-branch"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
@@ -162,20 +165,18 @@ export default function Footer() {
               <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
                 Ghatkopar Branch
               </h5>
-              {/* <p className="text-slate-400 leading-relaxed font-semibold">
-                AMIGO ACADEMY GHATKOPAR
-              </p> */}
               <p className="text-slate-400 leading-relaxed">
                 107 & 108, Sai Infotech, Patel Chowk,<br />
                 Opposite Railway Station, Pant Nagar,<br />
                 Ghatkopar East, Mumbai, Maharashtra 400077
               </p>
             </div>
-          </button>
+          </Link>
 
           {/* Branch 2 */}
-          <button
-            onClick={() => handleNavClick("/andheri-branch")}
+          <Link
+            to="/andheri-branch"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
@@ -189,11 +190,12 @@ export default function Footer() {
                 Andheri West, Mumbai 400058
               </p>
             </div>
-          </button>
+          </Link>
 
           {/* Branch 3 */}
-          <button
-            onClick={() => handleNavClick("/thane-branch")}
+          <Link
+            to="/thane-branch"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
@@ -207,7 +209,7 @@ export default function Footer() {
                 Thane West, Maharashtra 400601
               </p>
             </div>
-          </button>
+          </Link>
 
         </div>
 
@@ -248,9 +250,9 @@ export default function Footer() {
 
           {/* Middle Policy Links */}
           <div className="flex space-x-6 mb-4 md:mb-0 text-slate-400 font-semibold">
-            <button onClick={() => handleNavClick("/privacy-policy")} className="hover:text-white transition-colors">Privacy Policy</button>
-            <button onClick={() => handleNavClick("/terms-and-conditions")} className="hover:text-white transition-colors">Terms & Conditions</button>
-            <button onClick={() => handleNavClick("/refund-policy")} className="hover:text-white transition-colors">Refund Policy</button>
+            <Link to="/privacy-policy" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/terms-and-conditions" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link to="/refund-policy" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="hover:text-white transition-colors">Refund Policy</Link>
           </div>
 
           <p className="text-slate-500">
