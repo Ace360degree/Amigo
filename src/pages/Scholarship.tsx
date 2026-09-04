@@ -13,12 +13,12 @@ import icons3 from "../assets/img/icons3.png";
 import icons4 from "../assets/img/icons4.png";
 import icons5 from "../assets/img/icons5.png";
 import icons6 from "../assets/img/icons6.png";
-import profileImg1 from "../assets/img/profileimg1.png";
-import profileImg2 from "../assets/img/profileimg2.png";
-import profileImg3 from "../assets/img/profileimg3.png";
-import profileImg4 from "../assets/img/profileimg4.png";
-import profileImg5 from "../assets/img/profileimg5.png";
-import profileImg6 from "../assets/img/profileimg6.png";
+import studentImg1 from "../assets/img/scholarship/student1.png";
+import studentImg2 from "../assets/img/scholarship/student2.png";
+import studentImg3 from "../assets/img/scholarship/student3.png";
+import studentImg4 from "../assets/img/scholarship/student4.png";
+import studentImg5 from "../assets/img/scholarship/student5.png";
+import studentImg6 from "../assets/img/scholarship/student6.png";
 
 function FAQItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -821,26 +821,22 @@ export default function Scholarship() {
           {/* Testimonial 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
 
-            {/* Sneha Kulkarni */}
+            {/* Aaliya Bhat */}
             <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={profileImg1}
-                    alt="Sneha Kulkarni"
+                    src={studentImg1}
+                    alt="Aaliya Bhat"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback profile if image not loaded
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=150";
-                    }}
                   />
                 </div>
                 <div>
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Sneha Kulkarni
+                    Aaliya Bhat
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess) & Hospitality Management
+                    Air Hostess / Cabin Crew
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Andheri branch
@@ -850,27 +846,24 @@ export default function Scholarship() {
               <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
                 <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
                 <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  The scholarship covered a big part of my fees, so my parents agreed immediately. I fly with an airline today.
+                  Amazing institute, skilled professionals and placements!! Def recommend to do a course from here. The faculty is v sweet and helpful
                 </p>
               </div>
             </div>
 
-            {/* Rohit Sawant */}
+            {/* Kajal Gupta */}
             <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={profileImg2}
-                    alt="Rohit Sawant"
+                    src={studentImg2}
+                    alt="Kajal Gupta"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150";
-                    }}
                   />
                 </div>
                 <div>
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Rohit Sawant
+                    Kajal Gupta
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Airport Ground Staff
@@ -883,30 +876,27 @@ export default function Scholarship() {
               <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
                 <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
                 <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  Zero-interest EMI meant I could pay monthly from my part-time job while I trained.
+                  Amigo academy provides reliable placement assistance along with excellent training. The support continues even after course completion.
                 </p>
               </div>
             </div>
 
-            {/* Aishwarya Nair */}
+            {/* Affan Ali Syed */}
             <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={profileImg3}
-                    alt="Aishwarya Nair"
+                    src={studentImg3}
+                    alt="Affan Ali Syed"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150";
-                    }}
                   />
                 </div>
                 <div>
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Aishwarya Nair
+                    Affan Ali Syed
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess) & Hospitality Management
+                    Air Hostess / Cabin Crew
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Thane branch
@@ -916,96 +906,27 @@ export default function Scholarship() {
               <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
                 <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
                 <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  The counsellor explained exactly what I qualified for. Nothing hidden, no surprise charges.
+                  This academy provides reliable placement assistance along with excellent training. The support continues even after course completion. I was very pleased with it!
                 </p>
               </div>
             </div>
 
-            {/* Pooja Deshmukh */}
+            {/* Alfiya Siddiqui */}
             <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
                   <img
-                    src={profileImg4}
-                    alt="Pooja Deshmukh"
+                    src={studentImg4}
+                    alt="Alfiya Siddiqui"
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150";
-                    }}
                   />
                 </div>
                 <div>
                   <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Pooja Deshmukh
+                    Alfiya Siddiqui
                   </h4>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Airport Ground Staff & Hospitality Management
-                  </span>
-                  <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
-                    📍 Thane branch
-                  </span>
-                </div>
-              </div>
-              <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
-                <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
-                <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  I had almost dropped the idea because of fees. The eligibility check changed that in one call.
-                </p>
-              </div>
-            </div>
-
-            {/* Aditya Menon */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
-                  <img
-                    src={profileImg5}
-                    alt="Aditya Menon"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150";
-                    }}
-                  />
-                </div>
-                <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Aditya Menon
-                  </h4>
-                  <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    AI & Data Science
-                  </span>
-                  <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
-                    📍 Andheri branch
-                  </span>
-                </div>
-              </div>
-              <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
-                <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
-                <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  My scholarship plus EMI made a technology course possible without a loan.
-                </p>
-              </div>
-            </div>
-
-            {/* Fatima Shaikh */}
-            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
-                  <img
-                    src={profileImg6}
-                    alt="Fatima Shaikh"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=150";
-                    }}
-                  />
-                </div>
-                <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
-                    Fatima Shaikh
-                  </h4>
-                  <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
-                    Cabin Crew (Air Hostess) & Hospitality Management
+                    Air Hostess / Cabin Crew
                   </span>
                   <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
                     📍 Ghatkopar branch
@@ -1015,7 +936,67 @@ export default function Scholarship() {
               <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
                 <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
                 <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
-                  My family could plan the fees comfortably, and I focused fully on my training.
+                  I stay in chembur and was searching forna airhostess course near me Amigoz is the best institute
+                </p>
+              </div>
+            </div>
+
+            {/* Ashish Pawar */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
+                  <img
+                    src={studentImg5}
+                    alt="Ashish Pawar"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                    Ashish Pawar
+                  </h4>
+                  <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
+                    Airport Ground Staff
+                  </span>
+                  <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
+                    📍 Andheri branch
+                  </span>
+                </div>
+              </div>
+              <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
+                <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
+                <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
+                  Amigoz Academy truly helped me transform my career with practical learning and great support
+                </p>
+              </div>
+            </div>
+
+            {/* Suraj Sawant */}
+            <div className="bg-white rounded-3xl p-8 flex flex-col justify-between shadow-[0_12px_35px_rgba(11,47,97,0.08)] border border-neutral-200/60 space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-neutral-200 flex-shrink-0">
+                  <img
+                    src={studentImg6}
+                    alt="Suraj Sawant"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                    Suraj Sawant
+                  </h4>
+                  <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
+                    Air Hostess / Cabin Crew
+                  </span>
+                  <span className="text-neutral-400 text-[10px] font-semibold flex items-center gap-1 mt-0.5">
+                    📍 Ghatkopar branch
+                  </span>
+                </div>
+              </div>
+              <div className="bg-[#f8fafc] rounded-2xl p-5 border border-neutral-100 flex items-start gap-3">
+                <span className="text-[#dfaa29] text-xl font-serif leading-none mt-1">“</span>
+                <p className="text-neutral-600 text-xs sm:text-[13px] leading-relaxed font-semibold">
+                  The academy focuses on overall personality development. The discipline and professionalism maintained here are impressive.
                 </p>
               </div>
             </div>
