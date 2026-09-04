@@ -35,16 +35,17 @@ async function runPrerender() {
     const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
     for (const [key, val] of Object.entries(manifest)) {
       if (val.file) {
-        const bundledPath = "/" + val.file;
-        const decodedKey = decodeURIComponent(key);
-        const encodedKey = encodeURI(key);
-        
-        manifestMap.set(key, bundledPath);
-        manifestMap.set("/" + key, bundledPath);
-        manifestMap.set(decodedKey, bundledPath);
+        const bundledPath = "/" + val.file.replace(/^\/+/, "");
+        const cleanKey = key.replace(/^\/+/, "");
+        const decodedKey = decodeURIComponent(cleanKey);
+        const encodedKey = encodeURI(cleanKey);
+
+        manifestMap.set("/" + cleanKey, bundledPath);
         manifestMap.set("/" + decodedKey, bundledPath);
-        manifestMap.set(encodedKey, bundledPath);
         manifestMap.set("/" + encodedKey, bundledPath);
+        manifestMap.set(cleanKey, bundledPath);
+        manifestMap.set(decodedKey, bundledPath);
+        manifestMap.set(encodedKey, bundledPath);
       }
     }
   }
@@ -65,12 +66,16 @@ async function runPrerender() {
 
   function fixAssetPaths(htmlStr) {
     let result = htmlStr;
-    // Replace exact manifest matches
-    for (const [srcPath, bundledPath] of manifestMap.entries()) {
+    // Sort manifest keys by length descending to replace longest path strings first (e.g. "/src/assets/..." before "src/assets/...")
+    const sortedKeys = Array.from(manifestMap.keys()).sort((a, b) => b.length - a.length);
+
+    for (const srcPath of sortedKeys) {
+      const bundledPath = manifestMap.get(srcPath);
       if (result.includes(srcPath)) {
         result = result.split(srcPath).join(bundledPath);
       }
     }
+
     // Fallback replace any remaining /src/assets/... or /@fs/.../src/assets/... references
     result = result.replace(/(?:src=|href=|url\(['"]?)(?:(?:\/@fs)?\/[^"'\(\)\s]+\/src\/assets\/|\/src\/assets\/)([^"'\(\)\s\?#]+)/g, (fullMatch, rawAssetRelPath) => {
       const assetRelPath = decodeURIComponent(rawAssetRelPath);
@@ -81,6 +86,10 @@ async function runPrerender() {
       }
       return fullMatch;
     });
+
+    // Sanitizer fail-safe: Convert any double slashes "//assets/" in src/href/url attributes to single slash "/assets/"
+    result = result.replace(/(src=|href=|content=|url\(['"]?)\/{2,}(assets\/)/g, "$1/$2");
+
     return result;
   }
 
