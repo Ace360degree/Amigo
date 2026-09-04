@@ -676,7 +676,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons1.png", import.meta.url).href}
+                    src={icons1}
                     alt="Reduced Course Fees Icon"
                     className="w-full h-full object-contain"
                   />
@@ -697,7 +697,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons2.png", import.meta.url).href}
+                    src={icons2}
                     alt="Flexible EMI Plans Icon"
                     className="w-full h-full object-contain"
                   />
@@ -718,7 +718,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons3.png", import.meta.url).href}
+                    src={icons3}
                     alt="Affordable Career Training Icon"
                     className="w-full h-full object-contain"
                   />
@@ -739,7 +739,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons4.png", import.meta.url).href}
+                    src={icons4}
                     alt="Easy Application Process Icon"
                     className="w-full h-full object-contain"
                   />
@@ -760,7 +760,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons5.png", import.meta.url).href}
+                    src={icons5}
                     alt="Dedicated Counselling Icon"
                     className="w-full h-full object-contain"
                   />
@@ -781,7 +781,7 @@ export default function Scholarship() {
               <div className="space-y-4">
                 <div className="w-10 h-10 flex items-center justify-center">
                   <img
-                    src={new URL("../assets/img/icons6.png", import.meta.url).href}
+                    src={icons6}
                     alt="Student-Focused Financial Support Icon"
                     className="w-full h-full object-contain"
                   />
@@ -1066,17 +1066,15 @@ export default function Scholarship() {
 
           {/* Have More Questions Banner Pill */}
           <div className="mt-10 text-center">
-            <button
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
                 If you have anymore question, please contact us
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -933,17 +933,15 @@ export default function AviationHospitality() {
 
           {/* Have More Questions Banner Pill */}
           <div className="mt-10 text-center">
-            <button
-              onClick={() => {
-                window.location.href = "/contact";
-              }}
+            <Link
+              to="/contact"
               className="inline-flex items-center gap-2 bg-[#fffbf0] border border-[#ffecd1] px-6 py-3 rounded-full shadow-[0_4px_10px_rgba(255,236,209,0.2)] hover:scale-105 transition-all cursor-pointer"
             >
               <span className="text-[#e31e24] font-bold text-xs sm:text-sm">✨</span>
               <span className="text-[#0b2f61] font-sans font-bold text-[10px] sm:text-xs tracking-wider uppercase">
                 If you have anymore question, please contact us
               </span>
-            </button>
+            </Link>
           </div>
 
           {/* Bottom Stats */}
