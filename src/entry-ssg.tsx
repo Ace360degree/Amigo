@@ -41,12 +41,14 @@ export async function getAllRoutePaths(): Promise<string[]> {
     const posts = await fetchBlogPosts();
     posts.forEach((post) => {
       if (post.slug) {
+        dynamicRoutes.push(`/${post.slug}`);
         dynamicRoutes.push(`/blog/${post.slug}`);
       }
     });
   } catch (err) {
     console.warn("Failed to fetch dynamic blog posts during SSG path discovery:", err);
     mockBlogPosts.forEach((post) => {
+      dynamicRoutes.push(`/${post.slug}`);
       dynamicRoutes.push(`/blog/${post.slug}`);
     });
   }
