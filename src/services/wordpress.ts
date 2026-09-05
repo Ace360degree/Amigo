@@ -122,7 +122,7 @@ export const toSlug = (text: string) => {
 
 export async function fetchBlogPosts(): Promise<WPPost[]> {
   try {
-    const response = await axios.get<WPPost[]>(`${BLOG_API_URL}/posts?_embed&per_page=20`);
+    const response = await axios.get<WPPost[]>(`${BLOG_API_URL}/posts?_embed&per_page=100`);
     return response.data;
   } catch (error) {
     console.warn("Failed to fetch blog posts from WordPress, using fallback mock data:", error);
