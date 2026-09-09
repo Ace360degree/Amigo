@@ -8,7 +8,7 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Amigo Academy. Contact our Ghatkopar, Andheri, and Thane branches for course inquiries, counseling sessions, and campus visits." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/contact" }
+      { rel: "canonical", href: "https://amigoacademy.in/contact" }
     ]
   }),
   component: Contact,

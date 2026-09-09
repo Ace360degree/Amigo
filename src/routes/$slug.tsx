@@ -39,7 +39,7 @@ export const Route = createFileRoute("/$slug")({
         { name: "description", content: description }
       ],
       links: [
-        { rel: "canonical", href: `https://staging.amigoacademy.in/${slug}` }
+        { rel: "canonical", href: `https://amigoacademy.in/${slug}` }
       ]
     };
   },

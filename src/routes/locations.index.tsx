@@ -8,7 +8,7 @@ export const Route = createFileRoute("/locations/")({
       { name: "description", content: "Explore Amigo Academy course training centers across Powai, Bhandup, Mulund, Chembur, Vikhroli, and Kanjurmarg." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/locations" }
+      { rel: "canonical", href: "https://amigoacademy.in/locations" }
     ]
   }),
   component: Location,

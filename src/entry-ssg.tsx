@@ -96,7 +96,7 @@ export async function renderRoute(url: string): Promise<RenderResult> {
   // Defaults
   let title = "Amigo Academy - Aviation, Cabin Crew & AI Training Institute";
   let description = "Join Amigo Academy for premier Aviation, Hospitality & AI Data Science training programs in Mumbai. Guaranteed placement assistance & up to ₹50,000 scholarship.";
-  let canonical = `https://staging.amigoacademy.in${url === "/" ? "" : url}`;
+  let canonical = `https://amigoacademy.in${url === "/" ? "" : url}`;
 
   // Extract head data from matched routes
   const matches = router.state.matches;

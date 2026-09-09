@@ -8,7 +8,7 @@ export const Route = createFileRoute("/career-guide/ai-data-science")({
       { name: "description", content: "Explore high-paying career opportunities in Artificial Intelligence, Machine Learning, and Data Science with Generative AI skills." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/career-guide/ai-data-science" }
+      { rel: "canonical", href: "https://amigoacademy.in/career-guide/ai-data-science" }
     ]
   }),
   component: AiDataScience,

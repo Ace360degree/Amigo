@@ -8,7 +8,7 @@ export const Route = createFileRoute("/placement")({
       { name: "description", content: "Explore 10,000+ student placements across top airlines (IndiGo, Air India, Emirates) and airport ground handling agencies." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/placement" }
+      { rel: "canonical", href: "https://amigoacademy.in/placement" }
     ]
   }),
   component: Placement,

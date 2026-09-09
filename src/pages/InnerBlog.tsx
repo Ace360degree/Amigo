@@ -548,7 +548,7 @@ export default function InnerBlog() {
                   </span>
                   {/* Facebook */}
                   <a
-                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-[#0b2f61] text-white flex items-center justify-center hover:opacity-90 transition-opacity"
@@ -561,7 +561,7 @@ export default function InnerBlog() {
 
                   {/* X */}
                   <a
-                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
+                    href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center hover:opacity-90 transition-opacity"
@@ -574,7 +574,7 @@ export default function InnerBlog() {
 
                   {/* LinkedIn */}
                   <a
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://staging.amigoacademy.in/blog/${slug || ""}`)}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : `https://amigoacademy.in/blog/${slug || ""}`)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="w-7 h-7 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:opacity-90 transition-opacity"

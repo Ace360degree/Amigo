@@ -8,7 +8,7 @@ export const Route = createFileRoute("/gallery")({
       { name: "description", content: "Explore campus life, cabin simulator sessions, Convocation events, and practical grooming workshops at Amigo Academy." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/gallery" }
+      { rel: "canonical", href: "https://amigoacademy.in/gallery" }
     ]
   }),
   component: Gallery,

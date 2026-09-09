@@ -8,7 +8,7 @@ export const Route = createFileRoute("/thane-branch")({
       { name: "description", content: "Visit Amigo Academy Thane West Branch near Thane Railway Station. Expert aviation training, mock cabin crew setups & placement cell." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/thane-branch" }
+      { rel: "canonical", href: "https://amigoacademy.in/thane-branch" }
     ]
   }),
   component: ThaneBranch,

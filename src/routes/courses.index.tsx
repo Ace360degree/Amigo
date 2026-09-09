@@ -8,7 +8,7 @@ export const Route = createFileRoute("/courses/")({
       { name: "description", content: "Explore job-ready training programs in Air Hostess (Cabin Crew), Airport Ground Staff, and AI Data Science with Machine Learning." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/courses" }
+      { rel: "canonical", href: "https://amigoacademy.in/courses" }
     ]
   }),
   component: Courses,

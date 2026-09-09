@@ -8,7 +8,7 @@ export const Route = createFileRoute("/student-success")({
       { name: "description", content: "Read success stories and testimonials from Amigo Academy alumni working as Air Hostesses, Flight Attendants, and Airport Staff globally." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/student-success" }
+      { rel: "canonical", href: "https://amigoacademy.in/student-success" }
     ]
   }),
   component: StudentSuccess,

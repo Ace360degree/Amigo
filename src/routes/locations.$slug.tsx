@@ -17,7 +17,7 @@ export const Route = createFileRoute("/locations/$slug")({
         { name: "description", content: `Find aviation, air hostess, ground staff, and tech training near ${loaderData?.slug || "your location"} at Amigo Academy.` }
       ],
       links: [
-        { rel: "canonical", href: `https://staging.amigoacademy.in/locations/${loaderData?.slug || ""}` }
+        { rel: "canonical", href: `https://amigoacademy.in/locations/${loaderData?.slug || ""}` }
       ]
     };
   },

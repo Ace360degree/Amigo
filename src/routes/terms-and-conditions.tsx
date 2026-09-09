@@ -8,7 +8,7 @@ export const Route = createFileRoute("/terms-and-conditions")({
       { name: "description", content: "Terms and conditions for enrollment, admission procedures, and platform usage at Amigo Academy." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/terms-and-conditions" }
+      { rel: "canonical", href: "https://amigoacademy.in/terms-and-conditions" }
     ]
   }),
   component: TermsConditions,

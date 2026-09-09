@@ -20,7 +20,7 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "description", content: excerpt }
       ],
       links: [
-        { rel: "canonical", href: `https://staging.amigoacademy.in/blog/${loaderData?.slug || ""}` }
+        { rel: "canonical", href: `https://amigoacademy.in/blog/${loaderData?.slug || ""}` }
       ]
     };
   },

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/about-us")({
       { name: "description", content: "Learn about Amigo Academy's mission, Govt certification, leadership team, and history of excellence in aviation and technology education since 2017." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/about-us" }
+      { rel: "canonical", href: "https://amigoacademy.in/about-us" }
     ]
   }),
   component: About,

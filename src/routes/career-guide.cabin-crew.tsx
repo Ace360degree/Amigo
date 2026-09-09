@@ -8,7 +8,7 @@ export const Route = createFileRoute("/career-guide/cabin-crew")({
       { name: "description", content: "Complete guide on how to become an Air Hostess or Cabin Crew member after 12th. Eligibility, salary expectations, physical requirements & hiring process." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/career-guide/cabin-crew" }
+      { rel: "canonical", href: "https://amigoacademy.in/career-guide/cabin-crew" }
     ]
   }),
   component: CabinCrew,

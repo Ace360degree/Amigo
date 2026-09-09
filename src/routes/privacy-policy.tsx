@@ -8,7 +8,7 @@ export const Route = createFileRoute("/privacy-policy")({
       { name: "description", content: "Privacy policy explaining data collection, protection, and student inquiry handling at Amigo Academy." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/privacy-policy" }
+      { rel: "canonical", href: "https://amigoacademy.in/privacy-policy" }
     ]
   }),
   component: PrivacyPolicy,

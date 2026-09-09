@@ -8,7 +8,7 @@ export const Route = createFileRoute("/career-guide/airport-ground-staff")({
       { name: "description", content: "Learn about Airport Ground Handling careers, duties, passenger service management, cargo operations, and airline recruitment after 12th." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/career-guide/airport-ground-staff" }
+      { rel: "canonical", href: "https://amigoacademy.in/career-guide/airport-ground-staff" }
     ]
   }),
   component: AirportGroundStaff,

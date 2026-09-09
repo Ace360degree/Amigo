@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "Air Hostess Training, Cabin Crew Course, Airport Ground Staff, AI Data Science, Amigo Academy Mumbai" }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/" }
+      { rel: "canonical", href: "https://amigoacademy.in/" }
     ]
   }),
   component: Home,

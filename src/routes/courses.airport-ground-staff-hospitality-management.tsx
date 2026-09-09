@@ -8,7 +8,7 @@ export const Route = createFileRoute("/courses/airport-ground-staff-hospitality-
       { name: "description", content: "Certified Airport Ground Staff & Hospitality Management course in Mumbai. Learn passenger handling, baggage service, ticketing & airport operations." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/courses/airport-ground-staff-hospitality-management" }
+      { rel: "canonical", href: "https://amigoacademy.in/courses/airport-ground-staff-hospitality-management" }
     ]
   }),
   component: AviationHospitality,

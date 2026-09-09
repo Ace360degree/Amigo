@@ -8,7 +8,7 @@ export const Route = createFileRoute("/franchise")({
       { name: "description", content: "Become an Amigo Academy franchise partner. High ROI aviation & vocational training franchise opportunity in India." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/franchise" }
+      { rel: "canonical", href: "https://amigoacademy.in/franchise" }
     ]
   }),
   component: Franchise,

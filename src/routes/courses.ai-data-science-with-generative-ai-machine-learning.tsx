@@ -8,7 +8,7 @@ export const Route = createFileRoute("/courses/ai-data-science-with-generative-a
       { name: "description", content: "Master Python, Machine Learning, Deep Learning, and Generative AI with hands-on projects and placement support at Amigo Academy." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/courses/ai-data-science-with-generative-ai-machine-learning" }
+      { rel: "canonical", href: "https://amigoacademy.in/courses/ai-data-science-with-generative-ai-machine-learning" }
     ]
   }),
   component: AIDataScienceCourse,

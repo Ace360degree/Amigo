@@ -8,7 +8,7 @@ export const Route = createFileRoute("/scholarship")({
       { name: "description", content: "Apply for up to ₹50,000 scholarship at Amigo Academy for Aviation, Cabin Crew & Ground Staff training. Check eligibility today." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/scholarship" }
+      { rel: "canonical", href: "https://amigoacademy.in/scholarship" }
     ]
   }),
   component: Scholarship,

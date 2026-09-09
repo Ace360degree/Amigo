@@ -13,7 +13,7 @@ export const Route = createFileRoute("/blog/")({
       { name: "description", content: "Read expert articles, career advice, cabin crew guides, airport ground handling tips, and industry trends on the Amigo Academy blog." }
     ],
     links: [
-      { rel: "canonical", href: "https://staging.amigoacademy.in/blog" }
+      { rel: "canonical", href: "https://amigoacademy.in/blog" }
     ]
   }),
   component: Blog,
