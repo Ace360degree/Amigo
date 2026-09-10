@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
+import { BRANCHES } from "../data/branches";
 import thaneHero from "../assets/img/branches/Thane-hero.png";
 import thaneHeroMobile from "../assets/img/branches/Thane-hero-mobile.png";
 import course1 from "../assets/img/branches/1.png";
@@ -348,9 +349,9 @@ export default function ThaneBranch() {
               <div>
                 <p className="text-[14px] sm:text-[15px] font-bold text-[#1C3E8A] font-outfit mb-2">Address</p>
                 <p className="text-slate-500 font-sans text-xs sm:text-[13.5px] font-semibold leading-relaxed">
-                  A 204, 2nd floor, Thakor Niwas<br />
-                  C.H.S, above Tip Top Mithaiwala,<br />
-                  Thane West
+                  {BRANCHES.thane.addressLine1}<br />
+                  {BRANCHES.thane.addressLine2}<br />
+                  {BRANCHES.thane.addressLine3}
                 </p>
               </div>
             </div>
@@ -411,7 +412,7 @@ export default function ThaneBranch() {
 
           {/* Second Badge */}
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-10">
-            <span>&#127963;</span> Maharashtra Govt Certified &#8212; Only aviation institute in Maharashtra
+            <span>&#127963;</span> Maharashtra Government Certified
           </div>
 
           {/* CTA Buttons */}

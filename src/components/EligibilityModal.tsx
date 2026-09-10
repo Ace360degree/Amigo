@@ -240,11 +240,10 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                       <option disabled value="">
                         Age *
                       </option>
-                      <option value="Below 15">Below 15</option>
-                      <option value="15–17">15–17</option>
                       <option value="17–20">17–20</option>
                       <option value="21–24">21–24</option>
-                      <option value="25 and above">25 and above</option>
+                      <option value="25–27">25–27</option>
+                      <option value="28 and above">28 and above</option>
                     </select>
                     <div className="absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-300">
                       <svg

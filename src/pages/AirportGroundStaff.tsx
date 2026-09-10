@@ -670,7 +670,8 @@ export default function AirportGroundStaff() {
 
           {/* Second Badge */}
           <div className="bg-[#1e293b]/40 border border-slate-700/50 rounded-xl px-5 py-2 inline-flex items-center gap-2 text-xs font-bold text-[#ffd300] uppercase tracking-wider mb-10">
-            <span>🏛️</span> Maharashtra Govt Certified — Only aviation institute in Maharashtra
+            <span className="text-[#ffd300] font-bold">🏛️</span>
+            <span>Maharashtra Government Certified</span>
           </div>
 
           {/* CTA Buttons Row */}

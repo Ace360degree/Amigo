@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import logofooter from "../assets/img/logofooter.png";
 import FooterQR from "../assets/img/FooterQR.png";
+import { BRANCHES } from "../data/branches";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -157,57 +158,57 @@ export default function Footer() {
 
           {/* Branch 1 */}
           <Link
-            to="/ghatkopar-branch"
+            to={BRANCHES.ghatkopar.pagePath}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
-                Ghatkopar Branch
-              </h5>
+              <div className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                {BRANCHES.ghatkopar.name} Branch
+              </div>
               <p className="text-slate-400 leading-relaxed">
-                107 & 108, Sai Infotech, Patel Chowk,<br />
-                Opposite Railway Station, Pant Nagar,<br />
-                Ghatkopar East, Mumbai, Maharashtra 400077
+                {BRANCHES.ghatkopar.addressLine1}<br />
+                {BRANCHES.ghatkopar.addressLine2}<br />
+                {BRANCHES.ghatkopar.addressLine3}
               </p>
             </div>
           </Link>
 
           {/* Branch 2 */}
           <Link
-            to="/andheri-branch"
+            to={BRANCHES.andheri.pagePath}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
-                Andheri Branch
-              </h5>
+              <div className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                {BRANCHES.andheri.name} Branch
+              </div>
               <p className="text-slate-400 leading-relaxed">
-                902, 9th Floor, Time Chambers,<br />
-                Swami Vivekanand Rd,<br />
-                Andheri West, Mumbai 400058
+                {BRANCHES.andheri.addressLine1}<br />
+                {BRANCHES.andheri.addressLine2}<br />
+                {BRANCHES.andheri.addressLine3}
               </p>
             </div>
           </Link>
 
           {/* Branch 3 */}
           <Link
-            to="/thane-branch"
+            to={BRANCHES.thane.pagePath}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="flex items-start space-x-3 text-left group cursor-pointer focus:outline-none"
           >
             <span className="text-[#e31e24] text-lg sm:text-xl pt-0.5 group-hover:scale-110 transition-transform">📍</span>
             <div className="flex flex-col space-y-1">
-              <h5 className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
-                Thane Branch
-              </h5>
+              <div className="text-white font-sans font-bold uppercase tracking-wider group-hover:text-[#e31e24] transition-colors">
+                {BRANCHES.thane.name} Branch
+              </div>
               <p className="text-slate-400 leading-relaxed">
-                3rd Floor, Above McDonald's,<br />
-                Opp Railway Station,<br />
-                Thane West, Maharashtra 400601
+                {BRANCHES.thane.addressLine1}<br />
+                {BRANCHES.thane.addressLine2}<br />
+                {BRANCHES.thane.addressLine3}
               </p>
             </div>
           </Link>

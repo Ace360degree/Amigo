@@ -300,17 +300,17 @@ const faqItems: FaqItem[] = [
 
 const storyCards: StoryCard[] = [
   {
-    title: "Jasmine Soni",
-    role: "Cabin Crew Executive",
+    title: "Mehwish Sayyed",
+    role: "Cabin Crew",
     company: "Air Asia 2025",
     quote:
-      "\"Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.\"",
+      "\"Amigo Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.\"",
     image: coursesVideo1a,
   },
   {
     title: "Swati Patil",
     role: "Airport Ground Staff",
-    company: "Vistara 2025",
+    company: "Air India 2025",
     quote:
       "\"The comprehensive curriculum covered every aspect of the industry. The mock interviews and interview preparation made the whole process feel natural and calm.\"",
     image: coursesVideo2a,

@@ -104,7 +104,7 @@ export default function Placement() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const statistics = [
     { number: "10,000+", label: "Students Trained Successfully" },
-    { number: "100%", label: "Placement Assistance Guarantee" },
+    { number: "Dedicated", label: "Placement Assistance Cell" },
     { number: "200+", label: "Global Airlines & Tech Recruiters" },
     { number: "Upto ₹9 L", label: "Average Starting Salary Range (Based on Eligibility*)" },
   ];
@@ -140,7 +140,7 @@ export default function Placement() {
     {
       name: "Mehwish Sayyed",
       role: "Airport Ground Staff",
-      company: "Vistara",
+      company: "Air India",
       branch: "Ghatkopar Branch",
       year: "Placed 2025",
       quote: "The mock interviews made the real airline round feel familiar.",
@@ -771,17 +771,17 @@ export default function Placement() {
             <FAQItem
               index={2}
               question="Which companies hire Amigo students?"
-              answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
+              answer="Our students are hired by leading airlines such as IndiGo, Air India, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
             />
             {/* <FAQItem
               index={3}
               question="Which companies hire Amigo students?"
-              answer="Our students are hired by leading airlines such as IndiGo, Air India, Vistara, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
+              answer="Our students are hired by leading airlines such as IndiGo, Air India, SpiceJet, Akasa Air, Emirates, Qatar Airways, and many more. We also have placements in ground handling, travel, and hospitality companies."
             /> */}
             <FAQItem
               index={4}
-              question="Does Amigo guarantee placement?"
-              answer="We provide 100% placement assistance — that means dedicated mock interviews, resume building, grooming sessions, and direct introductions to hiring partners. While no institute can legally guarantee a job, our track record of 10,000+ placements speaks for itself."
+              question="Does Amigo provide placement assistance?"
+              answer="We provide dedicated placement assistance — that means mock interviews, resume building, grooming sessions, and direct introductions to hiring partners. Our track record of 10,000+ placements speaks for itself."
             />
             <FAQItem
               index={5}

@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
 import { decodeHTMLEntities } from "../utils/htmlDecoder";
+import { BRANCHES } from "../data/branches";
 import course1Img from "../assets/img/location/cabin-crew.png";
 import course2Img from "../assets/img/location/airport.png";
 import course3Img from "../assets/img/location/ai.png";
@@ -121,12 +122,12 @@ export default function MumbaiSEODetail() {
       }
     }
 
-    let branchName = "Ghatkopar";
-    let branchAddress = "107 & 108, Sai Infotech, Patel Chowk, Opposite Railway Station, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra – 400077";
-    let branchMapSrc = "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed";
-    let branchMapHref = "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai";
-    let branchLink = "/ghatkopar-branch";
-    let branchPhone = "+919987588932";
+    let branchName = BRANCHES.ghatkopar.name;
+    let branchAddress = BRANCHES.ghatkopar.address;
+    let branchMapSrc = BRANCHES.ghatkopar.mapEmbedUrl;
+    let branchMapHref = BRANCHES.ghatkopar.mapHref;
+    let branchLink = BRANCHES.ghatkopar.pagePath;
+    let branchPhone = BRANCHES.ghatkopar.phone;
 
     // Determine nearest branch based on area / slug
     const lowerArea = area.toLowerCase();
@@ -141,11 +142,11 @@ export default function MumbaiSEODetail() {
       lowerArea.includes("mumbra") || lowerSlug.includes("mumbra") ||
       lowerArea.includes("diwa") || lowerSlug.includes("diva")
     ) {
-      branchName = "Thane";
-      branchAddress = "A204, 2nd Floor, Thakor Niwas CHS, Above Tip Top Mithaiwala, Jambli Naka, Thane West, Thane, Maharashtra 400602";
-      branchMapSrc = "https://maps.google.com/maps?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra&t=&z=16&ie=UTF8&iwloc=&output=embed";
-      branchMapHref = "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra";
-      branchLink = "/thane-branch";
+      branchName = BRANCHES.thane.name;
+      branchAddress = BRANCHES.thane.address;
+      branchMapSrc = BRANCHES.thane.mapEmbedUrl;
+      branchMapHref = BRANCHES.thane.mapHref;
+      branchLink = BRANCHES.thane.pagePath;
     } else if (
       lowerArea.includes("andheri") || lowerSlug.includes("andheri") ||
       lowerArea.includes("bandra") || lowerSlug.includes("bandra") ||
@@ -153,17 +154,20 @@ export default function MumbaiSEODetail() {
       lowerArea.includes("kandivali") || lowerSlug.includes("kandivali") ||
       lowerArea.includes("malad") || lowerSlug.includes("malad") ||
       lowerArea.includes("goregaon") || lowerSlug.includes("goregaon") ||
-      lowerArea.includes("juhu") || lowerSlug.includes("juhu") ||
-      lowerArea.includes("vile parle") || lowerSlug.includes("vile-parle") ||
+      lowerArea.includes("jogeshwari") || lowerSlug.includes("jogeshwari") ||
       lowerArea.includes("santacruz") || lowerSlug.includes("santacruz") ||
+      lowerArea.includes("vile parle") || lowerSlug.includes("vile-parle") ||
       lowerArea.includes("dahisar") || lowerSlug.includes("dahisar") ||
-      lowerArea.includes("jogeshwari") || lowerSlug.includes("jogeshwari")
+      lowerArea.includes("mira road") || lowerSlug.includes("mira-road") ||
+      lowerArea.includes("bhayandar") || lowerSlug.includes("bhayandar") ||
+      lowerArea.includes("vasai") || lowerSlug.includes("vasai") ||
+      lowerArea.includes("virar") || lowerSlug.includes("virar")
     ) {
-      branchName = "Andheri";
-      branchAddress = "902, 9th Floor, Time Chambers, Swami Vivekanand Rd, Andheri West, Mumbai, Maharashtra 400058";
-      branchMapSrc = "https://maps.google.com/maps?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed";
-      branchMapHref = "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai";
-      branchLink = "/andheri-branch";
+      branchName = BRANCHES.andheri.name;
+      branchAddress = BRANCHES.andheri.address;
+      branchMapSrc = BRANCHES.andheri.mapEmbedUrl;
+      branchMapHref = BRANCHES.andheri.mapHref;
+      branchLink = BRANCHES.andheri.pagePath;
     }
 
     let travelTimeText = `2 Stops / ~5 Mins from ${area} (Central Line)`;
@@ -433,28 +437,28 @@ export default function MumbaiSEODetail() {
       phone: string;
     }> = {
       Ghatkopar: {
-        name: "Ghatkopar",
-        address: "107 & 108, Sai Infotech, Patel Chowk, Opposite Ghatkopar Railway Station, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra 400077",
-        mapSrc: "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed",
-        mapHref: "https://maps.google.com/maps?q=Amigo%20Academy%20Ghatkopar%20Sai%20Infotech%20Mumbai",
-        link: "/ghatkopar-branch",
-        phone: "+919987588932"
+        name: BRANCHES.ghatkopar.name,
+        address: BRANCHES.ghatkopar.address,
+        mapSrc: BRANCHES.ghatkopar.mapEmbedUrl,
+        mapHref: BRANCHES.ghatkopar.mapHref,
+        link: BRANCHES.ghatkopar.pagePath,
+        phone: BRANCHES.ghatkopar.phone
       },
       Andheri: {
-        name: "Andheri",
-        address: "902, 9th Floor, Time Chambers, Swami Vivekanand Rd, Opposite Andheri Railway Station, Andheri West, Mumbai, Maharashtra 400058",
-        mapSrc: "https://maps.google.com/maps?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed",
-        mapHref: "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai",
-        link: "/andheri-branch",
-        phone: "+919987588932"
+        name: BRANCHES.andheri.name,
+        address: BRANCHES.andheri.address,
+        mapSrc: BRANCHES.andheri.mapEmbedUrl,
+        mapHref: BRANCHES.andheri.mapHref,
+        link: BRANCHES.andheri.pagePath,
+        phone: BRANCHES.andheri.phone
       },
       Thane: {
-        name: "Thane",
-        address: "3rd Floor, Above McDonald's, Station Road, Opposite Thane Railway Station, Thane West, Mumbai, Maharashtra 400601",
-        mapSrc: "https://maps.google.com/maps?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra&t=&z=16&ie=UTF8&iwloc=&output=embed",
-        mapHref: "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra",
-        link: "/thane-branch",
-        phone: "+919987588932"
+        name: BRANCHES.thane.name,
+        address: BRANCHES.thane.address,
+        mapSrc: BRANCHES.thane.mapEmbedUrl,
+        mapHref: BRANCHES.thane.mapHref,
+        link: BRANCHES.thane.pagePath,
+        phone: BRANCHES.thane.phone
       }
     };
 

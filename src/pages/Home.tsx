@@ -464,8 +464,6 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   className="w-full bg-slate-50 border border-slate-100 focus:border-slate-300 focus:bg-white text-slate-700 text-sm pl-11 pr-8 py-3.5 rounded-xl focus:outline-none transition-all appearance-none cursor-pointer font-semibold"
                 >
                   <option value="" disabled>Age</option>
-                  <option value="15">15 Years</option>
-                  <option value="16">16 Years</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
                   <option value="19">19 Years</option>
@@ -849,10 +847,10 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               </div>
               <div className="flex flex-col space-y-1">
                 <h3 className="text-base sm:text-lg font-bold text-[#0f2a4a] flex items-center gap-1.5 font-sans">
-                  Certified course
+                  Maharashtra Government Certified
                 </h3>
                 <p className="text-slate-500 text-xs sm:text-sm leading-relaxed font-sans font-semibold">
-                  Certified course — a recognized qualification trusted by employers across India.
+                  Maharashtra Government Certified aviation programs providing industry-oriented credentials.
                 </p>
               </div>
             </div>
@@ -1288,9 +1286,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
           {[
             {
               name: "Jasmine Soni",
-              role: "Cabin Crew Emirates",
+              role: "Cabin Crew IndiGo",
               batch: "Aviation Batch 2023",
-              quote: "Amigo Air Hostess Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
+              quote: "Amigo Academy completely transformed my career path. The practical training and expert guidance helped me land my dream job as a Cabin Crew Member within months of graduating.",
               videoImg: Student1,
               avatarImg: Studentpf1,
               badge: "SELECTED FOR INDIGO",
@@ -1304,13 +1302,13 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               videoImg: Student2,
               avatarImg: Studentpf2,
               badge: "",
-              overlayText: "Swati Patil - Speak Up!"
+              overlayText: "Swati Patil - Airport Ground Staff"
             },
             {
               name: "Hardik Chari",
-              role: "Gust Service Exclusive",
+              role: "Guest Service Executive",
               batch: "Batch 2024",
-              quote: "\"Gust Service Exclusive Course Mumbai — zero to high-paying job. Placement team is exceptional.\"",
+              quote: "Guest Service Executive Course Mumbai — zero to high-paying job. Placement team is exceptional.",
               videoImg: Student3,
               avatarImg: Studentpf3,
               badge: "JOB ASSISTANCE",
@@ -1318,9 +1316,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             },
             {
               name: "Isaac Edward",
-              role: "Passenger Service Excusive",
+              role: "Passenger Service Executive",
               batch: "Batch 2025",
-              quote: "ROHAN S. \"6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.\"",
+              quote: "6-month course + placement team = best move after 12th. Got placed at Mumbai Airport within 5 months.",
               videoImg: Student4,
               avatarImg: Studentpf4,
               badge: "",
@@ -1334,7 +1332,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               videoImg: Student5,
               avatarImg: Studentpf5,
               badge: "",
-              overlayText: "Congratulations ASHWINI PATIL - Cabin Crew Vistara"
+              overlayText: "Congratulations ASHWINI PATIL - Cabin Crew Air India"
             }
           ].map((story, idx) => (
             <div key={idx} className="w-full md:w-[350px] lg:w-[370px] flex flex-col bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300">
@@ -1592,24 +1590,24 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
               a: "After Air Hostess training, freshers can typically expect upto 9 LPA, depending on the airline, role, and location. With experience, earnings can increase significantly."
             },
             {
-              q: "What is the eligibility for air hostess course after 12th.",
-              a: "Candidates must be between 17 to 26 years of age and have cleared their 10+2 examinations in any stream with a minimum aggregate of 50%. Good communication skills, a pleasing personality, and basic physical fitness are also required."
+              q: "What is the eligibility for air hostess course after 12th?",
+              a: "Candidates must be between 17 to 24 years of age and have cleared their 10+2 examinations in any stream with a minimum aggregate of 50%. Good communication skills, a pleasing personality, and basic physical fitness are also required."
             },
             {
-              q: "Which is the best air hostess course in Mumbai with placement support.",
-              a: "Amigo Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and 100% genuine placement support until you are selected."
+              q: "Which is the best air hostess course in Mumbai with placement support?",
+              a: "Amigo Academy offers the leading Gov-certified Air Hostess and Cabin Crew program in Mumbai. We provide intensive hands-on classroom training, professional grooming, mock interviews, and dedicated placement support until you are selected."
             },
             {
-              q: "Best AI and Data Science course in Mumbai after 10th.",
-              a: "Our 12-month AI & Data Science course is ideal for 10th Pass looking to enter tech. It features practical training in Machine Learning, Generative AI, and databases, backed by placement support and flexible EMI options."
+              q: "What is the eligibility for the AI and Data Science course in Mumbai?",
+              a: "Our 12-month AI & Data Science course requires 12th Pass (HSC / 10+2) in any stream. It features practical training in Python, Machine Learning, Generative AI, and databases, backed by dedicated placement support and flexible EMI options."
             },
             {
-              q: "Do you provide placement for airport ground staff course.",
+              q: "Do you provide placement for airport ground staff course?",
               a: "Yes, we have robust recruitment partnerships with major airlines and airport operators. Our dedicated placement cell arranges direct campus interviews with IndiGo, Air India, Emirates, SpiceJet, and Akasa Air to ensure rapid placements."
             },
             {
-              q: "Are your courses certified with EMI options.",
-              a: "Yes, our aviation and hospitality programs are Certified courses. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
+              q: "Are your courses certified with EMI options?",
+              a: "Yes, our programs are certified courses. We offer transparent pricing with easy zero-interest EMI options, along with scholarship opportunities up to ₹50,000 to assist qualified students."
             }
           ].map((faq, idx) => {
             const isOpen = activeFaq === idx;
@@ -1687,26 +1685,26 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             {[
               {
                 img: newsImage1,
-                title: "Cabin Crew Job Opportunities and...",
-                desc: "Explore current airline hiring trends, career paths, and how...",
+                title: "Cabin Crew Job Opportunities and Hiring Trends",
+                desc: "Explore current airline hiring trends, career paths, and interview preparation strategies.",
                 meta: "08 MINUTES — PLACEMENT CELL"
               },
               {
                 img: newsImage2,
-                title: "Inside Our Training Campus: A Day in...",
-                desc: "A look into our modern classrooms, practical sessions,...",
+                title: "Inside Our Training Campus: A Day in Mock Aircraft",
+                desc: "A look into our modern classrooms, practical cabin service sessions, and grooming drills.",
                 meta: "06 MINUTES — CAMPUS LIFE"
               },
               {
                 img: newsImage3,
-                title: "Placement Day Highlights: Landing Your",
-                desc: "See how students attend interviews and secure jobs with...",
+                title: "Placement Day Highlights: Landing Your Dream Airline Job",
+                desc: "See how students attend interviews and secure job offers with top airlines.",
                 meta: "05 MINUTES — HR TEAM"
               },
               {
                 img: newsImage4,
-                title: "Life After Training: Alumni Success Stories",
-                desc: "A glimpse into the professional lives of Amigo graduates working",
+                title: "Life After Training: Alumni Success Stories Across India",
+                desc: "A glimpse into the professional lives of Amigo graduates working in aviation and tech.",
                 meta: "10 MINUTES — ALUMNI NETWORK"
               }
             ].map((post, idx) => (
@@ -1751,7 +1749,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   Why 2026 Is The Best Time To Start Your Aviation Career
                 </h3>
                 <span className="text-xs font-bold text-slate-300 uppercase tracking-wider block">
-                  05 April 2026
+                  15 January 2026
                 </span>
               </div>
             </div>

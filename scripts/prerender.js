@@ -176,6 +176,49 @@ async function runPrerender() {
     }
 
     console.log(`🎉 SSG Prerendering complete! Successfully pre-rendered ${count} pages into dist/`);
+
+    // Generate static 301 redirect HTML files for legacy URLs
+    console.log("🔗 Generating static 301 redirect pages for legacy URLs...");
+    const legacyRedirects = [
+      { from: "hospitality", to: "/courses/air-hostess-cabin-crew-hospitality-management" },
+      { from: "air-hostess", to: "/courses/air-hostess-cabin-crew-hospitality-management" },
+      { from: "airport-ground-staff", to: "/courses/airport-ground-staff-hospitality-management" },
+      { from: "ai-data-science", to: "/courses/ai-data-science-with-generative-ai-machine-learning" },
+      { from: "contact-us", to: "/contact" },
+      { from: "about", to: "/about-us" },
+      { from: "location", to: "/locations" },
+      { from: "course", to: "/courses" },
+      { from: "career-guide", to: "/career-guides" },
+      { from: "air-hostess-course-mumbai", to: "/courses/air-hostess-cabin-crew-hospitality-management" },
+      { from: "cabin-crew-course-mumbai", to: "/courses/air-hostess-cabin-crew-hospitality-management" },
+      { from: "ground-staff-course-mumbai", to: "/courses/airport-ground-staff-hospitality-management" },
+      { from: "ai-course-mumbai", to: "/courses/ai-data-science-with-generative-ai-machine-learning" },
+    ];
+
+    for (const redir of legacyRedirects) {
+      const redirectHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;url=${redir.to}">
+  <link rel="canonical" href="https://amigoacademy.in${redir.to}">
+  <title>Redirecting to ${redir.to}</title>
+</head>
+<body>
+  <p>This page has moved to <a href="${redir.to}">https://amigoacademy.in${redir.to}</a>.</p>
+  <script>window.location.href = "${redir.to}";</script>
+</body>
+</html>`;
+
+      // Write html file and dir index file
+      const htmlFile = path.resolve(distDir, `${redir.from}.html`);
+      const dirIndexFile = path.resolve(distDir, redir.from, "index.html");
+      fs.mkdirSync(path.dirname(htmlFile), { recursive: true });
+      fs.mkdirSync(path.dirname(dirIndexFile), { recursive: true });
+      fs.writeFileSync(htmlFile, redirectHtml, "utf-8");
+      fs.writeFileSync(dirIndexFile, redirectHtml, "utf-8");
+    }
+    console.log("✅ Static 301 redirect pages created!");
   } finally {
     await vite.close();
   }

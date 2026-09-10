@@ -31,7 +31,7 @@ export const Route = createFileRoute("/$slug")({
 
     const rawExcerpt = post?.excerpt?.rendered || "";
     const cleanExcerpt = rawExcerpt.replace(/<[^>]+>/g, "").trim();
-    const description = cleanExcerpt || `Join Amigo Academy for premier Aviation, Cabin Crew & Ground Staff training near ${slug.replace(/-/g, " ")}. Guaranteed placement assistance & scholarships available.`;
+    const description = cleanExcerpt || `Join Amigo Academy for premier Aviation, Cabin Crew & Ground Staff training near ${slug.replace(/-/g, " ")}. Dedicated placement assistance & scholarships available.`;
 
     return {
       meta: [

@@ -62,8 +62,8 @@ const overview: OverviewItem[] = [
   { label: "Timing", value: "Morning / Afternoon / Evening" },
   { label: "Our Branches", value: "Ghatkopar, Andheri & Thane" },
   { label: "Duration", value: "12 Months (Weekdays and Weekend batches available, 2 Hours/Day)" },
-  { label: "Eligibility", value: "10th Pass" },
-  { label: "Age", value: "15 Years & Above" },
+  { label: "Eligibility", value: "12th Pass (HSC / 10+2)" },
+  { label: "Age", value: "17–25 Years" },
 ];
 
 const highlights: HighlightCard[] = [
@@ -167,7 +167,7 @@ const criteriaCards: CriteriaCard[] = [
   {
     title: "Age Criteria",
     tag: "REQUIRED",
-    details: "15 Years & Above",
+    details: "17–25 Years",
     note: "Ideal for students, job seekers, and career switchers",
     badgeType: "REQUIRED",
   },
@@ -454,7 +454,7 @@ export default function AIDataScienceCourse() {
                   <span className="text-[#0b2f61] font-bold">♙</span>
                   <p>
                     <span className="font-semibold text-slate-700">Age:</span>
-                    <span className="ml-2 font-medium text-[#0b2f61]">15 Years & Above</span>
+                    <span className="ml-2 font-medium text-[#0b2f61]">17–25 Years</span>
                   </p>
                 </div>
               </div>
@@ -518,11 +518,11 @@ export default function AIDataScienceCourse() {
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Eligibility:</span>
-              <span className="text-[#0b2f61] font-medium">10th Pass</span>
+              <span className="text-[#0b2f61] font-medium">12th Pass (HSC / 10+2)</span>
             </div>
             <div className="flex items-center justify-between gap-3 text-[#42526a]">
               <span className="font-semibold text-slate-700">Age:</span>
-              <span className="text-[#0b2f61] font-medium">15 Years & Above</span>
+              <span className="text-[#0b2f61] font-medium">17–25 Years</span>
             </div>
           </div>
         </div>
@@ -608,8 +608,6 @@ export default function AIDataScienceCourse() {
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
                 >
                   <option value="" disabled hidden>Age</option>
-                  <option value="15">15 Years</option>
-                  <option value="16">16 Years</option>
                   <option value="17">17 Years</option>
                   <option value="18">18 Years</option>
                   <option value="19">19 Years</option>

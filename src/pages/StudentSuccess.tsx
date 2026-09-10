@@ -37,7 +37,7 @@ const students = [
         name: "Mehwish Sayyed",
         course: "Airport Ground Staff & Hospitality Management",
         branch: "Ghatkopar",
-        placedAt: "Vistara Air",
+        placedAt: "Air India",
         quote: "The mock interviews made the real airline round feel familiar.",
         image: student4
     }

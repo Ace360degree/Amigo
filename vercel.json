@@ -3,6 +3,28 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/hospitality", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/hospitality/", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/air-hostess", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/air-hostess/", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/airport-ground-staff", "destination": "/courses/airport-ground-staff-hospitality-management", "permanent": true },
+    { "source": "/airport-ground-staff/", "destination": "/courses/airport-ground-staff-hospitality-management", "permanent": true },
+    { "source": "/ai-data-science", "destination": "/courses/ai-data-science-with-generative-ai-machine-learning", "permanent": true },
+    { "source": "/ai-data-science/", "destination": "/courses/ai-data-science-with-generative-ai-machine-learning", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/contact-us/", "destination": "/contact", "permanent": true },
+    { "source": "/about", "destination": "/about-us", "permanent": true },
+    { "source": "/about/", "destination": "/about-us", "permanent": true },
+    { "source": "/location", "destination": "/locations", "permanent": true },
+    { "source": "/location/", "destination": "/locations", "permanent": true },
+    { "source": "/course", "destination": "/courses", "permanent": true },
+    { "source": "/course/", "destination": "/courses", "permanent": true },
+    { "source": "/air-hostess-course-mumbai", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/cabin-crew-course-mumbai", "destination": "/courses/air-hostess-cabin-crew-hospitality-management", "permanent": true },
+    { "source": "/ground-staff-course-mumbai", "destination": "/courses/airport-ground-staff-hospitality-management", "permanent": true },
+    { "source": "/ai-course-mumbai", "destination": "/courses/ai-data-science-with-generative-ai-machine-learning", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/blog/:slug*",

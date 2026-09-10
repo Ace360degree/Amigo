@@ -3,6 +3,7 @@ import { useNavigate, Link } from "@tanstack/react-router";
 import heroContact from "../assets/img/herocontact.png";
 import mobileHeroContact from "../assets/img/mobileherocontant.png";
 import Swal from "sweetalert2";
+import { BRANCHES } from "../data/branches";
 
 interface ContactProps {
   setCurrentPage?: (page: string) => void;
@@ -195,23 +196,21 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     📍
                   </div>
                   <div>
-                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">Ghatkopar</h4>
+                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">{BRANCHES.ghatkopar.name}</h4>
                   </div>
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  {/* AMIGO ACADEMY GHATKOPAR<br /> */}
-                  SAI INFOTECH, 107 & 108, Patel Chowk<br />
-                  opposite Ghatkopar Station, Saibaba Nagar<br />
-                  Pant Nagar, Ghatkopar East, Mumbai,<br />
-                  Maharashtra 400077
+                  {BRANCHES.ghatkopar.addressLine1}<br />
+                  {BRANCHES.ghatkopar.addressLine2}<br />
+                  {BRANCHES.ghatkopar.addressLine3}
                 </p>
               </div>
 
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
-                <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
+                <a href={`tel:${BRANCHES.ghatkopar.phone}`} className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">{BRANCHES.ghatkopar.phone}</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -225,7 +224,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     <span>✈️</span> View Map
                   </button>
                   <a
-                    href="tel:+919987588932"
+                    href={`tel:${BRANCHES.ghatkopar.phone}`}
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
                   >
                     <span>📞</span> Call
@@ -242,22 +241,21 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     📍
                   </div>
                   <div>
-                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">Andheri</h4>
+                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">{BRANCHES.andheri.name}</h4>
                   </div>
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  {/* AMIGO ACADEMY ANDHERI<br /> */}
-                  902, 9th, Time Chambers, Swami Vivekanand<br />
-                  Rd, Andheri West, Mumbai, Maharashtra<br />
-                  400058
+                  {BRANCHES.andheri.addressLine1}<br />
+                  {BRANCHES.andheri.addressLine2}<br />
+                  {BRANCHES.andheri.addressLine3}
                 </p>
               </div>
 
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
-                <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
+                <a href={`tel:${BRANCHES.andheri.phone}`} className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">{BRANCHES.andheri.phone}</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -271,7 +269,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     <span>✈️</span> View Map
                   </button>
                   <a
-                    href="tel:+919987588932"
+                    href={`tel:${BRANCHES.andheri.phone}`}
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
                   >
                     <span>📞</span> Call
@@ -288,23 +286,21 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     📍
                   </div>
                   <div>
-                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">Thane</h4>
+                    <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base leading-tight">{BRANCHES.thane.name}</h4>
                   </div>
                 </div>
 
                 <p className="text-neutral-500 text-xs sm:text-[13px] leading-relaxed pt-1">
-                  {/* AMIGO ACADEMY THANE<br /> */}
-                  A204, 2nd floor, Amigo Academy, Thakor<br />
-                  Niwas CHS, above Tip Top Mithaiwala, Jambli<br />
-                  Naka, Thane West, Thane, Maharashtra<br />
-                  400602
+                  {BRANCHES.thane.addressLine1}<br />
+                  {BRANCHES.thane.addressLine2}<br />
+                  {BRANCHES.thane.addressLine3}
                 </p>
               </div>
 
               <div className="space-y-5 pt-6 border-t border-neutral-100 mt-6">
-                <a href="tel:+919987588932" className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
+                <a href={`tel:${BRANCHES.thane.phone}`} className="flex items-center space-x-2 text-neutral-800 hover:text-[#e31e24] transition-colors">
                   <span className="text-neutral-400 text-xs">📞</span>
-                  <span className="text-xs sm:text-sm font-extrabold font-sans">+919987588932</span>
+                  <span className="text-xs sm:text-sm font-extrabold font-sans">{BRANCHES.thane.phone}</span>
                 </a>
 
                 <div className="grid grid-cols-2 gap-3.5 w-full">
@@ -318,7 +314,7 @@ export default function Contact({ setCurrentPage }: ContactProps = {}) {
                     <span>✈️</span> View Map
                   </button>
                   <a
-                    href="tel:+919987588932"
+                    href={`tel:${BRANCHES.thane.phone}`}
                     className="bg-[#e31e24] hover:bg-[#c2141a] text-white text-[11px] font-bold py-3 rounded-full flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-all"
                   >
                     <span>📞</span> Call

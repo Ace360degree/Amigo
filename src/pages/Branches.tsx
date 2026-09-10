@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import heroImage from "../assets/img/branches/branches-main.png";
 import branchesMobileHero from "../assets/img/branches/branches-main-mobile.png";
+import { BRANCHES } from "../data/branches";
 import branchesIllustration from "../assets/img/branches2a.png";
 import branchImage1 from "../assets/img/branchesimg1a.png";
 import branchImage2 from "../assets/img/branchesimg2a.png";
@@ -41,41 +42,40 @@ const stats: Stat[] = [
   { value: "100%", label: "Same Training Standard" },
 ];
 
-const branches: BranchCard[] = [
+const branchesList: BranchCard[] = [
   {
-    name: "Ghatkopar",
+    name: BRANCHES.ghatkopar.name,
+    tag: "Head Office",
     address: [
-      "AMIGO ACADEMY GHATKOPAR",
-      "SAI INFOTECH, 107 & 108, Patel Chowk",
-      "Opposite Ghatkopar Station, Saibaba Nagar",
-      "Pant Nagar, Ghatkopar East, Mumbai, Maharashtra 400077",
+      BRANCHES.ghatkopar.addressLine1,
+      BRANCHES.ghatkopar.addressLine2,
+      BRANCHES.ghatkopar.addressLine3,
     ],
-    phone: "+919987588932",
-    mapHref: "https://maps.google.com/?q=Sai+Infotech+Ghatkopar+East+Mumbai",
-    link: "/ghatkopar-branch"
+    phone: BRANCHES.ghatkopar.phone,
+    mapHref: BRANCHES.ghatkopar.mapHref,
+    link: BRANCHES.ghatkopar.pagePath
   },
   {
-    name: "Andheri",
+    name: BRANCHES.andheri.name,
     address: [
-      "AMIGO ACADEMY ANDHERI",
-      "902, 9th, Time Chambers, Swami Vivekanand Rd",
-      "Andheri West, Mumbai, Maharashtra 400058",
+      BRANCHES.andheri.addressLine1,
+      BRANCHES.andheri.addressLine2,
+      BRANCHES.andheri.addressLine3,
     ],
-    phone: "+919987588932",
-    mapHref: "https://maps.google.com/?q=Time+Chambers+Swami+Vivekanand+Road+Andheri+West+Mumbai",
-    link: "/andheri-branch"
+    phone: BRANCHES.andheri.phone,
+    mapHref: BRANCHES.andheri.mapHref,
+    link: BRANCHES.andheri.pagePath
   },
   {
-    name: "Thane",
+    name: BRANCHES.thane.name,
     address: [
-      "AMIGO ACADEMY THANE",
-      "A204, 2nd Floor, Thakor Niwas CHS",
-      "Above Tip Top Mithaiwala, Jambli Naka",
-      "Thane West, Thane, Maharashtra 400602",
+      BRANCHES.thane.addressLine1,
+      BRANCHES.thane.addressLine2,
+      BRANCHES.thane.addressLine3,
     ],
-    phone: "+919987588932",
-    mapHref: "https://maps.google.com/?q=Thakor+Niwas+Jambli+Naka+Thane+West+Maharashtra",
-    link: "/thane-branch"
+    phone: BRANCHES.thane.phone,
+    mapHref: BRANCHES.thane.mapHref,
+    link: BRANCHES.thane.pagePath
   },
 ];
 
@@ -473,7 +473,7 @@ export default function Branches() {
           {/* Middle Pill Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#f5b74a]/30 bg-[#072147]/80 px-5 py-2 text-xs sm:text-[13px] font-extrabold text-[#f5b74a] shadow-sm mb-10">
             <span className="text-sm">🏛️</span>
-            Maharashtra Govt Certified — Only aviation institute in Maharashtra
+            Maharashtra Government Certified
           </div>
 
           {/* Action Buttons Row */}

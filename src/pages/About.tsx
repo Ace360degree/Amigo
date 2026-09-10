@@ -131,7 +131,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
     },
     {
       name: "Anjali Patil",
-      role: "Airport Manager, Vistara",
+      role: "Airport Manager, Air India",
       batch: "Airport Management 2024 Batch",
       quote: "A certified course combined with expert training gave me an edge in the interviews. The branches and training mockups are highly professional.",
       initial: "A"
@@ -565,7 +565,7 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
               videoImg: Student5,
               avatarImg: Studentpf5,
               badge: "",
-              overlayText: "Congratulations ASHWINI PATIL - Cabin Crew Vistara"
+              overlayText: "Congratulations ASHWINI PATIL - Cabin Crew Air India"
             }
           ].map((story, idx) => (
             <div key={idx} className="w-full md:w-[350px] lg:w-[370px] flex flex-col bg-white rounded-3xl border border-neutral-100 shadow-[0_12px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300">
