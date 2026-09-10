@@ -60,16 +60,17 @@ export default function Footer() {
               to="/about-us"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className="text-white hover:text-[#e31e24] font-bold text-xs w-fit text-left focus:outline-none"
+              aria-label="Read more about Amigo Academy"
             >
-              Read More
+              Read more about Amigo Academy
             </Link>
           </div>
 
           {/* Links Col 1: Home */}
           <div className="lg:col-span-2 flex flex-col space-y-4 text-left">
-            <h4 className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
+            <div className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
               Quick Links
-            </h4>
+            </div>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <Link to="/about-us" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">About us</Link>
               <Link to="/placement" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Placements</Link>
@@ -105,9 +106,9 @@ export default function Footer() {
 
           {/* Links Col 2: Courses */}
           <div className="lg:col-span-2 flex flex-col space-y-4 text-left">
-            <h4 className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
+            <div className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
               Courses
-            </h4>
+            </div>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <Link to="/courses/air-hostess-cabin-crew-hospitality-management" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Cabin Crew (Air Hostess) & Hospitality Management</Link>
               <Link to="/courses/airport-ground-staff-hospitality-management" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff & Hospitality Management</Link>
@@ -118,9 +119,9 @@ export default function Footer() {
 
           {/* Links Col 3: Career Guides */}
           <div className="lg:col-span-2 flex flex-col space-y-4 text-left">
-            <h4 className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
+            <div className="text-white font-sans font-bold text-sm tracking-wide border-l-2 border-[#e31e24] pl-2.5">
               Career Guides
-            </h4>
+            </div>
             <nav className="flex flex-col space-y-2.5 text-xs sm:text-sm text-slate-400">
               <Link to="/career-guide/cabin-crew" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Cabin Crew Career Guide</Link>
               <Link to="/career-guide/airport-ground-staff" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-left hover:text-white transition-colors w-fit">Airport Ground Staff Career Guide</Link>
@@ -131,9 +132,9 @@ export default function Footer() {
 
           {/* QR Code Col */}
           <div className="lg:col-span-2 flex flex-col space-y-3.5 items-start text-left">
-            <h4 className="text-white font-sans font-bold text-xs tracking-wider uppercase leading-snug">
+            <div className="text-white font-sans font-bold text-xs tracking-wider uppercase leading-snug">
               Scan & Pre Register<br />For Seminar
-            </h4>
+            </div>
             {/* Footer QR Image */}
             <button
               type="button"
@@ -286,7 +287,7 @@ export default function Footer() {
         href="https://wa.me/919987588932"
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-[162px] right-6 z-[9999] hidden md:flex bg-[#25d366] hover:bg-[#20ba5a] text-white w-[60px] h-[60px] rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
+        className="fixed bottom-[162px] right-6 z-[9999] hidden md:flex bg-[#15803d] hover:bg-[#166534] text-white w-[60px] h-[60px] rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-90 items-center justify-center border border-white/20 focus:outline-none cursor-pointer group"
         aria-label="Chat on WhatsApp"
       >
         <svg className="w-8 h-8 transition-transform duration-200 group-hover:scale-110 fill-current" viewBox="0 0 24 24">

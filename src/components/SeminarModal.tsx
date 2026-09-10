@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import Swal from "sweetalert2";
-import logo from "../assets/img/logo.png";
+import logo from "../assets/img/logo.webp";
 import { submitSeminarForm } from "../services/api";
 
 interface SeminarModalProps {
@@ -245,10 +245,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
 
                 {/* GENDER */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                  <label htmlFor="seminar-gender" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                     GENDER
                   </label>
                   <select
+                    id="seminar-gender"
                     required
                     value={personalDetails.gender}
                     onChange={(e) =>
@@ -320,10 +321,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
 
                 {/* MARITAL STATUS */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                  <label htmlFor="seminar-marital" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                     MARITAL STATUS
                   </label>
                   <select
+                    id="seminar-marital"
                     value={personalDetails.maritalStatus}
                     onChange={(e) =>
                       setPersonalDetails({
@@ -439,10 +441,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-father-occ" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       OCCUPATION
                     </label>
                     <select
+                      id="seminar-father-occ"
                       value={parentDetails.fatherOccupation}
                       onChange={(e) =>
                         setParentDetails({ ...parentDetails, fatherOccupation: e.target.value })
@@ -494,10 +497,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-mother-occ" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       OCCUPATION
                     </label>
                     <select
+                      id="seminar-mother-occ"
                       value={parentDetails.motherOccupation}
                       onChange={(e) =>
                         setParentDetails({ ...parentDetails, motherOccupation: e.target.value })
@@ -545,10 +549,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {/* EDUCATION LEVEL */}
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-edu-level" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       EDUCATION LEVEL
                     </label>
                     <select
+                      id="seminar-edu-level"
                       value={educationalDetails.educationLevel}
                       onChange={(e) =>
                         setEducationalDetails({
@@ -586,10 +591,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
 
                   {/* STREAM */}
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-stream" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       STREAM
                     </label>
                     <select
+                      id="seminar-stream"
                       value={educationalDetails.stream}
                       onChange={(e) =>
                         setEducationalDetails({
@@ -612,10 +618,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {/* YEAR */}
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-year" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       YEAR
                     </label>
                     <select
+                      id="seminar-year"
                       value={educationalDetails.year}
                       onChange={(e) =>
                         setEducationalDetails({
@@ -637,10 +644,11 @@ export default function SeminarModal({ isOpen, onClose }: SeminarModalProps) {
 
                   {/* MEDIUM */}
                   <div>
-                    <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    <label htmlFor="seminar-medium" className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                       MEDIUM
                     </label>
                     <select
+                      id="seminar-medium"
                       value={educationalDetails.medium}
                       onChange={(e) =>
                         setEducationalDetails({

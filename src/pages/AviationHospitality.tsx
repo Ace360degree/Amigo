@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
-import aviationHero from "../assets/img/aviation-hero.png";
+import aviationHero from "../assets/img/aviation-hero.webp";
 import aviationHeroMobile from "../assets/img/aviation-hero-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
 import coursesVideo2a from "../assets/img/coursesvideo2a.png";
@@ -337,6 +337,8 @@ export default function AviationHospitality() {
             src={aviationHero}
             alt="Airport Ground Staff & Hospitality Management"
             className="h-full w-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
             onError={(e) => {
               e.currentTarget.src =
                 "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800";
@@ -429,6 +431,8 @@ export default function AviationHospitality() {
             src={aviationHeroMobile}
             alt="Aviation & Hospitality Management"
             className="absolute inset-0 h-full w-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
           />
 
           {/* Text Overlay Pinned to Left */}
@@ -558,7 +562,9 @@ export default function AviationHospitality() {
 
               {/* Age */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ah-form-age" className="sr-only">Age</label>
                 <select
+                  id="ah-form-age"
                   value={formState.age}
                   onChange={(e) => setFormState({ ...formState, age: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -578,7 +584,9 @@ export default function AviationHospitality() {
 
               {/* Qualification */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ah-form-qual" className="sr-only">Qualification</label>
                 <select
+                  id="ah-form-qual"
                   value={formState.qualification}
                   onChange={(e) => setFormState({ ...formState, qualification: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -592,7 +600,9 @@ export default function AviationHospitality() {
 
               {/* Preferred Branch */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ah-form-branch" className="sr-only">Preferred Branch</label>
                 <select
+                  id="ah-form-branch"
                   value={formState.branch}
                   onChange={(e) => setFormState({ ...formState, branch: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -606,7 +616,9 @@ export default function AviationHospitality() {
 
               {/* Gender */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ah-form-gender" className="sr-only">Gender</label>
                 <select
+                  id="ah-form-gender"
                   value={formState.gender}
                   onChange={(e) => setFormState({ ...formState, gender: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"

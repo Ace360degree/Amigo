@@ -152,6 +152,8 @@ export default function Branches() {
               src={heroImage}
               alt="Find an Amigo Academy Branch Near You"
               className="w-full h-full object-cover object-left"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
         </div>
@@ -195,6 +197,8 @@ export default function Branches() {
             src={branchesMobileHero}
             alt="Find an Amigo Academy Branch Near You"
             className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+            fetchPriority="high"
+            loading="eager"
           />
 
           {/* Text Content overlay matching screenshot */}
@@ -493,7 +497,7 @@ export default function Branches() {
               href="https://wa.me/919987588932"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-w-[190px] items-center justify-center gap-2.5 rounded-2xl bg-[#22c55e] hover:bg-[#16a34a] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-[0_8px_25px_rgba(34,197,94,0.4)] transition-all hover:shadow-[0_12px_30px_rgba(34,197,94,0.5)] active:scale-95 cursor-pointer"
+              className="inline-flex min-w-[190px] items-center justify-center gap-2.5 rounded-2xl bg-[#15803d] hover:bg-[#166534] px-7 py-4 text-xs sm:text-sm font-bold text-white shadow-[0_8px_25px_rgba(21,128,61,0.4)] transition-all hover:shadow-[0_12px_30px_rgba(21,128,61,0.5)] active:scale-95 cursor-pointer"
             >
               <span className="text-base">💬</span>
               Chat on WhatsApp

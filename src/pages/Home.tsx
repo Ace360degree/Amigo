@@ -1,14 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
+
+function InstagramEmbed({ embedPath, idx }: { embedPath: string; idx: number }) {
+  const [isVisible, setIsVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="aspect-square rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white relative">
+      {isVisible ? (
+        <iframe
+          src={`https://www.instagram.com/${embedPath}/embed`}
+          title={`Instagram post ${idx + 1}`}
+          className="w-full h-[calc(100%+60px)] -mt-[56px] border-0"
+          scrolling="no"
+          loading="lazy"
+        ></iframe>
+      ) : (
+        <div className="w-full h-full bg-slate-50 flex items-center justify-center text-slate-400 font-sans text-xs font-semibold p-4 text-center">
+          Loading Instagram...
+        </div>
+      )}
+    </div>
+  );
+}
 import Swal from "sweetalert2";
 import heroCrew from "../assets/img/hero-crew.png";
 import mobileHeroMain from "../assets/img/mobileheromain.png";
 import courseCabin from "../assets/img/course-cabiny1.png";
 import courseGround from "../assets/img/course-groundy1.png";
 import courseAi from "../assets/img/course-aiy1.png";
-import differentClassroom from "../assets/img/different-classroom.png";
+import differentClassroom from "../assets/img/different-classroom.webp";
 
 // Hero Banner Carousel images
 import cabinCrewBanner from "../assets/img/home-hero/cabincrew.png";
@@ -56,7 +94,7 @@ import brandSpiceJet from "../assets/img/brandSpiceJet.png";
 
 // News and Updates images
 import newsImage1 from "../assets/img/newsImage1.png";
-import newsImage2 from "../assets/img/newsImage2.png";
+import newsImage2 from "../assets/img/newsImage2.webp";
 import newsImage3 from "../assets/img/newsImage3.png";
 import newsImage4 from "../assets/img/newsImage4.png";
 import newsFeatured from "../assets/img/newsFeatured.png";
@@ -207,6 +245,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   src={slide.desktopImg}
                   alt={slide.courseName}
                   className="w-full h-full object-cover object-center"
+                  fetchPriority={idx === 0 ? "high" : "low"}
+                  loading={idx === 0 ? "eager" : "lazy"}
                 />
                 {/* Gradient overlay to fade left side into white */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-white/20 to-transparent z-10" />
@@ -218,6 +258,8 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   src={slide.mobileImg}
                   alt={`${slide.courseName} Mobile`}
                   className="w-full h-full object-cover object-right"
+                  fetchPriority={idx === 0 ? "high" : "low"}
+                  loading={idx === 0 ? "eager" : "lazy"}
                 />
                 {/* Gradient overlay to fade left side into white */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 via-45% to-transparent z-10" />
@@ -310,7 +352,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </span>
+                <label htmlFor="home-mobile" className="sr-only">Mobile Number</label>
                 <input
+                  id="home-mobile"
                   type="tel"
                   required
                   placeholder="Mobile Number"
@@ -328,7 +372,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </span>
+                <label htmlFor="home-fullname" className="sr-only">Full Name</label>
                 <input
+                  id="home-fullname"
                   type="text"
                   required
                   placeholder="Full Name"
@@ -347,7 +393,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                   </svg>
                 </span>
+                <label htmlFor="home-course" className="sr-only">Course</label>
                 <select
+                  id="home-course"
                   required
                   value={selectedCourse}
                   onChange={(e) => setSelectedCourse(e.target.value)}
@@ -379,7 +427,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </span>
+                <label htmlFor="home-branch" className="sr-only">Branch</label>
                 <select
+                  id="home-branch"
                   required
                   value={selectedBranch}
                   onChange={(e) => setSelectedBranch(e.target.value)}
@@ -405,7 +455,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
                 </span>
+                <label htmlFor="home-age" className="sr-only">Age</label>
                 <select
+                  id="home-age"
                   required
                   value={selectedAge}
                   onChange={(e) => setSelectedAge(e.target.value)}
@@ -440,7 +492,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                   </svg>
                 </span>
+                <label htmlFor="home-gender" className="sr-only">Gender</label>
                 <select
+                  id="home-gender"
                   required
                   value={selectedGender}
                   onChange={(e) => setSelectedGender(e.target.value)}
@@ -1167,9 +1221,9 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
                   className="w-10 h-10 rounded-full object-cover shrink-0 shadow-sm"
                 />
                 <div className="flex flex-col text-left">
-                  <h4 className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight font-sans">
+                  <p className="text-xs sm:text-sm font-bold text-[#0f2a4a] leading-tight font-sans">
                     {rev.name}
-                  </h4>
+                  </p>
                   <p className="text-slate-400 text-[10.5px] sm:text-xs font-semibold mt-0.5 font-sans">
                     Google Review &bull; {rev.timeAgo}
                   </p>
@@ -1732,16 +1786,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             if (item.type === "embed") {
               const match = item.url.match(/\/(p|reel)\/([^/?]+)/);
               const embedPath = match ? `${match[1]}/${match[2]}` : "";
-              return (
-                <div key={idx} className="aspect-square rounded-2xl overflow-hidden shadow-sm border border-slate-100 bg-white relative">
-                  <iframe
-                    src={`https://www.instagram.com/${embedPath}/embed`}
-                    title={`Instagram post ${idx + 1}`}
-                    className="w-full h-[calc(100%+60px)] -mt-[56px] border-0"
-                    scrolling="no"
-                  ></iframe>
-                </div>
-              );
+              return <InstagramEmbed key={idx} embedPath={embedPath} idx={idx} />;
             } else {
               return (
                 <a
@@ -1842,7 +1887,7 @@ export default function Home({ setCurrentPage }: HomeProps = {}) {
             href="https://wa.me/919987588932"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ backgroundColor: "#25d366", color: "#ffffff" }}
+            style={{ backgroundColor: "#15803d", color: "#ffffff" }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-bold px-6 py-3.5 rounded-full transition-colors"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

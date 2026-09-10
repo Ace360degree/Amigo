@@ -4,29 +4,15 @@ import Swal from "sweetalert2";
 import SEO from "../components/SEO";
 import { fetchSEOPageBySlug, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
-
-// Import exact premium course images from location asset folder
+import { decodeHTMLEntities } from "../utils/htmlDecoder";
 import course1Img from "../assets/img/location/cabin-crew.png";
 import course2Img from "../assets/img/location/airport.png";
 import course3Img from "../assets/img/location/ai.png";
-
-// Import mock aircraft images
 import train1Img from "../assets/img/location/train1.png";
 import train2Img from "../assets/img/location/train2.png";
 import train3Img from "../assets/img/location/train3.png";
 import train4Img from "../assets/img/location/train4.png";
 import train5Img from "../assets/img/location/train5.png";
-
-// Helper to decode HTML entities (like &#038; to &)
-const decodeHTMLEntities = (text: string) => {
-  if (!text) return "";
-  if (typeof document === "undefined") {
-    return text.replace(/&#038;/g, "&").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#039;/g, "'");
-  }
-  const textArea = document.createElement("textarea");
-  textArea.innerHTML = text;
-  return textArea.value;
-};
 
 function FAQAccordionItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(index === 0);

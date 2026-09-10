@@ -112,6 +112,7 @@ const blogCategories = [
 ];
 
 import { fetchBlogPosts } from "../services/wordpress";
+import { decodeHTMLEntities } from "../utils/htmlDecoder";
 
 interface GroupedPosts {
     title: string;
@@ -123,23 +124,6 @@ interface GroupedPosts {
         image: string;
     }>;
 }
-
-// Helper to decode HTML entities (like &#038; or &amp; to &)
-const decodeHTMLEntities = (text: string) => {
-  if (!text) return "";
-  if (typeof window === "undefined" || typeof document === "undefined") {
-    return text
-      .replace(/&#038;/g, "&")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'");
-  }
-  const textArea = document.createElement("textarea");
-  textArea.innerHTML = text;
-  return textArea.value;
-};
 
 export default function Blog() {
     const navigate = useNavigate();

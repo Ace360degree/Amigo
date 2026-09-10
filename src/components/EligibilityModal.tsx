@@ -150,7 +150,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                       <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
                     </svg>
                   </div>
+                  <label htmlFor="eligibility-phone" className="sr-only">Mobile Number *</label>
                   <input
+                    id="eligibility-phone"
                     type="text"
                     required
                     placeholder="Mobile Number *"
@@ -186,7 +188,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                       <circle cx="12" cy="7" r="4"></circle>
                     </svg>
                   </div>
+                  <label htmlFor="eligibility-fullname" className="sr-only">Full Name *</label>
                   <input
+                    id="eligibility-fullname"
                     type="text"
                     required
                     placeholder="Full Name *"
@@ -223,7 +227,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                         <path d="M3 10h18"></path>
                       </svg>
                     </div>
+                    <label htmlFor="eligibility-age" className="sr-only">Age *</label>
                     <select
+                      id="eligibility-age"
                       required
                       value={formData.age}
                       onChange={(e) =>
@@ -282,7 +288,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                         <circle cx="9" cy="7" r="4"></circle>
                       </svg>
                     </div>
+                    <label htmlFor="eligibility-gender" className="sr-only">Gender *</label>
                     <select
+                      id="eligibility-gender"
                       required
                       value={formData.gender}
                       onChange={(e) =>
@@ -341,7 +349,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                         <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"></path>
                       </svg>
                     </div>
+                    <label htmlFor="eligibility-course" className="sr-only">Course *</label>
                     <select
+                      id="eligibility-course"
                       required
                       value={formData.course}
                       onChange={(e) =>
@@ -402,7 +412,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                         <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path>
                       </svg>
                     </div>
+                    <label htmlFor="eligibility-qualif" className="sr-only">Qualification *</label>
                     <select
+                      id="eligibility-qualif"
                       required
                       value={formData.qualif}
                       onChange={(e) =>
@@ -462,7 +474,9 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
                   </div>
+                  <label htmlFor="eligibility-branch" className="sr-only">Branch *</label>
                   <select
+                    id="eligibility-branch"
                     required
                     value={formData.branch}
                     onChange={(e) =>
@@ -520,7 +534,7 @@ export default function EligibilityModal({ isOpen, onClose, source = "automatic 
                 href="https://wa.me/919987588932"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-4 bg-[#25D366] hover:bg-[#1ebd5b] text-white rounded-xl text-sm font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-3"
+                className="w-full py-4 bg-[#15803d] hover:bg-[#166534] text-white rounded-xl text-sm font-black uppercase tracking-widest transition-all shadow-lg flex items-center justify-center gap-3"
               >
                 <span className="w-6 h-6 flex items-center justify-center">
                   <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">

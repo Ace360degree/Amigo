@@ -1,23 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { fetchSEOPages, WPPost } from "../services/wordpress";
-
-// Helper to decode HTML entities (like &#038; to &)
-const decodeHTMLEntities = (text: string) => {
-  if (!text) return "";
-  if (typeof window === "undefined" || typeof document === "undefined") {
-    return text
-      .replace(/&#038;/g, "&")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'");
-  }
-  const textArea = document.createElement("textarea");
-  textArea.innerHTML = text;
-  return textArea.value;
-};
+import { decodeHTMLEntities } from "../utils/htmlDecoder";
 
 export default function Location() {
   const [seoPages, setSeoPages] = useState<WPPost[]>([]);

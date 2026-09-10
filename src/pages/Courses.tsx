@@ -409,6 +409,8 @@ export default function Courses() {
               src={coursesHero}
               alt="Amigo Academy course guidance session"
               className="h-full w-full object-cover object-center"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
 
@@ -418,6 +420,8 @@ export default function Courses() {
               src={coursesMobileHero}
               alt="Find the Right Course for Your Career Goals"
               className="h-full w-full object-cover object-[right_center]"
+              fetchPriority="high"
+              loading="eager"
             />
           </div>
 
@@ -999,7 +1003,7 @@ export default function Courses() {
               href="https://wa.me/919987588932"
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto bg-[#22c55e] hover:bg-[#16a34a] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(34,197,94,0.15)] hover:shadow-[0_12px_30px_rgba(34,197,94,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto bg-[#15803d] hover:bg-[#166534] text-white font-sans font-bold text-xs sm:text-sm px-8 py-4 rounded-xl shadow-[0_8px_25px_rgba(21,128,61,0.15)] hover:shadow-[0_12px_30px_rgba(21,128,61,0.25)] transition-all active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
             >
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.197 1.489 4.887 1.491 5.43.003 9.85-4.415 9.854-9.845.002-2.63-1.023-5.101-2.883-6.963C16.643 1.975 14.178.953 11.56.951c-5.438 0-9.861 4.417-9.865 9.848-.001 1.83.49 3.618 1.447 5.191l-1.018 3.715 3.823-.997a9.833 9.833 0 0 0 4.692 1.246zm11.758-6.809c-.321-.16-.1.08-1.066-.403-.189-.094-.327-.14-.467.071-.14.212-.544.684-.667.825-.123.14-.246.155-.567-.005-.321-.16-1.354-.499-2.58-1.593-.952-.85-1.595-1.9-1.782-2.22-.187-.32-.02-.493.14-.652.144-.143.321-.377.482-.566.16-.19.214-.32.321-.53.111-.212.056-.397-.028-.557-.084-.16-.723-1.742-.99-2.385-.26-.628-.523-.544-.723-.554l-.615-.01c-.214 0-.56.08-.853.4-.294.32-1.123 1.101-1.123 2.685 0 1.585 1.152 3.118 1.312 3.33 1.16 2.01 2.5 3.01 4.49 3.81 2.76 1.11 3.52.89 4.79.7.77-.11 2.38-1.19 2.71-2.34.33-1.15.33-2.14.23-2.34-.1-.2-.36-.32-.68-.48z" />

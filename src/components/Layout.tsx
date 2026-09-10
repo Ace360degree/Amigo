@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense, lazy } from "react";
 import { useLocation } from "@tanstack/react-router";
 import Header from "./Header";
 import Footer from "./Footer";
-import SeminarModal from "./SeminarModal";
 import StickyMobileBar from "./StickyMobileBar";
 import Breadcrumbs from "./Breadcrumbs";
+
+const SeminarModal = lazy(() => import("./SeminarModal"));
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -106,16 +107,17 @@ export default function Layout({ children }: LayoutProps) {
     // Periodic check to catch async iframe insertions
     const interval = setInterval(updateTawkVisibility, 500);
 
-    const s1 = document.createElement("script");
-    const s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = "https://embed.tawk.to/5f2e9e94ed9d9d262709321f/default";
-    s1.charset = "UTF-8";
-    s1.setAttribute("crossorigin", "*");
-    if (s0 && s0.parentNode) {
-      s0.parentNode.insertBefore(s1, s0);
-    } else {
-      document.head.appendChild(s1);
+    if (!document.querySelector('script[src*="embed.tawk.to"]')) {
+      const s1 = document.createElement("script");
+      const s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = "https://embed.tawk.to/5f2e9e94ed9d9d262709321f/default";
+      s1.charset = "UTF-8";
+      if (s0 && s0.parentNode) {
+        s0.parentNode.insertBefore(s1, s0);
+      } else {
+        document.head.appendChild(s1);
+      }
     }
 
     return () => {
@@ -180,10 +182,12 @@ export default function Layout({ children }: LayoutProps) {
       <StickyMobileBar />
 
       {/* QR Code Seminar Modal */}
-      <SeminarModal
-        isOpen={isSeminarModalOpen}
-        onClose={() => setIsSeminarModalOpen(false)}
-      />
+      <Suspense fallback={null}>
+        <SeminarModal
+          isOpen={isSeminarModalOpen}
+          onClose={() => setIsSeminarModalOpen(false)}
+        />
+      </Suspense>
     </div>
   );
 }

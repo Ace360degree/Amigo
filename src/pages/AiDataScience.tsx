@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
-import aiDsHero from "../assets/img/career guides/ai-ds-hero.png";
+import aiDsHero from "../assets/img/career guides/ai-ds-hero.webp";
 import aiDsHeroMobile from "../assets/img/career guides/ai-ds-hero-mobile.png";
 import aiDs12 from "../assets/img/career guides/12.png";
 import aiDs13 from "../assets/img/career guides/13.png";
@@ -166,6 +166,8 @@ export default function AiDataScience() {
               src={aiDsHero}
               alt="AI & Data Science Career Guide"
               className="w-full h-full object-cover object-left lg:object-center"
+              fetchPriority="high"
+              loading="eager"
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
             <div className="absolute inset-0 bg-neutral-900/5 mix-blend-multiply" />
@@ -214,6 +216,8 @@ export default function AiDataScience() {
             src={aiDsHeroMobile}
             alt="AI & Data Science Career Guide"
             className="absolute inset-0 w-full h-full object-cover object-[right_top]"
+            fetchPriority="high"
+            loading="eager"
           />
 
           {/* Text Content overlay matching screenshot */}

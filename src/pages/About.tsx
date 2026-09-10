@@ -24,7 +24,7 @@ import Awards7 from "../assets/img/Awards7.png";
 import Awards8 from "../assets/img/Awards8.png";
 
 import aboutUsHero from "../assets/img/aboutushero.png";
-import mobileHeroAboutUs from "../assets/img/mobileheroaboutus.png";
+import mobileHeroAboutUs from "../assets/img/mobileheroaboutus.webp";
 import brand1 from "../assets/img/brand1.png";
 import brand2 from "../assets/img/brand2.png";
 import brand3 from "../assets/img/brand3.png";
@@ -149,6 +149,8 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             src={aboutUsHero}
             alt="Cabin Crew Cabin Flight"
             className="h-full w-full object-cover lg:object-left-bottom"
+            fetchPriority="high"
+            loading="eager"
           />
           {/* Subtle gradient overlay to fade into the content container background */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] via-[#f1f5f9]/70 to-transparent z-10" />
@@ -160,6 +162,8 @@ export default function About({ setCurrentPage }: AboutProps = {}) {
             src={mobileHeroAboutUs}
             alt="Cabin Crew Cabin Flight Mobile"
             className="w-full h-full object-cover object-[right_center]"
+            fetchPriority="high"
+            loading="eager"
           />
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useParams, Link, useMatch, useLoaderData } from "@tanstack/react-router";
-import innerBlogImg from "../assets/img/innerblogimg.png";
+import innerBlogImg from "../assets/img/innerblogimg.webp";
 import innerBlogImg1 from "../assets/img/innerblogimg2.png";
 import imgAviation1 from "../assets/img/BlogInsights1.png";
 import imgAviation2 from "../assets/img/BlogInsights2.png";
@@ -8,29 +8,13 @@ import imgAviation3 from "../assets/img/BlogInsights3.png";
 import imgAi1 from "../assets/img/BlogInsights4.png";
 import { fetchBlogPostBySlug, fetchBlogPosts, WPPost } from "../services/wordpress";
 import { submitCounsellorForm } from "../services/api";
+import { decodeHTMLEntities } from "../utils/htmlDecoder";
 
 interface TOCItem {
   id: string;
   text: string;
   level: number;
 }
-
-// Helper to decode HTML entities (like &#038; or &amp; to &)
-const decodeHTMLEntities = (text: string) => {
-  if (!text) return "";
-  if (typeof window === "undefined" || typeof document === "undefined") {
-    return text
-      .replace(/&#038;/g, "&")
-      .replace(/&amp;/g, "&")
-      .replace(/&lt;/g, "<")
-      .replace(/&gt;/g, ">")
-      .replace(/&quot;/g, '"')
-      .replace(/&#039;/g, "'");
-  }
-  const textArea = document.createElement("textarea");
-  textArea.innerHTML = text;
-  return textArea.value;
-};
 
 function FAQAccordionItem({ index, question, answer }: { index: number; question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(index === 0);
@@ -609,6 +593,8 @@ export default function InnerBlog() {
                   src={featuredImage}
                   alt={post ? decodeHTMLEntities(post.title.rendered) : "Air Hostess Training"}
                   className="w-full h-[280px] sm:h-[400px] object-cover"
+                  fetchPriority="high"
+                  loading="eager"
                 />
               </div>
 

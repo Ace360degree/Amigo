@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createPortal } from "react-dom";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { submitCounsellorForm } from "../services/api";
-import aiCourse from "../assets/img/aicourse.png";
+import aiCourse from "../assets/img/aicourse.webp";
 import aiCourseMobile from "../assets/img/aicourse-mobile.png";
 import coursesVideo1a from "../assets/img/coursesvideo1a.png";
 import coursesVideo2a from "../assets/img/coursesvideo2a.png";
@@ -379,6 +379,8 @@ export default function AIDataScienceCourse() {
             src={aiCourse}
             alt="AI & Data Science with Generative AI & Machine Learning"
             className="h-full w-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#f1f5f9] from-0% via-[#f1f5f9]/40 via-[22%] to-transparent z-10 lg:block hidden" />
         </div>
@@ -469,6 +471,8 @@ export default function AIDataScienceCourse() {
             src={aiCourseMobile}
             alt="AI & Data Science with Generative AI & Machine Learning"
             className="absolute inset-0 h-full w-full object-cover object-center"
+            fetchPriority="high"
+            loading="eager"
           />
 
           {/* Text Overlay Pinned to Left */}
@@ -596,7 +600,9 @@ export default function AIDataScienceCourse() {
 
               {/* Age */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ai-form-age" className="sr-only">Age</label>
                 <select
+                  id="ai-form-age"
                   value={formState.age}
                   onChange={(e) => setFormState({ ...formState, age: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -618,7 +624,9 @@ export default function AIDataScienceCourse() {
 
               {/* Qualification */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ai-form-qual" className="sr-only">Qualification</label>
                 <select
+                  id="ai-form-qual"
                   value={formState.qualification}
                   onChange={(e) => setFormState({ ...formState, qualification: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -632,7 +640,9 @@ export default function AIDataScienceCourse() {
 
               {/* Preferred Branch */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ai-form-branch" className="sr-only">Preferred Branch</label>
                 <select
+                  id="ai-form-branch"
                   value={formState.branch}
                   onChange={(e) => setFormState({ ...formState, branch: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"
@@ -646,7 +656,9 @@ export default function AIDataScienceCourse() {
 
               {/* Gender */}
               <div className="relative flex items-center bg-white rounded-full h-[50px] px-4 shadow-sm">
+                <label htmlFor="ai-form-gender" className="sr-only">Gender</label>
                 <select
+                  id="ai-form-gender"
                   value={formState.gender}
                   onChange={(e) => setFormState({ ...formState, gender: e.target.value })}
                   className="w-full text-xs sm:text-sm text-slate-500 font-semibold focus:outline-none bg-transparent appearance-none cursor-pointer"

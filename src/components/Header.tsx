@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense, lazy } from "react";
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
-import logo from "../assets/img/logo.png";
-import EligibilityModal from "./EligibilityModal";
+import logo from "../assets/img/logo.webp";
+
+const EligibilityModal = lazy(() => import("./EligibilityModal"));
 
 export default function Header() {
   const [isCoursesDropdownOpen, setIsCoursesDropdownOpen] = useState(false);
@@ -109,7 +110,7 @@ export default function Header() {
               className="flex items-center focus:outline-none"
               aria-label="Amigo Academy Home"
             >
-              <img src={logo} alt="Amigo Academy Logo" className="h-20 sm:h-24 lg:h-[88px] w-auto object-contain py-1" />
+              <img src={logo} alt="Amigo Academy Logo" className="h-20 sm:h-24 lg:h-[88px] w-auto object-contain py-1" fetchPriority="high" loading="eager" />
             </Link>
 
             {/* Desktop Links */}
@@ -317,11 +318,13 @@ export default function Header() {
       )}
 
       {/* Eligibility Form Modal */}
-      <EligibilityModal
-        isOpen={isEligibilityModalOpen}
-        onClose={() => setIsEligibilityModalOpen(false)}
-        source={modalSource}
-      />
+      <Suspense fallback={null}>
+        <EligibilityModal
+          isOpen={isEligibilityModalOpen}
+          onClose={() => setIsEligibilityModalOpen(false)}
+          source={modalSource}
+        />
+      </Suspense>
     </header>
   );
 }

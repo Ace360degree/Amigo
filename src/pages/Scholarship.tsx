@@ -832,9 +832,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Aaliya Bhat
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Air Hostess / Cabin Crew
                   </span>
@@ -862,9 +862,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Kajal Gupta
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Airport Ground Staff
                   </span>
@@ -892,9 +892,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Affan Ali Syed
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Air Hostess / Cabin Crew
                   </span>
@@ -922,9 +922,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Alfiya Siddiqui
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Air Hostess / Cabin Crew
                   </span>
@@ -952,9 +952,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Ashish Pawar
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Airport Ground Staff
                   </span>
@@ -982,9 +982,9 @@ export default function Scholarship() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-outfit font-extrabold text-[#0b2f61] text-base">
+                  <p className="font-outfit font-extrabold text-[#0b2f61] text-base">
                     Suraj Sawant
-                  </h4>
+                  </p>
                   <span className="text-[#e31e24] text-[11px] font-extrabold tracking-wide uppercase block">
                     Air Hostess / Cabin Crew
                   </span>
